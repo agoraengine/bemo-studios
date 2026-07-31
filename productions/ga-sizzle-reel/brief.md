@@ -54,14 +54,28 @@ Checked against `../../../bemo-os/docs/customer-stories/`. **Verify each again a
 |---|---|---|
 | Jennifer Allen, Friends of the Saratoga Springs Public Library. Annual report built entirely in BeMo. | `customer-stories/jennifer-allen-saratoga-springs-library.md` | **Blanket approval** (July 31, 2026). Name and words, any channel, no per-use ask. |
 | MaryEllen O'Donohue, Caigh It Forward Foundation. | `customer-stories/00-overview.md`, permissions section; material in `internal/beta-feedback.md` | **Blanket approval** (July 31, 2026). Supersedes the anonymized-only handling in the July 29 messaging-assets draft. |
-| Meg Poe, Autoimmune Encephalitis Alliance. | `customer-stories/meg-poe-aea-sponsorship-program.md` | Per-use approval required, and she is in Houston until August 10. Treat as unavailable for this video. |
+| Meg Poe, Autoimmune Encephalitis Alliance. "BeMo is the best colleague." | `customer-stories/meg-poe-aea-sponsorship-program.md` | **Approval expected** (Becky, July 31). Write her in. Per-use approval is still the shipping gate: see below. |
 
-**The video carries named proof.** Jen is the strongest single beat available: a named ED at a named organization, doing the annual report, the thing everyone in the audience dreads. Blanket approval means the script can build around her rather than hedging.
+**All three appear by name.** Attribution decision, Becky, July 31: BeMo uses real names, not role-and-organization. Peer trust only works if the peer is a person.
 
-Two constraints that survive blanket approval:
+Jen is the strongest single beat: a named ED at a named organization, doing the annual report, the thing everyone in the audience dreads. Meg's line is the best sentence anyone has said about the product.
 
-- **Quotes stay as written.** Blanket approval covers use, not recombination. Never composite, never tighten a quote into something she did not say. The rule is in `customer-stories/00-overview.md` and it is a trust-framework rule, not a legal one.
-- **MaryEllen's material is beta feedback, not a story.** Her blanket approval clears using her name; it does not mean there is a narrative to tell yet. Her feedback was substantively about gaps and file-loading failures. Using her as proof of a smooth experience would be dishonest even with permission. If she appears, it is as a named user, not a success story.
+### The Meg gate
+
+Becky expects Meg to approve, so the script is written with her quote in it and the shot list plans for it. **The gate is on the export, not the draft.**
+
+Becky's July 29 email to Meg committed in writing that nothing goes anywhere, website, LinkedIn, anywhere, until Meg has seen the final version and approved that specific use. Meg is in Houston until August 10. That commitment is not superseded by an expectation that she will say yes.
+
+Practically:
+
+- The script includes her quote.
+- No cut carrying it leaves Studios before she signs off on that cut.
+- If the timeline needs a video before August 10, export an interim cut without her and swap her in after. The structure supports it: her line is one card in S5.
+
+### Constraints that survive every approval
+
+- **Quotes stay as written.** Approval covers use, not recombination. Never composite, never tighten a quote into something the person did not say. The rule is in `customer-stories/00-overview.md`, and it is a trust-framework rule before it is a legal one.
+- **MaryEllen's material is beta feedback, not a success story.** Her approval clears her name; it does not create a narrative. Her documented experience was substantively about gaps and file-loading failures. She appears as a named user whose quote is about BeMo surfacing what it does not know, which is what she actually said and is a better beat than a satisfaction line anyway.
 
 ## What already exists
 
@@ -92,11 +106,11 @@ A draft was built July 30 as an animated HTML artifact: eight scenes, roughly 59
 
 Six deltas between the July 30 draft and this brief. Ordered by how much work each one is.
 
-**1. The Meg quote comes out.** The draft's quote section opens on "BeMo is the best colleague." That is Meg's, it requires per-use approval, and she is in Houston until August 10. It is the single strongest line we have and it cannot be used here. Cut it or hold the whole video for her.
+**1. The Meg quote stays, and gets attributed.** The draft's quote section opens on "BeMo is the best colleague," unattributed. It keeps its place and gains her name. The per-use gate applies to the export, not the script: see The Meg gate above.
 
-**2. The remaining quotes get named.** The draft attributes everything to "From beta users" and carries a footer reading "approvals pending." That footer is now obsolete for two of the three people. Jen Allen and MaryEllen O'Donohue are blanket-cleared, so their words can carry their names, roles, and organizations. A named ED at a named library is a different order of proof than an anonymous card.
+**2. Every quote gets a name.** The draft attributes everything to "From beta users" and carries a footer reading "approvals pending." Both go. Jen Allen, MaryEllen O'Donohue, and Meg Poe appear by name, role, and organization.
 
-This creates a real consistency question with the website, which deliberately uses role and organization without names ("Executive Director, Autoimmune Encephalitis Alliance"). **Open for Becky:** does the site move to names now that we have the clearances, or does the video stay unnamed to match the site? Recommendation is names in both, because the whole point of peer trust per `06-peer-trust-as-distribution.md` is that a peer is a person, not a job title.
+This is now a change the website needs too, not just the video. The site currently uses role and organization without names ("Executive Director, Autoimmune Encephalitis Alliance"). With the attribution decision made, that is a divergence the site should close. **Raise with Lee:** it is a copy change in `bemo-website`, not something Studios does. Logged in `findings.md`.
 
 **3. The close is a beta close, not a GA close.** "In beta now" ships in a video whose job is the GA launch. The CTA needs to become the free tier for the Wave 2 cut and a conversation for the version Jon sends.
 
@@ -134,9 +148,9 @@ Checked against the current `bemo-website` build, which is well along: thirteen 
 - "A colleague, not a chatbot" on the site is the same register as the video's S4 beat.
 - Both lead with the problem before the product.
 
-**Divergent, needs a decision:**
+**Divergent:**
 
-- **Attribution.** Site uses role and org without names. Video uses "From beta users." Now that two people are blanket-cleared, both should probably move to names. One decision, applied to both surfaces.
+- **Attribution. Resolved, and it is now a website task.** Becky decided July 31 that BeMo uses real names. The video adopts it. The site still runs role-and-org ("Executive Director, Autoimmune Encephalitis Alliance") and should close the gap. Studios does not edit `bemo-website`: this is raised in `findings.md` for Lee.
 - **Beta framing.** The video says "In beta now." The site has a live free-tier signup path. The video is behind the site and needs to catch up.
 
 **Note for capture:** the site is capturable today via `cd ../bemo-website && npm run dev`, but check `ga-website-edits-v2.md` first. If a page's copy is about to change, capturing it now buys a recapture later.
