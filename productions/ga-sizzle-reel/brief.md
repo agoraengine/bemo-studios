@@ -4,6 +4,7 @@
 **Owner:** Becky, with Lee for capture
 **Target length:** 60-75 seconds
 **Opened:** 2026-07-31
+**HARD DEADLINE: Monday, August 3, 2026.** Becky is showing this at the Bill Walsh advisory session. That is one working day plus a weekend, and it reorders everything below. See "The Monday cut."
 **Prior art:** the July 30 draft, [BeMo Sizzle Reel (Draft)](https://claude.ai/code/artifact/70d61dac-c2d6-4a96-8267-90e442606c38). See "What already exists" below. This brief revises it rather than starting over.
 
 ## What this video is for
@@ -76,6 +77,35 @@ Practically:
 
 - **Quotes stay as written.** Approval covers use, not recombination. Never composite, never tighten a quote into something the person did not say. The rule is in `customer-stories/00-overview.md`, and it is a trust-framework rule before it is a legal one.
 - **MaryEllen's material is beta feedback, not a success story.** Her approval clears her name; it does not create a narrative. Her documented experience was substantively about gaps and file-loading failures. She appears as a named user whose quote is about BeMo surfacing what it does not know, which is what she actually said and is a better beat than a satisfaction line anyway.
+
+## The Monday cut
+
+Becky is showing this to Bill at the August 3 advisory session. Jon does not need it right away, which removes the sales-enablement pressure and lets the first cut be a draft shown to an advisor rather than an asset sent to a stranger.
+
+**What that changes:**
+
+| Decision | Resolution |
+|---|---|
+| Voice | **Resolved: synthetic, cloned from Becky's voice** via HeyGen. Not an avatar, not a generic TTS voice, not a live recording. |
+| Path | **Path A only.** Render the July 30 artifact to mp4. No time for real product capture, and none is needed for an advisor showing. |
+| Meg's card | **Out of the Monday cut.** She is in Houston until August 10 and the per-use gate stands. Her card gets added to the version that ships publicly. |
+| Simulated product | **In-frame disclosure**, option 3. Acceptable for an advisor draft. Still not acceptable for Wave 2. |
+| Jon | Deprioritized. Nothing about the Monday cut needs to serve his sending motion yet. |
+
+**The long-lead item is the voice clone, and it is the only thing that can miss.** HeyGen needs a clean voice sample before it can produce anything. Becky records the sample, the clone gets built, then narration can be generated. Everything else in the pipeline is fast; this one step has an unavoidable human dependency and a quality risk on first attempt. Do it first, today if possible.
+
+**Fallback if the clone disappoints:** ship the Monday cut silent, carried by on-screen text and captions, which is how the July 30 draft already works. It loses something, and it is far better than showing Bill a version whose voice sounds wrong. A bad synthetic Becky is worse than no Becky.
+
+### One thing to confirm before writing
+
+The August 3 agenda opens on Blackbaud. Bill committed to a "private, sizzly teaser, not a formal pitch" for Tiffany Crumpton, he is in Charleston the week of August 10 and may see her in person, and the agenda asks him directly: *what does he want from us before the trip, one-pager, demo clip, nothing?*
+
+So there are two possible jobs, and they are not the same video:
+
+1. **Show Bill the GA sizzle for his reaction.** Audience stays the nonprofit ED. Bill is evaluating whether the asset works on the people it targets, and answering the "what do you want before Charleston" question. **This brief assumes this one.**
+2. **Give Bill something to carry to Tiffany.** Audience is a Blackbaud executive assessing partnership or acquisition. Completely different video: the argument is orchestration and integration, not "stop starting over." The agenda already tracks that separately as Lee's "BeMo as Blackbaud puppeteer" demo.
+
+If the Monday ask is actually job 2, say so and the script changes entirely.
 
 ## What already exists
 
@@ -158,6 +188,6 @@ Checked against the current `bemo-website` build, which is well along: thirteen 
 ## Open questions
 
 - **The blocker, now smaller than it looked.** Real *product* footage is still gated on the two-surfaces build, same gate as the website screenshots in `ga-website-edits-v2.md`. But the July 30 artifact and the live website are both capturable today, so a rendered mp4 does not have to wait. Confirm with Lee what exists in the app to capture and when.
-- **Voice.** Resolved on tooling: HeyGen, which Becky already has. Still open on the call itself: synthetic VO or Becky recording it? Synthetic is the default for this one, because the voice is the product's, not a person's. Becky recording it makes it a founder video, which is a different asset with a different job. Either way, no avatar: this is screen capture, and a talking head competes with the product for attention.
+- **Voice. RESOLVED (Becky, July 31): synthetic VO cloned from Becky's own voice**, via HeyGen. Easier than recording every revision, and it stays hers rather than becoming a stock narrator. No avatar. One consequence worth naming: a cloned founder voice is a real person's voice saying words she did not speak aloud. That is fine for product narration she wrote and approved, and it is not fine for anything that reads as a personal testimonial or a spoken claim about her own experience. Keep the narration in the product's register, not the memoir's.
 - **Sending variant.** Does the version Jon sends carry a different close (book a conversation) from the version posted in Wave 2 (free tier)? Probably yes, and it is one line of narration plus one end card, so it is cheap. Two exports, one script.
 - **Does the vertical cut exist at launch,** or does 16:9 ship alone and vertical follow if Wave 2 warrants it?
