@@ -31,6 +31,8 @@ Repositories/
 
 Read with relative paths. Never copy from either repo into this one: quote it, cite the path, and re-read it each time, because both change.
 
+Read access to both siblings is granted in `.claude/settings.json` under `permissions.additionalDirectories`. If a canon read fails with a permissions error, that file is the problem, not the path. Do not work around it by copying content into this repo.
+
 ### bemo-os: canon and permissions
 
 The source of truth for what BeMo is, what it claims, how it sounds, and who has cleared their name. Read before writing any script. The specific files are listed below.

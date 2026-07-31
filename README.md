@@ -17,6 +17,10 @@ Repositories/
 
 Studios reads both and commits to neither.
 
+Read access is granted in [.claude/settings.json](.claude/settings.json) via `permissions.additionalDirectories`. Without it, Claude Code refuses to read outside the project root and every canon lookup fails. If you move or rename either sibling, update that file.
+
+Check it is working by asking Claude Code to read `../bemo-os/docs/organization/16-voice-and-tone.md`. If that fails, nothing else in this repo will work correctly.
+
 Then open this folder in Claude Code. `CLAUDE.md` carries the operating context.
 
 MCP servers are declared in `.mcp.json` and are approved on first run. See [docs/01-pipeline.md](docs/01-pipeline.md) for what each one does and what it costs.

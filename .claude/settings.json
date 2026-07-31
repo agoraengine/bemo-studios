@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "additionalDirectories": [
+      "../bemo-os",
+      "../bemo-website"
+    ]
+  }
+}
