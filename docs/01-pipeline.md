@@ -53,7 +53,7 @@ Each production keeps its capture script at `productions/<slug>/capture/run.mjs`
 
 ## 4. Audio
 
-Voiceover through the ElevenLabs MCP, or recorded by a founder if the video is founder POV.
+Voiceover through the HeyGen MCP, or recorded by a founder if the video is founder POV.
 
 The choice is not automatic. Synthetic VO is right for the sizzle reel and the workflow videos, where the voice is the product's, not a person's. Founder POV videos are recorded by the founder, because a synthetic Becky introducing herself fails the trust framework badly.
 
@@ -81,13 +81,18 @@ Configured as the official `@playwright/mcp`. Video recording tools were added t
 
 Free. Runs locally.
 
-### ElevenLabs MCP (voiceover)
+### HeyGen MCP (voiceover)
 
-Official server. Text to speech, voice design, transcription. Free tier is 10k credits per month, which is enough for drafts and probably enough for the first few finished videos.
+Official remote server at `https://mcp.heygen.com/mcp/v1/`. OAuth, no API key, and it bills against the HeyGen plan Becky already has rather than adding a vendor.
 
-Requires `ELEVENLABS_API_KEY` in the environment. **Do not put the key in `.mcp.json`**, which is committed. Use a shell export or `.env.local`, which is gitignored.
+**One-time setup, and it has to be done interactively.** The OAuth flow cannot run in a headless session. Add the connector, sign in to HeyGen, approve access. After that it just works.
 
-Stay on the free tier until a production actually exceeds it, then decide. Paid seats get added when the work requires them, not in advance.
+**Use the voice side, not the avatar side.** HeyGen's headline product is talking-head avatars, and that is the wrong tool for these videos, for two reasons:
+
+1. **It fights the footage.** These are screen-capture videos. An avatar in the corner competes with the product for attention, and the product is the point.
+2. **It is a trust problem.** BeMo's entire positioning is trust-first. A synthetic avatar of a real founder, presented as that founder, is exactly the kind of thing that costs more than it gains if anyone notices. A synthetic *voice* reading product narration is unremarkable; a synthetic *person* is not. If a video needs a founder on camera, the founder gets on camera.
+
+ElevenLabs is the fallback if HeyGen's voice quality does not hold up under a full read. It has an official MCP and a 10k credit free tier. Do not add it unless HeyGen actually fails, per the standing rule that paid tools get added when the work requires them, not in advance.
 
 ### Canva MCP (titles, end cards, thumbnails)
 

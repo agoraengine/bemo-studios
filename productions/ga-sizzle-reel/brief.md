@@ -73,6 +73,6 @@ Not a success metric: view count.
 ## Open questions
 
 - **The blocker.** Real product footage is gated on the two-surfaces build shipping, the same gate as the website screenshots in `ga-website-edits-v2.md`. Script and shot list can be finished now; capture cannot start. Confirm with Lee what exists to capture and when.
-- **Voice.** Synthetic VO, or Becky recording it? Synthetic is the default for this one because the voice is the product's, not a person's. Becky recording it makes it a founder video, which is a different asset with a different job.
+- **Voice.** Resolved on tooling: HeyGen, which Becky already has. Still open on the call itself: synthetic VO or Becky recording it? Synthetic is the default for this one, because the voice is the product's, not a person's. Becky recording it makes it a founder video, which is a different asset with a different job. Either way, no avatar: this is screen capture, and a talking head competes with the product for attention.
 - **Sending variant.** Does the version Jon sends carry a different close (book a conversation) from the version posted in Wave 2 (free tier)? Probably yes, and it is one line of narration plus one end card, so it is cheap. Two exports, one script.
 - **Does the vertical cut exist at launch,** or does 16:9 ship alone and vertical follow if Wave 2 warrants it?

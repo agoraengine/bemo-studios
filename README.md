@@ -23,7 +23,7 @@ Check it is working by asking Claude Code to read `../bemo-os/docs/organization/
 
 Then open this folder in Claude Code. `CLAUDE.md` carries the operating context.
 
-MCP servers are declared in `.mcp.json` and are approved on first run. See [docs/01-pipeline.md](docs/01-pipeline.md) for what each one does and what it costs.
+MCP servers are declared in `.mcp.json`: Playwright for capture, HeyGen for voiceover. HeyGen needs a one-time OAuth sign-in that has to be done interactively. See [docs/01-pipeline.md](docs/01-pipeline.md) for what each one does and what it costs.
 
 ## Start a video
 
