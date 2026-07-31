@@ -1,0 +1,33 @@
+# Media never goes in git. Assets live in Drive; assets.md holds the links.
+*.mp4
+*.mov
+*.webm
+*.mkv
+*.avi
+*.wav
+*.mp3
+*.m4a
+*.aac
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.psd
+*.aep
+*.prproj
+
+# Capture output
+recordings/
+productions/**/capture/out/
+productions/**/footage/
+
+# Secrets
+.env
+.env.local
+
+# Node
+node_modules/
+package-lock.json
+
+# OS
+.DS_Store
