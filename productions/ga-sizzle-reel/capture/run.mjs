@@ -11,6 +11,7 @@
 // Output: capture/out/  (gitignored). Upload to Drive, link in assets.md.
 
 import { chromium } from "playwright";
+import ffmpegPath from "ffmpeg-static";
 import { execFile } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
@@ -118,7 +119,7 @@ async function encode() {
   if (!fs.existsSync(raw)) throw new Error(`Not found: ${raw}. Render first.`);
 
   const primary = path.join(OUT, "bemo-ga-sizzle-reel-primary-v1.mp4");
-  await execFileAsync("ffmpeg", [
+  await execFileAsync(ffmpegPath, [
     "-y", "-i", raw,
     "-c:v", "libx264", "-preset", "slow", "-crf", "20",
     "-pix_fmt", "yuv420p", "-r", "30",
@@ -129,7 +130,7 @@ async function encode() {
 
   // Vertical: centre-crop to 9:16. Only worth producing once Wave 2 needs it.
   const vertical = path.join(OUT, "bemo-ga-sizzle-reel-vertical-v1.mp4");
-  await execFileAsync("ffmpeg", [
+  await execFileAsync(ffmpegPath, [
     "-y", "-i", raw,
     "-vf", "crop=ih*9/16:ih,scale=1080:1920",
     "-c:v", "libx264", "-preset", "slow", "-crf", "20",
