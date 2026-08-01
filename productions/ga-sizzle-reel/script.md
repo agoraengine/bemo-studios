@@ -19,7 +19,7 @@
 | 0:22 | An email. A call note. A spreadsheet. A message. Scattered on their own. Held together, they become what your organization knows. And it keeps building. | Four fragments drift in, then resolve into the front page. | S3 |
 | 0:34 | So the work comes out finished, in your voice, with nothing re-explained. | Template output, a completed deliverable. | S3b |
 | 0:41 | Ask it anything. A new board member starts Monday, catch her up. It answers from your own record, and shows you where every piece came from. | The ask, then the answer with sources cited. Caption: "No context pasted. No starting over. It already knew." | S4 |
-| 0:52 | *(silence, let the quotes read)* | Named quote cards. Jen Allen, Friends of the Saratoga Springs Public Library. MaryEllen O'Donohue, Caigh It Forward Foundation. | S5 |
+| 0:52 | *(silence, let the quotes read)* | Two named quote cards: Meg Poe, Executive Director, Autoimmune Encephalitis Alliance ("BeMo is the best colleague"), then MaryEllen O'Donohue, Caigh It Forward Foundation (the Knowledge Base gaps quote). The artifact has no Jen Allen card; hers joins in the Wave 2 revision. | S5 |
 | 0:59 | Four products. One memory. | Compass, FunderStorm, Amplify, Academy. | S6 |
 | 1:03 | Nothing walks out the door. BeMo. Where missions gain momentum. | Wordmark, tagline, CTA. | S7 |
 

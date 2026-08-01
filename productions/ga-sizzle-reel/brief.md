@@ -88,7 +88,8 @@ Becky is showing this to Bill at the August 3 advisory session. Jon does not nee
 |---|---|
 | Voice | **Resolved: synthetic, cloned from Becky's voice** via HeyGen. Not an avatar, not a generic TTS voice, not a live recording. |
 | Path | **Path A only.** Render the July 30 artifact to mp4. No time for real product capture, and none is needed for an advisor showing. |
-| Meg's card | **Out of the Monday cut.** She is in Houston until August 10 and the per-use gate stands. Her card gets added to the version that ships publicly. |
+| Meg's card | **IN, approved.** Becky recorded Meg's approval for this specific use (quote verbatim, attributed by name) on August 1. Logged in `bemo-os/docs/customer-stories/meg-poe-aea-sponsorship-program.md`. |
+| "In beta now" close | **Stays.** Becky, August 1: the reels run during beta, so the beta framing is accurate, not stale. The Wave 2 cut revisits it at GA. |
 | Simulated product | **In-frame disclosure**, option 3. Acceptable for an advisor draft. Still not acceptable for Wave 2. |
 | Jon | Deprioritized. Nothing about the Monday cut needs to serve his sending motion yet. |
 
@@ -142,7 +143,7 @@ Six deltas between the July 30 draft and this brief. Ordered by how much work ea
 
 This is now a change the website needs too, not just the video. The site currently uses role and organization without names ("Executive Director, Autoimmune Encephalitis Alliance"). With the attribution decision made, that is a divergence the site should close. **Raise with Lee:** it is a copy change in `bemo-website`, not something Studios does. Logged in `findings.md`.
 
-**3. The close is a beta close, not a GA close.** "In beta now" ships in a video whose job is the GA launch. The CTA needs to become the free tier for the Wave 2 cut and a conversation for the version Jon sends.
+**3. The close. Reversed (Becky, August 1): "In beta now" stays.** The reels start running during beta, so the line is accurate. Revisit at GA, when the Wave 2 cut swaps the close for the free-tier CTA.
 
 **4. It is not a video file.** The artifact is HTML with CSS animation. Jon cannot send it, it cannot post to LinkedIn, and it cannot be emailed. It has to be rendered to mp4.
 
