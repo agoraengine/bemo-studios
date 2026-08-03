@@ -1,12 +1,13 @@
 #!/usr/bin/env node
 // Renders the GA sizzle reel animation to video.
 //
-// The source is the July 30 artifact, saved locally as source.html so the
-// render needs no claude.ai login. Its timeline is a 59-second rAF loop
-// (var DUR = 59) driving a fixed 1280x720 stage.
+// The source is the July 30 artifact, saved locally so the render needs no
+// claude.ai login. Each variant is an HTML file whose rAF timeline (var DUR)
+// must match the --dur passed here.
 //
-// Run:  node productions/ga-sizzle-reel/capture/run.mjs
-// Then: node productions/ga-sizzle-reel/capture/run.mjs --encode
+// 60s primary: node run.mjs                 && node run.mjs --encode
+// 30s cut:     node run.mjs --src source-30.html --dur 30.7 --tag 30s-v1
+//         then the same with --encode added.
 //
 // Output: capture/out/  (gitignored). Upload to Drive, link in assets.md.
 
@@ -20,7 +21,13 @@ import { promisify } from "node:util";
 
 const execFileAsync = promisify(execFile);
 const HERE = path.dirname(fileURLToPath(import.meta.url));
-const SOURCE = path.join(HERE, "source.html");
+function arg(name, dflt) {
+  const i = process.argv.indexOf(name);
+  return i > -1 && process.argv[i + 1] ? process.argv[i + 1] : dflt;
+}
+
+const SOURCE = path.join(HERE, arg("--src", "source.html"));
+const TAG = arg("--tag", "60s-v1");
 const OUT = path.join(HERE, "out");
 
 // Resolution, stated plainly rather than aspirationally.
@@ -38,7 +45,7 @@ const OUT = path.join(HERE, "out");
 // it renders crisply rather than as upscaled pixels.
 const WIDTH = 1280;
 const HEIGHT = 720;
-const DUR = 59; // matches `var DUR = 59` in source.html
+const DUR = Number(arg("--dur", "68")); // must match `var DUR` in the source file
 const TAIL = 2; // hold the final frame, per the standards
 
 async function render() {
@@ -106,7 +113,7 @@ async function render() {
 
   if (!webm) throw new Error("No recording produced.");
 
-  const named = path.join(OUT, "bemo-ga-sizzle-reel-raw.webm");
+  const named = path.join(OUT, `bemo-ga-sizzle-reel-raw-${TAG}.webm`);
   fs.renameSync(webm, named);
   console.log(`Raw capture: ${named}`);
   console.log(`Next: node ${path.relative(process.cwd(), import.meta.filename)} --encode`);
@@ -115,10 +122,10 @@ async function render() {
 // Encode to the delivery spec. Separate step so a re-encode does not
 // require a re-render.
 async function encode() {
-  const raw = path.join(OUT, "bemo-ga-sizzle-reel-raw.webm");
+  const raw = path.join(OUT, `bemo-ga-sizzle-reel-raw-${TAG}.webm`);
   if (!fs.existsSync(raw)) throw new Error(`Not found: ${raw}. Render first.`);
 
-  const primary = path.join(OUT, "bemo-ga-sizzle-reel-primary-v1.mp4");
+  const primary = path.join(OUT, `bemo-ga-sizzle-reel-${TAG}.mp4`);
   await execFileAsync(ffmpegPath, [
     "-y", "-i", raw,
     "-c:v", "libx264", "-preset", "slow", "-crf", "20",
@@ -129,7 +136,7 @@ async function encode() {
   console.log(`Primary 16:9: ${primary}`);
 
   // Vertical: centre-crop to 9:16. Only worth producing once Wave 2 needs it.
-  const vertical = path.join(OUT, "bemo-ga-sizzle-reel-vertical-v1.mp4");
+  const vertical = path.join(OUT, `bemo-ga-sizzle-reel-${TAG}-vertical.mp4`);
   await execFileAsync(ffmpegPath, [
     "-y", "-i", raw,
     "-vf", "crop=ih*9/16:ih,scale=1080:1920",

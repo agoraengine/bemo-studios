@@ -1,0 +1,71 @@
+<!doctype html><html><head><meta charset="utf-8">
+<!-- Common Table front page in the Aug 2 GA reference-build v2 design.
+     Design: bemo-os/docs/initiatives/website/mockups/ga-reference-build-v2.html
+     (tokens and paperframe component quoted; re-read that file on changes).
+     Content: the established Common Table Food Pantry demo world. -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Libre+Franklin:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --paper: oklch(96.8% 0.009 84); --paper-warm: oklch(94.6% 0.014 74);
+  --ink: oklch(24% 0.03 260); --ink-soft: oklch(38% 0.028 260); --ink-faint: oklch(55% 0.02 260);
+  --rule: oklch(80% 0.014 260); --rule-soft: oklch(88% 0.01 260);
+  --amber-ink: oklch(50% 0.13 44);
+  --font-display: "Ibarra Real Nova", Georgia, serif;
+  --font-body: "Libre Franklin", system-ui, sans-serif;
+}
+html,body{margin:0;padding:0;background:var(--paper);}
+body{font-family:var(--font-body);color:var(--ink);display:flex;justify-content:center;padding:40px;}
+.paperframe{width:880px;background:var(--paper-warm);border:1px solid var(--rule);
+  box-shadow:0 1px 0 var(--rule-soft),0 30px 60px -30px oklch(24% 0.03 260 / 0.28),0 2px 8px -4px oklch(24% 0.03 260 / 0.18);
+  padding:2.1rem;position:relative;}
+.paperframe::before{content:"";position:absolute;inset:6px;border:1px solid var(--rule-soft);pointer-events:none;}
+.fp-top{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;flex-wrap:wrap;}
+.fp-masthead{font-family:var(--font-display);font-weight:700;font-size:2rem;letter-spacing:-0.01em;line-height:1;}
+.fp-dateline{font-size:0.62rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink-faint);}
+.fp-doublerule{height:0;border-top:2px solid var(--ink);border-bottom:1px solid var(--ink);margin:0.6rem 0 0.4rem;}
+.fp-greet{font-family:var(--font-display);font-style:italic;font-size:0.98rem;color:var(--ink-soft);margin:0.6rem 0 1rem;}
+.fp-cols{display:grid;grid-template-columns:1.55fr 1fr;gap:1.2rem;}
+.fp-lead h4{font-family:var(--font-display);font-weight:600;font-size:1.55rem;line-height:1.06;margin:0 0 0.5rem;letter-spacing:-0.01em;}
+.fp-lead p{font-size:0.9rem;line-height:1.5;color:var(--ink-soft);margin:0 0 0.6rem;}
+.fp-byline{font-size:0.66rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--amber-ink);font-weight:600;}
+.fp-brief{padding-left:1.1rem;border-inline-start:1px solid var(--rule);}
+.fp-brief .lbl{font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--ink-faint);font-weight:700;display:block;margin-bottom:0.7rem;}
+.fp-brief ul{list-style:none;margin:0;padding:0;}
+.fp-brief li{font-size:0.83rem;line-height:1.4;color:var(--ink-soft);padding:0.55rem 0;border-top:1px solid var(--rule-soft);}
+.fp-brief li:first-child{border-top:0;padding-top:0;}
+.fp-brief li b{color:var(--ink);font-weight:600;}
+.fp-numbers{margin-top:1rem;padding-top:0.8rem;border-top:2px solid var(--ink);display:flex;flex-wrap:wrap;gap:0.35rem 1.4rem;align-items:baseline;}
+.fp-numbers span{font-size:0.78rem;color:var(--ink-soft);}
+.fp-numbers span b{font-family:var(--font-display);font-weight:600;font-size:1.05rem;color:var(--ink);margin-right:0.4ch;letter-spacing:-0.01em;}
+</style></head><body>
+<figure id="front" class="paperframe" style="margin:0;" aria-label="Common Table Food Pantry weekly front page">
+  <div class="fp-top">
+    <div class="fp-masthead">Common Table Food Pantry</div>
+    <div class="fp-dateline">The Weekly Edition &middot; Tuesday</div>
+  </div>
+  <div class="fp-doublerule"></div>
+  <p class="fp-greet">Good morning, Dana.</p>
+  <div class="fp-cols">
+    <div class="fp-lead">
+      <h4>Giving rose for the third straight month.</h4>
+      <p>June closed at $18,240 in gifts, your strongest spring since you started tracking. Thirty-four donors gave, nine of them new. A quiet, good week; everything else is on pace.</p>
+      <span class="fp-byline">Assembled by BeMo from this week&rsquo;s work</span>
+    </div>
+    <aside class="fp-brief">
+      <span class="lbl">In brief</span>
+      <ul>
+        <li><b>The Bright Harbor renewal</b> is due August 15. The final program report is the last missing piece.</li>
+        <li><b>Teen Kitchen&rsquo;s third cohort</b> wraps Friday. Twelve teens finish; two are flagged ready to mentor.</li>
+        <li><b>The board meets August 8.</b> The Mobile Pantry runs Lincoln Park on Saturday.</li>
+      </ul>
+    </aside>
+  </div>
+  <div class="fp-numbers">
+    <span><b>$18,240</b> June gifts</span>
+    <span><b>34</b> donors, 9 new</span>
+    <span><b>Aug 15</b> renewal report due</span>
+  </div>
+</figure>
+</body></html>

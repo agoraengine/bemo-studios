@@ -1,0 +1,23 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "overused-font",
+        "value": "geist",
+        "createdAt": "2026-08-02T13:18:10.215Z",
+        "reason": "Geist is the BeMo design system body/UI face (bemo-website DESIGN.md v4) and the caption face Becky approved in the Aug 1 GA sizzle restyle; video capture sources match it deliberately"
+      },
+      {
+        "rule": "dark-glow",
+        "value": "*",
+        "files": [
+          "productions/*/capture/*.html"
+        ],
+        "createdAt": "2026-08-02T13:19:19.612Z",
+        "reason": "Becky confirmed the soft glow wash as the approved background treatment for the sizzle capture sources (GA sizzle look, carried across the series)"
+      }
+    ]
+  }
+}

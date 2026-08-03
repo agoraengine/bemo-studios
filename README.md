@@ -50,6 +50,7 @@ It asks what the video is for, scaffolds `productions/<slug>/`, and writes the b
 
 | Production | Serves | State |
 |---|---|---|
-| [ga-sizzle-reel](productions/ga-sizzle-reel/) | GA Launch Wave 0, then debuts in Wave 2 | Brief drafted, awaiting ratification |
+| [ga-sizzle-reel](productions/ga-sizzle-reel/) | GA Launch Wave 0, then debuts in Wave 2 | Script locked (v1.2); 60s and 30s cuts rendered with VO and music |
+| [linkedin-sizzle-series](productions/linkedin-sizzle-series/) | Pre-GA teasers, then the Wave 2 spine; open-ended 30s reel series on the narrative arc | Reel 1 final v5 (Aug 3); awaiting Drive upload and posting week |
 | [wrenfield-kb-load](productions/wrenfield-kb-load/) | Raw app footage: the Wrenfield KB load and board-member ask, captured from the live app | Footage captured (Aug 3); feeds super-demo-60 |
 | [super-demo-60](productions/super-demo-60/) | The warm-intro super demo (Bill/Tiffany Aug 10, then the standing ace-in-the-hole send) | Review cut rendered (Aug 3); Becky records finals by Aug 8 |
