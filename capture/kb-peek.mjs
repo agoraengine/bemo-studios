@@ -1,0 +1,10 @@
+import { chromium } from "playwright";
+const context = await chromium.launchPersistentContext("/Users/rebeccakern/Repositories/bemo-studios/capture/.auth/profile", { headless: true, viewport: { width: 1440, height: 900 } });
+const page = context.pages()[0] || (await context.newPage());
+await page.goto("https://app.bemointel.ai/", { waitUntil: "networkidle" }).catch(() => {});
+await page.waitForTimeout(2000);
+await page.click("text=Knowledge Base").catch(e => console.log("click failed:", e.message));
+await page.waitForTimeout(2500);
+console.log("url:", page.url());
+await page.screenshot({ path: "/tmp/bemo-kb-peek.png" });
+await context.close();

@@ -31,3 +31,9 @@ package-lock.json
 
 # OS
 .DS_Store
+
+# Browser auth profile for app capture (login-once session; never committed)
+capture/.auth/
+
+# Capture output: rendered media stays out of git, links live in each production's assets.md
+**/capture/out/
