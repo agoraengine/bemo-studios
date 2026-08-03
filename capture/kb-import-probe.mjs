@@ -10,7 +10,7 @@ await page.click("text=Import file");
 const chooser = await chooserPromise;
 if (chooser) {
   console.log("file chooser appeared; multiple:", chooser.isMultiple());
-  await chooser.setFiles("/Users/rebeccakern/Repositories/bemo-studios/demo-org/upload/01-mission-vision-values.md");
+  await chooser.setFiles("/Users/rebeccakern/Repositories/bemo-studios/demo-org/wrenfield/upload/01-mission-vision-values.md");
 } else {
   console.log("no native chooser; screenshotting whatever opened");
 }

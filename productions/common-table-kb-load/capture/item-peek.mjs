@@ -1,0 +1,16 @@
+import { chromium } from "playwright";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+const HERE = path.dirname(fileURLToPath(import.meta.url));
+const PROFILE = path.join(HERE, "..", "..", "..", "capture", ".auth", "profile");
+const name = process.argv[2] || "Organization name";
+const context = await chromium.launchPersistentContext(PROFILE, { headless: true, viewport: { width: 1440, height: 900 } });
+const page = context.pages()[0] || (await context.newPage());
+await page.goto("https://app.bemointel.ai/funderstorm/kb", { waitUntil: "networkidle" }).catch(() => {});
+await page.waitForTimeout(2500);
+await page.locator("tbody tr", { hasText: name }).first().click();
+await page.waitForTimeout(2500);
+await page.screenshot({ path: "/tmp/kb-item-peek.png" });
+const body = await page.locator("body").innerText();
+console.log(body.slice(0, 1200));
+await context.close();

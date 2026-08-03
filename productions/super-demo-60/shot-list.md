@@ -20,7 +20,7 @@ Speed-ups are visible-time compression, never hidden cuts; UI text untouched per
 
 ## Capture notes
 
-- Seeded demo org used: The Wrenfield Alliance (fictitious; `demo-org/fact-sheet.md` is the source of truth)
+- Seeded demo org used: The Wrenfield Alliance (fictitious; `demo-org/wrenfield/fact-sheet.md` is the source of truth)
 - Anything that had to be redacted: nothing; sidebar shows only generic chat titles, verified frame-checked
 - Shots that needed more than one take, and why: run 1 stalled after doc 01 (modal close handling, fixed); run 2 completed clean
 

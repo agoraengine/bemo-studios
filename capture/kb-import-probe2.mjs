@@ -11,7 +11,7 @@ const chooserPromise = page.waitForEvent("filechooser", { timeout: 8000 }).catch
 await page.click("text=browse");
 const chooser = await chooserPromise;
 if (!chooser) { console.log("no chooser on browse either"); process.exit(1); }
-await chooser.setFiles("/Users/rebeccakern/Repositories/bemo-studios/demo-org/upload/01-mission-vision-values.md");
+await chooser.setFiles("/Users/rebeccakern/Repositories/bemo-studios/demo-org/wrenfield/upload/01-mission-vision-values.md");
 await page.waitForTimeout(1200);
 await page.screenshot({ path: "/tmp/kb-probe2-selected.png" });
 await page.click("button:has-text('Upload')");

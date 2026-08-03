@@ -1,8 +1,12 @@
 #!/usr/bin/env node
-// Recorded load of the Wrenfield demo org into the live BeMo Knowledge Base.
-// Drives the real app with the saved session, imports demo-org/wrenfield/upload/01-13,
+// Recorded load of the Common Table demo org into the live BeMo Knowledge Base.
+// Drives the real app with the saved session, imports demo-org/common-table/upload/01-13,
 // approves extracted facts, commits each, and records the whole thing.
 // Output: capture/out/ (gitignored). Action log: capture/out/actions.json.
+//
+// The recording is deliberate: this session is raw material for the website's
+// demo slots (bemo-website/DEMOS.md), so the load runs at real speed and the
+// footage keeps its elapsed time.
 import { chromium } from "playwright";
 import fs from "node:fs";
 import path from "node:path";
@@ -12,7 +16,7 @@ import { PACE, sleep } from "../../../capture/lib/pacing.mjs";
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const OUT = path.join(HERE, "out");
 const REPO = path.join(HERE, "..", "..", "..");
-const UPLOADS = path.join(REPO, "demo-org", "wrenfield", "upload");
+const UPLOADS = path.join(REPO, "demo-org", "common-table", "upload");
 const PROFILE = path.join(REPO, "capture", ".auth", "profile");
 
 fs.mkdirSync(OUT, { recursive: true });
