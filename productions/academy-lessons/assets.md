@@ -1,0 +1,29 @@
+# Assets: Academy Lessons
+
+Drive links only. No media files in this repo.
+
+**Drive folder:** _pending: create `BeMo Studios/academy-lessons/` in Drive, one subfolder per lesson slug_
+
+Per-lesson deliveries. One row per shipped variant; the slug column keys back to `roster.md`.
+
+## Delivered cuts
+
+| Lesson slug | Variant | Version | Date | Link | Notes |
+|---|---|---|---|---|---|
+| | | | | | |
+
+## Supporting files
+
+| Lesson slug | File | Link |
+|---|---|---|
+| | Captions (.srt) | |
+| | Avatar renders | |
+| | Raw capture footage | |
+
+## Where this has been used
+
+Recording usage here, not status. Approval and publishing state belong to the content workflow, not to Studios. See `docs/00-overview.md` on state creep.
+
+| Date | Used for | By |
+|---|---|---|
+| | | |

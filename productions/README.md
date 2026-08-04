@@ -23,7 +23,8 @@ Kebab-case, describes the video, not the date or the version. `ga-sizzle-reel`, 
 | Production | Serves | State |
 |---|---|---|
 | [ga-sizzle-reel](ga-sizzle-reel/) | GA Launch Wave 0, debuts in Wave 2 | Brief drafted, awaiting ratification. Capture blocked on the two-surfaces build. |
-| [website-demo-slots](website-demo-slots/) | GA Launch Wave 1, the six DemoSlot placements in bemo-website | In production 2026-08-03. Specs ratified in `bemo-website/DEMOS.md`; capturing against the real app. |
+| [website-demo-slots](website-demo-slots/) | GA Launch Wave 1, the six DemoSlot placements in bemo-website | Two of six live 2026-08-03 (`funderstorm-cycle` on `/products/funderstorm`, `knows-whats-missing` on `/platform`). Four wait on product behavior; see `findings.md`. |
+| [academy-lessons](academy-lessons/) | The Academy product surface: the built-in lessons as videos, presented by a HeyGen digital twin per the Academy exception in `docs/01-pipeline.md` | Series brief drafted, awaiting ratification. Roster waits on the discovery probe (`capture/academy-probe.mjs`); twin setup is the long-lead item. |
 
 ## Queued
 

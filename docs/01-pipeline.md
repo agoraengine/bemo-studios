@@ -94,6 +94,14 @@ Official remote server at `https://mcp.heygen.com/mcp/v1/`. OAuth, no API key, a
 
 ElevenLabs is the fallback if HeyGen's voice quality does not hold up under a full read. It has an official MCP and a 10k credit free tier. Do not add it unless HeyGen actually fails, per the standing rule that paid tools get added when the work requires them, not in advance.
 
+**The Academy exception (Becky, August 3, 2026).** The avatar ban above stands for demo, sizzle, core-set, and founder-POV video. For the Academy lesson series (`productions/academy-lessons/`), and only there, a digital twin of Becky presents the lessons. The two reasons above resolve differently for instructional content: a lesson is a person teaching, not a product demo, so the presenter is not fighting the footage; and the trust problem is answered rather than ignored, on three conditions that are part of the exception, not optional:
+
+1. **Consent is Becky's own.** The twin is created through HeyGen's consent flow, recorded by Becky herself. No twin of anyone else, ever.
+2. **Every lesson discloses the AI presenter on screen.** A viewer never mistakes the twin for a recording of Becky. The disclosure placement is specified in the series treatment and is part of the standards check.
+3. **The twin teaches; it never testifies.** Same boundary as the cloned voice (see `productions/ga-sizzle-reel/brief.md`, the voice decision): product instruction Becky wrote and approved is fine; anything that reads as personal testimonial, a spoken claim about her own experience, or the founder addressing a prospect stays with the real Becky on real camera.
+
+A lesson video that fails any of the three gets rewritten, not shipped.
+
 ### Canva MCP (titles, end cards, thumbnails)
 
 Already configured in the bemo-os workflow for carousels. Same server, used here for branded frames rather than a whole design pass. Not declared in `.mcp.json` because the existing configuration is user-level; if it is missing, configure it the way it was set up for the carousel workflow.
