@@ -44,6 +44,9 @@ The video is the website's front door continued, per `../../../bemo-website/DESI
 
 - One HeyGen render per movement, generated from the locked script text with the lesson's category presenter and its matched voice (the cast table in `brief.md`).
 - Movement 2 narration is generated as avatar video too (the split and bubble crops come from it), so voice and lips always agree wherever the presenter is visible.
+- **Full-frame, never pillarboxed** (Lee, 2026-08-04): full-screen presenter renders use a landscape background and `fit: cover` so the frame fills 16:9 with no white bars. The pilot v1's pillarboxed welcome is the counterexample.
+- **Pronunciation is managed, not hoped for** (Lee, 2026-08-04): brand words get phonetic treatment (in HeyGen's UI: highlight the word, choose Pronunciation, type the phonetic spelling; the workspace brand glossary is the durable home for these). "BeMo" is the first entry. When generating via API, the phonetic substitution happens in the text sent to HeyGen; `script.md` keeps the real spelling, and captions always burn from the script, never from the TTS text.
+- **`[pause]` directives control timing** (Lee, 2026-08-04): a `[pause]` between paragraphs in the generation text shapes the read. Like phonetic spellings, they live only in the text sent to HeyGen, never in `script.md` or captions.
 - Batches of lessons go through `create_video_batch`; singles through `create_video_from_avatar`. Renders download to `capture/out/<slug>/avatar/`, never into git.
 
 ## Assembly
