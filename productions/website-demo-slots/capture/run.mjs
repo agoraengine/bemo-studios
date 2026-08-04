@@ -1,9 +1,11 @@
 #!/usr/bin/env node
 // Recorded takes for the two capturable website demo slots.
 //
-//   node productions/website-demo-slots/capture/run.mjs            both takes
-//   node productions/website-demo-slots/capture/run.mjs --take fs  funderstorm-cycle only
-//   node productions/website-demo-slots/capture/run.mjs --take kwm knows-whats-missing only
+//   node productions/website-demo-slots/capture/run.mjs                 both original takes
+//   node productions/website-demo-slots/capture/run.mjs --take fs       funderstorm-cycle only
+//   node productions/website-demo-slots/capture/run.mjs --take kwm      knows-whats-missing only
+//   node productions/website-demo-slots/capture/run.mjs --take parity   compass + amplify (added 2026-08-04)
+//   node productions/website-demo-slots/capture/run.mjs --take compass  / --take amplify
 //
 // Run within an hour of `node capture/login.mjs` (sessions expire ~1h).
 // Frame hygiene (shot-list.md): never Home, never the KB table, never Drive.
@@ -205,7 +207,115 @@ async function takeKnowsWhatsMissing() {
   }
 }
 
+// ---- take 3: compass-in-flow -------------------------------------------
+// A real strategic question in Compass, answered from the Common Table KB.
+// Broad status-phrasing on purpose: narrow "what did the board decide"
+// questions bypass retrieval (findings, 2026-08-03).
+async function takeCompassInFlow() {
+  const { page, mark, finish } = await newSession("compass-in-flow");
+  try {
+    await page.goto("https://app.bemointel.ai/compass/templates", { waitUntil: "networkidle" }).catch(() => {});
+    await sleep(PACE.settle + 1500);
+    await assertLoggedIn(page, mark);
+    mark("compass templates page (start point, never Home)");
+
+    await page.locator("text=New chat").first().click({ timeout: 15000 });
+    await sleep(PACE.settle + 800);
+    mark("new chat");
+
+    await typeAndSend(
+      page,
+      "Help me think through whether we can finally launch the second Saturday site this year. Where does that decision stand, and what would have to be true?",
+      mark,
+      "saturday site question"
+    );
+    await stableAnswer(page);
+    mark("answer complete");
+    await sleep(PACE.beat + 1200);
+
+    await typeAndSend(
+      page,
+      "If the Bright Harbor renewal comes through, what should we line up first?",
+      mark,
+      "follow-up"
+    );
+    await stableAnswer(page);
+    mark("follow-up answered");
+    await sleep(PACE.tail + 1500);
+    mark("take complete");
+  } catch (e) {
+    mark("ERROR: " + e.message);
+  } finally {
+    await finish();
+  }
+}
+
+// ---- take 4: amplify-in-flow -------------------------------------------
+// An Amplify template opening with KB facts arriving, the draft composing,
+// and a [NEEDS:] marker on camera. Discover the template name at run time:
+// screenshot the templates page first if the locator misses.
+async function takeAmplifyInFlow() {
+  const { page, mark, finish } = await newSession("amplify-in-flow");
+  try {
+    await page.goto("https://app.bemointel.ai/amplify/templates", { waitUntil: "networkidle" }).catch(() => {});
+    await sleep(PACE.settle + 1500);
+    await assertLoggedIn(page, mark);
+    mark("amplify templates page");
+    await page.screenshot({ path: path.join(OUT, "amplify-templates-qa.png") });
+
+    const tile = page.locator("text=/Appeal Letter|Press Release|Donor|Newsletter/").first();
+    await tile.click({ timeout: 15000 });
+    await sleep(PACE.beat + 1000);
+    mark("template detail");
+
+    await page.locator("button", { hasText: /^add\s*New |Use template|Create|Start/i }).first().click({ timeout: 15000 }).catch(async () => {
+      await page.locator("button", { hasText: /New/ }).first().click({ timeout: 15000 });
+    });
+    await sleep(5000);
+    mark("fresh document created: " + page.url());
+
+    await stableAnswer(page, { quiet: 6000, max: 60000 });
+    mark("kb inputs shown");
+    const submit = page.locator("button:has-text('Submit')").first();
+    if (await submit.count()) { await submit.click(); mark("kb inputs submitted"); }
+
+    // let the flow ask, answer once from the fact sheet, then let it draft
+    await stableAnswer(page);
+    mark("first prompt up");
+    await typeAndSend(
+      page,
+      "This is the Harvest Supper save-the-date for neighbors and past donors: October 17 at the Lincoln Park Pavilion, our one fundraising event of the year, budget held at $16,000 with a $40,000 net goal.",
+      mark,
+      "supper facts"
+    );
+    await stableAnswer(page);
+    mark("responded; waiting on draft");
+
+    const start = Date.now();
+    let lastStage = "";
+    while (Date.now() - start < 300000) {
+      await sleep(4000);
+      const text = await page.locator("body").innerText().catch(() => "");
+      const m = text.match(/(Choose KB inputs|Interviewing|Writing|Drafting|Editing|Review)\s*\n?\s*(\d of 5)?/);
+      const stage = m ? (m[1] + " " + (m[2] || "")).trim() : "?";
+      if (stage !== lastStage) { mark("stage: " + stage); lastStage = stage; }
+      if (/Editing|Review/.test(stage)) break;
+      if (/move forward|advance to the next|Continue to/i.test(text.slice(-1200))) break;
+    }
+    await sleep(PACE.tail);
+    for (let i = 0; i < 25; i++) { await page.mouse.wheel(0, 55); await sleep(70); }
+    await sleep(PACE.tail + 1500);
+    mark("take complete");
+  } catch (e) {
+    mark("ERROR: " + e.message);
+  } finally {
+    await finish();
+  }
+}
+
 // ---- run ---------------------------------------------------------------
 if (takeArg === "fs" || takeArg === "both") await takeFunderstormCycle();
 if (takeArg === "kwm" || takeArg === "both") await takeKnowsWhatsMissing();
+if (takeArg === "compass" || takeArg === "parity") await takeCompassInFlow();
+if (takeArg === "amplify" || takeArg === "parity") await takeAmplifyInFlow();
 console.log("Done. Raw footage in", OUT);

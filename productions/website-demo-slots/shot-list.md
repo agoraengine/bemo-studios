@@ -1,6 +1,6 @@
 # Shot List: Website Demo Slot Clips
 
-**Capture state:** COMPLETE for the two capturable slots (both captured, cut, wired, verified in dev build 2026-08-03); four wait, reasons below
+**Capture state:** clips 1-2 COMPLETE (captured, cut, wired 2026-08-03). Clips 3-4 (compass, amplify parity, added 2026-08-04) scripted and awaiting a login session: `node capture/login.mjs`, then `node productions/website-demo-slots/capture/run.mjs --take parity`.
 **Last run:** 2026-08-03
 **Build captured against:** app.bemointel.ai production, Common Table KB loaded 2026-08-03
 
@@ -28,6 +28,27 @@ The 12s cut: F1 (2s) > F2 (3s) > F3 one question-and-answer beat (3s) > F4 recap
 | K4 | The app confirms the fact is added to the Knowledge Base | screen | ~30s | same chat | [x] |
 
 The 12s cut: K1 (2s) > K2 (5s, the heart of it) > K3 (2.5s) > K4 (2.5s). Poster: K2, the frame where the gap is named and invited.
+
+## Clip 3: `compass-in-flow` (12s loop, 16:10, 1920x1200) — added 2026-08-04, per Becky's product-parity direction
+
+| ID | What is on screen | Type | Duration (source) | App path | Captured |
+|---|---|---|---|---|---|
+| C1 | New Compass chat; the second-Saturday-site decision question typed | screen | ~20s | /compass/templates > New chat (never Home) | [ ] |
+| C2 | The answer drawing on the KB: the 2024 pause, the March deferral, the renewal that could fund the driver | screen | ~40s | same chat | [ ] |
+| C3 | Follow-up ("If the renewal comes through, what should we line up first?") and its answer | screen | ~45s | same chat | [ ] |
+
+Risk noted: decision-phrased questions may bypass KB retrieval (findings, 2026-08-03). The question is phrased broad on purpose; if the take answers generically, rephrase toward status ("Where does the second Saturday site stand?") and re-run.
+
+## Clip 4: `amplify-in-flow` (12s loop, 16:10, 1920x1200) — added 2026-08-04, same direction
+
+| ID | What is on screen | Type | Duration (source) | App path | Captured |
+|---|---|---|---|---|---|
+| A1 | Amplify Templates page; a letter/release template opened | screen | ~15s | /amplify/templates | [ ] |
+| A2 | Fresh document; KB facts arriving before anyone types | screen | ~30s | new doc from template | [ ] |
+| A3 | One typed beat: Harvest Supper save-the-date facts (from the fact sheet) | screen | ~30s | same doc | [ ] |
+| A4 | The draft with a [NEEDS:] marker visible: the document naming what it does not know | screen | ~1min | same doc, later stage | [ ] |
+
+Academy stays parked by Becky's 2026-08-04 direction: its product-page slot will carry the avatar-presented Academy lesson video (academy-lessons production) once that ships, checked against the FunderStorm model.
 
 ## The four slots that wait (do not capture, do not fake)
 
