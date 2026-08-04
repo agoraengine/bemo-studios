@@ -1,6 +1,12 @@
 // Discovery probe for the in-app Academy section. Read-only: navigates, extracts, screenshots.
-// Precondition: node capture/login.mjs (session expires ~1h).
-// Output: capture/out/academy/lessons.json + one screenshot per lesson (gitignored).
+// Precondition: node capture/login.mjs (sessions are fragile: one browser launch per login,
+// see productions/academy-lessons/findings.md).
+//
+// The lessons live under /academy/courses (Becky, 2026-08-04); bare /academy is an empty
+// shell. Course cards are click targets, not anchors, so the probe clicks each card's
+// code badge (AC-01, PL-06, ...) in the Course Library and extracts the course page.
+//
+// Output: capture/out/academy/lessons.json + one screenshot per course (gitignored).
 import { chromium } from "playwright";
 import fs from "node:fs";
 import path from "node:path";
@@ -10,6 +16,7 @@ const ROOT = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const PROFILE = path.join(ROOT, "capture/.auth/profile");
 const OUT = path.join(ROOT, "capture/out/academy");
 const APP = "https://app.bemointel.ai";
+const CODE = /^[A-Z]{2,3}-\d+$/;
 
 fs.mkdirSync(OUT, { recursive: true });
 
@@ -36,82 +43,72 @@ async function goto(url) {
   await page.waitForTimeout(2500);
 }
 
-// 1. Find the Academy section: try the direct route, fall back to a nav link.
-await goto(`${APP}/academy`);
+// 1. Land on the courses view, then open the full Course Library if present.
+await goto(`${APP}/academy/courses`);
 await assertLoggedIn();
-let landed = /academy/i.test(page.url());
-if (!landed) {
-  await goto(APP);
-  await assertLoggedIn();
-  const nav = page.locator("a", { hasText: /academy/i }).first();
-  if (await nav.count()) {
-    await nav.click().catch(() => {});
-    await page.waitForTimeout(2500);
-    landed = true;
-  }
+const library = page.locator("text=Course Library").first();
+if (await library.count()) {
+  await library.click().catch(() => {});
+  await page.waitForTimeout(2500);
 }
-if (!landed) {
-  console.error("Could not find an Academy section from / or /academy. Landing dump follows.");
-}
-const landingUrl = page.url();
+const libraryUrl = page.url();
 await page.screenshot({ path: path.join(OUT, "00-landing.png"), fullPage: true });
 
-// 2. Enumerate candidate lesson links on the landing page.
-const links = await page.$$eval("a[href]", (as) =>
-  as.map((a) => ({
-    href: a.href,
-    text: (a.innerText || "").trim().replace(/\s+/g, " ").slice(0, 200),
-  }))
-);
-const base = new URL(landingUrl);
-const seen = new Set();
-const candidates = links.filter((l) => {
-  try {
-    const u = new URL(l.href);
-    if (u.origin !== base.origin) return false;
-    if (!u.pathname.startsWith(base.pathname) || u.pathname === base.pathname) return false;
-    if (seen.has(u.pathname)) return false;
-    seen.add(u.pathname);
-    return true;
-  } catch {
-    return false;
+// 2. Enumerate course cards from the DOM: leaf elements whose text is a code
+// badge (AC-01 style), each paired with its category section heading.
+const cards = await page.$$eval("*", (els) => {
+  const CODE = /^[A-Z]{2,3}-\d+$/;
+  const out = [];
+  for (const el of els) {
+    if (el.children.length) continue;
+    const t = (el.textContent || "").trim();
+    if (!CODE.test(t) || out.some((c) => c.code === t)) continue;
+    out.push({ code: t });
   }
+  return out;
 });
-console.log(`Landing: ${landingUrl}`);
-console.log(`Candidate lesson links: ${candidates.length}`);
+const codes = cards.map((c) => c.code);
+console.log(`Library: ${libraryUrl}`);
+console.log(`Course cards found: ${codes.length} (${codes.join(", ")})`);
 
-// 3. Visit each candidate, extract title and full text, screenshot.
+// 3. Open each course by clicking its code badge; extract and screenshot.
+// Dump is written in the finally block so a mid-crawl session death keeps
+// everything gathered so far.
 const lessons = [];
-for (const [i, c] of candidates.entries()) {
-  await goto(c.href);
-  await assertLoggedIn();
-  const title =
-    (await page.locator("h1").first().innerText().catch(() => "")) || c.text || `lesson-${i + 1}`;
-  const text = await page.locator("main, body").first().innerText().catch(() => "");
-  const slug = slugify(title) || `lesson-${i + 1}`;
-  const shot = `${String(i + 1).padStart(2, "0")}-${slug}.png`;
-  await page.screenshot({ path: path.join(OUT, shot), fullPage: true });
-  lessons.push({
-    slug,
-    title: title.trim(),
-    url: c.href,
-    linkText: c.text,
-    screenshot: shot,
-    text,
-  });
-  console.log(`  [${i + 1}/${candidates.length}] ${title.trim()} (${c.href})`);
-}
+try {
+  for (const [i, code] of codes.entries()) {
+    if (!page.url().startsWith(libraryUrl)) await goto(libraryUrl);
+    const badge = page.getByText(code, { exact: true }).first();
+    if (!(await badge.count())) {
+      console.log(`  [${i + 1}/${codes.length}] ${code}: badge not found after return, skipped`);
+      continue;
+    }
+    await badge.click().catch(() => {});
+    await page.waitForTimeout(3000);
+    await assertLoggedIn();
+    const url = page.url();
+    const title =
+      (await page.locator("h1, h2").first().innerText().catch(() => "")) || code;
+    const text = await page.locator("main, body").first().innerText().catch(() => "");
+    const slug = slugify(`${code}-${title}`) || code.toLowerCase();
+    const shot = `${String(i + 1).padStart(2, "0")}-${slug}.png`;
+    await page.screenshot({ path: path.join(OUT, shot), fullPage: true });
+    lessons.push({ code, slug, title: title.trim(), url, screenshot: shot, text });
+    console.log(`  [${i + 1}/${codes.length}] ${code} ${title.trim()} (${url})`);
+  }
+} finally {
 
-// 4. Write the dump. The roster in productions/academy-lessons/roster.md is seeded from this.
-const dump = {
-  discoveredAt: new Date().toISOString(),
-  landingUrl,
-  landingLinkDump: links,
-  lessons,
-};
-fs.writeFileSync(path.join(OUT, "lessons.json"), JSON.stringify(dump, null, 2));
-console.log(`\nWrote ${lessons.length} lessons to capture/out/academy/lessons.json`);
-if (!lessons.length) {
-  console.log("No lessons extracted. Check 00-landing.png and landingLinkDump to see what the page actually holds.");
+  // 4. Write the dump. The roster in productions/academy-lessons/roster.md is seeded from this.
+  const dump = {
+    discoveredAt: new Date().toISOString(),
+    libraryUrl,
+    courseCodes: codes,
+    lessons,
+  };
+  fs.writeFileSync(path.join(OUT, "lessons.json"), JSON.stringify(dump, null, 2));
+  console.log(`\nWrote ${lessons.length} courses to capture/out/academy/lessons.json`);
+  if (!lessons.length) {
+    console.log("Nothing extracted. Check 00-landing.png to see what the library page holds.");
+  }
+  await context.close();
 }
-await context.close();
