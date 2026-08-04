@@ -1,0 +1,37 @@
+# How the Academy Lesson Videos Get Built
+
+*The build record for `productions/academy-lessons/`. Written 2026-08-04, the day the system stood up end to end: from an unmapped in-app course catalog at breakfast to a finished pilot lesson video by afternoon. This documents each step and the tool that runs it, so the process is repeatable by anyone and auditable by everyone.*
+
+## What this system is
+
+The app's Academy section holds a large built-in course catalog (270 courses across 10 category series at last probe; the live number comes from `capture/out/academy/lessons.json`, never from this doc). Every course follows one player structure: a Reading of about four minutes, Key Takeaways, a Practice Exercise, a Knowledge Check, and downloadable resources. This system turns those courses into presenter-led videos of about five minutes in a college-lesson register: the viewer listens, reads, and watches at once.
+
+The machinery descends directly from the Cottage 2 workstream (August 3, commit `177fbe1`): the login-once capture harness, the governed demo org, and plan-driven ffmpeg assembly, generalized here to run at catalog scale.
+
+## The steps, and the tool at each
+
+**1. Discovery.** `capture/academy-probe.mjs` and `capture/academy-sweep.mjs` (Playwright, headless, the Cottage 2 persistent-profile session from `capture/login.mjs`) walk the in-app Course Library at `/academy/courses/library`, then visit each course by direct URL (`/academy/course/<CODE>`). Output: `capture/out/academy/lessons.json` holding every course's code, title, URL, full player text, and a screenshot. Session rule learned the hard way: one browser launch per login; sequential launches kill the session (findings.md, raised to Lee).
+
+**2. Roster.** The dump seeds `productions/academy-lessons/roster.md`: one row per course with category, presenter seat, batch, and a status ladder (Discovered through Shipped). The roster is the only place status lives.
+
+**3. Scripting.** The `academy-lesson` skill (Claude Code) writes each lesson's `script.md` from the course's own Reading content, in the treatment's three-movement grammar (the welcome, the lesson, the handle), grounded fresh in bemo-os canon: message map, voice and tone, anti-patterns, claim map. Every claim traces to the lesson content or the message map. Clock check at about 150 words per minute against the 4-6 minute target.
+
+**4. The gate.** Scripts go to Becky in batches of 3-5 for ratification (the external review standard, bemo-os `docs/organization/24-external-review-standard.md`: review the finished artifact, batch the ceremony, pilot before scale).
+
+**5. Presenter generation.** HeyGen, through the official MCP. Presenters are the cast in the series brief: one seat per category series, settled by an audition round of real renders reviewed side by side. The August 4 audition put the founders' own digital twins (created by each founder, consent condition satisfied) ahead of every stock avatar on voice quality, rendered on the Avatar V engine. Generation rules from Lee: landscape background with `fit: cover` so full-screen renders never pillarbox; phonetic spellings for brand words (BeMo first) and `[pause]` directives go only into the text sent to HeyGen, while `script.md` keeps real spellings and captions burn from the script.
+
+**6. Capture.** `productions/academy-lessons/capture/run.mjs <slug>` (Playwright, same session harness) records the real app: the course player itself, and any product surface the lesson teaches. Common Table is the only demo org on camera, enforced by `assertDemoOrg` from `capture/lib/redact.mjs`.
+
+**7. Assembly.** `productions/academy-lessons/capture/assemble.mjs` (ffmpeg via `ffmpeg-static`), driven by a per-lesson `plan.json`: avatar full-screen segments, split screens, full-bleed capture with a circular presenter bubble, the reading layer of key lines that build in sync with narration, the AI-presenter disclosure chip on the first avatar frame, loudnorm to -16 LUFS, captions from the locked script. Naming: `bemo-academy-<slug>-primary-v<n>.mp4`.
+
+**8. Ship.** The standards check in `02-production-standards.md` (Academy lesson row: 4-6 minutes, 8 ceiling), then Drive upload and links in `assets.md`. No media in git, ever.
+
+## The rules that govern it
+
+- The Academy exception in `01-pipeline.md`: avatars for this series only, four conditions (consent, the generic avatar is nobody, on-screen disclosure, teach-never-testify).
+- The series brief and treatment in `productions/academy-lessons/` are the ratified contract; the decision trail (twin, no-twin, cast-per-category, twins again on evidence) lives in their tables and the git history.
+- Findings raise to owners: product oddities to Lee, canon conflicts to bemo-os, per the boundary in `CLAUDE.md`.
+
+## The first artifact
+
+The format pilot, built August 4: `lessons/pilot-knows-whats-missing/`, Becky's twin presenting over the real Common Table gap-fill take, 1:10, assembled by the plan above. Its verdict decides the format; the catalog follows.
