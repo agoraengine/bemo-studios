@@ -1,0 +1,10 @@
+{
+  "src": "out/compass-in-flow-raw.webm",
+  "out": "out/compass-in-flow",
+  "poster": 50.0,
+  "segments": [
+    { "from": 14.5, "to": 18.0 },
+    { "from": 29.5, "to": 33.5, "labelSeconds": 29.5 },
+    { "from": 47.5, "to": 52.0, "labelSeconds": 47.5 }
+  ]
+}

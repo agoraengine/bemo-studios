@@ -1,0 +1,12 @@
+{
+  "src": "out/amplify-in-flow-raw.webm",
+  "out": "out/amplify-in-flow",
+  "poster": 95.5,
+  "posterSrc": "out/amplify-pickup-raw.webm",
+  "segments": [
+    { "from": 8.0, "to": 11.0 },
+    { "from": 86.0, "to": 89.5, "labelSeconds": 86.0 },
+    { "from": 84.5, "to": 88.0, "src": "out/amplify-pickup-raw.webm", "labelSeconds": 573.5 },
+    { "from": 94.5, "to": 96.5, "src": "out/amplify-pickup-raw.webm", "labelSeconds": 583.5 }
+  ]
+}

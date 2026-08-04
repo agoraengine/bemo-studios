@@ -26,3 +26,11 @@ Raised 2026-08-03 while producing clips for the six DemoSlot placements in bemo-
 | Date | Finding | Status |
 |---|---|---|
 | 2026-08-03 | Fact-sheet extension recorded for the interview: year-one Bright Harbor spending "on budget" against the $30,000 year-one allocation, refrigerated van as largest line item; year-two intent phrased as recruiting the paid driver to launch the deferred second Saturday site. Added to `demo-org/common-table/fact-sheet.md`. | Done |
+
+## Product findings from the 2026-08-04 parity captures (for Lee)
+
+| Date | Finding | Raised |
+|---|---|---|
+| 2026-08-04 | **Compass chat denied knowledge the KB holds.** Asked a follow-up about the Bright Harbor renewal, the chat replied "I don't have anything stored about a Bright Harbor grant or renewal in your knowledge base," though the funder relationship was loaded 8/3 and the same KB answers Harvest Supper questions. Same first answer DID pull volunteer counts, site names, event budget, meals. Retrieval is inconsistent per query, not per fact. The clip cut uses only the first exchange so the site's clips do not contradict each other. | Open |
+| 2026-08-04 | **The Donor Email template found "0 knowledge base items"** at the Choose-KB-inputs step (organization name arrived anyway via the brief). Same narrow-template-keys finding as the Grant Progress Report, third instance. | Open |
+| 2026-08-04 | **The Donor Email flow asks for missing fields before drafting instead of leaving NEEDS markers in the draft.** Different template behavior from the appeal-letter flow the `amplify-in-flow` spec assumed. The shipped clip uses the "I still need two things" beat as the knows-what-it-lacks moment; noted as a spec deviation, not faked. | Open |

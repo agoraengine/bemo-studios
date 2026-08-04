@@ -14,6 +14,10 @@ Both clips are 16:10 (per their DEMOS.md specs), silent, no captions. Already li
 | `funderstorm-cycle` poster | v1 | 2026-08-03 | PENDING upload; `capture/out/funderstorm-cycle-poster.jpg` | |
 | `knows-whats-missing`, 12s 16:10 | v1 | 2026-08-03 | PENDING upload; `capture/out/knows-whats-missing.mp4` | Wired on `/platform` |
 | `knows-whats-missing` poster | v1 | 2026-08-03 | PENDING upload; `capture/out/knows-whats-missing-poster.jpg` | |
+| `compass-in-flow`, 12s 16:10 | v1 | 2026-08-04 | PENDING upload; `capture/out/compass-in-flow.mp4` | Wired on `/products/compass` |
+| `compass-in-flow` poster | v1 | 2026-08-04 | PENDING upload; `capture/out/compass-in-flow-poster.jpg` | |
+| `amplify-in-flow`, 12s 16:10 | v1 | 2026-08-04 | PENDING upload; `capture/out/amplify-in-flow.mp4` | Wired on `/products/amplify`; cut from main take + pickup |
+| `amplify-in-flow` poster | v1 | 2026-08-04 | PENDING upload; `capture/out/amplify-in-flow-poster.jpg` | |
 
 ## Supporting files
 
@@ -21,7 +25,7 @@ Both clips are 16:10 (per their DEMOS.md specs), silent, no captions. Already li
 |---|---|
 | Captions (.srt) | n/a, silent clips per spec |
 | Voiceover audio | n/a, silent clips per spec |
-| Raw capture footage | PENDING upload; five `.webm` raws in `capture/out/` (main takes plus two funderstorm pickups) |
+| Raw capture footage | PENDING upload; eight `.webm` raws in `capture/out/` (main takes, two funderstorm pickups, one amplify pickup) |
 | Thumbnail | poster frames above double as thumbnails |
 
 ## Where this has been used
