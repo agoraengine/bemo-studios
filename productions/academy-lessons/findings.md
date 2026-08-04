@@ -13,4 +13,5 @@ Studios raises these; it fixes none of them in the siblings.
 
 | Date | Finding | Raised |
 |---|---|---|
-| | _pending probe run against the live Academy section_ | |
+| 2026-08-04 | **`/academy` renders a blank page in the live app.** Direct navigation to `app.bemointel.ai/academy` with a valid session serves the URL (no redirect) but paints nothing: empty body, zero links, white full-page screenshot (`capture/out/academy/00-landing.png`). Either the route is an unguarded empty shell and Academy lives at a different path, or the section does not render headless. Blocks the lesson probe until the real click path is known. | Open |
+| 2026-08-04 | **Capture sessions die far faster than the ~1h previously logged, and the pattern points at token rotation.** A fresh login survived one or two headless browser launches (seconds apart), then the app revoked it and bounced to `/auth/login`. Suspect: refresh-token rotation racing when sequential launches each try to refresh; the second reuse revokes the family. Consequence for capture: one browser launch per login, all steps chained inside a single session; no verify-then-probe double launches. | Open |
