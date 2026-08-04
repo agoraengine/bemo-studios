@@ -8,6 +8,16 @@
 // Run within an hour of `node capture/login.mjs` (sessions expire ~1h).
 // Frame hygiene (shot-list.md): never Home, never the KB table, never Drive.
 // Every take starts at /funderstorm/templates and starts a FRESH document.
+//
+// The Grant Progress Report flow does not auto-advance past its locked recap
+// (findings.md, 2026-08-03): after "Yes, continue." it waits on a manual
+// "Continue to Research" click. This run leaves the raw take there; a
+// pickup script (not kept in the repo, easy to rewrite) can resume the same
+// doc URL logged in *-actions.json if a further stage is ever wanted.
+//
+// After recording, cut with: node assemble.mjs <take>.plan.json
+// The plan files used for the current clips are checked in alongside this
+// script (funderstorm-cycle.plan.json, knows-whats-missing.plan.json).
 import { chromium } from "playwright";
 import fs from "node:fs";
 import path from "node:path";

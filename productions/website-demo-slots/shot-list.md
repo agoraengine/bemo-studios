@@ -1,6 +1,6 @@
 # Shot List: Website Demo Slot Clips
 
-**Capture state:** IN PROGRESS (two of six slots capturable today; four wait, reasons below)
+**Capture state:** COMPLETE for the two capturable slots (both captured, cut, wired, verified in dev build 2026-08-03); four wait, reasons below
 **Last run:** 2026-08-03
 **Build captured against:** app.bemointel.ai production, Common Table KB loaded 2026-08-03
 
@@ -10,11 +10,11 @@ Each clip is one continuous recorded session, cut to length in assembly. Elapsed
 
 | ID | What is on screen | Type | Duration (source) | App path | Captured |
 |---|---|---|---|---|---|
-| F1 | FunderStorm Templates page, Grant Progress Report tile clicked | screen | ~8s | /funderstorm/templates | [ ] |
-| F2 | New document; "Here's what I found in your knowledge base"; input selected; Submit | screen | ~20s | template detail > New Grant Progress Report | [ ] |
-| F3 | Interview: the app collects the cycle's facts, the brief accumulates in Collected Facts | screen | ~3min | same doc, Interviewing 2 of 5 | [ ] |
-| F4 | The app's recap brief: funder, grant, year-one numbers, challenge, year two, and the one new thing (Marcus's three donor quotes) marked as a production note | screen | ~20s | same doc | [ ] |
-| F5 | Draft stage reached; document body visible with Collected Facts panel | screen | ~1min | same doc, later stages | [ ] |
+| F1 | FunderStorm Templates page, Grant Progress Report tile clicked | screen | ~8s | /funderstorm/templates | [x] |
+| F2 | New document; "Here's what I found in your knowledge base"; input selected; Submit | screen | ~20s | template detail > New Grant Progress Report | [x] |
+| F3 | Interview: the app collects the cycle's facts, the brief accumulates in Collected Facts | screen | ~3min | same doc, Interviewing 2 of 5 | [x] |
+| F4 | The app's recap brief: funder, grant, year-one numbers, challenge, year two, and the one new thing (Marcus's three donor quotes) marked as a production note | screen | ~20s | same doc | [x] |
+| F5 | "Continue to Research" reached; recap held with Collected Facts panel visible (the flow requires a manual click to actually enter drafting, which the clip does not show) | screen | ~1min | same doc, after "Yes, continue." | [x] |
 
 The 12s cut: F1 (2s) > F2 (3s) > F3 one question-and-answer beat (3s) > F4 recap (2.5s) > F5 draft (1.5s). Poster: F4 recap frame if it reads, else F2.
 
@@ -22,10 +22,10 @@ The 12s cut: F1 (2s) > F2 (3s) > F3 one question-and-answer beat (3s) > F4 recap
 
 | ID | What is on screen | Type | Duration (source) | App path | Captured |
 |---|---|---|---|---|---|
-| K1 | New chat; the Harvest Supper status question typed at human speed | screen | ~15s | /funderstorm/templates > New chat (never Home) | [ ] |
-| K2 | "Let me check your knowledge base"; the answer lists what is recorded, then names what is not, and invites adding it | screen | ~30s | same chat | [ ] |
-| K3 | Reply typed: the board sign-off fact from the March 12 meeting; sent | screen | ~15s | same chat | [ ] |
-| K4 | The app confirms the fact is added to the Knowledge Base | screen | ~30s | same chat | [ ] |
+| K1 | New chat; the Harvest Supper status question typed at human speed | screen | ~15s | /funderstorm/templates > New chat (never Home) | [x] |
+| K2 | "Let me check your knowledge base"; the answer lists what is recorded, then names what is not, and invites adding it | screen | ~30s | same chat | [x] |
+| K3 | Reply typed: the board sign-off fact from the March 12 meeting; sent | screen | ~15s | same chat | [x] |
+| K4 | The app confirms the fact is added to the Knowledge Base | screen | ~30s | same chat | [x] |
 
 The 12s cut: K1 (2s) > K2 (5s, the heart of it) > K3 (2.5s) > K4 (2.5s). Poster: K2, the frame where the gap is named and invited.
 

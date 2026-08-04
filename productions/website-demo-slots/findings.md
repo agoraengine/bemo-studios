@@ -11,13 +11,14 @@ Raised 2026-08-03 while producing clips for the six DemoSlot placements in bemo-
 | 2026-08-03 | **Session expiry (~1h) confirmed again**: expired mid-dry-run. Same finding as common-table-kb-load 2026-08-03. | Open (repeat) |
 | 2026-08-03 | **The KB table's Owner column shows the real account name** ("Becky Kern") with no way to display a persona for a demo workspace. Blocks any KB-table frame in Common Table footage. A workspace display name, or hiding Owner for Personal scope, would unblock it. | Open |
 | 2026-08-03 | **Product copy uses em dashes** in chat answers ("gala budget decision — nothing in..."). Not Studios's to fix; noting because on-camera product text is also brand surface. | Open |
+| 2026-08-03 | **The Grant Progress Report flow does not auto-advance into drafting.** After all required fields are collected and the app is told "Yes, continue," it locks the brief and asks the user to click a "Continue to Research" button rather than proceeding on its own. The captured `funderstorm-cycle` clip therefore ends on the locked recap, not an actual document draft; there was no further stage to film without a second manual click and an unknown additional wait. | Open |
 
 ## Website findings (for whoever owns DEMOS.md / lib/demos.ts)
 
 | Date | Finding | Raised |
 |---|---|---|
 | 2026-08-03 | **Four of the six demo specs describe product that does not exist yet.** `ask-with-sources` (no clickable source chips; the spec's own wait-condition triggers), `cross-app-handoff` (no handoff affordance between apps), `academy-in-flow` (Academy is a course library today; the spec says a library on screen is failure), and `knows-whats-missing` as specced (no wiki-style funder page with a "Not yet known. Add it." frontier; that surface is the two-surfaces build). The captured `knows-whats-missing` clip therefore shows the behavior in its real current form: chat checks the KB, answers what it holds, names what it lacks, and offers to record it. If that variant is not acceptable, the slot should wait for two-surfaces instead. | Open |
-| 2026-08-03 | **`funderstorm-cycle`'s third beat ("the funder page gaining a history entry") has no capturable surface**: there are no funder pages in the current KB. The clip ends on the draft with collected facts instead. | Open |
+| 2026-08-03 | **`funderstorm-cycle`'s third beat ("the funder page gaining a history entry") has no capturable surface**: there are no funder pages in the current KB. The clip ends on the locked recap with collected facts instead (see the matching product finding on manual advancement). | Open |
 | 2026-08-03 | **`first-run` is gated on operations, not just product**: it needs a genuinely empty org, and the only path today is wiping the loaded standing universe and reloading it afterwards (a staged session with a mid-run human re-login, per the session-expiry finding). A scratch org or org reset would make this clip cheap. Whether one typed sentence creates visibly-sourced KB entries (the spec's core beat) is untested. | Open |
 
 ## Demo-org findings (this repo)
