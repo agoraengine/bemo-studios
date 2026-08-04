@@ -45,7 +45,7 @@ A signed-in user inside the product (or linked from onboarding), at the moment t
 
 ## Proof available
 
-Nothing is cleared. The message map's Academy row cites Patti Connolly ("exactly the kind of on-ramp that nonprofit boards need right now"), but she has no entry in `../../../bemo-os/docs/customer-stories/00-overview.md`, so the quote is unusable until a clearance is recorded there. Logged in `findings.md`. Lessons need no customer proof to do their job.
+Nothing is cleared, and nothing is needed: lessons carry no customer proof by design, so nothing in this series waits on clearances (Becky, 2026-08-04). One canon-hygiene note, logged in `findings.md` and not a gate: the message map's Academy row cites Patti Connolly, who has no entry in `../../../bemo-os/docs/customer-stories/00-overview.md`; that mismatch is bemo-os's to resolve.
 
 | Proof | Source | Permission |
 |---|---|---|
