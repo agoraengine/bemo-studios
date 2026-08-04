@@ -4,7 +4,7 @@ The one-glance map of the series. One row per lesson in the app's Academy sectio
 
 Status ladder, in order: **Discovered → Scripted → Ratified → Generated → Captured → Assembled → Shipped**. Batches of 3-5 move Discovered → Scripted together and are ratified together (per `brief.md`). Detail lives in each lesson's `lessons/<slug>/` folder; this table holds status only.
 
-Presenter is **Generic** (the series' one stock avatar, `brief.md`) for every lesson. The column exists for the SME-partner future: a partner clearing consent for their area changes those rows to their name, nothing else.
+Presenter comes from the cast table in `brief.md`: one stock avatar per product category, so the column holds the cast name (Daphne, and the rest as the audition assigns them). A category never mixes presenters. An SME partner clearing consent for their category takes over those rows, nothing else changes.
 
 | # | Lesson | Slug | Product area | Presenter | App route | Batch | Status |
 |---|---|---|---|---|---|---|---|

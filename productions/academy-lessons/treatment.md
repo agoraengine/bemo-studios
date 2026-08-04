@@ -14,7 +14,7 @@ The register is a college lesson, about five minutes: the viewer listens, reads,
 
 **Keeping five minutes compelling.** The frame changes every 20-40 seconds: split to bubble, capture to text slide, never one static composition for a minute. The reading layer is what makes it a lesson rather than a monologue: key lines, terms, and steps appear on screen in sync with the narration, so the viewer reads what they are hearing. Text builds progressively (a line lands when it is spoken, prior lines persist as the running outline), set per the type rules below.
 
-**Who the presenter is:** the series' one generic stock avatar (`brief.md`), the same in every lesson. The roster's Presenter column exists for the SME-partner future: a partner's arrival changes the rows for their area, nothing else.
+**Who the presenter is:** the lesson's product category looks it up in the cast table in `brief.md`: one stock avatar and matched voice per category, never mixed within a category or within a lesson. The cast is the SME-partner future drawn in advance: a partner clearing consent for their category takes over that seat, and nothing else changes.
 
 The open follows the problem-first rule at lesson scale: the first sentence names the job ("A new board member starts Monday"), not the feature ("Academy's onboarding module").
 
@@ -42,7 +42,7 @@ The video is the website's front door continued, per `../../../bemo-website/DESI
 
 ## Avatar generation
 
-- One HeyGen render per movement, generated from the locked script text with the series presenter and its matched voice (avatar_id/voice_id in `brief.md`).
+- One HeyGen render per movement, generated from the locked script text with the lesson's category presenter and its matched voice (the cast table in `brief.md`).
 - Movement 2 narration is generated as avatar video too (the split and bubble crops come from it), so voice and lips always agree wherever the presenter is visible.
 - Batches of lessons go through `create_video_batch`; singles through `create_video_from_avatar`. Renders download to `capture/out/<slug>/avatar/`, never into git.
 
