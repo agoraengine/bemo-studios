@@ -8,9 +8,11 @@ Three movements, every lesson:
 
 | Movement | Screen | Sound | Timing |
 |---|---|---|---|
-| **1. The job** | Avatar full-frame (twin, waist-up, plain warm-paper backdrop). Lesson title as a lower third. The AI-presenter disclosure appears here (see below). | Twin speaks the open: the job to be done, in the viewer's terms, before any product noun. | ~8-12s |
-| **2. The work** | Screen capture of the real app doing the lesson's subject, twin in picture-in-picture (bottom-right, ~22% frame width, rounded corners per the site's soft geometry). PiP drops out entirely when the screen needs full attention; voice carries. | Twin narrates over the capture. Pacing per `capture/lib/pacing.mjs`: the UI never moves faster than the narration explains it. | The body of the runtime |
-| **3. The handle** | Avatar full-frame again. One-line recap of what the viewer can now do, then where this lives in the product ("find this in Academy, or just start the work and ask"). | Twin. No sell, no CTA beyond the product itself. | ~6-10s |
+| **1. The job** | Presenter full-frame (waist-up, plain warm-paper backdrop). Lesson title as a lower third. The AI-presenter disclosure appears here (see below). | The presenter speaks the open: the job to be done, in the viewer's terms, before any product noun. | ~8-12s |
+| **2. The work** | Screen capture of the real app doing the lesson's subject, presenter in picture-in-picture (bottom-right, ~22% frame width, rounded corners per the site's soft geometry). PiP drops out entirely when the screen needs full attention; voice carries. | The presenter narrates over the capture. Pacing per `capture/lib/pacing.mjs`: the UI never moves faster than the narration explains it. | The body of the runtime |
+| **3. The handle** | Presenter full-frame again. One-line recap of what the viewer can now do, then where this lives in the product ("find this in Academy, or just start the work and ask"). | The presenter. No sell, no CTA beyond the product itself. | ~6-10s |
+
+**Who the presenter is** follows the product-area rule in `brief.md`: Becky's twin for Amplify lessons, the series' one generic stock avatar for everything else. Each lesson's presenter is fixed in `roster.md` and never mixes within a lesson.
 
 The open follows the problem-first rule at lesson scale: the first sentence names the job ("A new board member starts Monday"), not the feature ("Academy's onboarding module").
 
@@ -38,7 +40,7 @@ The video is the website's front door continued, per `../../../bemo-website/DESI
 
 ## Avatar generation
 
-- One HeyGen render per avatar movement (movement 1 and movement 3, plus any mid-lesson full-frame returns), generated from the locked script text with the twin's avatar_id and matched voice (ids in `brief.md`).
+- One HeyGen render per avatar movement (movement 1 and movement 3, plus any mid-lesson full-frame returns), generated from the locked script text with the lesson's assigned presenter and its matched voice (both avatar_id/voice_id pairs live in `brief.md`; the roster says which one a lesson uses).
 - Movement 2 narration is generated as audio-led avatar video too (the PiP crop comes from it), so voice and lips always agree.
 - Batches of lessons go through `create_video_batch`; singles through `create_video_from_avatar`. Renders download to `capture/out/<slug>/avatar/`, never into git.
 
@@ -46,7 +48,7 @@ The video is the website's front door continued, per `../../../bemo-website/DESI
 
 Plan-driven: each lesson's `lessons/<slug>/plan.json` lists segments (avatar full-frame, screen capture with PiP window, title card), and the shared cutter `capture/assemble.mjs` renders it: trims, PiP compositing, caption burn from the locked script, loudnorm to -16 LUFS, delivery variants per standards. Naming: `bemo-academy-<slug>-<variant>-v<n>.mp4`.
 
-Dropping the `avatar` track from a plan.json produces the voice-over-capture fallback cut with no other pipeline change. This is the series' escape hatch if the twin disappoints.
+Dropping the `avatar` track from a plan.json produces the voice-over-capture fallback cut with no other pipeline change. This is the escape hatch if a presenter disappoints; it applies per presenter, not to the whole series.
 
 ## Per-lesson files
 

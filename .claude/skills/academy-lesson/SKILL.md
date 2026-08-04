@@ -10,9 +10,9 @@ Moves lessons through `productions/academy-lessons/` along the roster's status l
 ## Gates, in order
 
 1. **Series brief ratified.** `productions/academy-lessons/brief.md` must say RATIFIED. If DRAFT, stop and say so.
-2. **Twin exists.** The brief's decision table must hold a real `avatar_id` and `voice_id`. If pending, the twin setup is the blocker: it is interactive (HeyGen consent flow, Becky records), so name it and stop. Never substitute a stock avatar; the Academy exception in `docs/01-pipeline.md` covers Becky's twin only.
-3. **Roster seeded.** If `roster.md` has no lesson rows, run discovery first: Becky runs `node capture/login.mjs`, then `node capture/academy-probe.mjs`, then seed the roster from `capture/out/academy/lessons.json` (one row per lesson, status Discovered, no batch assigned). Log any surprises about Academy's structure to the production's `findings.md`.
-4. **Pilot before batches.** Until one lesson has Shipped status, exactly one lesson (Becky's pick) moves at a time. Batch mode opens only after Becky has approved the finished pilot, because the pilot is where the twin's look and voice get accepted.
+2. **The lesson's presenter exists.** Presenters are assigned by product area (brief.md): Becky's twin for Amplify lessons, the series' one generic stock avatar for everything else. The brief's decision table must hold a real `avatar_id`/`voice_id` for the presenter a lesson needs. A pending twin blocks only Amplify lessons (the setup is interactive: HeyGen consent flow, Becky records; name it and stop). A pending generic pick blocks everything else (Becky chooses one stock avatar at pilot time). Never swap presenters across the product-area line, and never put Becky's voice on the generic avatar.
+3. **Roster seeded.** If `roster.md` has no lesson rows, run discovery first: Becky runs `node capture/login.mjs`, then `node capture/academy-probe.mjs`, then seed the roster from `capture/out/academy/lessons.json` (one row per lesson, status Discovered, no batch assigned, product area from the lesson's subject, presenter from the product-area rule). A lesson whose product area is ambiguous gets flagged for Becky, not guessed. Log any surprises about Academy's structure to the production's `findings.md`.
+4. **Pilot before batches.** Until one lesson has Shipped status, exactly one lesson (Becky's pick) moves at a time. Batch mode opens only after Becky has approved the finished pilot, because the pilot is where a presenter's look and voice get accepted. Each presenter pilots separately: the first lesson using the other presenter also runs alone before batches open for its product areas.
 
 ## Scripting a batch (Discovered → Scripted)
 
@@ -30,7 +30,7 @@ Present the batch to Becky as one review: per lesson, the script, its measured r
 
 ## Production (Ratified → Shipped), unattended per lesson
 
-1. **Generate.** One HeyGen render per avatar movement from the locked script text, twin `avatar_id` + matched voice: `create_video_from_avatar` for singles, `create_video_batch` + `bulk_video_statuses` polling for batches. Download renders to `productions/academy-lessons/capture/out/<slug>/avatar/` (gitignored). VO matches the locked script word for word; if a read demands a change, change the script first (it drops back to Scripted for re-ratification). Roster → Generated.
+1. **Generate.** One HeyGen render per avatar movement from the locked script text, using the lesson's assigned presenter (`avatar_id` + matched voice from the brief's decision table): `create_video_from_avatar` for singles, `create_video_batch` + `bulk_video_statuses` polling for batches. Download renders to `productions/academy-lessons/capture/out/<slug>/avatar/` (gitignored). VO matches the locked script word for word; if a read demands a change, change the script first (it drops back to Scripted for re-ratification). Roster → Generated.
 2. **Capture.** Becky (or a fresh session) runs `node capture/login.mjs`, then `node productions/academy-lessons/capture/run.mjs <slug>` per lesson. Sessions expire ~1h: the runner stops cleanly on expiry, and the roster makes resuming per-lesson cheap. Roster → Captured.
 3. **Assemble.** Write `lessons/<slug>/plan.json` (schema in the assemble script's header) and run `node productions/academy-lessons/capture/assemble.mjs lessons/<slug>/plan.json`. Captions come from the locked script as an `.srt` in the lesson folder. Roster → Assembled.
 4. **Standards check.** The full checklist in `docs/02-production-standards.md`, plus the series' own: the disclosure chip is visible on the first avatar frame, and nothing in the twin's mouth is testimonial. A failure is fixed in script or plan, never waved through.
@@ -38,4 +38,4 @@ Present the batch to Becky as one review: per lesson, the script, its measured r
 
 ## The fallback
 
-If the twin disappoints (Becky's call at the pilot), the series ships voice-over-capture: drop avatar segments and `pip` keys from each `plan.json`, generate VO only, and the rest of the pipeline is unchanged. The brief records the switch; the exception in `docs/01-pipeline.md` goes unused.
+If a presenter disappoints (Becky's call at that presenter's pilot), its lessons ship voice-over-capture: drop avatar segments and `pip` keys from each `plan.json`, generate VO only, and the rest of the pipeline is unchanged. The brief records the switch per presenter; the other presenter's lessons are unaffected.

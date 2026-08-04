@@ -37,10 +37,11 @@ A signed-in user inside the product (or linked from onboarding), at the moment t
 
 | Decision | Resolution |
 |---|---|
-| Presenter | **Digital twin of Becky** (Becky, 2026-08-03). Reverses the avatar ban for this series only, under the three conditions of the Academy exception in `docs/01-pipeline.md`: Becky's own consent via HeyGen's flow, on-screen AI disclosure in every lesson, teach-never-testify. |
-| Voice | **The twin's own matched voice**, created during twin setup. Not the sizzle clone (`7fa742e991de4771a83eb35b53515833`), which stays reserved for founder/brand narration. |
+| Presenter | **By product area** (Becky, 2026-08-03). Amplify lessons: Becky's digital twin. All other lessons: one generic stock avatar, chosen once for the series, as a deliberate placeholder until subject-matter-expert partners clear the same consent bar and present their own areas (the marketplace direction). Governed by the four conditions of the Academy exception in `docs/01-pipeline.md`: twins only with the person's own consent, the generic avatar is nobody, on-screen AI disclosure in every lesson, teach-never-testify. |
+| Voice | **Each presenter's own matched voice.** The twin's voice from twin setup for Amplify; the generic avatar's stock voice elsewhere. Not the sizzle clone (`7fa742e991de4771a83eb35b53515833`), which stays reserved for founder/brand narration; Becky's voice never comes out of the generic presenter. |
 | Gating at scale | **Batch review.** This brief and treatment.md are ratified once. Lesson scripts are written in batches of 3-5 and Becky ratifies a batch at a time; generation, capture, and assembly then run unattended for that batch. The pilot lesson goes through alone first. |
-| Twin identifiers | avatar_id: _pending twin setup_ / voice_id: _pending twin setup_ (recorded here after the one-time interactive HeyGen consent + digital twin flow) |
+| Twin identifiers (Amplify) | avatar_id: _pending twin setup_ / voice_id: _pending twin setup_ (recorded here after the one-time interactive HeyGen consent + digital twin flow) |
+| Generic avatar (all other products) | avatar_id: _pending: Becky picks one stock avatar from HeyGen's library, with its matched voice, at pilot time_ / voice_id: _pending_ |
 
 ## Proof available
 
@@ -58,4 +59,6 @@ A user who watches a lesson video does the thing without asking chat how. Lee se
 
 - Lesson count and structure: unknown until `node capture/academy-probe.mjs` runs against the live app (needs `node capture/login.mjs` first). The roster is seeded from its output.
 - Which lesson pilots first: Becky picks from the seeded roster.
-- Twin setup scheduling: the HeyGen consent + footage recording is the long-lead item, same as the ga-sizzle voice clone was. Do it before the pilot script is written so a twin-quality failure is discovered early. Fallback if the twin disappoints: the series ships voice-over-screen-capture (drop the avatar track from each lesson's plan.json), and the exception in the pipeline doc goes unused.
+- Twin setup scheduling: the HeyGen consent + footage recording is the long-lead item, same as the ga-sizzle voice clone was. It only gates Amplify lessons now; non-Amplify batches can run on the generic avatar first. Fallback if either presenter disappoints: that presenter's lessons ship voice-over-screen-capture (drop the avatar track from each lesson's plan.json).
+- Which stock avatar and voice carry the generic seat: Becky picks at pilot time; the pick is recorded in the decision table above and never varies within the series.
+- The SME-partner marketplace is direction, not canon. If it starts shaping external claims or partner conversations, it needs ratifying into bemo-os first; logged in `findings.md` as a standing note.

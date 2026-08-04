@@ -94,13 +94,21 @@ Official remote server at `https://mcp.heygen.com/mcp/v1/`. OAuth, no API key, a
 
 ElevenLabs is the fallback if HeyGen's voice quality does not hold up under a full read. It has an official MCP and a 10k credit free tier. Do not add it unless HeyGen actually fails, per the standing rule that paid tools get added when the work requires them, not in advance.
 
-**The Academy exception (Becky, August 3, 2026).** The avatar ban above stands for demo, sizzle, core-set, and founder-POV video. For the Academy lesson series (`productions/academy-lessons/`), and only there, a digital twin of Becky presents the lessons. The two reasons above resolve differently for instructional content: a lesson is a person teaching, not a product demo, so the presenter is not fighting the footage; and the trust problem is answered rather than ignored, on three conditions that are part of the exception, not optional:
+**The Academy exception (Becky, August 3, 2026).** The avatar ban above stands for demo, sizzle, core-set, and founder-POV video. For the Academy lesson series (`productions/academy-lessons/`), and only there, avatars present the lessons. The two reasons above resolve differently for instructional content: a lesson is a person teaching, not a product demo, so the presenter is not fighting the footage; and the trust problem is answered rather than ignored, on the conditions below, which are part of the exception, not optional.
 
-1. **Consent is Becky's own.** The twin is created through HeyGen's consent flow, recorded by Becky herself. No twin of anyone else, ever.
-2. **Every lesson discloses the AI presenter on screen.** A viewer never mistakes the twin for a recording of Becky. The disclosure placement is specified in the series treatment and is part of the standards check.
-3. **The twin teaches; it never testifies.** Same boundary as the cloned voice (see `productions/ga-sizzle-reel/brief.md`, the voice decision): product instruction Becky wrote and approved is fine; anything that reads as personal testimonial, a spoken claim about her own experience, or the founder addressing a prospect stays with the real Becky on real camera.
+**Who presents what.** Presenters are assigned by product area, and the assignment is itself doctrine:
 
-A lesson video that fails any of the three gets rewritten, not shipped.
+- **Amplify lessons: Becky's digital twin.** Amplify is the communications product, the one whose craft is closest to hers; her twin presents those lessons and no others.
+- **Every other lesson: one generic stock avatar**, chosen once for the series. It is a placeholder by design: the direction (Becky, August 3, 2026) is that these seats get filled by subject-matter-expert partners presenting their own areas, toward a full marketplace of expert-led lessons. Until a partner has cleared the same consent bar Becky did, the seat stays generic. The marketplace is direction, not shipped product; no lesson shows or claims it.
+
+**The conditions:**
+
+1. **Twins only with the person's own consent.** A digital twin exists only when the person it depicts records HeyGen's consent flow themself. Becky's is the only twin today. The same bar applies to every future SME partner; nobody's likeness is ever synthesized without it.
+2. **The generic avatar is nobody.** A stock HeyGen persona, never a likeness of a real person, and never presented as a BeMo employee, a named expert, or anyone with an identity a viewer could believe in. It is a narrator with a face.
+3. **Every lesson discloses the AI presenter on screen.** A viewer never mistakes any presenter, twin or generic, for a recording of a real person. The disclosure placement is specified in the series treatment and is part of the standards check.
+4. **Presenters teach; they never testify.** Same boundary as the cloned voice (see `productions/ga-sizzle-reel/brief.md`, the voice decision): product instruction written and approved is fine; anything that reads as personal testimonial, a spoken claim about lived experience, or a founder addressing a prospect stays with a real person on real camera.
+
+A lesson video that fails any of the four gets rewritten, not shipped.
 
 ### Canva MCP (titles, end cards, thumbnails)
 
