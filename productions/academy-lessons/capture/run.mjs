@@ -33,8 +33,12 @@ if (!slug) {
 const OUT = path.join(HERE, "out", slug);
 fs.mkdirSync(OUT, { recursive: true });
 
+// Headed: if the profile has no session, the operator signs in right here and
+// the take continues in the same browser (the app's cookies do not survive
+// browser restarts; see findings.md). The login moments are never inside any
+// plan.json window, so they never reach a cut.
 const context = await chromium.launchPersistentContext(PROFILE, {
-  headless: true,
+  headless: false,
   viewport: { width: 1920, height: 1200 },
   recordVideo: { dir: OUT, size: { width: 1920, height: 1200 } },
 });
@@ -50,10 +54,18 @@ const mark = (what) => {
 
 async function assertLoggedIn() {
   const text = await page.locator("body").innerText().catch(() => "");
-  if (/Sign in to your BeMo account/i.test(text)) {
-    mark("SESSION EXPIRED: run `node capture/login.mjs` first");
-    throw new Error("session expired");
+  if (!/Sign in to your BeMo account/i.test(text)) return;
+  mark("login page: sign in in this window, the take resumes by itself");
+  const start = Date.now();
+  while (Date.now() - start < 600000) {
+    await sleep(2500);
+    const t = await page.locator("body").innerText().catch(() => "");
+    if (!/Sign in to your BeMo account/i.test(t) && !page.url().includes("/auth/")) {
+      mark("signed in, resuming");
+      return;
+    }
   }
+  throw new Error("waited 10 minutes for sign-in");
 }
 
 async function stableAnswer({ quiet = 9000, max = 180000 } = {}) {
