@@ -1,9 +1,9 @@
 {
   "slug": "pilot-knows-whats-missing",
-  "version": 2,
-  "poster": { "segment": 2, "at": 16.0 },
+  "version": 3,
+  "poster": { "segment": 2, "at": 13.0 },
   "segments": [
-    { "type": "avatar", "src": "../../capture/out/pilot-knows-whats-missing/avatar/p1v2.mp4" },
+    { "type": "avatar", "src": "../../capture/out/pilot-knows-whats-missing/avatar/p1v3.mp4" },
     { "type": "split",
       "src": "../../../website-demo-slots/capture/out/knows-whats-missing-raw.webm",
       "from": 8.5, "to": 18.37,
@@ -11,8 +11,8 @@
       "text": [ { "from": 1.0, "text": "Ask the way you'd ask a colleague" } ] },
     { "type": "screen",
       "src": "../../../website-demo-slots/capture/out/knows-whats-missing-raw.webm",
-      "from": 29.2, "to": 46.46,
-      "bubble": "../../capture/out/pilot-knows-whats-missing/avatar/p3.mp4", "bubbleFrom": 0,
+      "from": 31.7, "to": 46.46,
+      "bubble": "../../capture/out/pilot-knows-whats-missing/avatar/p3v3.mp4", "bubbleFrom": 0,
       "text": [
         { "from": 1.0, "text": "Answers from your organization's own record" },
         { "from": 10.5, "text": "It tells you what's missing" }
@@ -22,6 +22,6 @@
       "from": 55.5, "to": 69.24,
       "bubble": "../../capture/out/pilot-knows-whats-missing/avatar/p4.mp4", "bubbleFrom": 0,
       "text": [ { "from": 1.5, "text": "Fill the gap once. It's remembered." } ] },
-    { "type": "avatar", "src": "../../capture/out/pilot-knows-whats-missing/avatar/p5v2.mp4" }
+    { "type": "avatar", "src": "../../capture/out/pilot-knows-whats-missing/avatar/p5v3.mp4" }
   ]
 }
