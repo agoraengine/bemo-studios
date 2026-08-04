@@ -3,55 +3,136 @@
 <head>
 <meta charset="utf-8">
 <style>
-  /* Warm-paper reading-layer slides per treatment.md. System faces stand in for
-     Bricolage/Geist at render time; the register is the same. */
+  /* TED-register lecture deck per treatment.md: one idea per slide, huge type,
+     few words, bold color where the moment must land. Warm-paper base. */
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { width: 1920px; height: 1080px; background: #f6f2e9; color: #1b2437;
          font-family: "Avenir Next", "Helvetica Neue", system-ui, sans-serif; overflow: hidden; }
-  .slide { display: none; width: 1920px; height: 1080px; padding: 110px 130px; }
-  .slide.on { display: block; }
-  .eyebrow { font-size: 30px; color: #6b6456; letter-spacing: .02em; margin-bottom: 18px; }
-  h1 { font-size: 64px; font-weight: 700; line-height: 1.08; margin-bottom: 64px; }
-  table { width: 100%; border-collapse: collapse; font-size: 38px; }
-  th { text-align: left; font-size: 30px; color: #6b6456; font-weight: 600; padding: 0 28px 18px 28px; }
-  td { padding: 30px 28px; background: #fffdf8; border-top: 10px solid #f6f2e9; vertical-align: middle; }
-  td.cat { font-weight: 700; width: 420px; }
-  td.status { width: 430px; font-weight: 700; }
-  .green { color: #2e7d4f; } .yellow { color: #a8730a; } .red { color: #b3362b; }
-  .pair { display: flex; flex-direction: column; gap: 44px; margin-top: 20px; }
-  .card { background: #fffdf8; padding: 52px 56px; border-radius: 18px; font-size: 46px; line-height: 1.3; }
-  .card .verdict { display: inline-block; margin-top: 26px; font-size: 32px; font-weight: 700;
-                   padding: 10px 22px; border-radius: 10px; }
+  .slide { display: none; width: 1920px; height: 1080px; padding: 120px 140px;
+           flex-direction: column; justify-content: center; position: relative; }
+  .slide.on { display: flex; }
+  .eyebrow { font-size: 30px; color: #6b6456; margin-bottom: 36px; letter-spacing: .04em; text-transform: uppercase; }
+  .big { font-size: 118px; font-weight: 800; line-height: 1.04; letter-spacing: -0.015em; }
+  .mid { font-size: 64px; font-weight: 700; line-height: 1.15; }
+  .accent { color: #b3362b; }
+  .greenword { color: #2e7d4f; }
+  .goldword { color: #a8730a; }
+  .sub { margin-top: 56px; font-size: 40px; color: #4a4437; line-height: 1.5; }
+  .rows { margin-top: 70px; display: flex; flex-direction: column; gap: 34px; }
+  .row { display: flex; align-items: center; gap: 30px; font-size: 44px; }
+  .dot { width: 20px; height: 20px; border-radius: 50%; background: #1b2437; flex: none; }
+  .chips { margin-top: 80px; display: flex; gap: 26px; }
+  .chip { padding: 26px 40px; border-radius: 16px; background: #fffdf8; font-size: 40px; font-weight: 700;
+          border-bottom: 10px solid #cfc8b8; }
+  .chip.g { border-bottom-color: #2e7d4f; }
+  .chip.y { border-bottom-color: #a8730a; }
+  .chip.r { border-bottom-color: #b3362b; }
+  table { width: 100%; border-collapse: collapse; font-size: 44px; margin-top: 60px; }
+  td { padding: 34px 30px; background: #fffdf8; border-top: 12px solid #f6f2e9; }
+  td.cat { font-weight: 800; width: 560px; }
+  td.status { width: 620px; font-weight: 800; text-align: right; }
+  .pair { display: flex; flex-direction: column; gap: 48px; margin-top: 70px; }
+  .card { background: #fffdf8; padding: 56px 60px; border-radius: 20px; font-size: 56px; font-weight: 600; line-height: 1.25; }
+  .verdict { display: inline-block; margin-top: 28px; font-size: 34px; font-weight: 800;
+             padding: 12px 26px; border-radius: 12px; }
   .not { background: #e7f2ea; color: #2e7d4f; }
   .is  { background: #f7e9e7; color: #b3362b; }
-  .foot { position: absolute; bottom: 56px; left: 130px; font-size: 26px; color: #6b6456; }
+  .foot { position: absolute; bottom: 54px; left: 140px; font-size: 26px; color: #6b6456; }
+  .redwash { background: #2a1614; color: #f6f2e9; }
+  .redwash .eyebrow { color: #c9a29b; }
+  .redwash .sub { color: #d8c7c2; }
 </style>
 </head>
 <body>
-<div class="slide" id="categories">
+
+<div class="slide" id="cost">
   <div class="eyebrow">AC-01 · Introduction to Nonprofit Advocacy</div>
-  <h1>One word, four different activities</h1>
+  <div class="big">The cost is<br>years of silence.</div>
+  <div class="rows">
+    <div class="row"><span class="dot"></span>Reading minutes cut. Not a word to the school board.</div>
+    <div class="row"><span class="dot"></span>Eligibility tightens. The food bank just expands capacity.</div>
+    <div class="row"><span class="dot"></span>Summer funding frozen a decade. Nobody asks why.</div>
+  </div>
+  <div class="foot">General education, not legal advice</div>
+</div>
+
+<div class="slide" id="fourword">
+  <div class="eyebrow">The source of the confusion</div>
+  <div class="big">One word.<br>Four different activities.</div>
+  <div class="chips">
+    <div class="chip g">Education</div>
+    <div class="chip g">Issue advocacy</div>
+    <div class="chip y">Lobbying</div>
+    <div class="chip r">Political activity</div>
+  </div>
+</div>
+
+<div class="slide" id="categories">
+  <div class="eyebrow">The four-category model</div>
+  <div class="mid">Three green lights. One high ceiling. One red line.</div>
   <table>
-    <tr><th>Category</th><th>What it is</th><th>Restricted?</th></tr>
-    <tr><td class="cat">Education</td><td>Explaining an issue, no ask attached</td><td class="status green">No. Unlimited</td></tr>
-    <tr><td class="cat">Issue advocacy</td><td>A position on an issue, not a bill</td><td class="status green">No. Unlimited</td></tr>
-    <tr><td class="cat">Lobbying</td><td>An ask on specific legislation</td><td class="status yellow">Limits you almost never hit</td></tr>
-    <tr><td class="cat">Political activity</td><td>Supporting or opposing a candidate</td><td class="status red">Prohibited</td></tr>
+    <tr><td class="cat">Education</td><td>Explaining an issue</td><td class="status greenword">Unlimited</td></tr>
+    <tr><td class="cat">Issue advocacy</td><td>A position, not a bill</td><td class="status greenword">Unlimited</td></tr>
+    <tr><td class="cat">Lobbying</td><td>An ask on specific legislation</td><td class="status goldword">Limits you almost never hit</td></tr>
+    <tr><td class="cat">Political activity</td><td>For or against a candidate</td><td class="status accent">Prohibited</td></tr>
   </table>
   <div class="foot">General education, not legal advice · Full table in the AC-01 Reading</div>
 </div>
+
+<div class="slide" id="education">
+  <div class="eyebrow">Category one</div>
+  <div class="big"><span class="greenword">Education.</span><br>Do as much as you want.</div>
+  <div class="sub">A fact sheet. A community forum. A neutral training on what's actually in a bill.</div>
+</div>
+
+<div class="slide" id="issue">
+  <div class="eyebrow">Category two</div>
+  <div class="big"><span class="greenword">Issue advocacy.</span><br>A position, not a bill.</div>
+  <div class="sub">"Our community needs more affordable housing." Petitions, op-eds, rallies. Still not lobbying.</div>
+</div>
+
 <div class="slide" id="lobbying">
-  <div class="eyebrow">AC-01 · The line that matters</div>
-  <h1>Same idea, two sides of the line</h1>
+  <div class="eyebrow">Category three · The line that matters</div>
   <div class="pair">
     <div class="card">"We need more housing funding."<br><span class="verdict not">Not lobbying</span></div>
-    <div class="card">"Tell your state senator to vote yes on HB 412."<br><span class="verdict is">Lobbying: allowed, within limits</span></div>
+    <div class="card">"Tell your state senator: vote yes on HB 412."<br><span class="verdict is">Lobbying — allowed, within limits</span></div>
   </div>
   <div class="foot">General education, not legal advice · AC-04 covers the limits</div>
 </div>
+
+<div class="slide redwash" id="redline">
+  <div class="eyebrow">Category four · The only prohibition</div>
+  <div class="big">One red line:<br><span style="color:#e2564a">candidates.</span></div>
+  <div class="sub">Supporting or opposing anyone running for office. That's the actual ban. Everything else is open to you.</div>
+</div>
+
+<style>
+  /* half mode: 960x1080 variants for the split-screen pane, so nothing crops */
+  body.half { width: 960px; }
+  body.half .slide { width: 960px; padding: 90px 70px; }
+  body.half .big { font-size: 72px; }
+  body.half .mid { font-size: 46px; }
+  body.half .rows { margin-top: 50px; gap: 26px; }
+  body.half .row { font-size: 30px; gap: 18px; }
+  body.half .dot { width: 14px; height: 14px; }
+  body.half .eyebrow { font-size: 22px; margin-bottom: 26px; }
+  body.half table { font-size: 28px; margin-top: 40px; }
+  body.half td { padding: 22px 18px; border-top-width: 8px; }
+  body.half td.cat { width: 260px; }
+  body.half td.status { width: 280px; }
+  body.half .pair { gap: 30px; margin-top: 44px; }
+  body.half .card { padding: 36px 38px; font-size: 34px; border-radius: 14px; }
+  body.half .verdict { font-size: 24px; margin-top: 18px; }
+  body.half .foot { left: 70px; bottom: 40px; font-size: 20px; }
+  body.half .chips { margin-top: 50px; flex-wrap: wrap; gap: 16px; }
+  body.half .chip { font-size: 26px; padding: 16px 22px; border-bottom-width: 7px; }
+  body.half .sub { font-size: 28px; margin-top: 36px; }
+</style>
 <script>
-  const id = new URLSearchParams(location.search).get("slide") || "categories";
+  const q = new URLSearchParams(location.search);
+  const id = q.get("slide") || "categories";
   document.getElementById(id).classList.add("on");
+  if (q.get("w") === "half") document.body.classList.add("half");
 </script>
 </body>
 </html>
