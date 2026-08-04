@@ -10,22 +10,21 @@ const HERE = path.dirname(fileURLToPath(import.meta.url));
 const OUT = path.join(HERE, "out");
 const SRC = path.join(HERE, "..", "..", "wrenfield-kb-load", "capture", "out");
 const SER = path.join(HERE, "..", "..", "linkedin-sizzle-series", "capture");
-const run1 = path.join(SRC, "wrenfield-kb-load-doc01.mp4");
-const run2 = path.join(SRC, "wrenfield-kb-load-docs02-13.mp4");
-const ask = path.join(SRC, "wrenfield-ask-board-member.mp4");
+const load = path.join(SRC, "common-table-load.webm");
+const ask = path.join(SRC, "common-table-ask.webm");
 const musicExt2 = path.join(OUT, "music-D-ext2.wav");
 
 const FADE = 0.35;
 const segs = [
   [path.join(OUT, "card-a.webm"), 0.4, 4.4, 4.5, false],
-  [run2, 0.5, 4.3, 2.0, false],
-  [run1, 7.2, 13.2, 4.5, false],
-  [run1, 13.2, 24.3, 2.5, false],
-  [run2, 29.3, 32.5, 5.5, true],
-  [run2, 32.5, 38.5, 2.0, false],
-  [run2, 38.5, 190.0, 8.0, false],
-  [ask, 13.0, 21.0, 6.0, false],
-  [ask, 21.0, 49.0, 11.0, true],
+  [load, 44.0, 45.8, 1.8, false],
+  [load, 45.9, 53.5, 4.5, false],
+  [load, 53.5, 66.0, 2.2, false],
+  [load, 83.5, 88.6, 5.6, false],
+  [load, 88.6, 92.0, 1.6, false],
+  [load, 92.0, 260.0, 9.0, false],
+  [ask, 13.0, 21.5, 6.0, false],
+  [ask, 22.5, 49.5, 10.8, true],
   [path.join(OUT, "card-d.webm"), 0.3, 6.8, 6.0, false],
   [path.join(OUT, "card-c.webm"), 0.3, 8.3, 8.0, false],
 ];
@@ -54,17 +53,17 @@ inputs.push("-i", path.join(SER, "out", "sfx", "typing.mp3"));
 fc += ";" + VO.map(([, at], i) => `[${n + i}:a]adelay=${Math.round(at*1000)}|${Math.round(at*1000)}[a${i}]`).join(";");
 const DUR = 60, SWELL = 52.0;
 fc += `;[${n + VO.length}:a]volume='if(lt(t,${SWELL}),0.18,min(0.18+0.1*(t-${SWELL})/1.2,0.28))':eval=frame,afade=t=in:d=0.6,afade=t=out:st=${DUR - 3}:d=3[mus]`;
-fc += `;[${n + VO.length + 1}:a]atrim=0:4.5,asetpts=PTS-STARTPTS,volume=0.05,afade=t=in:d=0.3,afade=t=out:st=4.1:d=0.4,adelay=29500|29500[typ]`;
+fc += `;[${n + VO.length + 1}:a]atrim=0:4.5,asetpts=PTS-STARTPTS,volume=0.05,afade=t=in:d=0.3,afade=t=out:st=4.1:d=0.4,adelay=29700|29700[typ]`;
 fc += ";" + VO.map((_, i) => `[a${i}]`).join("") + `amix=inputs=${VO.length}:normalize=0[vob]`;
 fc += `;[vob]highpass=f=75,dynaudnorm=f=250:g=15:p=0.9:m=4[voe]`;
 fc += `;[mus][typ]amix=inputs=2:normalize=0[bed]`;
 fc += `;[voe][bed]amix=inputs=2:normalize=0[mix];[mix]loudnorm=I=-14:TP=-1.5:LRA=11[aout]`;
 const font = path.join(SER, "fonts", "Geist.ttf");
-fc += `;[vcat]drawtext=fontfile='${font}':text='The Wrenfield Alliance':fontsize=22:fontcolor=0x1A2A3A:box=1:boxcolor=0xFFFFFFCC:boxborderw=10:x=w-tw-28:y=24:enable='between(t,4.7,45.8)'[vc1]`;
-fc += `;[vc1]drawtext=fontfile='${font}':text='(a fictitious demo organization)':fontsize=17:fontcolor=0x6B7A90:box=1:boxcolor=0xFFFFFFCC:boxborderw=8:x=w-tw-30:y=58:enable='between(t,4.7,45.8)'[vchip]`;
+fc += `;[vcat]drawtext=fontfile='${font}':text='Common Table Food Pantry':fontsize=22:fontcolor=0x1A2A3A:box=1:boxcolor=0xFFFFFFCC:boxborderw=10:x=w-tw-28:y=24:enable='between(t,4.6,45.6)'[vc1]`;
+fc += `;[vc1]drawtext=fontfile='${font}':text='(a fictitious demo organization)':fontsize=17:fontcolor=0x6B7A90:box=1:boxcolor=0xFFFFFFCC:boxborderw=8:x=w-tw-30:y=58:enable='between(t,4.6,45.6)'[vchip]`;
 const srt = path.join(OUT, "bemo-super-demo-60.srt");
 fc += `;[vchip]subtitles='${srt}':fontsdir='${path.join(SER, "fonts")}':force_style='FontName=Geist,FontSize=10.5,PrimaryColour=&H003A2A1A,BorderStyle=4,BackColour=&H14FFFFFF,OutlineColour=&H14FFFFFF,Outline=1.1,Shadow=0,Alignment=2,MarginV=24'[vout]`;
-const final = path.join(OUT, "bemo-super-demo-60-review-v4.mp4");
+const final = path.join(OUT, "bemo-super-demo-60-review-v5.mp4");
 await run(ffmpegPath, ["-y", ...inputs, "-filter_complex", fc,
   "-map", "[vout]", "-map", "[aout]", "-t", String(DUR),
   "-c:v", "libx264", "-preset", "slow", "-crf", "20", "-pix_fmt", "yuv420p", "-r", "30",

@@ -23,6 +23,7 @@ Kebab-case, describes the video, not the date or the version. `ga-sizzle-reel`, 
 | Production | Serves | State |
 |---|---|---|
 | [ga-sizzle-reel](ga-sizzle-reel/) | GA Launch Wave 0, debuts in Wave 2 | Brief drafted, awaiting ratification. Capture blocked on the two-surfaces build. |
+| [website-demo-slots](website-demo-slots/) | GA Launch Wave 1, the six DemoSlot placements in bemo-website | In production 2026-08-03. Specs ratified in `bemo-website/DEMOS.md`; capturing against the real app. |
 
 ## Queued
 

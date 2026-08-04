@@ -1,0 +1,11 @@
+{
+  "src": "out/knows-whats-missing-raw.webm",
+  "out": "out/knows-whats-missing",
+  "poster": 34.0,
+  "segments": [
+    { "from": 13.0, "to": 15.0 },
+    { "from": 30.5, "to": 34.5 },
+    { "from": 55.0, "to": 58.0 },
+    { "from": 61.2, "to": 64.2 }
+  ]
+}

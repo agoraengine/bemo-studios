@@ -14,6 +14,12 @@ Becky supplied a Press Release Editor screenshot alongside the Amplify letter. N
 
 ## For bemo-os
 
+### "Apps" versus "products," and now "one product" (2026-08-03, updated same day)
+
+Becky directed the reel's ending line through three revisions in one session: "Four apps. One platform." then "Four apps. One memory." then "Four apps. One product." (current, both cuts). The message map's category language says "four products" as the count noun, and describes the platform itself as a "unified, AI-native platform" / "mission accelerator, not a tool bundle," never as "one product." Two open questions now, not one: whether "apps" replaces "products" as the component noun, and whether "one product" (describing the whole as a single product, distinct from "one platform") is the intended register or a placeholder that drifted through revision. The unifying claim it's reaching for is real and traced (`ga-message-map.md` 3.1: "these are not bundled tools; they share organizational memory") but the map has never phrased it as "one product." Needs a founder decision so this line stops changing shape each session and the phrase actually shipping gets written into the map.
+
+## For bemo-os (earlier)
+
 ### Pre-GA debut amends the launch draft's sequencing (2026-08-01)
 
 Becky decided the five-reel series starts posting before GA, as teasers in the ongoing narrative arc and as Jon's pre-call sends. `docs/initiatives/ga-launch/00-overview.md` currently places the sizzle debut in Wave 2 ("as a post rather than an ad") and names launching campaign content before the website as the top failure mode.

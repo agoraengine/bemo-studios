@@ -4,14 +4,14 @@ Drive links only. No media files in this repo.
 
 **Drive folder:** PENDING (Becky: create the series folder and paste the link here)
 
-## Delivered cuts: reel 1 (rendered 2026-08-02, awaiting Drive upload from `capture/out/`)
+## Delivered cuts: reel 1 (16:9 only per the Aug 3 brief amendment; awaiting Drive upload from `capture/out/`)
 
 | Variant | Version | Date | Link | Notes |
 |---|---|---|---|---|
-| Reel 1, 30s vertical 9:16 (primary) | v1 | 2026-08-02 | PENDING upload | `bemo-linkedin-sizzle-series-r1-30s-vertical-v1.mp4`; VO, music, burned captions |
-| Reel 1, 30s 16:9 | v1 | 2026-08-02 | PENDING upload | `bemo-linkedin-sizzle-series-r1-30s-v1.mp4`; 720p (honest raster ceiling, same as the GA sizzle) |
-| Reel 1, 60s vertical 9:16 (primary) | v1 | 2026-08-02 | PENDING upload | `bemo-linkedin-sizzle-series-r1-60s-vertical-v1.mp4`; the Bill/Jon shareable cut |
-| Reel 1, 60s 16:9 | v1 | 2026-08-02 | PENDING upload | `bemo-linkedin-sizzle-series-r1-60s-v1.mp4` |
+| Reel 1, 30s 16:9 | v8 | 2026-08-03 | PENDING upload | `bemo-linkedin-sizzle-series-r1-30s-v8.mp4`; VO leveled per segment; four-apps line resynced to the s6 headline and reads "Four apps. One product." (clone read, pending Becky's real recording, see `vo-recording-sheet.md`; wording flagged in `findings.md`); 720p (honest raster ceiling, same as the GA sizzle) |
+| Reel 1, 60s 16:9 | v12 | 2026-08-03 | PENDING upload | `bemo-linkedin-sizzle-series-r1-60s-v12.mp4`; the Bill/Jon shareable cut; re-rendered against the re-recorded Common Table ask take (fixes a sign-in stall at 32s); four-apps line resynced and worded as above, tagline moved off the four-apps scene onto the end card |
+
+Superseded renders (v1 through v7, v9 through v11, plus the retired verticals) stay in `capture/out/` until the Drive upload; only the two rows above ship.
 
 ## Supporting files
 

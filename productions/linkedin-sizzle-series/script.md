@@ -22,7 +22,8 @@
 | 0:06 | But every conversation starts from zero. You explain your mission again. | A different empty chat, same sentence being typed from the start. Caption: "Thursday. Explaining it again." | R1-S2 |
 | 0:13 | And again. | A third empty chat. Nothing typed yet, cursor blinking. Text resolves: "Every one starts from zero." | R1-S3 |
 | 0:17 | BeMo is where your organization's knowledge lives. You never start over. | The thesis headline, then "You never start over." resolves beneath it. | R1-S4 |
-| 0:19 | BeMo. Where missions gain momentum. | Wordmark and tagline, same words, "bemointel.ai" small beneath. Held to the end. | R1-S5 |
+| 0:16.8 | Four apps. One product. | Icons cascade in: Compass, FunderStorm, Amplify, Academy, headline synced to land with the line. | R1-S10 |
+| 0:21.1 | BeMo. Where missions gain momentum. | Wordmark and tagline, same words, "bemointel.ai" small beneath. Held to the end. | R1-S5 |
 
 ### Notes
 
@@ -57,9 +58,10 @@
 | 0:25 | An email. A call note. A spreadsheet. A message. Scattered on their own. Held together, they become what your organization knows. And it keeps building. | Four fragments drift in and resolve into one organized record (the GA sizzle S3 scene). | R1-S7 |
 | 0:37 | So the work comes out finished, in your voice, with nothing re-explained. | A real finished Amplify appeal letter (demo org), cropped to the letter body. | R1-S8 |
 | 0:44 | Your next grant cycle should start where your last one ended, not from scratch. | The line above a FunderStorm screen showing a cycle carrying forward. | R1-S9 |
-| 0:44 | BeMo. Where missions gain momentum. | Wordmark and tagline, same words, "bemointel.ai" small beneath. Held to the end plus tail. | R1-S5 |
+| 0:41.5 | Four apps. One product. | Icons cascade in: Compass, FunderStorm, Amplify, Academy, headline synced to land with the line. | R1-S10 |
+| 0:45.3 | BeMo. Where missions gain momentum. | Wordmark and tagline, same words, "bemointel.ai" small beneath. Held to the end plus tail. | R1-S5 |
 
-**VO map:** R1-S1 to S3 `s1-ai-tools.wav`; R1-S6 `s2-thesis-v2.wav`; R1-S7 `s3-fragments-fast.wav`; R1-S8 `s3b-finished-work-v2.wav`; R1-S5 `r1-s5-beta-open-v2.wav`. All GA sizzle paths are `../ga-sizzle-reel/capture/out/vo/`.
+**VO map:** R1-S1 to S3 `s1-ai-tools.wav`; R1-S6 `s2-thesis-v2.wav`; R1-S7 `s3-fragments-fast.wav`; R1-S8 `s3b-finished-work-v2.wav`; R1-S10 `clone-r1-fourapps.dry.wav` (clone placeholder, see recording sheet); R1-S5 `r1-s5-beta-open-v2.wav`. All GA sizzle paths are `../ga-sizzle-reel/capture/out/vo/`.
 
 **Word count:** 78 narration words, about 31 seconds of speech across 60 seconds; the half-silent density holds.
 
@@ -81,6 +83,7 @@
 | "they become what your organization knows. And it keeps building." (60s cut) | Knowledge compounds | Locked GA sizzle S3 trace: `messaging-assets-v1.md` claim 3; `02-core-insight.md` |
 | "finished, in your voice, with nothing re-explained" (60s cut) | Deliverable claim, not capability claim | Locked GA sizzle S3b trace: `messaging-assets-v1.md` claim 1 |
 | "Your next grant cycle should start where your last one ended, not from scratch." (60s cut, on screen) | Pillar 1 converting message, verbatim | `ga-message-map.md` 3.2 (FunderStorm lead message); `messaging-assets-v1.md` pillar table |
+| "Four apps. One product." (both cuts) | Category self-description; the four components are not bundled tools | Gestures at the unifying claim in `ga-message-map.md` 3.1 ("these are not bundled tools; they share organizational memory") but the exact phrase, and "apps" vs. "products" as the count noun, are not map language yet (flagged in `findings.md`) |
 
 ---
 
@@ -92,6 +95,10 @@ Not started. Written one at a time as their arc-week pairings firm up, per the b
 
 | Version | Date | What changed and why |
 |---|---|---|
+| v10 | 2026-08-03 | Per Becky: the four-apps line changed again, "Four apps. One memory." to "Four apps. One product." (headline, on-screen caption, burned caption, and clone VO all four, same voice ID, regenerated at 1.12x, gain-matched by the leveler). Third wording for this line in one session (platform, then memory, then product); flagged in `findings.md` since "one product" is not phrasing the message map uses anywhere. 30s rendered v8, 60s rendered v12 |
+| v9 | 2026-08-03 | Per Becky: the four-apps line resynced to the visuals and matched to the rest of the track. It was firing 0.3-0.5s ahead of the s6 headline landing (both cuts) and, in the 60s cut, overlapping the tail of the FunderStorm line instead of sitting under its own scene; retimed to 16.85s (30s cut) and 41.5s (60s cut, with the tagline pushed to 45.3s so it lands on the end card instead of over s6). The line itself changed too, "Four apps. One platform." to "Four apps. One memory." (headline, caption, and VO all three); Becky's recorded sessions only hold the GA-era "Four products" take, so a clone read stands in (`clone-r1-fourapps.dry.wav`, same voice ID as the rest of reel 1's clone segments) until she records it fresh, gain-matched to +8.5dB by the per-segment leveler like the rest of the mix. 30s rendered v7, 60s rendered v11 |
+| v8 | 2026-08-03 | Becky's workflow pass: the reel is now one world (Wrenfield) with the app in motion. The front-page card rebuilt as The Wrenfield Alliance in the v2 design (fact-sheet facts; "Good morning, Dana." holds since Wrenfield's ED is Dana Whitaker); fragment cards carry Wrenfield facts; the finished-work beat plays the real answer streaming (the orientation brief writing itself); the pillar beat plays the click into the Grant Progress Report; the ending narration changed per Becky to "Four apps. One platform." (headline matches; clone VO until she records; note: canon says "products", flagged in findings for a map decision) then the close. Rendered v8 |
+| v7 | 2026-08-03 | Per Becky: actual platform on screen instead of screenshots. New live capture of the real app (templates gallery and the Grant Progress Report page, org-neutral, driven and recorded via the session pipeline) now plays inside the finished-work and grant-cycle beats as in-scene video; the Common Table front page stays a design card because that surface has not shipped (rule 4). Ending resynced to word timestamps: icons cascade on "Four products, one platform, one memory," wordmark lands on "BeMo," tagline on "Where missions." 60s rendered as v7 |
 | v6 | 2026-08-03 | Per Becky: the build payoff updated to the latest Common Table content, rebuilt in the Aug 2 GA reference-build v2 design (warm-paper weekly edition, same established Common Table facts; art source `capture/frontpage-ct.html` in the shared capture dir, design quoted from the bemo-os mockup). 60s cut re-rendered as v6; the 30s cut has no front-page beat and stays v5 |
 | v5.2 | 2026-08-03 | Render bug from the v5.1 scene port fixed: a dropped closing tag nested the end card inside the four-products scene, blanking the close and everything after s6 faded (Becky caught it). Div balance verified, both cuts re-rendered, close and four-products beat frame-checked against the VO |
 | v5.1 | 2026-08-03 | Per Becky: the four-products beat restored to both cuts (the GA sizzle S6 scene, icons and all, inserted before the close; 30s runs 25s, 60s runs 51.5s). VO is her real GA-session take of "Four products, one memory." (`b-l10`), treated with the heavier chain to match the dry-room session; a fresh read is listed in the recording sheet for the next session. Claim: "Four products. One memory." traces to the locked GA sizzle S6 and the map's four-products rule (Allocate excluded) |

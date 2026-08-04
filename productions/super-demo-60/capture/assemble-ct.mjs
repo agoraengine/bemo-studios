@@ -16,19 +16,19 @@ const HERE = path.dirname(fileURLToPath(import.meta.url));
 const OUT = path.join(HERE, "out");
 const SRC = path.join(HERE, "..", "..", "common-table-kb-load", "capture", "out");
 const SER = path.join(HERE, "..", "..", "linkedin-sizzle-series", "capture");
-const load = path.join(SRC, "page@7ac70fd50da4cff267db1c05c2b757e5.webm"); // 13-doc KB load, 4:38
+const load = path.join(SRC, "page@4a7fda5aff8eb291ec1785495fb5c09d.webm"); // 13-doc KB load, clean sidebar, 4:44
 const ask = path.join(SRC, "page@80a9e63c22763d1db98b8374549e445b.webm");  // board catch-up ask, 54s
 const musicExt2 = path.join(OUT, "music-D-ext2.wav");
 
 const FADE = 0.35;
 const segs = [
   [path.join(OUT, "card-a.webm"), 0.4, 4.4, 4.5, false],
-  [load, 3.0, 6.8, 2.0, false],       // empty KB (first import starts 7.6)
-  [load, 7.6, 13.6, 4.5, false],      // Seed KB, Import file, browse, Upload (uploading 10.8)
-  [load, 13.6, 24.7, 2.5, false],     // reading and extracting (facts found 25.7)
-  [load, 25.5, 28.7, 5.5, true],      // extraction cards hold, slowed, push-in
-  [load, 47.5, 53.5, 2.0, false],     // doc02: approve all high-confidence, Commit
-  [load, 110.1, 271.0, 8.0, false],   // timelapse docs 06-13 to the full KB (~19x)
+  [load, 2.5, 6.3, 2.0, false],       // empty KB (first import starts 6.6)
+  [load, 6.6, 12.6, 4.5, false],      // Seed KB, Import file, browse, Upload (uploading 9.8)
+  [load, 12.6, 21.4, 2.5, false],     // reading and extracting (facts found 22.3)
+  [load, 22.2, 25.0, 5.5, true],      // extraction cards hold, slowed, push-in (approve 24.0)
+  [load, 44.1, 50.1, 2.0, false],     // doc02: approve all high-confidence, Commit (45.9)
+  [load, 109.1, 274.0, 8.0, false],   // timelapse docs 06-13 to the full KB (~20x)
   [ask, 13.5, 21.9, 6.0, false],      // question typing (typed 20.8), sent 21.7
   [ask, 21.9, 49.9, 11.0, true],      // answer streams (stable 48.7), push-in
   [path.join(OUT, "card-d.webm"), 0.3, 6.8, 6.0, false],

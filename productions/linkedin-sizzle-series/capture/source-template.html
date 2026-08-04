@@ -81,18 +81,15 @@
   body.v #homeS { max-height: 1150px; max-width: 880px; }
   /* finished work (60s) */
   #s3b { background: rgba(248,249,252,0.9); }
-  #s3b img { max-width: 1010px; max-height: 500px; border-radius: 14px; border: 1px solid var(--rule);
+  #s3b video, #s9 video { width: 1180px; border-radius: 14px; border: 1px solid var(--rule);
              box-shadow: 0 10px 32px rgba(26,42,58,0.13); opacity: 0; }
-  body.v #s3b img { max-width: 900px; max-height: 1000px; }
 
   /* pillar scene (60s): the line above, FunderStorm below */
   #s9 { background: var(--snow); gap: 40px; }
   #s9 blockquote { font-size: 42px; line-height: 1.3; color: var(--sapphire); font-weight: 600;
                    letter-spacing: -0.01em; text-align: center; margin: 0; padding: 0 120px; opacity: 0; }
   body.v #s9 blockquote { font-size: 50px; padding: 0 80px; }
-  #fsS { max-height: 430px; width: auto; border-radius: 14px; border: 1px solid var(--rule);
-         box-shadow: 0 10px 32px rgba(26,42,58,0.13); opacity: 0; }
-  body.v #fsS { max-height: 800px; max-width: 880px; }
+  #s9 video { width: 1050px; }
 
   /* four products */
   #s6 h1 { font-size: 64px; font-weight: 600; color: var(--sapphire); letter-spacing: -0.02em; margin: 0 0 52px; opacity: 0; }
@@ -150,21 +147,21 @@
     <div class="frag" id="f1"><div class="src">Email</div>Bright Harbor confirmed the renewal call for August 5.</div>
     <div class="frag" id="f2"><div class="src">Call notes</div>They want the final program report before the 15th.</div>
     <div class="frag" id="f3"><div class="src">Spreadsheet</div>June giving: $18,240. Strongest spring yet.</div>
-    <div class="frag" id="f4"><div class="src">Chat</div>Teen Kitchen's third cohort graduates Friday.</div>
+    <div class="frag" id="f4"><div class="src">Chat</div>Teen Kitchen's third cohort graduates July 30.</div>
     <img id="homeS" src="{{HOME0}}" alt="">
   </div>
 
   <div class="scene" id="s3b">
-    <img id="sh4" src="{{SH4}}" alt="">
+    <video id="v3b" src="../../wrenfield-kb-load/capture/out/common-table-ask.webm" muted preload="auto"></video>
   </div>
 
   <div class="scene" id="s9">
     <blockquote class="serif" id="s9q">Your next grant cycle should start where your last one ended, not from scratch.</blockquote>
-    <img id="fsS" src="{{FUNDERSTORM}}" alt="">
+    <video id="v9" src="out/live-funderstorm-template.webm" muted preload="auto"></video>
   </div>
 
   <div class="scene" id="s6">
-      <h1 class="serif" id="s6h">Four products. One memory.</h1>
+      <h1 class="serif" id="s6h">Four apps. One product.</h1>
       <div class="icons">
         <div class="app" id="a1"><div class="ic" style="background:#E9F0FA;"><svg viewBox="0 0 36 36" fill="none" stroke="#4238C8" stroke-width="2"><circle cx="18" cy="18" r="12"/><path d="M23 13l-3.4 6.8L13 23l3.4-6.8z" fill="#4238C8" stroke="none"/></svg></div><div class="nm">Compass</div></div>
         <div class="app" id="a2"><div class="ic" style="background:#FFF3E6;"><svg viewBox="0 0 36 36" fill="none" stroke="#FF8210" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"><path d="M26 22h-14a5.5 5.5 0 1 1 1.2-10.9A8 8 0 0 1 28.6 13.5 4.5 4.5 0 0 1 26 22z"/><path d="M19 19l-2.6 5h3l-1.7 6 5.4-8h-3l1.6-3z" fill="#FF8210" stroke="none"/></svg></div><div class="nm">FunderStorm</div></div>
@@ -270,21 +267,25 @@
       for (var i = 1; i <= 4; i++) {
         var el = $("f" + i);
         var k = ease(seg(t, starts[i - 1], starts[i - 1] + 0.55));
-        var m = ease(seg(t, 24.8 + (i - 1) * 0.15, 25.9 + (i - 1) * 0.15));
+        var m = ease(seg(t, 24.6 + (i - 1) * 0.3, 26.4 + (i - 1) * 0.3));
         var fp = FP[i - 1];
         el.style.opacity = Math.min(k, 1 - m);
-        el.style.transform = "translate(" + (fp.dx * m) + "px," + ((16 * (1 - k)) + fp.dy * m) + "px) scale(" + (1 - 0.5 * m) + ")";
+        el.style.transform = "translate(" + (fp.dx * m) + "px," + ((16 * (1 - k)) + fp.dy * m) + "px) scale(" + (1 - 0.35 * m) + ")";
       }
-      $("gpop").style.opacity = 0.9 * ease(seg(t, 24.7, 25.5)) * (1 - 0.5 * seg(t, 26.8, 29.9));
+      $("gpop").style.opacity = 0.7 * ease(seg(t, 24.6, 25.8)) * (1 - 0.5 * seg(t, 27.4, 29.9));
       kenburns($("homeS"), 25.0, 29.9, t);
       io($("s3b"), 30.0, 35.2, t);
-      kenburns($("sh4"), 30.3, 35.2, t);
+      var v3b = $("v3b");
+      if (t >= 30.0 && t < 35.4 && v3b.paused) { v3b.currentTime = 27.0; v3b.play(); }
+      v3b.style.opacity = Math.min(ease(seg(t, 30.3, 31.0)), 1 - ease(seg(t, 34.9, 35.3)));
       io($("s9"), 35.4, 40.8, t);
       land($("s9q"), 35.7, t);
-      kenburns($("fsS"), 36.2, 40.8, t);
+      var v9 = $("v9");
+      if (t >= 35.4 && t < 41.0 && v9.paused) { v9.currentTime = 8.2; v9.play(); }
+      v9.style.opacity = Math.min(ease(seg(t, 36.0, 36.7)), 1 - ease(seg(t, 40.5, 40.9)));
       io($("s6"), 41.1, 44.9, t);
       land($("s6h"), 41.35, t);
-      rise($("a1"), 41.5, t); rise($("a2"), 41.75, t); rise($("a3"), 42.0, t); rise($("a4"), 42.25, t);
+      rise($("a1"), 41.55, t); rise($("a2"), 41.9, t); rise($("a3"), 42.25, t); rise($("a4"), 42.6, t);
       closeAt = 45.1;
     } else {
       io($("s6"), 16.5, 20.3, t);

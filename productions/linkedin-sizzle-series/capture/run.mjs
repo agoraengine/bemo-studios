@@ -49,7 +49,10 @@ const MIX = {
     [path.join(VO, "becky", "b2-r1-l2.dry.wav"), 4.0],
     [path.join(VO, "becky", "b2-r1-l3.dry.wav"), 9.4],
     [path.join(VO, "becky", "b2-r1-l4b.dry.wav"), 11.4],
-    [path.join(VO, "becky", "b-ga-l10.dry.wav"), 16.8],
+    // Four-apps beat: clone placeholder ("Four apps. One memory.", Becky's Aug 3
+    // direction) until Becky records the line; her sessions only hold the GA
+    // "Four products" take. Re-record listed in vo-recording-sheet.md.
+    [path.join(VO, "becky", "clone-r1-fourapps.dry.wav"), 16.85],
     [path.join(VO, "becky", "b2-r1-l8.dry.wav"), 21.1],
   ],
   "60": [
@@ -60,7 +63,11 @@ const MIX = {
     [path.join(VO, "becky", "b2-r1-l5.dry.wav"), 19.4],
     [path.join(VO, "becky", "b2-r1-l6.dry.wav"), 30.3],
     [path.join(VO, "becky", "b2-r1-l7.dry.wav"), 35.7],
-    [path.join(VO, "becky", "b2-r1-l8.dry.wav"), 41.4],
+    // Four-apps beat over s6 (41.1-44.9; headline lands 41.35). The tagline
+    // was firing here at 41.4, over the wrong scene, leaving the end card
+    // silent (Becky's Aug 3 review); it moves to the end card at 45.3.
+    [path.join(VO, "becky", "clone-r1-fourapps.dry.wav"), 41.5],
+    [path.join(VO, "becky", "b2-r1-l8.dry.wav"), 45.3],
   ],
 };
 const MUSIC_BY_CUT = {
@@ -90,12 +97,8 @@ function build() {
   // FunderStorm slot: drop a real capture at assets/funderstorm.png (seeded
   // demo org, 2560 wide). Until it exists, the approved funder-page art
   // stands in; the shot list carries the blocked row.
-  const fsFile = fs.existsSync(path.join(HERE, "assets", "funderstorm.png"))
-    ? ["funderstorm.png", "image/png"] : ["wikiS.jpg", "image/jpeg"];
   const html = tpl
-    .replace("{{FUNDERSTORM}}", b64(fsFile[0], fsFile[1]))
     .replace("{{HOME0}}", b64("home-ct.png", "image/png"))
-    .replace("{{SH4}}", b64("amplify.png", "image/png"))
     .replace("{{WORDMARK}}", b64("wordmark.svg", "image/svg+xml"));
   fs.writeFileSync(path.join(HERE, "source.html"), html);
   console.log("source.html built.");
@@ -139,6 +142,25 @@ async function render() {
   }
 }
 
+// Integrated loudness of one file, for per-segment leveling. The VO segments
+// come from different generation sessions (b-ga-l10 is the GA sizzle's take)
+// and land at different levels; dynaudnorm alone left the seams audible
+// (Becky, Aug 3 review). Each segment gets a static gain to a common target
+// before the mix, so the correction is deterministic, not adaptive.
+const VO_TARGET_LUFS = -16;
+const lufsCache = new Map();
+async function measureLUFS(file) {
+  if (lufsCache.has(file)) return lufsCache.get(file);
+  const res = await run(ffmpegPath, [
+    "-hide_banner", "-i", file, "-af", "loudnorm=print_format=json", "-f", "null", "-",
+  ]).catch((e) => e);
+  const m = String(res.stderr).match(/"input_i"\s*:\s*"(-?[\d.]+)"/);
+  if (!m) throw new Error(`Could not measure loudness of ${file}`);
+  const lufs = parseFloat(m[1]);
+  lufsCache.set(file, lufs);
+  return lufs;
+}
+
 async function finish() {
   for (const { cut, aspect } of COMBOS) {
     const raw = path.join(OUT, `${SLUG}-raw-${cut}s-${aspect}.webm`);
@@ -146,7 +168,7 @@ async function finish() {
     const dur = DUR[cut] + TAIL;
     const variant = aspect === "v" ? "-vertical" : "";
     const musicOverride = arg("--music", null);
-    const outtag = arg("--outtag", "v6");
+    const outtag = arg("--outtag", "v9");
     const final = path.join(OUT, `${SLUG}-${cut}s${variant}-${outtag}.mp4`);
     const srt = path.join(OUT, `${SLUG}-${cut}s.srt`);
 
@@ -157,8 +179,14 @@ async function finish() {
     segs.forEach(([f]) => inputs.push("-i", f));
     inputs.push("-i", musicOverride || MUSIC_BY_CUT[cut]);
     const n = segs.length;
+    const gains = [];
+    for (const [f] of segs) {
+      const lufs = await measureLUFS(f);
+      gains.push(Math.max(-12, Math.min(12, VO_TARGET_LUFS - lufs)));
+    }
+    console.log(`VO gains (${cut}s): ` + gains.map((g) => g.toFixed(1) + "dB").join(", "));
     let fc = segs
-      .map(([, at], i) => `[${i + 1}:a]adelay=${Math.round(at * 1000)}|${Math.round(at * 1000)}[a${i}]`)
+      .map(([, at], i) => `[${i + 1}:a]volume=${gains[i].toFixed(2)}dB,adelay=${Math.round(at * 1000)}|${Math.round(at * 1000)}[a${i}]`)
       .join(";");
     const sfx = SFX[cut];
     sfx.forEach(([f]) => inputs.push("-i", f));

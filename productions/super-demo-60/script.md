@@ -7,7 +7,7 @@
 
 *Locked means the VO has been generated against this text. Changes after lock require regenerating audio, so lock late and change deliberately. Plan per the ratified brief: clone VO for the review cut; Becky records the final lines from `vo-recording-sheet.md` before Aug 9.*
 
-*All screen footage is real app capture from `../wrenfield-kb-load/capture/out/` (the live BeMo app, Wrenfield fictitious demo data, action-timestamp logs alongside). Nothing is mocked; speed-ups are edit-side.*
+*All screen footage is real app capture. From v5: `../common-table-kb-load/capture/out/` (the live BeMo app, Common Table fictitious demo data, action-timestamp logs alongside), per the Aug 3 standing-universe decision. v1 to v4 used the Wrenfield footage from `../wrenfield-kb-load/capture/out/`. Nothing is mocked; speed-ups are edit-side.*
 
 ---
 
@@ -54,6 +54,7 @@
 
 | Version | Date | What changed and why |
 |---|---|---|
+| v5 | 2026-08-03 | The Common Table cut (Becky: "every demo and website should include Common Table"). Same edit as v4 beat for beat: durations, VO, music, captions unchanged (the VO never names the org, so the clone segments carry over). Footage re-pointed at the Common Table load and board-ask captures; the corner chip now reads "Common Table Food Pantry (a fictitious demo organization)". The load was re-recorded after the sidebar chat cleanup so no Wrenfield chat title appears in any frame; the first render caught that leak and was discarded. Assembly: `capture/assemble-ct.mjs`; output `bemo-super-demo-60-review-v5-common-table.mp4`, 60.0s. QA frames verified: clean sidebar, extraction beat lands on "11 facts found" with page-1 citations, board-brief answer shows Dana Merritt and the Supper budget, brand close intact. Wrenfield v4 held as fallback for Aug 9 |
 | v4 | 2026-08-03 | Becky's 60-flat and story-balance pass: KB build tightened from 31s to 24s (same slowed cycle pace, shorter spans), the answer beat upgraded to carry the drafts-the-work claim (the footage shows a board-orientation brief; new line, new clone VO), four-products and logo-hold ending kept. Runs 60.0s exactly |
 | v3 | 2026-08-03 | Becky's v2 review: timelapse slowed (about 22x instead of 30x) and small holds widened; the fictitious disclosure moved out of the narration and the D7 card into a two-line parenthetical under the org name in the corner chip; new ending per Becky: "Four products. One platform. One memory." over the four app icons (scene ported from the sizzle series, headline extends the locked S6 line with the map's unified-platform claim), then the logo held on the tagline. The Amendment 2 live-walkthrough pointer moves from the video to Bill's in-person framing, recorded here as Becky's call. Runs 69s |
 | v1 | 2026-08-03 | Review cut assembled from the Wrenfield footage: clone VO (7 segments, 1.12x), track D music with close swell, ink-Geist captions, persistent demo-org chip over all screen footage, fact-review beat slowed to hold on the extraction cards. Runs 64.5s including cards and tail. Awaiting Becky's review; her recorded lines swap in before Aug 9 |

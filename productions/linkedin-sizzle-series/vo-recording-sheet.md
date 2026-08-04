@@ -38,3 +38,6 @@ Your next grant cycle should start where your last one ended, not from scratch.
 
 **Line 8** (the close; a beat after "BeMo," then the tagline with a smile):
 BeMo. Where missions gain momentum.
+
+**Line 9, outstanding** (the four-apps beat, both cuts; upbeat on "one product," same reading as the GA sizzle's line 10, adapted; the wording changed twice more since it was first added 2026-08-03, currently standing in on a clone read until this is recorded, see `findings.md` on whether "one product" is where this line settles):
+Four apps. One product.

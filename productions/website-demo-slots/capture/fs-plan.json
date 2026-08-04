@@ -1,0 +1,12 @@
+{
+  "src": "out/funderstorm-cycle-raw.webm",
+  "out": "out/funderstorm-cycle",
+  "poster": 18.0,
+  "posterSrc": "out/funderstorm-pickup2-raw.webm",
+  "segments": [
+    { "from": 7.5, "to": 10.0 },
+    { "from": 24.5, "to": 27.0, "labelSeconds": 24.5 },
+    { "from": 49.5, "to": 52.5, "labelSeconds": 49.5 },
+    { "from": 14.0, "to": 18.0, "src": "out/funderstorm-pickup2-raw.webm", "labelSeconds": 1292.7 }
+  ]
+}
