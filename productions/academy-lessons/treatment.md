@@ -4,15 +4,17 @@ The shared visual and production system for every lesson video. Ratified with `b
 
 ## The lesson grammar
 
-Three movements, every lesson:
+The register is a college lesson, about five minutes: the viewer listens, reads, and watches at once. The presenter is full screen only to open and close; the body of the lesson belongs to the material, with the presenter alongside it.
 
 | Movement | Screen | Sound | Timing |
 |---|---|---|---|
-| **1. The job** | Presenter full-frame (waist-up, plain warm-paper backdrop). Lesson title as a lower third. The AI-presenter disclosure appears here (see below). | The presenter speaks the open: the job to be done, in the viewer's terms, before any product noun. | ~8-12s |
-| **2. The work** | Screen capture of the real app doing the lesson's subject, presenter in picture-in-picture (bottom-right, ~22% frame width, rounded corners per the site's soft geometry). PiP drops out entirely when the screen needs full attention; voice carries. | The presenter narrates over the capture. Pacing per `capture/lib/pacing.mjs`: the UI never moves faster than the narration explains it. | The body of the runtime |
-| **3. The handle** | Presenter full-frame again. One-line recap of what the viewer can now do, then where this lives in the product ("find this in Academy, or just start the work and ask"). | The presenter. No sell, no CTA beyond the product itself. | ~6-10s |
+| **1. The welcome** | Presenter full screen (waist-up, plain warm-paper backdrop). Lesson title as a lower third. The AI-presenter disclosure appears here (see below). | The presenter speaks the open: the job to be done, in the viewer's terms, before any product noun, then what the next five minutes cover. | ~15-25s |
+| **2. The lesson** | Never presenter-full-screen. Two framings, alternating by what serves the beat: **split screen** (presenter on one side, the reading layer or app capture on the other) and **bubble** (presenter in a circular bubble, bottom corner, over full-bleed app capture or a text slide). The bubble drops out entirely when the screen needs full attention; voice carries. | The presenter narrates. Pacing per `capture/lib/pacing.mjs`: the UI never moves faster than the narration explains it. | The body, ~3-5 min |
+| **3. The handle** | Presenter full screen again. Recap of what the viewer can now do, then where this lives in the product ("find this in Academy, or just start the work and ask"). | The presenter. No sell, no CTA beyond the product itself. | ~15-20s |
 
-**Who the presenter is** follows the product-area rule in `brief.md`: Becky's twin for Amplify lessons, the series' one generic stock avatar for everything else. Each lesson's presenter is fixed in `roster.md` and never mixes within a lesson.
+**Keeping five minutes compelling.** The frame changes every 20-40 seconds: split to bubble, capture to text slide, never one static composition for a minute. The reading layer is what makes it a lesson rather than a monologue: key lines, terms, and steps appear on screen in sync with the narration, so the viewer reads what they are hearing. Text builds progressively (a line lands when it is spoken, prior lines persist as the running outline), set per the type rules below.
+
+**Who the presenter is:** the series' one generic stock avatar (`brief.md`), the same in every lesson. The roster's Presenter column exists for the SME-partner future: a partner's arrival changes the rows for their area, nothing else.
 
 The open follows the problem-first rule at lesson scale: the first sentence names the job ("A new board member starts Monday"), not the feature ("Academy's onboarding module").
 
@@ -40,13 +42,13 @@ The video is the website's front door continued, per `../../../bemo-website/DESI
 
 ## Avatar generation
 
-- One HeyGen render per avatar movement (movement 1 and movement 3, plus any mid-lesson full-frame returns), generated from the locked script text with the lesson's assigned presenter and its matched voice (both avatar_id/voice_id pairs live in `brief.md`; the roster says which one a lesson uses).
-- Movement 2 narration is generated as audio-led avatar video too (the PiP crop comes from it), so voice and lips always agree.
+- One HeyGen render per movement, generated from the locked script text with the series presenter and its matched voice (avatar_id/voice_id in `brief.md`).
+- Movement 2 narration is generated as avatar video too (the split and bubble crops come from it), so voice and lips always agree wherever the presenter is visible.
 - Batches of lessons go through `create_video_batch`; singles through `create_video_from_avatar`. Renders download to `capture/out/<slug>/avatar/`, never into git.
 
 ## Assembly
 
-Plan-driven: each lesson's `lessons/<slug>/plan.json` lists segments (avatar full-frame, screen capture with PiP window, title card), and the shared cutter `capture/assemble.mjs` renders it: trims, PiP compositing, caption burn from the locked script, loudnorm to -16 LUFS, delivery variants per standards. Naming: `bemo-academy-<slug>-<variant>-v<n>.mp4`.
+Plan-driven: each lesson's `lessons/<slug>/plan.json` lists segments (avatar full screen, split screen, screen or text slide with bubble, key-line text overlays), and the shared cutter `capture/assemble.mjs` renders it: trims, split and circular-bubble compositing, progressive key lines, caption burn from the locked script, loudnorm to -16 LUFS, delivery variants per standards. Text slides render from HTML the way `super-demo-60/capture/render-cards.mjs` renders cards, or as stills a segment can hold. Naming: `bemo-academy-<slug>-<variant>-v<n>.mp4`.
 
 Dropping the `avatar` track from a plan.json produces the voice-over-capture fallback cut with no other pipeline change. This is the escape hatch if a presenter disappoints; it applies per presenter, not to the whole series.
 

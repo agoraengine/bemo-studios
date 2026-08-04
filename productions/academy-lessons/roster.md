@@ -4,7 +4,7 @@ The one-glance map of the series. One row per lesson in the app's Academy sectio
 
 Status ladder, in order: **Discovered → Scripted → Ratified → Generated → Captured → Assembled → Shipped**. Batches of 3-5 move Discovered → Scripted together and are ratified together (per `brief.md`). Detail lives in each lesson's `lessons/<slug>/` folder; this table holds status only.
 
-Presenter is assigned by product area (`brief.md`): **Twin** for Amplify lessons, **Generic** for all others (placeholder until an SME partner clears consent for that area; a partner's arrival changes the rows for their area to their name).
+Presenter is **Generic** (the series' one stock avatar, `brief.md`) for every lesson. The column exists for the SME-partner future: a partner clearing consent for their area changes those rows to their name, nothing else.
 
 | # | Lesson | Slug | Product area | Presenter | App route | Batch | Status |
 |---|---|---|---|---|---|---|---|
@@ -12,4 +12,4 @@ Presenter is assigned by product area (`brief.md`): **Twin** for Amplify lessons
 
 ## How the pilot works
 
-The first lesson Becky picks runs alone, end to end, before any batch opens: script → Becky ratifies → presenter generation → capture → assemble → Becky reviews the finished video. The pilot is where that presenter's look and voice get accepted or its lessons fall back to voice-over-capture. The two presenters (Twin for Amplify, Generic elsewhere) pilot separately; the first lesson on the other presenter also runs alone.
+The presenter seat is settled first by the audition round (`brief.md`): the same sample passage rendered across several stock avatars, Becky picks from the finished renders. Then the first lesson she picks runs alone, end to end, before any batch opens: script → Becky ratifies → presenter generation → capture → assemble → Becky reviews the finished video. The pilot is where the format (welcome, split/bubble body, reading layer) gets accepted or adjusted; the fallback if the presenter disappoints is voice-over-capture.

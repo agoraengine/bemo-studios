@@ -11,8 +11,11 @@ Specs every production meets. These are checkable, which is the point: the assem
 | Workflow or feature capture | 45-90 seconds | 120 |
 | Founder POV | 60-120 seconds | 180 |
 | Vertical cutdown | 30-45 seconds | 60 |
+| Academy lesson | 4-6 minutes | 8 minutes |
 
 The narrative arc set the 60-90 second range for the core videos and it holds. Anything running long is usually trying to do two videos' work.
+
+The Academy lesson row is the deliberate outlier (Becky, August 4, 2026): a lesson is a college-lecture register, watched by a signed-in user who chose it, and it earns the length by changing frame every 20-40 seconds and giving the viewer something to read as well as hear. The series treatment (`productions/academy-lessons/treatment.md`) holds that grammar. A lesson over 8 minutes is two lessons.
 
 ## Format and delivery
 

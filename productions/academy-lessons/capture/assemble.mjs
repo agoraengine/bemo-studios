@@ -1,7 +1,8 @@
 #!/usr/bin/env node
-// Plan-driven cutter for Academy lesson videos. Generalizes the segment cutter
-// from website-demo-slots with an avatar track, PiP compositing, the
-// AI-presenter disclosure chip, caption burn, and loudnorm.
+// Plan-driven cutter for Academy lesson videos: the college-lesson grammar from
+// treatment.md. Avatar full screen for welcome and handle; the body alternates
+// split screen and a circular presenter bubble over full-bleed content, with
+// key lines building on screen as the narration lands.
 //
 //   node assemble.mjs <path/to/plan.json>
 //
@@ -12,18 +13,30 @@
 //   "captions": "captions.srt",              // optional; burned + kept as sidecar
 //   "poster": { "segment": 1, "at": 2.0 },   // optional poster frame
 //   "segments": [
-//     { "type": "avatar", "src": "avatar/m1.mp4" },                    // full-frame twin, own audio
+//     { "type": "avatar", "src": "avatar/m1.mp4" },                    // full screen, own audio
+//     { "type": "split", "src": "slides/outline-1.png",                // content left, avatar right
+//       "avatar": "avatar/m2.mp4", "avatarFrom": 0, "duration": 24,
+//       "text": [ { "from": 2, "text": "Start from the funder page" } ] },
 //     { "type": "screen", "src": "../../capture/out/kb-basics/take-raw.webm",
 //       "from": 2.0, "to": 34.0,
-//       "pip": "avatar/m2.mp4", "pipFrom": 0 },                        // pip optional; its audio narrates
+//       "bubble": "avatar/m2.mp4", "bubbleFrom": 24,                   // circular presenter bubble
+//       "text": [ { "from": 1, "to": 8, "text": "Facts are cited to the page" } ] },
 //     { "type": "avatar", "src": "avatar/m3.mp4" }
 //   ]
 // }
 //
-// The first avatar segment automatically gets the disclosure chip
-// ("AI-generated presenter", >=3s) per the Academy exception in
-// docs/01-pipeline.md; any segment may also set "disclose": true.
-// Dropping avatar segments and pip keys yields the voice-over-capture fallback.
+// Notes:
+// - "src" may be a video (trimmed with from/to) or a still image (.png/.jpg,
+//   held for "duration" seconds); still slides render from HTML the way
+//   super-demo-60/capture/render-cards.mjs does.
+// - "text" items are the reading layer: each line appears at its "from"
+//   (segment-relative seconds) and persists to "to" (default: segment end),
+//   stacked in order as the running outline.
+// - The first avatar segment automatically gets the disclosure chip
+//   ("AI-generated presenter", >=3s) per the Academy exception in
+//   docs/01-pipeline.md; any segment may also set "disclose": true.
+// - Omitting bubble/avatar keys (and avatar segments) yields the
+//   voice-over-capture fallback with no other change.
 //
 // Output: bemo-academy-<slug>-primary-v<version>.mp4 (1920x1080, -16 LUFS)
 // next to the plan file, plus -poster.jpg when poster is set.
@@ -36,7 +49,8 @@ const require = createRequire(import.meta.url);
 const FF = require("ffmpeg-static");
 const FONT = "/System/Library/Fonts/Helvetica.ttc";
 const W = 1920, H = 1080, FPS = 30;
-const PIP_W = Math.round(W * 0.22);
+const HALF = W / 2;
+const BUBBLE = 340; // diameter, px
 
 const planPath = path.resolve(process.argv[2] ?? "");
 if (!fs.existsSync(planPath)) {
@@ -48,47 +62,89 @@ const plan = JSON.parse(fs.readFileSync(planPath, "utf8"));
 const rel = (p) => path.resolve(HERE, p);
 const tmp = fs.mkdtempSync(path.join(HERE, "asm-"));
 
-const FIT = `scale=${W}:${H}:force_original_aspect_ratio=increase,crop=${W}:${H},fps=${FPS},format=yuv420p`;
+const FIT = (w, h) => `scale=${w}:${h}:force_original_aspect_ratio=increase,crop=${w}:${h},fps=${FPS}`;
 const AUDIO = ["-ar", "48000", "-ac", "2", "-c:a", "aac", "-b:a", "192k"];
+const VID = ["-c:v", "libx264", "-preset", "medium", "-crf", "18"];
+const isImage = (p) => /\.(png|jpe?g)$/i.test(p);
+const esc = (s) => s.replace(/\\/g, "\\\\").replace(/'/g, "\u2019").replace(/:/g, "\\:").replace(/,/g, "\\,").replace(/%/g, "\\%");
+
 const chip = (enable) =>
   `drawtext=fontfile=${FONT}:text='AI-generated presenter':fontsize=28:fontcolor=0x1b2437:box=1:boxcolor=white@0.85:boxborderw=12:x=48:y=h-th-44:enable='${enable}'`;
+
+// the reading layer: each line appears at its time and persists, stacked as the outline
+const readingLayer = (items, dur) =>
+  (items ?? []).map((it, i) =>
+    `drawtext=fontfile=${FONT}:text='${esc(it.text)}':fontsize=34:fontcolor=0x1b2437:box=1:boxcolor=white@0.88:boxborderw=14:x=64:y=${96 + i * 78}:enable='between(t,${it.from ?? 0},${it.to ?? dur})'`
+  );
+
+// content input args: still images loop for the duration, video gets trimmed
+function contentInput(seg, dur) {
+  const src = rel(seg.src);
+  if (isImage(src)) return ["-loop", "1", "-t", String(dur), "-i", src];
+  const trim = seg.from != null ? ["-ss", String(seg.from), "-to", String(seg.to)] : ["-t", String(dur)];
+  return [...trim, "-i", src];
+}
+
+function segDuration(seg) {
+  if (seg.duration != null) return seg.duration;
+  if (seg.from != null) return seg.to - seg.from;
+  throw new Error(`segment needs duration or from/to: ${JSON.stringify(seg)}`);
+}
 
 let disclosed = false;
 const parts = [];
 plan.segments.forEach((seg, i) => {
   const part = path.join(tmp, `part${i}.mp4`);
-  const src = rel(seg.src);
-  const trim = seg.from != null ? ["-ss", String(seg.from), "-to", String(seg.to)] : [];
 
   if (seg.type === "avatar") {
-    const filters = [FIT];
+    const trim = seg.from != null ? ["-ss", String(seg.from), "-to", String(seg.to)] : [];
+    const filters = [FIT(W, H), "format=yuv420p"];
     if (!disclosed || seg.disclose) {
       filters.push(chip("lt(t,3.5)"));
       disclosed = true;
     }
     execFileSync(FF, [
-      "-y", ...trim, "-i", src,
-      "-vf", filters.join(","), "-c:v", "libx264", "-preset", "medium", "-crf", "18", ...AUDIO, part,
+      "-y", ...trim, "-i", rel(seg.src),
+      "-vf", filters.join(","), ...VID, ...AUDIO, part,
     ], { stdio: "inherit" });
+
+  } else if (seg.type === "split") {
+    // content left, presenter right; audio from the presenter
+    const dur = String(segDuration(seg));
+    const text = readingLayer(seg.text, segDuration(seg));
+    const leftChain = [FIT(HALF, H), ...text].join(",");
+    execFileSync(FF, [
+      "-y", ...contentInput(seg, dur),
+      "-ss", String(seg.avatarFrom ?? 0), "-t", dur, "-i", rel(seg.avatar),
+      "-filter_complex",
+      `[0:v]${leftChain}[left];[1:v]${FIT(HALF, H)}[right];[left][right]hstack,format=yuv420p[v]`,
+      "-map", "[v]", "-map", "1:a", "-t", dur, ...VID, ...AUDIO, part,
+    ], { stdio: "inherit" });
+
   } else {
-    const dur = (seg.to - seg.from).toFixed(3);
-    if (seg.pip) {
-      const pipFrom = seg.pipFrom ?? 0;
+    // full-bleed content, optional circular presenter bubble; audio from the
+    // bubble source when present, else silence
+    const dur = String(segDuration(seg));
+    const text = readingLayer(seg.text, segDuration(seg));
+    const bgChain = [FIT(W, H), ...text].join(",");
+    if (seg.bubble) {
+      const r = BUBBLE / 2;
       execFileSync(FF, [
-        "-y", ...trim, "-i", src,
-        "-ss", String(pipFrom), "-t", dur, "-i", rel(seg.pip),
+        "-y", ...contentInput(seg, dur),
+        "-ss", String(seg.bubbleFrom ?? 0), "-t", dur, "-i", rel(seg.bubble),
         "-filter_complex",
-        `[0:v]${FIT}[bg];[1:v]scale=${PIP_W}:-2,fps=${FPS}[pip];[bg][pip]overlay=W-w-40:H-h-40:eval=init[v]`,
-        "-map", "[v]", "-map", "1:a", "-t", dur,
-        "-c:v", "libx264", "-preset", "medium", "-crf", "18", ...AUDIO, part,
+        `[0:v]${bgChain}[bg];` +
+        `[1:v]crop='min(iw\\,ih)':'min(iw\\,ih)',scale=${BUBBLE}:${BUBBLE},fps=${FPS},format=yuva420p,` +
+        `geq=lum='lum(X,Y)':cb='cb(X,Y)':cr='cr(X,Y)':a='if(lte(hypot(X-${r},Y-${r}),${r}),255,0)'[pip];` +
+        `[bg][pip]overlay=W-w-48:H-h-48,format=yuv420p[v]`,
+        "-map", "[v]", "-map", "1:a", "-t", dur, ...VID, ...AUDIO, part,
       ], { stdio: "inherit" });
     } else {
-      // silent screen segment: synthesize a matching silent track so concat stays uniform
       execFileSync(FF, [
-        "-y", ...trim, "-i", src,
+        "-y", ...contentInput(seg, dur),
         "-f", "lavfi", "-t", dur, "-i", "anullsrc=r=48000:cl=stereo",
-        "-map", "0:v", "-map", "1:a", "-vf", FIT, "-t", dur,
-        "-c:v", "libx264", "-preset", "medium", "-crf", "18", ...AUDIO, part,
+        "-map", "0:v", "-map", "1:a", "-vf", `${bgChain},format=yuv420p`, "-t", dur,
+        ...VID, ...AUDIO, part,
       ], { stdio: "inherit" });
     }
   }
@@ -114,7 +170,7 @@ if (plan.poster) {
   const seg = plan.segments[plan.poster.segment ?? 0];
   execFileSync(FF, [
     "-y", "-ss", String((seg.from ?? 0) + plan.poster.at), "-i", rel(seg.src),
-    "-vf", FIT.replace(`,fps=${FPS},format=yuv420p`, ""), "-frames:v", "1", "-q:v", "2",
+    "-vf", FIT(W, H), "-frames:v", "1", "-update", "1", "-q:v", "2",
     out.replace(/\.mp4$/, "-poster.jpg"),
   ], { stdio: "inherit" });
 }
