@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  /* Warm-paper reading-layer slides per treatment.md. System faces stand in for
+     Bricolage/Geist at render time; the register is the same. */
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1920px; height: 1080px; background: #f6f2e9; color: #1b2437;
+         font-family: "Avenir Next", "Helvetica Neue", system-ui, sans-serif; overflow: hidden; }
+  .slide { display: none; width: 1920px; height: 1080px; padding: 110px 130px; }
+  .slide.on { display: block; }
+  .eyebrow { font-size: 30px; color: #6b6456; letter-spacing: .02em; margin-bottom: 18px; }
+  h1 { font-size: 64px; font-weight: 700; line-height: 1.08; margin-bottom: 64px; }
+  table { width: 100%; border-collapse: collapse; font-size: 38px; }
+  th { text-align: left; font-size: 30px; color: #6b6456; font-weight: 600; padding: 0 28px 18px 28px; }
+  td { padding: 30px 28px; background: #fffdf8; border-top: 10px solid #f6f2e9; vertical-align: middle; }
+  td.cat { font-weight: 700; width: 420px; }
+  td.status { width: 430px; font-weight: 700; }
+  .green { color: #2e7d4f; } .yellow { color: #a8730a; } .red { color: #b3362b; }
+  .pair { display: flex; flex-direction: column; gap: 44px; margin-top: 20px; }
+  .card { background: #fffdf8; padding: 52px 56px; border-radius: 18px; font-size: 46px; line-height: 1.3; }
+  .card .verdict { display: inline-block; margin-top: 26px; font-size: 32px; font-weight: 700;
+                   padding: 10px 22px; border-radius: 10px; }
+  .not { background: #e7f2ea; color: #2e7d4f; }
+  .is  { background: #f7e9e7; color: #b3362b; }
+  .foot { position: absolute; bottom: 56px; left: 130px; font-size: 26px; color: #6b6456; }
+</style>
+</head>
+<body>
+<div class="slide" id="categories">
+  <div class="eyebrow">AC-01 · Introduction to Nonprofit Advocacy</div>
+  <h1>One word, four different activities</h1>
+  <table>
+    <tr><th>Category</th><th>What it is</th><th>Restricted?</th></tr>
+    <tr><td class="cat">Education</td><td>Explaining an issue, no ask attached</td><td class="status green">No. Unlimited</td></tr>
+    <tr><td class="cat">Issue advocacy</td><td>A position on an issue, not a bill</td><td class="status green">No. Unlimited</td></tr>
+    <tr><td class="cat">Lobbying</td><td>An ask on specific legislation</td><td class="status yellow">Limits you almost never hit</td></tr>
+    <tr><td class="cat">Political activity</td><td>Supporting or opposing a candidate</td><td class="status red">Prohibited</td></tr>
+  </table>
+  <div class="foot">General education, not legal advice · Full table in the AC-01 Reading</div>
+</div>
+<div class="slide" id="lobbying">
+  <div class="eyebrow">AC-01 · The line that matters</div>
+  <h1>Same idea, two sides of the line</h1>
+  <div class="pair">
+    <div class="card">"We need more housing funding."<br><span class="verdict not">Not lobbying</span></div>
+    <div class="card">"Tell your state senator to vote yes on HB 412."<br><span class="verdict is">Lobbying: allowed, within limits</span></div>
+  </div>
+  <div class="foot">General education, not legal advice · AC-04 covers the limits</div>
+</div>
+<script>
+  const id = new URLSearchParams(location.search).get("slide") || "categories";
+  document.getElementById(id).classList.add("on");
+</script>
+</body>
+</html>
