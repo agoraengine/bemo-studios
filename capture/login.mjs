@@ -24,7 +24,7 @@ const context = await chromium.launchPersistentContext(PROFILE, {
 });
 const page = context.pages()[0] || (await context.newPage());
 await page.goto(APP);
-console.log("Browser open. Log in to BeMo, then close the browser window.");
+console.log("Browser open. Log in to BeMo. CHECK 'REMEMBER ME' (otherwise the session dies when the browser closes), then close the browser window.");
 context.on("close", () => {
   console.log("Session saved to capture/.auth/profile");
   process.exit(0);
