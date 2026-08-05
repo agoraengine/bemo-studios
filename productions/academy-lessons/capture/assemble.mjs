@@ -168,7 +168,7 @@ plan.segments.forEach((seg, i) => {
         `[0:v]${bgChain}[bg];` +
         `[1:v]crop='min(iw\\,ih)':'min(iw\\,ih)',scale=${BUBBLE}:${BUBBLE},fps=${FPS},format=yuva420p,` +
         `geq=lum='lum(X,Y)':cb='cb(X,Y)':cr='cr(X,Y)':a='if(lte(hypot(X-${r},Y-${r}),${r}),255,0)'[pip];` +
-        `[bg][pip]overlay=W-w-48:H-h-48,format=yuv420p[v]`,
+        `[bg][pip]overlay=W-w-48:H-h-176,format=yuv420p[v]`,
         "-map", "[v]", "-map", "1:a", "-t", dur, ...VID, ...AUDIO, part,
       ], { stdio: "inherit" });
     } else {
@@ -193,7 +193,8 @@ execFileSync(FF, ["-y", "-f", "concat", "-safe", "0", "-i", list, "-c", "copy", 
 // (Deep Sapphire) on a soft white box. Fonts ship in capture/fonts/.
 const out = path.join(HERE, `bemo-academy-${plan.slug}-primary-v${plan.version ?? 1}.mp4`);
 const FONTS = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "fonts");
-const CAPSTYLE = "FontName=Geist,FontSize=13,PrimaryColour=&H007E3405,BackColour=&H26FFFFFF,BorderStyle=4,Outline=0,Shadow=0,Bold=0,MarginV=34";
+// MarginR keeps centered captions clear of the bottom-right bubble corner
+const CAPSTYLE = "FontName=Geist,FontSize=13,PrimaryColour=&H007E3405,BackColour=&H26FFFFFF,BorderStyle=4,Outline=0,Shadow=0,Bold=0,MarginV=30,MarginL=20,MarginR=90";
 const vf = plan.captions ? ["-vf", `subtitles='${rel(plan.captions)}':fontsdir='${FONTS}':force_style='${CAPSTYLE}'`] : [];
 execFileSync(FF, [
   "-y", "-i", joined, ...vf,
