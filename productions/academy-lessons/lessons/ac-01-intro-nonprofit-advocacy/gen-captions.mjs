@@ -37,7 +37,7 @@ const SEGMENTS = [
   ["a6.mp4", "Issue advocacy is taking a public position without tying it to a specific bill. Our community needs more affordable housing. Full-day kindergarten in every district. You can organize around those positions: petitions, op-eds, rallies. Still not lobbying."],
   ["a7.mp4", "Lobbying is narrower than everyday speech suggests: asking a legislator, or asking the public to ask a legislator, to support or oppose specific legislation. We need more housing funding: not lobbying. Tell your state senator to vote yes on HB 412: lobbying. Same idea, different sides of the line. And here's what almost no board has been told: 501(c)(3)s are allowed to lobby, within limits far above what a small nonprofit would ever spend."],
   ["a8.mp4", "Political activity is the one red category: supporting or opposing a candidate for office. That's it. That's the actual ban. Everything else you just heard is open to you."],
-  ["a9.mp4", "So when the sentence comes up, name the category. Three green lights, one high ceiling, one red line. The full lesson, the reference card, and a board conversation script are in Academy, course AC-01. And when you're ready for the limits themselves, AC-04 is next."],
+  ["a9.mp4", "So when the sentence comes up, name the category. Three green lights, one high ceiling, one red line. The full lesson, the reference card, and a board conversation script are in Academy, in Introduction to Nonprofit Advocacy. And when you're ready for the limits themselves, the next course is 501(c)(3) Advocacy: What You Can Do."],
 ];
 
 const ts = (s) => {

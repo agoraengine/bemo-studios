@@ -8,6 +8,10 @@ Canon and product findings collected during this production. Raised to bemo-os o
 
 The finished appeal letter in Becky's Amplify screenshot contains em dashes ("worked — with no one", "doubled in impact — helping"). BeMo's writing rules ban em dashes in BeMo-voiced copy; if that rule is meant to reach Amplify's generated deliverables, the generation templates need the rule. Logged, not edited: product UI text is never touched in post.
 
+### FunderStorm GPR template page uses an em dash (2026-08-04)
+
+The Grant Progress Report template page captured live for reel 1's grant-cycle beat (on screen about 0:38 in the 60s cut) carries an em dash in its "Why you need it" copy ("whether their investment is on track — and to decide"). Same class as the Amplify finding above: if the no-em-dash rule reaches product copy, the template descriptions need it. Logged, not edited: product UI text is never touched in post.
+
 ### Press-release screenshot not used in reel 1 (2026-08-03)
 
 Becky supplied a Press Release Editor screenshot alongside the Amplify letter. Not used: its collected-facts panel carries real customer data from a live workspace (Meg Poe, Autoimmune Encephalitis Alliance, Durham NC, pulled from her knowledge base). Using it externally needs Meg's per-use approval, and the cleaner path is recreating the flow in the seeded demo org. Parked for a later reel (it is a strong "it already knew" visual once recreated).
@@ -16,7 +20,9 @@ Becky supplied a Press Release Editor screenshot alongside the Amplify letter. N
 
 ### "Apps" versus "products," and now "one product" (2026-08-03, updated same day)
 
-Becky directed the reel's ending line through three revisions in one session: "Four apps. One platform." then "Four apps. One memory." then "Four apps. One product." (current, both cuts). The message map's category language says "four products" as the count noun, and describes the platform itself as a "unified, AI-native platform" / "mission accelerator, not a tool bundle," never as "one product." Two open questions now, not one: whether "apps" replaces "products" as the component noun, and whether "one product" (describing the whole as a single product, distinct from "one platform") is the intended register or a placeholder that drifted through revision. The unifying claim it's reaching for is real and traced (`ga-message-map.md` 3.1: "these are not bundled tools; they share organizational memory") but the map has never phrased it as "one product." Needs a founder decision so this line stops changing shape each session and the phrase actually shipping gets written into the map.
+**Resolved 2026-08-04: Becky ratified "Four apps. One product."** ("YES, four apps. one product.") The phrase is now recorded in `ga-message-map.md` 3.1 as the category line, with "apps" as the component count noun going forward (edit made in bemo-os, uncommitted there, same handling as the August 1 "Nothing drops on the floor" ratification). One loose end raised in that edit rather than resolved: the July 29 Allocate ruling's "four AI-powered products" phrasing still appears as the external count-noun form and needs reconciling wherever it lives.
+
+Original finding, for the record: Becky directed the reel's ending line through three revisions in one session ("Four apps. One platform." then "Four apps. One memory." then "Four apps. One product."), the map had never phrased the whole as "one product," and the line needed a founder decision before it stopped changing shape.
 
 ## For bemo-os (earlier)
 

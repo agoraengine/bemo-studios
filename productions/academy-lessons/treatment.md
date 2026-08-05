@@ -16,6 +16,8 @@ The register is a college lesson, about five minutes: the viewer listens, reads,
 
 **Who the presenter is:** the lesson's product category looks it up in the cast table in `brief.md`: one stock avatar and matched voice per category, never mixed within a category or within a lesson. The cast is the SME-partner future drawn in advance: a partner clearing consent for their category takes over that seat, and nothing else changes.
 
+**Courses are named, never bare-coded** (Becky, 2026-08-05): narration, on-screen text, captions, and docs refer to a course by its name, or by code and name together ("AC-01, Introduction to Nonprofit Advocacy"), never by the code alone. A viewer has no reason to know what AC-04 means; a name teaches, a code doesn't.
+
 The open follows the problem-first rule at lesson scale: the first sentence names the job ("A new board member starts Monday"), not the feature ("Academy's onboarding module").
 
 ## The disclosure

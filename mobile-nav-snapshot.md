@@ -1,0 +1,730 @@
+- generic [active] [ref=f3e1]:
+  - link "Skip to content" [ref=f3e2] [cursor=pointer]:
+    - /url: "#main"
+  - banner [ref=f3e3]:
+    - generic [ref=f3e4]:
+      - link "BeMo" [ref=f3e5] [cursor=pointer]:
+        - /url: /
+        - img "BeMo" [ref=f3e6]
+      - generic [ref=f3e18]:
+        - button "Toggle color scheme" [ref=f3e19] [cursor=pointer]
+        - link "Start free" [ref=f3e23] [cursor=pointer]:
+          - /url: /start
+        - button "Toggle menu" [ref=f3e1299] [cursor=pointer]
+  - main [ref=f3e24]:
+    - generic [ref=f3e27]:
+      - generic [ref=f3e28]:
+        - generic [ref=f3e29]: A new way to work with what you already know
+        - heading "Your nonprofit got smarter this week. Nobody wrote it down." [level=1] [ref=f3e32]
+        - paragraph [ref=f3e33]: An email, a call, a spreadsheet, a document, a line in the board minutes. BeMo is where that knowledge lives, so when someone leaves, nothing walks out the door.
+        - generic [ref=f3e34]:
+          - link "Start free" [ref=f3e35] [cursor=pointer]:
+            - /url: /start
+            - text: Start free
+            - generic [ref=f3e36]: →
+          - link "or book a call" [ref=f3e37] [cursor=pointer]:
+            - /url: /book
+        - generic [ref=f3e38]:
+          - generic [ref=f3e39]: Free access
+          - generic [ref=f3e41]: Real work
+          - generic [ref=f3e43]: No pitch
+      - generic [ref=f3e46]:
+        - generic [ref=f3e47]:
+          - generic [ref=f3e48]:
+            - generic [ref=f3e49]: Email
+            - generic [ref=f3e50]: Renewal report due Aug 15. Marcus, can you pull three donor quotes?
+          - generic [ref=f3e51]:
+            - generic [ref=f3e52]: Call transcript
+            - generic [ref=f3e53]: “Sarah Chen asked for outcome data earlier than the deadline required.”
+          - generic [ref=f3e54]:
+            - generic [ref=f3e55]: Document
+            - generic [ref=f3e56]: "Award letter, July 2025: $60,000 over two years."
+          - generic [ref=f3e57]:
+            - generic [ref=f3e58]: Spreadsheet
+            - generic [ref=f3e59]: "Q2 meal counts, final: 41,600 meals year to date."
+          - generic [ref=f3e60]:
+            - generic [ref=f3e61]: Board minutes
+            - generic [ref=f3e62]: By the end of 2027, no single funder over half of revenue.
+        - paragraph [ref=f3e63]: One week at Common Table. Watch it come together ↓
+    - generic [ref=f3e65]:
+      - paragraph [ref=f3e67]:
+        - generic [ref=f3e68]: What BeMo is
+      - heading "Four apps on one platform, over one Knowledge Base." [level=2] [ref=f3e71]
+      - generic [ref=f3e72]:
+        - link "Strategy Compass Strategic clarity & decision continuity Open Compass" [ref=f3e74] [cursor=pointer]:
+          - /url: /products/compass
+          - generic [ref=f3e75]: Strategy
+          - generic [ref=f3e78]: Compass
+          - generic [ref=f3e79]: Strategic clarity & decision continuity
+          - generic [ref=f3e80]:
+            - text: Open Compass
+            - generic [ref=f3e81]: →
+        - link "Funding FunderStorm Funding discovery & grant memory Open FunderStorm" [ref=f3e83] [cursor=pointer]:
+          - /url: /products/funderstorm
+          - generic [ref=f3e84]: Funding
+          - generic [ref=f3e87]: FunderStorm
+          - generic [ref=f3e88]: Funding discovery & grant memory
+          - generic [ref=f3e89]:
+            - text: Open FunderStorm
+            - generic [ref=f3e90]: →
+        - link "Communications Amplify Every channel in your own voice Open Amplify" [ref=f3e92] [cursor=pointer]:
+          - /url: /products/amplify
+          - generic [ref=f3e93]: Communications
+          - generic [ref=f3e96]: Amplify
+          - generic [ref=f3e97]: Every channel in your own voice
+          - generic [ref=f3e98]:
+            - text: Open Amplify
+            - generic [ref=f3e99]: →
+        - link "Learning Academy Just-in-time learning for the flow of work Open Academy" [ref=f3e101] [cursor=pointer]:
+          - /url: /products/academy
+          - generic [ref=f3e102]: Learning
+          - generic [ref=f3e105]: Academy
+          - generic [ref=f3e106]: Just-in-time learning for the flow of work
+          - generic [ref=f3e107]:
+            - text: Open Academy
+            - generic [ref=f3e108]: →
+      - paragraph [ref=f3e110]: All four read from and write to the same Knowledge Base, so a funder's history, a board decision, and the voice you write in are the same record. You explain it once, and nothing leaves when someone does.
+    - generic [ref=f3e112]:
+      - generic [ref=f3e113]:
+        - generic [ref=f3e114]: Demo slot
+        - code [ref=f3e115]: first-run
+        - generic [ref=f3e116]: screen recording, cut, no voiceover · 12 seconds · 16:9, 1920×1080 minimum
+      - paragraph [ref=f3e117]: An empty BeMo becomes useful in one sitting, from one sentence a person actually typed.
+      - list [ref=f3e118]:
+        - listitem [ref=f3e119]:
+          - generic [ref=f3e120]: "01"
+          - generic [ref=f3e121]: "Frame one: a genuinely empty BeMo. No seeded data, no demo org. This frame is the poster."
+        - listitem [ref=f3e122]:
+          - generic [ref=f3e123]: "02"
+          - generic [ref=f3e124]: Dana types one plain sentence about what her organization does.
+        - listitem [ref=f3e125]:
+          - generic [ref=f3e126]: "03"
+          - generic [ref=f3e127]: The Knowledge Base gains its first entries, each visibly sourced from that sentence.
+        - listitem [ref=f3e128]:
+          - generic [ref=f3e129]: "04"
+          - generic [ref=f3e130]: She asks one question; the answer cites those entries. End there.
+      - list [ref=f3e131]:
+        - listitem [ref=f3e132]: "— Cut from a real first session, not staged. Put the elapsed time on screen at each cut so the compression is visible: this is the site that refuses to fake proof."
+        - listitem [ref=f3e133]: — Do not script Dana into perfect prose. A real sentence with a typo is worth more than a polished one.
+        - listitem [ref=f3e134]: — The full unedited run should exist too, behind a click, for anyone who wants it. The reel is the hook; the full minute is the evidence.
+        - listitem [ref=f3e135]: — The site no longer puts a number on how long a first conversation takes; that claim was removed in the claims sweep. Do not reintroduce one in the reel. Show the work landing, let the elapsed time on screen say how long it took, and let the viewer judge.
+      - paragraph [ref=f3e136]: Hidden in production. Pass the finished asset as children to fill it.
+    - generic [ref=f3e137]:
+      - paragraph [ref=f3e139]:
+        - generic [ref=f3e140]: Watch it work
+      - heading "Watch a scattered week become Monday morning." [level=2] [ref=f3e143]
+    - generic [ref=f3e146]:
+      - generic [ref=f3e147]:
+        - generic [ref=f3e149]:
+          - generic [ref=f3e150]:
+            - generic [ref=f3e151]:
+              - generic [ref=f3e152]: ☁
+              - text: BeMo · Home
+            - generic [ref=f3e153]: Weekly edition
+          - generic [ref=f3e154]:
+            - generic [ref=f3e155]:
+              - generic [ref=f3e156]: Weekly edition · Tuesday, July 21, 2026
+              - generic [ref=f3e157]: Good morning, Dana.
+            - generic [ref=f3e158]:
+              - generic [ref=f3e159]: This week
+              - text: Giving is up for the third month running, a broad lift, not one big check. The Bright Harbor renewal is the one thing with a clock on it, due August 15, and it is waiting on Marcus for three donor quotes. Everything else is on pace. A quiet, good week.
+            - generic [ref=f3e160]:
+              - generic [ref=f3e161]:
+                - generic [ref=f3e162]: Lead story
+                - heading "Giving rose for the third straight month" [level=4] [ref=f3e163]
+                - paragraph [ref=f3e164]: June closed at $18,240 in gifts, your strongest spring since you started tracking. Thirty-four donors gave, nine of them new.
+                - 'img "Bar chart: monthly giving, January through June, rising to $18,240 in June" [ref=f3e167]':
+                  - generic [ref=f3e174]: Jan
+                  - generic [ref=f3e175]: Feb
+                  - generic [ref=f3e176]: Mar
+                  - generic [ref=f3e177]: Apr
+                  - generic [ref=f3e178]: May
+                  - generic [ref=f3e179]: Jun
+                  - generic [ref=f3e180]: $18,240
+                - generic [ref=f3e181]: "Composed for you · sources: June giving ledger, donor roll"
+              - generic [ref=f3e182]:
+                - generic [ref=f3e183]: Funding
+                - text: Bright Harbor renewal in progress; the final program report is the last missing piece before August 15.
+              - generic [ref=f3e184]:
+                - generic [ref=f3e185]: Programs
+                - text: Teen Kitchen wraps its third cohort Friday. Twelve teens finish; two are flagged ready to mentor next term.
+            - generic [ref=f3e186]:
+              - generic [ref=f3e187]:
+                - generic [ref=f3e188]: Upcoming
+                - text: Mobile Pantry, Lincoln Park Sat · Teen Kitchen graduation Jul 30 · Board meeting Aug 8 · Bright Harbor renewal Aug 15
+              - generic [ref=f3e189]: Recently learned
+              - generic [ref=f3e192]:
+                - generic [ref=f3e193]: One thing worth a look
+                - text: The Bright Harbor renewal is missing its final program report, the last piece before August 15.
+                - generic [ref=f3e194]:
+                  - button "Open the funder’s page" [ref=f3e195] [cursor=pointer]
+                  - button "Later" [ref=f3e196] [cursor=pointer]
+        - generic [ref=f3e198]:
+          - generic [ref=f3e199]: Knowledge Base / Funding / Funders
+          - heading "Bright Harbor Foundation" [level=3] [ref=f3e200]
+          - paragraph [ref=f3e201]: Common Table’s largest institutional funder. It awarded $60,000 over two years in July 2025 to fund the Mobile Pantry, and the relationship is entering its first renewal cycle.
+          - generic [ref=f3e202]:
+            - generic [ref=f3e203]:
+              - generic [ref=f3e204]: Type
+              - generic [ref=f3e205]: Private family foundation
+            - generic [ref=f3e206]:
+              - generic [ref=f3e207]: Last award
+              - generic [ref=f3e208]: $60,000 / 2 years (Jul 2025)
+            - generic [ref=f3e209]:
+              - generic [ref=f3e210]: Next
+              - generic [ref=f3e211]: Renewal report due Aug 15from the award letter
+          - list [ref=f3e212]:
+            - listitem [ref=f3e213]: Jul 2026 · Cited in the renewal application
+            - listitem [ref=f3e214]: Jun 2026 · Cycle dates corrected, from the funder’s site
+            - listitem [ref=f3e215]: Jul 2025 · Award letter filed, page started
+        - generic [ref=f3e216]:
+          - generic [ref=f3e217]: Email
+          - text: Renewal report due Aug 15. Marcus, can you pull three donor quotes?
+        - generic [ref=f3e218]:
+          - generic [ref=f3e219]: Call transcript
+          - text: "\"Sarah Chen asked for outcome data earlier than the deadline required.\""
+        - generic [ref=f3e220]:
+          - generic [ref=f3e221]: Document
+          - text: "Award letter, July 2025: $60,000 over two years."
+        - generic [ref=f3e222]:
+          - generic [ref=f3e223]: Spreadsheet
+          - text: "Q2 meal counts, final: 41,600 meals year to date."
+        - generic [ref=f3e224]:
+          - generic [ref=f3e225]: Board minutes
+          - text: By the end of 2027, no single funder over half of revenue.
+      - navigation "Animation beats" [ref=f3e226]:
+        - button "01 The scattered week" [ref=f3e1500] [cursor=pointer]:
+          - generic [ref=f3e228]: "01"
+          - generic [ref=f3e229]: The scattered week
+        - button "02 Knowledge finds its place" [ref=f3e1501] [cursor=pointer]:
+          - generic [ref=f3e232]: "02"
+          - generic [ref=f3e233]: Knowledge finds its place
+        - button "03 Your front page composes" [ref=f3e1502] [cursor=pointer]:
+          - generic [ref=f3e236]: "03"
+          - generic [ref=f3e237]: Your front page composes
+        - button "04 One honest invitation" [ref=f3e1503] [cursor=pointer]:
+          - generic [ref=f3e240]: "04"
+          - generic [ref=f3e241]: One honest invitation
+    - generic [ref=f3e245]:
+      - 'img "A map of an organization assembling from scattered grey fragments into four connected regions: strategy, funding, communications, and learning. Some outer areas stay grey: they are not built yet." [ref=f3e1504]':
+        - generic [ref=f3e1509]: not built yet
+      - generic [ref=f3e1577]:
+        - paragraph [ref=f3e1578]:
+          - generic [ref=f3e1579]: The map of your organization
+        - paragraph [ref=f3e1581]: Scattered knowledge, assembled into four connected regions. The grey areas are the parts we have not built yet. They stay grey on purpose.
+        - generic [ref=f3e1583]:
+          - button "Strategy" [ref=f3e1584] [cursor=pointer]
+          - button "Funding" [ref=f3e1586] [cursor=pointer]
+          - button "Communications" [ref=f3e1588] [cursor=pointer]
+          - button "Learning" [ref=f3e1590] [cursor=pointer]
+          - generic [ref=f3e1592]: Not built yet
+        - paragraph [ref=f3e1594]: Click a region to see that part of the product.
+    - generic [ref=f3e344]:
+      - paragraph [ref=f3e346]:
+        - generic [ref=f3e347]: Why capable organizations stall
+      - heading "Nobody stops caring. They stop remembering." [level=2] [ref=f3e350]
+      - paragraph [ref=f3e352]: Small and mid-sized nonprofits don't lack expertise. They lose it. Nothing holds the work together, so context slips between people, roles and moments. This is a systems problem, not a people problem. BeMo is the system.
+      - generic [ref=f3e353]:
+        - generic [ref=f3e355]:
+          - generic [ref=f3e356]:
+            - generic [ref=f3e357]: ×
+            - generic [ref=f3e358]: Without BeMo
+          - list [ref=f3e359]:
+            - listitem [ref=f3e360]:
+              - generic [ref=f3e362]: A development director leaves. Eight years of funder context goes with her.
+            - listitem [ref=f3e363]:
+              - generic [ref=f3e365]: The board makes the same decision twice. No one remembers why the first version stalled.
+            - listitem [ref=f3e366]:
+              - generic [ref=f3e368]: A new ED inherits 31 folders, four spreadsheets, and a shared inbox.
+            - listitem [ref=f3e369]:
+              - generic [ref=f3e371]: The annual report cites grants the donor stewardship never thanks for.
+            - listitem [ref=f3e372]:
+              - generic [ref=f3e374]: Strategy resets every leadership transition.
+        - generic [ref=f3e376]:
+          - generic [ref=f3e377]:
+            - generic [ref=f3e378]: ◉
+            - generic [ref=f3e379]: With BeMo
+          - list [ref=f3e380]:
+            - listitem [ref=f3e381]:
+              - generic [ref=f3e383]: The next development director inherits a living record. Funders, conversations, decisions, reasoning.
+            - listitem [ref=f3e384]:
+              - generic [ref=f3e386]: Every strategic decision keeps its reasoning attached, retrievable for the next conversation.
+            - listitem [ref=f3e387]:
+              - generic [ref=f3e389]: The new ED is briefed by the system on day one, not by an exit interview that never happened.
+            - listitem [ref=f3e390]:
+              - generic [ref=f3e392]: Donor letters cite the work they funded; impact reports cite the grants that paid for them.
+            - listitem [ref=f3e393]:
+              - generic [ref=f3e395]: Strategy compounds. Knowledge compounds. Trust compounds.
+      - paragraph [ref=f3e397]: Over one million U.S. nonprofits operate with budgets under $5M (IRS Exempt Organizations Business Master File, 2023). Almost none of them can afford to keep losing what they know.
+    - generic [ref=f3e399]:
+      - paragraph [ref=f3e401]:
+        - generic [ref=f3e402]: Three things we can say plainly
+      - generic [ref=f3e404]:
+        - generic [ref=f3e405]:
+          - heading "Your knowledge lives here." [level=2] [ref=f3e406]
+          - paragraph [ref=f3e407]: Not in people's heads, not spread across seventeen tools. In one place your whole team can reach, that stays current as the work moves.
+        - generic [ref=f3e408]:
+          - heading "A colleague, not a chatbot." [level=2] [ref=f3e409]
+          - paragraph [ref=f3e410]: BeMo talks with you about your work like someone who has been in the room for years, because it remembers what happened in the room.
+        - generic [ref=f3e411]:
+          - heading "It compounds." [level=2] [ref=f3e412]
+          - paragraph [ref=f3e413]: Every conversation, decision, and draft makes the next one better. The longer your organization works in BeMo, the more it holds for you.
+    - generic [ref=f3e415]:
+      - paragraph [ref=f3e417]:
+        - generic [ref=f3e418]: From the people using it
+      - generic [ref=f3e420]:
+        - blockquote [ref=f3e422]:
+          - paragraph [ref=f3e423]: “BeMo is truly helping me develop my confidence in this industry and as a nonprofit leader in rare disease. That is priceless.”
+          - generic [ref=f3e424]: Meg Poe · Executive Director, Autoimmune Encephalitis Alliance
+        - blockquote [ref=f3e426]:
+          - paragraph [ref=f3e427]: “It was like working with a thoughtful colleague who actually wanted to understand the project before diving in.”
+          - generic [ref=f3e428]: Jennifer Allen · Friends of the Saratoga Springs Public Library
+    - generic [ref=f3e429]:
+      - generic [ref=f3e430]:
+        - paragraph [ref=f3e432]:
+          - generic [ref=f3e433]: Four apps · one memory
+        - heading "Four apps. One memory. Everything gets easier." [level=2] [ref=f3e436]
+      - generic [ref=f3e437]:
+        - generic [ref=f3e440]:
+          - generic [ref=f3e441]:
+            - generic [ref=f3e442]: Strategy · 01
+            - heading "Compass" [level=3] [ref=f3e445]
+            - paragraph [ref=f3e446]: You don't have to be the only one who knows how this organization works.
+            - paragraph [ref=f3e447]: A strategic operating layer for the work itself. Plans, decisions, and the reasoning behind them stay connected, so strategy is work that compounds instead of resetting every time leadership turns over or the board changes.
+            - list [ref=f3e448]:
+              - listitem [ref=f3e449]:
+                - generic [ref=f3e451]: Strategic plans connected to live initiatives, not slide decks
+              - listitem [ref=f3e452]:
+                - generic [ref=f3e454]: "A decision log: what was decided, when, why, and what changed"
+              - listitem [ref=f3e455]:
+                - generic [ref=f3e457]: Conversational strategic guidance grounded in your org's history
+              - listitem [ref=f3e458]:
+                - generic [ref=f3e460]: Quarterly check-ins that produce a record, not a report
+            - link "Explore Compass" [ref=f3e461] [cursor=pointer]:
+              - /url: /products/compass
+              - text: Explore Compass
+              - generic [ref=f3e462]: →
+          - generic [ref=f3e464]:
+            - generic [ref=f3e465]:
+              - generic [ref=f3e466]:
+                - generic [ref=f3e467]: BeMo · Compass
+                - generic [ref=f3e473]: Strategy
+              - generic [ref=f3e474]:
+                - generic [ref=f3e475]:
+                  - generic [ref=f3e476]:
+                    - generic [ref=f3e477]: You
+                    - generic [ref=f3e480]: Should we take the statewide expansion grant if it means pausing cohort 4?
+                  - generic [ref=f3e481]:
+                    - generic [ref=f3e482]: BeMo
+                    - generic [ref=f3e485]: "Your own record cuts against it. The board paused expansion once before, and the reasoning is preserved: cohort continuity is the theory of change. Here is the trade-off, framed."
+                  - generic [ref=f3e486]:
+                    - generic [ref=f3e487]:
+                      - generic [ref=f3e488]: Decision log · Sep 2023
+                      - generic [ref=f3e489]: "Board paused regional expansion. Reasoning: continuity over reach while cohort 3 was mid-cycle."
+                    - generic [ref=f3e490]:
+                      - generic [ref=f3e491]: Trade-off
+                      - generic [ref=f3e492]: Reach now vs. the continuity your funders cite when they renew.
+                      - generic [ref=f3e493]: Draft board memo →
+                - generic [ref=f3e494]:
+                  - generic [ref=f3e495]: Ask anything
+                  - generic [ref=f3e496]: →
+            - paragraph [ref=f3e497]: Compass, illustrated · fictional data
+        - generic [ref=f3e500]:
+          - generic [ref=f3e501]:
+            - generic [ref=f3e502]: Funding · 02
+            - heading "FunderStorm" [level=3] [ref=f3e505]
+            - paragraph [ref=f3e506]: Your next grant cycle should start where your last one ended, not from scratch.
+            - paragraph [ref=f3e507]: Discover aligned funding, track grants in flight, and preserve the institutional history of every funder relationship, so the next development director inherits a body of work instead of a folder of PDFs.
+            - list [ref=f3e508]:
+              - listitem [ref=f3e509]:
+                - generic [ref=f3e511]: Funder discovery aligned to mission and theory of change
+              - listitem [ref=f3e512]:
+                - generic [ref=f3e514]: Live grant pipeline with status, deadlines, and reporting
+              - listitem [ref=f3e515]:
+                - generic [ref=f3e517]: "Funder intelligence: past asks, contacts, decisions, and why they said yes or no"
+              - listitem [ref=f3e518]:
+                - generic [ref=f3e520]: AI-assisted proposal drafts grounded in your org's voice
+            - link "Explore FunderStorm" [ref=f3e521] [cursor=pointer]:
+              - /url: /products/funderstorm
+              - text: Explore FunderStorm
+              - generic [ref=f3e522]: →
+          - generic [ref=f3e524]:
+            - generic [ref=f3e525]:
+              - generic [ref=f3e526]:
+                - generic [ref=f3e527]: BeMo · FunderStorm
+                - generic [ref=f3e533]: Funding
+              - generic [ref=f3e534]:
+                - generic [ref=f3e535]:
+                  - generic [ref=f3e536]:
+                    - generic [ref=f3e537]: You
+                    - generic [ref=f3e540]: Which family foundations fit our early-childhood policy work?
+                  - generic [ref=f3e541]:
+                    - generic [ref=f3e542]: BeMo
+                    - generic [ref=f3e545]: Two strong fits. Bright Harbor is the tightest thematic match. Meridian funded adjacent work in 2023, and Elena Whitfield, the program officer on that grant, is still there.
+                  - generic [ref=f3e546]:
+                    - generic [ref=f3e547]:
+                      - generic [ref=f3e548]: Bright Harbor Foundation
+                      - generic [ref=f3e549]: Private foundation · Albany, NY
+                      - generic [ref=f3e550]:
+                        - generic [ref=f3e551]: Disbursed / yr
+                        - generic [ref=f3e552]: $425K
+                      - generic [ref=f3e553]:
+                        - generic [ref=f3e554]: Early childhood
+                        - generic [ref=f3e555]: Policy
+                    - generic [ref=f3e556]:
+                      - generic [ref=f3e557]: Meridian Fund
+                      - generic [ref=f3e558]: Private foundation · Burlington, VT
+                      - generic [ref=f3e559]:
+                        - generic [ref=f3e560]: Endowment
+                        - generic [ref=f3e561]: —
+                      - generic [ref=f3e562]:
+                        - generic [ref=f3e563]: Child welfare
+                        - generic [ref=f3e564]: Coalitions
+                      - generic [ref=f3e565]: ◆ funded you · 2023
+                  - generic [ref=f3e566]:
+                    - generic [ref=f3e567]: Partial results · funder coverage grows weekly
+                    - generic [ref=f3e568]: Save list →
+                - generic [ref=f3e569]:
+                  - generic [ref=f3e570]: Ask anything
+                  - generic [ref=f3e571]: →
+            - paragraph [ref=f3e572]: FunderStorm, illustrated · fictional data
+        - generic [ref=f3e575]:
+          - generic [ref=f3e576]:
+            - generic [ref=f3e577]: Communications · 03
+            - heading "Amplify" [level=3] [ref=f3e580]
+            - paragraph [ref=f3e581]: Every piece of content reflects who you actually are, not who you were three drafts ago.
+            - paragraph [ref=f3e582]: Press releases, donor letters, campaign messaging, social, and impact narratives, all drafted in your voice, consistent across channels, and connected to the grants and programs they describe.
+            - list [ref=f3e583]:
+              - listitem [ref=f3e584]:
+                - generic [ref=f3e586]: Voice-consistent drafts across press, donor, board, and social
+              - listitem [ref=f3e587]:
+                - generic [ref=f3e589]: Campaign messaging that stays coherent across staff and seasons
+              - listitem [ref=f3e590]:
+                - generic [ref=f3e592]: Impact narratives drawn from real program data
+              - listitem [ref=f3e593]:
+                - generic [ref=f3e595]: Donor communications tied to the grants they thank
+            - link "Explore Amplify" [ref=f3e596] [cursor=pointer]:
+              - /url: /products/amplify
+              - text: Explore Amplify
+              - generic [ref=f3e597]: →
+          - generic [ref=f3e599]:
+            - generic [ref=f3e600]:
+              - generic [ref=f3e601]:
+                - generic [ref=f3e602]: BeMo · Amplify
+                - generic [ref=f3e608]: Communications
+              - generic [ref=f3e609]:
+                - generic [ref=f3e610]:
+                  - generic [ref=f3e611]:
+                    - generic [ref=f3e612]: You
+                    - generic [ref=f3e615]: Draft the cohort 4 thank-you for spring donors.
+                  - generic [ref=f3e616]:
+                    - generic [ref=f3e617]: BeMo
+                    - generic [ref=f3e620]: Drafted in your voice, matched from your last three appeals. Every claim cites the work it came from.
+                  - generic [ref=f3e621]:
+                    - generic [ref=f3e622]: Draft · donor letter · v3
+                    - generic [ref=f3e623]: Last spring, you helped fund the work that became our cross-state coalition. This week, three new partners signed on. None of it happens without the early conviction
+                  - generic [ref=f3e625]:
+                    - generic [ref=f3e626]: Cites
+                    - generic [ref=f3e627]: Cohort 3 impact report
+                    - generic [ref=f3e628]: April board memo
+                - generic [ref=f3e629]:
+                  - generic [ref=f3e630]: Ask anything
+                  - generic [ref=f3e631]: →
+            - paragraph [ref=f3e632]: Amplify, illustrated · fictional data
+        - generic [ref=f3e635]:
+          - generic [ref=f3e636]:
+            - generic [ref=f3e637]: Learning · 04
+            - heading "Academy" [level=3] [ref=f3e640]
+            - paragraph [ref=f3e641]: Learning that happens inside the work, not beside it.
+            - paragraph [ref=f3e642]: Nonprofit-specific micro-learning that arrives when staff need it, in the tool they're already in. Onboarding compresses from months to weeks; institutional knowledge transfers without the all-hands meeting.
+            - list [ref=f3e643]:
+              - listitem [ref=f3e644]:
+                - generic [ref=f3e646]: Conversational learning tailored to the task at hand
+              - listitem [ref=f3e647]:
+                - generic [ref=f3e649]: Onboarding flows that adapt to role and tenure
+              - listitem [ref=f3e650]:
+                - generic [ref=f3e652]: Nonprofit-specific curriculum (grant writing, governance, comms)
+              - listitem [ref=f3e653]:
+                - generic [ref=f3e655]: Skill development tracked alongside the work, not in a separate LMS
+            - link "Explore Academy" [ref=f3e656] [cursor=pointer]:
+              - /url: /products/academy
+              - text: Explore Academy
+              - generic [ref=f3e657]: →
+          - generic [ref=f3e659]:
+            - generic [ref=f3e660]:
+              - generic [ref=f3e661]:
+                - generic [ref=f3e662]: BeMo · Academy
+                - generic [ref=f3e668]: Learning
+              - generic [ref=f3e669]:
+                - generic [ref=f3e670]:
+                  - generic [ref=f3e671]:
+                    - generic [ref=f3e672]: You
+                    - generic [ref=f3e675]: First LOI. Where do I start?
+                  - generic [ref=f3e676]:
+                    - generic [ref=f3e677]: BeMo
+                    - generic [ref=f3e680]: "Right here, inside the draft. A letter of inquiry is shorter than a proposal: aim for two pages, and lead with the question your work answers, not your founding date."
+                  - generic [ref=f3e681]: Writing your first LOI · step 2 of 5
+                  - generic [ref=f3e689]:
+                    - generic [ref=f3e690]: From your draft
+                    - generic [ref=f3e691]: “We are a 12-year-old organization…” Try leading with the policy gap instead.
+                    - generic [ref=f3e692]: Apply to draft →
+                - generic [ref=f3e693]:
+                  - generic [ref=f3e694]: Ask anything
+                  - generic [ref=f3e695]: →
+            - paragraph [ref=f3e696]: Academy, illustrated · fictional data
+    - generic [ref=f3e698]:
+      - paragraph [ref=f3e700]:
+        - generic [ref=f3e701]: How BeMo works
+      - heading "Everything in. Nothing lost. Every app sharper for it." [level=2] [ref=f3e704]
+      - generic [ref=f3e705]:
+        - generic [ref=f3e707]:
+          - generic [ref=f3e708]: Conversations
+          - generic [ref=f3e709]: Documents
+          - generic [ref=f3e710]: Decisions
+          - generic [ref=f3e711]: Funding
+          - generic [ref=f3e712]: Communications
+          - generic [ref=f3e713]: Learning
+        - generic [ref=f3e717]:
+          - generic [ref=f3e718]: The BeMo Knowledge Base
+          - paragraph [ref=f3e721]: Your mission, voice, priorities and decisions. One place that keeps them current.
+        - generic [ref=f3e725]:
+          - generic [ref=f3e726]:
+            - generic [ref=f3e727]: Compass
+            - paragraph [ref=f3e730]: Strategy
+          - generic [ref=f3e731]:
+            - generic [ref=f3e732]: FunderStorm
+            - paragraph [ref=f3e735]: Funding
+          - generic [ref=f3e736]:
+            - generic [ref=f3e737]: Amplify
+            - paragraph [ref=f3e740]: Communications
+          - generic [ref=f3e741]:
+            - generic [ref=f3e742]: Academy
+            - paragraph [ref=f3e745]: Learning
+        - paragraph [ref=f3e747]: Not four tools that integrate. Four apps reading and writing the same organizational memory, so what happens in one strengthens the others.
+    - generic [ref=f3e749]:
+      - generic [ref=f3e750]:
+        - generic [ref=f3e751]:
+          - generic [ref=f3e752]: Demo slot
+          - code [ref=f3e753]: ask-with-sources
+          - generic [ref=f3e754]: looping clip, no sound · 12 seconds, loops cleanly · 16:10
+        - paragraph [ref=f3e755]: BeMo answers from your organization’s own record, and shows you where every part of the answer came from.
+        - list [ref=f3e756]:
+          - listitem [ref=f3e757]:
+            - generic [ref=f3e758]: "01"
+            - generic [ref=f3e759]: "A question typed in plain language: \"What did the board decide about the gala budget?\""
+          - listitem [ref=f3e760]:
+            - generic [ref=f3e761]: "02"
+            - generic [ref=f3e762]: The answer composing, at real speed.
+          - listitem [ref=f3e763]:
+            - generic [ref=f3e764]: "03"
+            - generic [ref=f3e765]: "Source chips resolving under the answer: the March board call, the transcript timestamp."
+          - listitem [ref=f3e766]:
+            - generic [ref=f3e767]: "04"
+            - generic [ref=f3e768]: One source clicked, opening the underlying record.
+        - list [ref=f3e769]:
+          - listitem [ref=f3e770]: — The sources must be clickable in the real product. If they are not yet, this demo waits.
+          - listitem [ref=f3e771]: — Show one question only. Four questions is a feature tour, not proof.
+        - paragraph [ref=f3e772]: Hidden in production. Pass the finished asset as children to fill it.
+      - generic [ref=f3e773]:
+        - generic [ref=f3e774]:
+          - paragraph [ref=f3e775]:
+            - generic [ref=f3e776]: Conversation as the interface
+          - heading "No menus. No training. Just ask." [level=2] [ref=f3e778]
+          - generic [ref=f3e779]:
+            - paragraph [ref=f3e780]: BeMo doesn't replace the work with a dashboard. It joins the conversation you're already having, and brings the full context of your organization with it.
+            - paragraph [ref=f3e781]: Ask about a funder, draft a board memo, find the reasoning behind a strategic decision, or onboard a new staff member. The interface is your voice. The knowledge is your organization's.
+            - list [ref=f3e782]:
+              - listitem [ref=f3e783]:
+                - generic [ref=f3e785]: Understands organizational context, not just keywords.
+              - listitem [ref=f3e786]:
+                - generic [ref=f3e788]: Carries memory across grants, strategy, and communications at once.
+              - listitem [ref=f3e789]:
+                - generic [ref=f3e791]: Adapts to staff transitions without losing institutional fluency.
+              - listitem [ref=f3e792]:
+                - generic [ref=f3e794]: No training week. Day one is conversational.
+        - generic [ref=f3e796]:
+          - generic [ref=f3e797]: BeMo · Tuesday 8:14am
+          - generic [ref=f3e805]:
+            - generic [ref=f3e806]:
+              - generic [ref=f3e807]: Erin · Executive Director
+              - paragraph [ref=f3e810]: We just heard the Meridian Fund wants a follow-on conversation. Where did we land last time?
+            - generic [ref=f3e811]:
+              - generic [ref=f3e812]: BeMo
+              - paragraph [ref=f3e815]: In November 2023 Meridian funded $185K toward the early-childhood policy work. The program officer is Elena Whitfield. Her last note flagged interest in cross-state coalition building, which lines up with the work Erin pitched the board in April.
+              - generic [ref=f3e816]:
+                - generic [ref=f3e817]:
+                  - generic [ref=f3e818]: grant
+                  - generic [ref=f3e819]: Meridian · early-childhood policy
+                  - generic [ref=f3e820]: $185,000 · Nov 2023
+                - generic [ref=f3e821]:
+                  - generic [ref=f3e822]: decision
+                  - generic [ref=f3e823]: Board · expand to OR & WA
+                  - generic [ref=f3e824]: April 2026
+                - generic [ref=f3e825]:
+                  - generic [ref=f3e826]: note
+                  - generic [ref=f3e827]: Funder note · E. Whitfield
+                  - generic [ref=f3e828]: "\"cross-state coalition\""
+            - generic [ref=f3e829]:
+              - generic [ref=f3e830]: Erin · Executive Director
+              - paragraph [ref=f3e833]: Can you draft an outreach email and pull a one-pager from what we already have?
+            - generic [ref=f3e834]:
+              - generic [ref=f3e835]: BeMo
+              - paragraph [ref=f3e838]: Draft is ready. I matched the voice from your last three Meridian emails. The one-pager pulls from the April board memo and last week's coalition update; both already cited.
+          - generic [ref=f3e839]:
+            - generic [ref=f3e840]: ready
+            - generic [ref=f3e842]: ↵ to send
+    - generic [ref=f3e844]:
+      - paragraph [ref=f3e846]:
+        - generic [ref=f3e847]: Institutional memory
+      - heading "Your development director is retiring. Eight years of context is walking out with them." [level=2] [ref=f3e850]
+      - paragraph [ref=f3e852]: "In most organizations: a folder of PDFs, a shared inbox, and whatever made it into the exit interview. In BeMo: the whole body of work, with its reasoning attached."
+      - generic [ref=f3e853]:
+        - generic [ref=f3e855]:
+          - generic [ref=f3e856]:
+            - paragraph [ref=f3e857]: grant history
+            - paragraph [ref=f3e858]: since 2019
+          - list [ref=f3e859]:
+            - listitem [ref=f3e860]:
+              - generic [ref=f3e861]: "01"
+              - generic [ref=f3e862]: First LOI to a family foundation
+            - listitem [ref=f3e863]:
+              - generic [ref=f3e864]: "02"
+              - generic [ref=f3e865]: General operating renewal
+            - listitem [ref=f3e866]:
+              - generic [ref=f3e867]: "03"
+              - generic [ref=f3e868]: Program officer call notes
+        - generic [ref=f3e870]:
+          - generic [ref=f3e871]:
+            - paragraph [ref=f3e872]: strategic decisions
+            - paragraph [ref=f3e873]: since 2022
+          - list [ref=f3e874]:
+            - listitem [ref=f3e875]:
+              - generic [ref=f3e876]: "01"
+              - generic [ref=f3e877]: Board approves regional expansion
+            - listitem [ref=f3e878]:
+              - generic [ref=f3e879]: "02"
+              - generic [ref=f3e880]: Theory of change revised
+            - listitem [ref=f3e881]:
+              - generic [ref=f3e882]: "03"
+              - generic [ref=f3e883]: Cohort model adopted
+        - generic [ref=f3e885]:
+          - generic [ref=f3e886]:
+            - paragraph [ref=f3e887]: communications
+            - paragraph [ref=f3e888]: since 2024
+          - list [ref=f3e889]:
+            - listitem [ref=f3e890]:
+              - generic [ref=f3e891]: "01"
+              - generic [ref=f3e892]: Annual report · cohort 3
+            - listitem [ref=f3e893]:
+              - generic [ref=f3e894]: "02"
+              - generic [ref=f3e895]: Op-ed in state paper
+            - listitem [ref=f3e896]:
+              - generic [ref=f3e897]: "03"
+              - generic [ref=f3e898]: Donor stewardship cadence
+      - generic [ref=f3e901]:
+        - generic [ref=f3e902]: ★
+        - generic [ref=f3e904]: When a development director leaves, the next one starts a week ahead. Not eighteen months behind.
+    - generic [ref=f3e908]:
+      - generic [ref=f3e909]:
+        - paragraph [ref=f3e910]:
+          - generic [ref=f3e911]: Why we built this
+        - paragraph [ref=f3e913]: We spent eighteen months with nonprofit leaders before we shipped a single feature.
+      - generic [ref=f3e915]:
+        - paragraph [ref=f3e916]: The same story, over and over. An organization doing extraordinary work, held together by a handful of exhausted people, watching institutional memory walk out the door with every transition.
+        - paragraph [ref=f3e917]: Existing software treated this as a workflow problem. Faster tickets, prettier dashboards. It isn't. It's a memory problem. Organizations don't stall because their tools are slow; they stall because what they know lives in a hundred places and survives no one.
+        - paragraph [ref=f3e918]: BeMo is the result. A platform that treats organizational memory as infrastructure, and refuses to waste your time rebuilding what you already figured out.
+        - paragraph [ref=f3e919]: Lee Grainger & Becky Kern, co-founders
+    - generic [ref=f3e923]:
+      - generic [ref=f3e924]:
+        - generic [ref=f3e925]: Free to start · your real work · no pitch
+        - heading "Find out what your nonprofit already knows." [level=2] [ref=f3e928]: Find out what your nonprofitalready knows.
+      - generic [ref=f3e929]:
+        - link "Start free" [ref=f3e930] [cursor=pointer]:
+          - /url: /start
+          - generic [ref=f3e932]: →
+        - link "Book a call" [ref=f3e933] [cursor=pointer]:
+          - /url: /book
+          - generic [ref=f3e935]: →
+        - paragraph [ref=f3e936]: 30-minute conversation. Bring a real problem.
+  - contentinfo [ref=f3e937]:
+    - generic [ref=f3e938]:
+      - generic [ref=f3e939]:
+        - generic [ref=f3e940]:
+          - img "BeMo" [ref=f3e941]
+          - paragraph [ref=f3e942]: BeMo is where your organization's knowledge lives. Four apps on one platform, for funding, strategy, communications and learning, over a shared foundation that remembers everything, connects everything, and compounds over time.
+        - generic [ref=f3e943]: Free to start · no credit card
+      - generic [ref=f3e947]:
+        - generic [ref=f3e948]:
+          - heading "Platform" [level=3] [ref=f3e949]
+          - list [ref=f3e950]:
+            - listitem [ref=f3e951]:
+              - link "Overview" [ref=f3e952] [cursor=pointer]:
+                - /url: /platform
+            - listitem [ref=f3e953]:
+              - link "Compass" [ref=f3e954] [cursor=pointer]:
+                - /url: /products/compass
+            - listitem [ref=f3e955]:
+              - link "FunderStorm" [ref=f3e956] [cursor=pointer]:
+                - /url: /products/funderstorm
+            - listitem [ref=f3e957]:
+              - link "Amplify" [ref=f3e958] [cursor=pointer]:
+                - /url: /products/amplify
+            - listitem [ref=f3e959]:
+              - link "Academy" [ref=f3e960] [cursor=pointer]:
+                - /url: /products/academy
+        - generic [ref=f3e961]:
+          - heading "Resources" [level=3] [ref=f3e962]
+          - list [ref=f3e963]:
+            - listitem [ref=f3e964]:
+              - link "FAQ" [ref=f3e965] [cursor=pointer]:
+                - /url: /faq
+            - listitem [ref=f3e966]:
+              - link "Security" [ref=f3e967] [cursor=pointer]:
+                - /url: /security
+        - generic [ref=f3e968]:
+          - heading "Company" [level=3] [ref=f3e969]
+          - list [ref=f3e970]:
+            - listitem [ref=f3e971]:
+              - link "About" [ref=f3e972] [cursor=pointer]:
+                - /url: /about
+            - listitem [ref=f3e973]:
+              - link "Manifesto" [ref=f3e974] [cursor=pointer]:
+                - /url: /manifesto
+            - listitem [ref=f3e975]:
+              - link "Customers" [ref=f3e976] [cursor=pointer]:
+                - /url: /customers
+            - listitem [ref=f3e977]:
+              - link "Partners" [ref=f3e978] [cursor=pointer]:
+                - /url: /partners
+            - listitem [ref=f3e979]:
+              - link "Contact" [ref=f3e980] [cursor=pointer]:
+                - /url: /contact
+        - generic [ref=f3e981]:
+          - heading "Get started" [level=3] [ref=f3e982]
+          - list [ref=f3e983]:
+            - listitem [ref=f3e984]:
+              - link "Start free" [ref=f3e985] [cursor=pointer]:
+                - /url: /start
+            - listitem [ref=f3e986]:
+              - link "Book a call" [ref=f3e987] [cursor=pointer]:
+                - /url: /book
+            - listitem [ref=f3e988]:
+              - link "Pricing" [ref=f3e989] [cursor=pointer]:
+                - /url: /pricing
+            - listitem [ref=f3e990]:
+              - link "Privacy" [ref=f3e991] [cursor=pointer]:
+                - /url: /legal/privacy
+            - listitem [ref=f3e992]:
+              - link "Terms" [ref=f3e993] [cursor=pointer]:
+                - /url: /legal/terms
+      - generic [ref=f3e994]:
+        - paragraph [ref=f3e995]: Helping nonprofit organizations think, remember, and move forward together.
+        - generic [ref=f3e996]:
+          - generic [ref=f3e997]: © 2026 BeMo
+          - generic [ref=f3e998]: ·
+          - link "Privacy" [ref=f3e999] [cursor=pointer]:
+            - /url: /legal/privacy
+          - link "Terms" [ref=f3e1000] [cursor=pointer]:
+            - /url: /legal/terms
+  - button "Open Next.js Dev Tools" [ref=f3e1102] [cursor=pointer]
+  - alert [ref=f3e1106]

@@ -17,7 +17,7 @@
 | 2:00 | Issue advocacy is taking a public position without tying it to a specific bill. Our community needs more affordable housing. Full-day kindergarten in every district. You can organize around those positions: petitions, op-eds, rallies. Still not lobbying. | Same slide, bubble. Key line: "Issue advocacy: unlimited" | A6 |
 | 2:18 | Lobbying is narrower than everyday speech suggests: asking a legislator, or asking the public to ask a legislator, to support or oppose specific legislation. We need more housing funding: not lobbying. Tell your state senator to vote yes on HB 412: lobbying. Same idea, different sides of the line. And here's what almost no board has been told: 501(c)(3)s are allowed to lobby, within limits far above what a small nonprofit would ever spend. | Split: two-sentences slide left, twin right. | A7 |
 | 2:52 | Political activity is the one red category: supporting or opposing a candidate for office. That's it. That's the actual ban. Everything else you just heard is open to you. | Course player (Knowledge Check section visible), twin bubble. Key line: "The only red line: candidates" | A8 |
-| 3:08 | So when the sentence comes up, name the category. Three green lights, one high ceiling, one red line. The full lesson, the reference card, and a board conversation script are in Academy, course AC-01. And when you're ready for the limits themselves, AC-04 is next. | Twin full screen, loft. | A9 |
+| 3:08 | So when the sentence comes up, name the category. Three green lights, one high ceiling, one red line. The full lesson, the reference card, and a board conversation script are in Academy, in Introduction to Nonprofit Advocacy. And when you're ready for the limits themselves, the next course is 501(c)(3) Advocacy: What You Can Do. | Twin full screen, loft. | A9 |
 
 ## Notes
 
@@ -41,3 +41,4 @@
 | Version | Date | Change |
 |---|---|---|
 | 1 | 2026-08-04 | Drafted from the AC-01 Reading after Becky approved the pilot format ("it looks great, run one complete academy lesson") |
+| 2 | 2026-08-05 | Handle rewritten to Becky's naming rule: courses by name or code and name, never the bare code. A9 re-rendered; body unchanged |

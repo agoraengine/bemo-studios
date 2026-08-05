@@ -7,9 +7,9 @@
 //
 // Output: capture/out/ (gitignored). Upload to Drive, link in assets.md.
 //
-// Vertical (1080x1920) is the primary per the brief; 16:9 renders at 1280x720,
-// the same honest raster ceiling as the GA sizzle (the s3/s3b screenshots are
-// ~1000px wide; a larger viewport only upscales them).
+// 16:9 captures at 2560x1440 and delivers 1920x1080 per the standards spec
+// (the v4 craft pass); verticals are retired from the deliverable set per
+// Becky's Aug 3 call but the aspect plumbing remains.
 
 import { chromium } from "playwright";
 import ffmpegPath from "ffmpeg-static";
@@ -43,31 +43,29 @@ const DUR = { "30": 25, "60": 51.5 };
 // VO placements, seconds from reel start. Segments are per scene; the three
 // chat lines are the locked S1 text regenerated one file per scene (script
 // change log, 2026-08-02).
+// Full upbeat pass (Becky, Aug 4): every segment is a HeyGen Avatar V read on
+// her twin voice, the Academy VO path, so the whole track shares one source
+// and one energy. Her recorded b2-* session takes stay on disk as fallback.
 const MIX = {
   "30": [
-    [path.join(VO, "becky", "b2-r1-l1.dry.wav"), 0.5],
-    [path.join(VO, "becky", "b2-r1-l2.dry.wav"), 4.0],
-    [path.join(VO, "becky", "b2-r1-l3.dry.wav"), 9.4],
-    [path.join(VO, "becky", "b2-r1-l4b.dry.wav"), 11.4],
-    // Four-apps beat: clone placeholder ("Four apps. One memory.", Becky's Aug 3
-    // direction) until Becky records the line; her sessions only hold the GA
-    // "Four products" take. Re-record listed in vo-recording-sheet.md.
-    [path.join(VO, "becky", "clone-r1-fourapps.dry.wav"), 16.85],
-    [path.join(VO, "becky", "b2-r1-l8.dry.wav"), 21.1],
+    [path.join(VO, "becky", "hg-r1-l1.wav"), 0.5],
+    [path.join(VO, "becky", "hg-r1-l2.wav"), 4.0],
+    [path.join(VO, "becky", "hg-r1-l3.wav"), 9.4],
+    [path.join(VO, "becky", "hg-r1-l4b.wav"), 11.4],
+    [path.join(VO, "becky", "hg-r1-fourapps.wav"), 16.85],
+    [path.join(VO, "becky", "hg-r1-l8.wav"), 21.1],
   ],
   "60": [
-    [path.join(VO, "becky", "b2-r1-l1.dry.wav"), 0.5],
-    [path.join(VO, "becky", "b2-r1-l2.dry.wav"), 4.0],
-    [path.join(VO, "becky", "b2-r1-l3.dry.wav"), 9.4],
-    [path.join(VO, "becky", "b2-r1-l4a.dry.wav"), 11.4],
-    [path.join(VO, "becky", "b2-r1-l5.dry.wav"), 19.4],
-    [path.join(VO, "becky", "b2-r1-l6.dry.wav"), 30.3],
-    [path.join(VO, "becky", "b2-r1-l7.dry.wav"), 35.7],
-    // Four-apps beat over s6 (41.1-44.9; headline lands 41.35). The tagline
-    // was firing here at 41.4, over the wrong scene, leaving the end card
-    // silent (Becky's Aug 3 review); it moves to the end card at 45.3.
-    [path.join(VO, "becky", "clone-r1-fourapps.dry.wav"), 41.5],
-    [path.join(VO, "becky", "b2-r1-l8.dry.wav"), 45.3],
+    [path.join(VO, "becky", "hg-r1-l1.wav"), 0.5],
+    [path.join(VO, "becky", "hg-r1-l2.wav"), 4.0],
+    [path.join(VO, "becky", "hg-r1-l3.wav"), 9.4],
+    [path.join(VO, "becky", "hg-r1-l4a.wav"), 11.4],
+    [path.join(VO, "becky", "hg-r1-l5.wav"), 19.4],
+    [path.join(VO, "becky", "hg-r1-l6.wav"), 30.3],
+    [path.join(VO, "becky", "hg-r1-l7.wav"), 35.7],
+    // Four-apps beat over s6 (headline lands 41.35); tagline on the end card.
+    [path.join(VO, "becky", "hg-r1-fourapps.wav"), 41.5],
+    [path.join(VO, "becky", "hg-r1-l8.wav"), 45.3],
   ],
 };
 const MUSIC_BY_CUT = {
