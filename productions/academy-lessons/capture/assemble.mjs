@@ -137,8 +137,9 @@ plan.segments.forEach((seg, i) => {
         "-c:v", "libvpx-vp9", "-ss", String(seg.avatarFrom ?? 0), "-t", dur, "-i", rel(seg.avatar),
         "-loop", "1", "-i", rel(seg.avatarBg),
         "-filter_complex",
-        `[0:v]${leftChain}[left];[2:v]${FIT(HALF, H)}[abg];` +
-        `[1:v]scale=${W}:${H},fps=${FPS},crop=${HALF}:${H}:${seg.avatarCropX ?? 700}:0[fg];` +
+        `[2:v]scale=${W}:${H}:force_original_aspect_ratio=increase,crop=${HALF}:${H}:${seg.bgCropX ?? 150}:0,fps=${FPS}[abg];` +
+        `[0:v]${leftChain}[left];` +
+        `[1:v]scale=${W}:${H},fps=${FPS},crop=${HALF}:${H}:${seg.avatarCropX ?? HALF / 2}:0[fg];` +
         `[abg][fg]overlay=0:0[right];[left][right]hstack,format=yuv420p[v]`,
         "-map", "[v]", "-map", "1:a", "-t", dur, ...VID, ...AUDIO, part,
       ], { stdio: "inherit" });

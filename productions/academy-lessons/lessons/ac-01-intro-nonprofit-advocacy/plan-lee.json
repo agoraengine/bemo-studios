@@ -1,6 +1,6 @@
 {
   "slug": "ac-01-intro-nonprofit-advocacy-lee",
-  "version": 2,
+  "version": 4,
   "captions": "captions-lee.srt",
   "poster": {
     "segment": 0,
@@ -19,7 +19,9 @@
       "duration": 22.05,
       "avatar": "../../capture/out/ac-01/lee/lee-a2.webm",
       "avatarFrom": 0,
-      "avatarBg": "../../capture/out/ac-01/boardroom.png"
+      "avatarBg": "../../capture/out/ac-01/boardroom.png",
+      "bgCropX": 395,
+      "avatarCropX": 320
     },
     {
       "type": "screen",
@@ -34,7 +36,9 @@
       "duration": 23.43,
       "avatar": "../../capture/out/ac-01/lee/lee-a4.webm",
       "avatarFrom": 0,
-      "avatarBg": "../../capture/out/ac-01/boardroom.png"
+      "avatarBg": "../../capture/out/ac-01/boardroom.png",
+      "bgCropX": 395,
+      "avatarCropX": 320
     },
     {
       "type": "screen",
@@ -56,7 +60,9 @@
       "duration": 27.43,
       "avatar": "../../capture/out/ac-01/lee/lee-a7.webm",
       "avatarFrom": 0,
-      "avatarBg": "../../capture/out/ac-01/boardroom.png"
+      "avatarBg": "../../capture/out/ac-01/boardroom.png",
+      "bgCropX": 395,
+      "avatarCropX": 320
     },
     {
       "type": "screen",
