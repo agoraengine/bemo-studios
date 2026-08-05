@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  /* TED-register lecture deck per treatment.md, set to the BeMo brand
+     guidelines (bemo-os docs/branding): Schibsted Grotesk, Deep Sapphire ink,
+     Solar Orange accent, Verdant Green growth, Error Red for the one red line. */
+  @font-face {
+    font-family: "Schibsted Grotesk";
+    src: url("../../capture/fonts/SchibstedGrotesk-var.woff2") format("woff2");
+    font-weight: 400 900;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1920px; height: 1080px; background: #FFFFFF; color: #05347E;
+         font-family: "Schibsted Grotesk", "Helvetica Neue", system-ui, sans-serif; overflow: hidden; }
+  .slide { display: none; width: 1920px; height: 1080px; padding: 120px 140px;
+           flex-direction: column; justify-content: center; position: relative; }
+  .slide.on { display: flex; }
+  .eyebrow { font-size: 30px; color: #5C87D1; margin-bottom: 36px; letter-spacing: .04em; text-transform: uppercase; }
+  .big { font-size: 118px; font-weight: 800; line-height: 1.04; letter-spacing: -0.015em; }
+  .mid { font-size: 64px; font-weight: 700; line-height: 1.15; }
+  .accent { color: #D93025; }
+  .greenword { color: #4CBB17; }
+  .goldword { color: #FF8210; }
+  .sub { margin-top: 56px; font-size: 40px; color: #03265F; line-height: 1.5; }
+  .rows { margin-top: 70px; display: flex; flex-direction: column; gap: 34px; }
+  .row { display: flex; align-items: center; gap: 30px; font-size: 44px; }
+  .dot { width: 20px; height: 20px; border-radius: 50%; background: #05347E; flex: none; }
+  .chips { margin-top: 80px; display: flex; gap: 26px; }
+  .chip { padding: 26px 40px; border-radius: 16px; background: #E9F0FA; font-size: 40px; font-weight: 700;
+          border-bottom: 10px solid #C8D9F3; }
+  .chip.g { border-bottom-color: #4CBB17; }
+  .chip.y { border-bottom-color: #FF8210; }
+  .chip.r { border-bottom-color: #D93025; }
+  table { width: 100%; border-collapse: collapse; font-size: 44px; margin-top: 60px; }
+  td { padding: 34px 30px; background: #E9F0FA; border-top: 12px solid #FFFFFF; }
+  td.cat { font-weight: 800; width: 560px; }
+  td.status { width: 620px; font-weight: 800; text-align: right; }
+  .pair { display: flex; flex-direction: column; gap: 48px; margin-top: 70px; }
+  .card { background: #E9F0FA; padding: 56px 60px; border-radius: 20px; font-size: 56px; font-weight: 600; line-height: 1.25; }
+  .verdict { display: inline-block; margin-top: 28px; font-size: 34px; font-weight: 800;
+             padding: 12px 26px; border-radius: 12px; }
+  .not { background: #EAF7E3; color: #3A8E11; }
+  .is  { background: #FBE9E7; color: #D93025; }
+  .foot { position: absolute; bottom: 54px; left: 140px; font-size: 26px; color: #5C87D1; }
+  .redwash { background: #01143A; color: #E9F0FA; }
+  .redwash .eyebrow { color: #7EA3E0; }
+  .redwash .sub { color: #A4BEEA; }
+</style>
+</head>
+<body>
+
+<div class="slide" id="one">
+  <div class="eyebrow">CM-02 · Writing Impact Stories That Move People</div>
+  <div class="big">1,200 people slides right off.<br><span class="greenword">We're built to feel one.</span></div>
+  <div class="sub">One life, told well enough that a stranger leans in. The most powerful tool in nonprofit communications.</div>
+</div>
+
+<div class="slide" id="principles">
+  <div class="eyebrow">The ethical foundation</div>
+  <div class="mid">Craft and ethics are one subject.</div>
+  <div class="chips">
+    <div class="chip g">Dignity</div>
+    <div class="chip g">Agency</div>
+    <div class="chip g">Consent</div>
+  </div>
+  <div class="sub">The test: would the person be proud of how they're portrayed?</div>
+</div>
+
+<div class="slide" id="grammar">
+  <div class="eyebrow">Who is the hero shows up in the grammar</div>
+  <div class="pair">
+    <div class="card">"We lifted Maria out of poverty."<br><span class="verdict is">The organization is the hero. Maria is cargo.</span></div>
+    <div class="card">"With childcare she could rely on, Maria finished her degree."<br><span class="verdict not">Maria is the hero. Write her doing the verbs.</span></div>
+  </div>
+</div>
+
+<div class="slide" id="consent">
+  <div class="eyebrow">Consent is not a signature</div>
+  <div class="mid">It's a conversation, in writing.</div>
+  <div class="rows">
+    <div class="row"><span class="dot"></span>Where will this appear?</div>
+    <div class="row"><span class="dot"></span>Real name or pseudonym? Photo or none?</div>
+    <div class="row"><span class="dot"></span>Can they change their mind later?</div>
+    <div class="row"><span class="dot"></span>Services never depend on saying yes.</div>
+  </div>
+</div>
+
+<div class="slide" id="structure">
+  <div class="eyebrow">The structure</div>
+  <div class="chips">
+    <div class="chip g">Situation</div>
+    <div class="chip g">Intervention</div>
+    <div class="chip g">Transformation</div>
+  </div>
+  <div class="sub">Situation with dignity. Intervention specific: it's what funders read most closely. Transformation honest.</div>
+  <div class="mid" style="margin-top:56px">Resist the fairy-tale ending.</div>
+  <div class="foot">General education · Full structure in the CM-02 Reading</div>
+</div>
+
+<div class="slide" id="data">
+  <div class="eyebrow">Narrative and data reinforce each other</div>
+  <div class="big">The story earns attention.<br><span class="greenword">The number earns trust.</span></div>
+  <div class="sub">"Maria's story is one of many: 84% of parents in this program secured stable employment."</div>
+</div>
+
+<style>
+  /* half mode: 960x1080 variants for the split-screen pane, so nothing crops */
+  body.half { width: 960px; }
+  body.half .slide { width: 960px; padding: 90px 70px; }
+  body.half .big { font-size: 72px; }
+  body.half .mid { font-size: 46px; }
+  body.half .rows { margin-top: 50px; gap: 26px; }
+  body.half .row { font-size: 30px; gap: 18px; }
+  body.half .dot { width: 14px; height: 14px; }
+  body.half .eyebrow { font-size: 22px; margin-bottom: 26px; }
+  body.half table { font-size: 28px; margin-top: 40px; }
+  body.half td { padding: 22px 18px; border-top-width: 8px; }
+  body.half td.cat { width: 260px; }
+  body.half td.status { width: 280px; }
+  body.half .pair { gap: 30px; margin-top: 44px; }
+  body.half .card { padding: 36px 38px; font-size: 34px; border-radius: 14px; }
+  body.half .verdict { font-size: 24px; margin-top: 18px; }
+  body.half .foot { left: 70px; bottom: 40px; font-size: 20px; }
+  body.half .chips { margin-top: 50px; flex-wrap: wrap; gap: 16px; }
+  body.half .chip { font-size: 26px; padding: 16px 22px; border-bottom-width: 7px; }
+  body.half .sub { font-size: 28px; margin-top: 36px; }
+</style>
+<script>
+  const q = new URLSearchParams(location.search);
+  const id = q.get("slide") || "categories";
+  document.getElementById(id).classList.add("on");
+  if (q.get("w") === "half") document.body.classList.add("half");
+</script>
+</body>
+</html>
