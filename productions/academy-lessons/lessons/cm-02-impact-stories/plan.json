@@ -1,0 +1,68 @@
+{
+  "slug": "cm-02-impact-stories",
+  "version": 1,
+  "captions": "captions.srt",
+  "poster": {
+    "segment": 0,
+    "at": 2.0
+  },
+  "segments": [
+    {
+      "type": "avatar",
+      "src": "../../capture/out/cm-02/avatar/b1.mp4"
+    },
+    {
+      "type": "split",
+      "src": "../../capture/out/cm-02/slides/one-half.png",
+      "duration": 14.39,
+      "avatar": "../../capture/out/cm-02/avatar/b2.mp4",
+      "avatarFrom": 0
+    },
+    {
+      "type": "screen",
+      "src": "../../capture/out/cm-02/slides/one.png",
+      "duration": 20.61,
+      "bubble": "../../capture/out/cm-02/avatar/b3.mp4",
+      "bubbleFrom": 0
+    },
+    {
+      "type": "split",
+      "src": "../../capture/out/cm-02/slides/principles-half.png",
+      "duration": 23.77,
+      "avatar": "../../capture/out/cm-02/avatar/b4.mp4",
+      "avatarFrom": 0
+    },
+    {
+      "type": "screen",
+      "src": "../../capture/out/cm-02/slides/grammar.png",
+      "duration": 20.79,
+      "bubble": "../../capture/out/cm-02/avatar/b5.mp4",
+      "bubbleFrom": 0
+    },
+    {
+      "type": "screen",
+      "src": "../../capture/out/cm-02/slides/consent.png",
+      "duration": 24.56,
+      "bubble": "../../capture/out/cm-02/avatar/b6.mp4",
+      "bubbleFrom": 0
+    },
+    {
+      "type": "split",
+      "src": "../../capture/out/cm-02/slides/structure-half.png",
+      "duration": 30.93,
+      "avatar": "../../capture/out/cm-02/avatar/b7.mp4",
+      "avatarFrom": 0
+    },
+    {
+      "type": "screen",
+      "src": "../../capture/out/cm-02/slides/data.png",
+      "duration": 12.3,
+      "bubble": "../../capture/out/cm-02/avatar/b8.mp4",
+      "bubbleFrom": 0
+    },
+    {
+      "type": "avatar",
+      "src": "../../capture/out/cm-02/avatar/b9.mp4"
+    }
+  ]
+}
