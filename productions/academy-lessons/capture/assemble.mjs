@@ -125,17 +125,32 @@ plan.segments.forEach((seg, i) => {
     }
 
   } else if (seg.type === "split") {
-    // content left, presenter right; audio from the presenter
+    // content left, presenter right; audio from the presenter. With avatarBg,
+    // the presenter is a transparent webm composited onto that background
+    // inside the pane (center crop), same logo-safe logic as full screens.
     const dur = String(segDuration(seg));
     const text = readingLayer(seg.text, segDuration(seg));
     const leftChain = [FIT(HALF, H), ...text].join(",");
-    execFileSync(FF, [
-      "-y", ...contentInput(seg, dur),
-      "-ss", String(seg.avatarFrom ?? 0), "-t", dur, "-i", rel(seg.avatar),
-      "-filter_complex",
-      `[0:v]${leftChain}[left];[1:v]${FIT(HALF, H)}[right];[left][right]hstack,format=yuv420p[v]`,
-      "-map", "[v]", "-map", "1:a", "-t", dur, ...VID, ...AUDIO, part,
-    ], { stdio: "inherit" });
+    if (seg.avatarBg) {
+      execFileSync(FF, [
+        "-y", ...contentInput(seg, dur),
+        "-c:v", "libvpx-vp9", "-ss", String(seg.avatarFrom ?? 0), "-t", dur, "-i", rel(seg.avatar),
+        "-loop", "1", "-i", rel(seg.avatarBg),
+        "-filter_complex",
+        `[0:v]${leftChain}[left];[2:v]${FIT(HALF, H)}[abg];` +
+        `[1:v]scale=${W}:${H},fps=${FPS},crop=${HALF}:${H}:${seg.avatarCropX ?? 700}:0[fg];` +
+        `[abg][fg]overlay=0:0[right];[left][right]hstack,format=yuv420p[v]`,
+        "-map", "[v]", "-map", "1:a", "-t", dur, ...VID, ...AUDIO, part,
+      ], { stdio: "inherit" });
+    } else {
+      execFileSync(FF, [
+        "-y", ...contentInput(seg, dur),
+        "-ss", String(seg.avatarFrom ?? 0), "-t", dur, "-i", rel(seg.avatar),
+        "-filter_complex",
+        `[0:v]${leftChain}[left];[1:v]${FIT(HALF, H)}[right];[left][right]hstack,format=yuv420p[v]`,
+        "-map", "[v]", "-map", "1:a", "-t", dur, ...VID, ...AUDIO, part,
+      ], { stdio: "inherit" });
+    }
 
   } else {
     // full-bleed content, optional circular presenter bubble; audio from the

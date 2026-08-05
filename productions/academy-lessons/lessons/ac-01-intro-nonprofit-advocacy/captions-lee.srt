@@ -1,171 +1,171 @@
 1
-00:00:00,000 --> 00:00:10,709
+00:00:00,000 --> 00:00:11,016
 Somewhere in a board meeting near you, someone is about to say the sentence that quietly disables more small nonprofits than any budget cut: we can't do advocacy, we're a 501(c)(3).
 
 2
-00:00:10,709 --> 00:00:12,721
+00:00:11,016 --> 00:00:13,086
 This lesson unwinds that sentence.
 
 3
-00:00:12,721 --> 00:00:19,880
+00:00:13,086 --> 00:00:20,450
 In the next few minutes you'll be able to name the four kinds of civic action, and know which of them you're free to use.
 
 4
-00:00:19,880 --> 00:00:25,528
+00:00:20,450 --> 00:00:25,985
 The cost of that sentence is years of pure service work while policy makes the problem worse.
 
 5
-00:00:25,528 --> 00:00:31,358
+00:00:25,985 --> 00:00:31,698
 A literacy nonprofit watches reading minutes get cut, and never says a word to the school board.
 
 6
-00:00:31,358 --> 00:00:35,062
+00:00:31,698 --> 00:00:35,329
 A food bank expands capacity while eligibility rules tighten.
 
 7
-00:00:35,062 --> 00:00:42,410
+00:00:35,329 --> 00:00:42,530
 A youth program loses a third of its kids every June and never asks the city why summer funding hasn't moved in a decade.
 
 8
-00:00:42,410 --> 00:00:48,587
+00:00:42,530 --> 00:00:48,960
 The confusion has one source: advocacy is one word doing the work of four very different activities.
 
 9
-00:00:48,587 --> 00:00:54,208
+00:00:48,960 --> 00:00:54,812
 Boards import worry from one category into the other three, and the fear disables all four.
 
 10
-00:00:54,208 --> 00:00:57,050
+00:00:54,812 --> 00:00:57,770
 The fix is to separate them, so let's do that.
 
 11
-00:00:57,050 --> 00:00:58,620
+00:00:57,770 --> 00:00:59,338
 Category one: education.
 
 12
-00:00:58,620 --> 00:01:00,518
+00:00:59,338 --> 00:01:01,232
 Category two: issue advocacy.
 
 13
-00:01:00,518 --> 00:01:02,154
+00:01:01,232 --> 00:01:02,865
 Category three: lobbying.
 
 14
-00:01:02,154 --> 00:01:04,378
+00:01:02,865 --> 00:01:05,086
 Category four: political activity.
 
 15
-00:01:04,378 --> 00:01:07,454
+00:01:05,086 --> 00:01:08,156
 Three of these are green lights with no limits.
 
 16
-00:01:07,454 --> 00:01:11,707
+00:01:08,156 --> 00:01:12,402
 One is allowed within limits you will almost certainly never hit.
 
 17
-00:01:11,707 --> 00:01:13,408
+00:01:12,402 --> 00:01:14,100
 Exactly one is prohibited.
 
 18
-00:01:13,408 --> 00:01:19,101
+00:01:14,100 --> 00:01:19,783
 If your mental picture is a wholesale ban, you've collapsed all four into the last one.
 
 19
-00:01:19,101 --> 00:01:20,540
+00:01:19,783 --> 00:01:21,220
 They are not the same.
 
 20
-00:01:20,540 --> 00:01:23,236
+00:01:21,220 --> 00:01:23,804
 Education is teaching people about an issue.
 
 21
-00:01:23,236 --> 00:01:25,871
+00:01:23,804 --> 00:01:26,329
 A fact sheet on the school funding formula.
 
 22
-00:01:25,871 --> 00:01:27,955
+00:01:26,329 --> 00:01:28,325
 A community forum on housing data.
 
 23
-00:01:27,955 --> 00:01:30,896
+00:01:28,325 --> 00:01:31,144
 A neutral training on what's actually in a bill.
 
 24
-00:01:30,896 --> 00:01:32,551
+00:01:31,144 --> 00:01:32,729
 None of that is restricted.
 
 25
-00:01:32,551 --> 00:01:33,960
+00:01:32,729 --> 00:01:34,080
 Do as much as you want.
 
 26
-00:01:33,960 --> 00:01:38,792
+00:01:34,080 --> 00:01:38,713
 Issue advocacy is taking a public position without tying it to a specific bill.
 
 27
-00:01:38,792 --> 00:01:41,483
+00:01:38,713 --> 00:01:41,293
 Our community needs more affordable housing.
 
 28
-00:01:41,483 --> 00:01:43,929
+00:01:41,293 --> 00:01:43,638
 Full-day kindergarten in every district.
 
 29
-00:01:43,929 --> 00:01:48,088
+00:01:43,638 --> 00:01:47,626
 You can organize around those positions: petitions, op-eds, rallies.
 
 30
-00:01:48,088 --> 00:01:49,250
+00:01:47,626 --> 00:01:48,740
 Still not lobbying.
 
 31
-00:01:49,250 --> 00:01:59,725
+00:01:48,740 --> 00:01:58,553
 Lobbying is narrower than everyday speech suggests: asking a legislator, or asking the public to ask a legislator, to support or oppose specific legislation.
 
 32
-00:01:59,725 --> 00:02:02,594
+00:01:58,553 --> 00:02:01,241
 We need more housing funding: not lobbying.
 
 33
-00:02:02,594 --> 00:02:06,330
+00:02:01,241 --> 00:02:04,741
 Tell your state senator to vote yes on HB 412: lobbying.
 
 34
-00:02:06,330 --> 00:02:08,932
+00:02:04,741 --> 00:02:07,179
 Same idea, different sides of the line.
 
 35
-00:02:08,932 --> 00:02:18,540
+00:02:07,179 --> 00:02:16,180
 And here's what almost no board has been told: 501(c)(3)s are allowed to lobby, within limits far above what a small nonprofit would ever spend.
 
 36
-00:02:18,540 --> 00:02:24,369
+00:02:16,180 --> 00:02:21,462
 Political activity is the one red category: supporting or opposing a candidate for office.
 
 37
-00:02:24,369 --> 00:02:25,016
+00:02:21,462 --> 00:02:22,049
 That's it.
 
 38
-00:02:25,016 --> 00:02:26,441
+00:02:22,049 --> 00:02:23,340
 That's the actual ban.
 
 39
-00:02:26,441 --> 00:02:29,420
+00:02:23,340 --> 00:02:26,040
 Everything else you just heard is open to you.
 
 40
-00:02:29,420 --> 00:02:32,552
+00:02:26,040 --> 00:02:28,961
 So when the sentence comes up, name the category.
 
 41
-00:02:32,552 --> 00:02:35,811
+00:02:28,961 --> 00:02:32,000
 Three green lights, one high ceiling, one red line.
 
 42
-00:02:35,811 --> 00:02:43,673
+00:02:32,000 --> 00:02:39,331
 The full lesson, the reference card, and a board conversation script are in Academy, in Introduction to Nonprofit Advocacy.
 
 43
-00:02:43,673 --> 00:02:50,320
+00:02:39,331 --> 00:02:45,530
 And when you're ready for the limits themselves, the next course is 501(c)(3) Advocacy: What You Can Do.

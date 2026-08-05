@@ -1,0 +1,75 @@
+{
+  "slug": "ac-01-intro-nonprofit-advocacy-lee",
+  "version": 2,
+  "captions": "captions-lee.srt",
+  "poster": {
+    "segment": 0,
+    "at": 2.0
+  },
+  "segments": [
+    {
+      "type": "avatar",
+      "src": "../../capture/out/ac-01/lee/lee-a1.webm",
+      "bg": "../../capture/out/ac-01/boardroom.png",
+      "x": 340
+    },
+    {
+      "type": "split",
+      "src": "../../capture/out/ac-01/slides/cost-half.png",
+      "duration": 22.05,
+      "avatar": "../../capture/out/ac-01/lee/lee-a2.webm",
+      "avatarFrom": 0,
+      "avatarBg": "../../capture/out/ac-01/boardroom.png"
+    },
+    {
+      "type": "screen",
+      "src": "../../capture/out/ac-01/slides/fourword.png",
+      "duration": 15.23,
+      "bubble": "../../capture/out/ac-01/lee/lee-a3.mp4",
+      "bubbleFrom": 0
+    },
+    {
+      "type": "split",
+      "src": "../../capture/out/ac-01/slides/categories-half.png",
+      "duration": 23.43,
+      "avatar": "../../capture/out/ac-01/lee/lee-a4.webm",
+      "avatarFrom": 0,
+      "avatarBg": "../../capture/out/ac-01/boardroom.png"
+    },
+    {
+      "type": "screen",
+      "src": "../../capture/out/ac-01/slides/education.png",
+      "duration": 12.85,
+      "bubble": "../../capture/out/ac-01/lee/lee-a5.mp4",
+      "bubbleFrom": 0
+    },
+    {
+      "type": "screen",
+      "src": "../../capture/out/ac-01/slides/issue.png",
+      "duration": 14.65,
+      "bubble": "../../capture/out/ac-01/lee/lee-a6.mp4",
+      "bubbleFrom": 0
+    },
+    {
+      "type": "split",
+      "src": "../../capture/out/ac-01/slides/lobbying-half.png",
+      "duration": 27.43,
+      "avatar": "../../capture/out/ac-01/lee/lee-a7.webm",
+      "avatarFrom": 0,
+      "avatarBg": "../../capture/out/ac-01/boardroom.png"
+    },
+    {
+      "type": "screen",
+      "src": "../../capture/out/ac-01/slides/redline.png",
+      "duration": 9.85,
+      "bubble": "../../capture/out/ac-01/lee/lee-a8.mp4",
+      "bubbleFrom": 0
+    },
+    {
+      "type": "avatar",
+      "src": "../../capture/out/ac-01/lee/lee-a9.webm",
+      "bg": "../../capture/out/ac-01/boardroom.png",
+      "x": 340
+    }
+  ]
+}
