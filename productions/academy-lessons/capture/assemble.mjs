@@ -43,6 +43,7 @@
 import { execFileSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 import { createRequire } from "node:module";
 
 const require = createRequire(import.meta.url);
@@ -97,16 +98,31 @@ plan.segments.forEach((seg, i) => {
   const part = path.join(tmp, `part${i}.mp4`);
 
   if (seg.type === "avatar") {
-    const trim = seg.from != null ? ["-ss", String(seg.from), "-to", String(seg.to)] : [];
-    const filters = [FIT(W, H), "format=yuv420p"];
-    if (!disclosed || seg.disclose) {
-      filters.push(chip("lt(t,3.5)"));
-      disclosed = true;
+    const needChip = !disclosed || seg.disclose;
+    if (needChip) disclosed = true;
+    if (seg.bg) {
+      // transparent-webm presenter composited onto a background image at a
+      // controllable x offset, so scene elements (the logo) stay visible
+      // (Becky, 2026-08-05). seg.x shifts the presenter layer; positive = right.
+      const xShift = seg.x ?? 260;
+      const post = needChip ? "," + chip("lt(t,3.5)") : "";
+      execFileSync(FF, [
+        "-y", "-loop", "1", "-i", rel(seg.bg),
+        "-c:v", "libvpx-vp9", "-i", rel(seg.src),
+        "-filter_complex",
+        `[0:v]${FIT(W, H)}[bg];[1:v]scale=${W}:${H},fps=${FPS}[fg];[bg][fg]overlay=${xShift}:0,format=yuv420p${post}[v]`,
+        "-map", "[v]", "-map", "1:a", "-shortest",
+        ...VID, ...AUDIO, part,
+      ], { stdio: "inherit" });
+    } else {
+      const trim = seg.from != null ? ["-ss", String(seg.from), "-to", String(seg.to)] : [];
+      const filters = [FIT(W, H), "format=yuv420p"];
+      if (needChip) filters.push(chip("lt(t,3.5)"));
+      execFileSync(FF, [
+        "-y", ...trim, "-i", rel(seg.src),
+        "-vf", filters.join(","), ...VID, ...AUDIO, part,
+      ], { stdio: "inherit" });
     }
-    execFileSync(FF, [
-      "-y", ...trim, "-i", rel(seg.src),
-      "-vf", filters.join(","), ...VID, ...AUDIO, part,
-    ], { stdio: "inherit" });
 
   } else if (seg.type === "split") {
     // content left, presenter right; audio from the presenter
@@ -156,9 +172,13 @@ fs.writeFileSync(list, parts.map((p) => `file '${p}'`).join("\n"));
 const joined = path.join(tmp, "joined.mp4");
 execFileSync(FF, ["-y", "-f", "concat", "-safe", "0", "-i", list, "-c", "copy", joined], { stdio: "inherit" });
 
-// final pass: captions burned from the locked script's .srt, loudnorm to -16 LUFS
+// final pass: captions burned from the locked script's .srt, loudnorm to -16 LUFS.
+// Caption style is the sizzle standard (Becky, 2026-08-05): Geist, brand ink
+// (Deep Sapphire) on a soft white box. Fonts ship in capture/fonts/.
 const out = path.join(HERE, `bemo-academy-${plan.slug}-primary-v${plan.version ?? 1}.mp4`);
-const vf = plan.captions ? ["-vf", `subtitles='${rel(plan.captions)}'`] : [];
+const FONTS = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "fonts");
+const CAPSTYLE = "FontName=Geist,FontSize=13,PrimaryColour=&H007E3405,BackColour=&H26FFFFFF,BorderStyle=4,Outline=0,Shadow=0,Bold=0,MarginV=34";
+const vf = plan.captions ? ["-vf", `subtitles='${rel(plan.captions)}':fontsdir='${FONTS}':force_style='${CAPSTYLE}'`] : [];
 execFileSync(FF, [
   "-y", "-i", joined, ...vf,
   "-af", "loudnorm=I=-16:TP=-1.5:LRA=11",

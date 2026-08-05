@@ -3,44 +3,50 @@
 <head>
 <meta charset="utf-8">
 <style>
-  /* TED-register lecture deck per treatment.md: one idea per slide, huge type,
-     few words, bold color where the moment must land. Warm-paper base. */
+  /* TED-register lecture deck per treatment.md, set to the BeMo brand
+     guidelines (bemo-os docs/branding): Schibsted Grotesk, Deep Sapphire ink,
+     Solar Orange accent, Verdant Green growth, Error Red for the one red line. */
+  @font-face {
+    font-family: "Schibsted Grotesk";
+    src: url("../../capture/fonts/SchibstedGrotesk-var.woff2") format("woff2");
+    font-weight: 400 900;
+  }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { width: 1920px; height: 1080px; background: #f6f2e9; color: #1b2437;
-         font-family: "Avenir Next", "Helvetica Neue", system-ui, sans-serif; overflow: hidden; }
+  body { width: 1920px; height: 1080px; background: #FFFFFF; color: #05347E;
+         font-family: "Schibsted Grotesk", "Helvetica Neue", system-ui, sans-serif; overflow: hidden; }
   .slide { display: none; width: 1920px; height: 1080px; padding: 120px 140px;
            flex-direction: column; justify-content: center; position: relative; }
   .slide.on { display: flex; }
-  .eyebrow { font-size: 30px; color: #6b6456; margin-bottom: 36px; letter-spacing: .04em; text-transform: uppercase; }
+  .eyebrow { font-size: 30px; color: #5C87D1; margin-bottom: 36px; letter-spacing: .04em; text-transform: uppercase; }
   .big { font-size: 118px; font-weight: 800; line-height: 1.04; letter-spacing: -0.015em; }
   .mid { font-size: 64px; font-weight: 700; line-height: 1.15; }
-  .accent { color: #b3362b; }
-  .greenword { color: #2e7d4f; }
-  .goldword { color: #a8730a; }
-  .sub { margin-top: 56px; font-size: 40px; color: #4a4437; line-height: 1.5; }
+  .accent { color: #D93025; }
+  .greenword { color: #4CBB17; }
+  .goldword { color: #FF8210; }
+  .sub { margin-top: 56px; font-size: 40px; color: #03265F; line-height: 1.5; }
   .rows { margin-top: 70px; display: flex; flex-direction: column; gap: 34px; }
   .row { display: flex; align-items: center; gap: 30px; font-size: 44px; }
-  .dot { width: 20px; height: 20px; border-radius: 50%; background: #1b2437; flex: none; }
+  .dot { width: 20px; height: 20px; border-radius: 50%; background: #05347E; flex: none; }
   .chips { margin-top: 80px; display: flex; gap: 26px; }
-  .chip { padding: 26px 40px; border-radius: 16px; background: #fffdf8; font-size: 40px; font-weight: 700;
-          border-bottom: 10px solid #cfc8b8; }
-  .chip.g { border-bottom-color: #2e7d4f; }
-  .chip.y { border-bottom-color: #a8730a; }
-  .chip.r { border-bottom-color: #b3362b; }
+  .chip { padding: 26px 40px; border-radius: 16px; background: #E9F0FA; font-size: 40px; font-weight: 700;
+          border-bottom: 10px solid #C8D9F3; }
+  .chip.g { border-bottom-color: #4CBB17; }
+  .chip.y { border-bottom-color: #FF8210; }
+  .chip.r { border-bottom-color: #D93025; }
   table { width: 100%; border-collapse: collapse; font-size: 44px; margin-top: 60px; }
-  td { padding: 34px 30px; background: #fffdf8; border-top: 12px solid #f6f2e9; }
+  td { padding: 34px 30px; background: #E9F0FA; border-top: 12px solid #FFFFFF; }
   td.cat { font-weight: 800; width: 560px; }
   td.status { width: 620px; font-weight: 800; text-align: right; }
   .pair { display: flex; flex-direction: column; gap: 48px; margin-top: 70px; }
-  .card { background: #fffdf8; padding: 56px 60px; border-radius: 20px; font-size: 56px; font-weight: 600; line-height: 1.25; }
+  .card { background: #E9F0FA; padding: 56px 60px; border-radius: 20px; font-size: 56px; font-weight: 600; line-height: 1.25; }
   .verdict { display: inline-block; margin-top: 28px; font-size: 34px; font-weight: 800;
              padding: 12px 26px; border-radius: 12px; }
-  .not { background: #e7f2ea; color: #2e7d4f; }
-  .is  { background: #f7e9e7; color: #b3362b; }
-  .foot { position: absolute; bottom: 54px; left: 140px; font-size: 26px; color: #6b6456; }
-  .redwash { background: #2a1614; color: #f6f2e9; }
-  .redwash .eyebrow { color: #c9a29b; }
-  .redwash .sub { color: #d8c7c2; }
+  .not { background: #EAF7E3; color: #3A8E11; }
+  .is  { background: #FBE9E7; color: #D93025; }
+  .foot { position: absolute; bottom: 54px; left: 140px; font-size: 26px; color: #5C87D1; }
+  .redwash { background: #01143A; color: #E9F0FA; }
+  .redwash .eyebrow { color: #7EA3E0; }
+  .redwash .sub { color: #A4BEEA; }
 </style>
 </head>
 <body>
@@ -102,7 +108,7 @@
 
 <div class="slide redwash" id="redline">
   <div class="eyebrow">Category four · The only prohibition</div>
-  <div class="big">One red line:<br><span style="color:#e2564a">candidates.</span></div>
+  <div class="big">One red line:<br><span style="color:#FF6B5E">candidates.</span></div>
   <div class="sub">Supporting or opposing anyone running for office. That's the actual ban. Everything else is open to you.</div>
 </div>
 

@@ -9,7 +9,7 @@
 
 | Time | Narration | On screen | Shot |
 |---|---|---|---|
-| 0:00 | Somewhere in a board meeting near you, someone is about to say the sentence that quietly disables more small nonprofits than any budget cut: we can't do advocacy, we're a 501(c)(3). This lesson unwinds that sentence. In the next five minutes you'll be able to name the four kinds of civic action, and know which of them you're free to use. | Twin full screen, loft. Lesson title lower third. AI-presenter disclosure chip. | A1 |
+| 0:00 | Somewhere in a board meeting near you, someone is about to say the sentence that quietly disables more small nonprofits than any budget cut: we can't do advocacy, we're a 501(c)(3). This lesson unwinds that sentence. In the next few minutes you'll be able to name the four kinds of civic action, and know which of them you're free to use. | Twin full screen, loft. Lesson title lower third. AI-presenter disclosure chip. | A1 |
 | 0:27 | The cost of that sentence is years of pure service work while policy makes the problem worse. A literacy nonprofit watches reading minutes get cut, and never says a word to the school board. A food bank expands capacity while eligibility rules tighten. A youth program loses a third of its kids every June and never asks the city why summer funding hasn't moved in a decade. | Split: course player (Reading, top) left, twin right. Key lines build: "General education, not legal advice" then "The cost is years of silence" | A2 |
 | 0:55 | The confusion has one source: advocacy is one word doing the work of four very different activities. Boards import worry from one category into the other three, and the fear disables all four. The fix is to separate them, so let's do that. | Full-bleed course player scrolling the Reading, twin in corner bubble. Key line: "One word, four different activities" | A3 |
 | 1:14 | Category one: education. Category two: issue advocacy. Category three: lobbying. Category four: political activity. Three of these are green lights with no limits. One is allowed within limits you will almost certainly never hit. Exactly one is prohibited. If your mental picture is a wholesale ban, you've collapsed all four into the last one. They are not the same. | Split: four-category slide left, twin right. | A4 |
@@ -41,4 +41,5 @@
 | Version | Date | Change |
 |---|---|---|
 | 1 | 2026-08-04 | Drafted from the AC-01 Reading after Becky approved the pilot format ("it looks great, run one complete academy lesson") |
+| 3 | 2026-08-05 | Welcome says "in the next few minutes" so the runtime claim can never drift from the cut (Becky). Lee's version composites transparent renders onto the boardroom off-center so the logo stays clear of the presenter (Becky). |
 | 2 | 2026-08-05 | Handle rewritten to Becky's naming rule: courses by name or code and name, never the bare code. A9 re-rendered; body unchanged |
