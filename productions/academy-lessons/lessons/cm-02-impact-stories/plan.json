@@ -1,6 +1,6 @@
 {
   "slug": "cm-02-impact-stories",
-  "version": 2,
+  "version": 3,
   "captions": "captions.srt",
   "poster": {
     "segment": 0,
@@ -9,7 +9,9 @@
   "segments": [
     {
       "type": "avatar",
-      "src": "../../capture/out/cm-02/avatar/b1.mp4"
+      "src": "../../capture/out/cm-02/avatar/b1.webm",
+      "bg": "../../capture/out/cm-02/loft.png",
+      "scale": 0.85
     },
     {
       "type": "split",
@@ -62,7 +64,9 @@
     },
     {
       "type": "avatar",
-      "src": "../../capture/out/cm-02/avatar/b9.mp4"
+      "src": "../../capture/out/cm-02/avatar/b9.webm",
+      "bg": "../../capture/out/cm-02/loft.png",
+      "scale": 0.85
     }
   ]
 }
