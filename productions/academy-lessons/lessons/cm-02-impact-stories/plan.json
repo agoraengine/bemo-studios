@@ -1,6 +1,6 @@
 {
   "slug": "cm-02-impact-stories",
-  "version": 3,
+  "version": 4,
   "captions": "captions.srt",
   "poster": {
     "segment": 0,
@@ -11,14 +11,16 @@
       "type": "avatar",
       "src": "../../capture/out/cm-02/avatar/b1.webm",
       "bg": "../../capture/out/cm-02/loft.png",
-      "scale": 0.85
+      "scale": 0.72
     },
     {
       "type": "split",
       "src": "../../capture/out/cm-02/slides/one-half.png",
       "duration": 14.39,
-      "avatar": "../../capture/out/cm-02/avatar/b2.mp4",
-      "avatarFrom": 0
+      "avatar": "../../capture/out/cm-02/avatar/b2.webm",
+      "avatarFrom": 0,
+      "avatarBg": "../../capture/out/cm-02/loft.png",
+      "paneScale": 0.85
     },
     {
       "type": "screen",
@@ -31,8 +33,10 @@
       "type": "split",
       "src": "../../capture/out/cm-02/slides/principles-half.png",
       "duration": 23.77,
-      "avatar": "../../capture/out/cm-02/avatar/b4.mp4",
-      "avatarFrom": 0
+      "avatar": "../../capture/out/cm-02/avatar/b4.webm",
+      "avatarFrom": 0,
+      "avatarBg": "../../capture/out/cm-02/loft.png",
+      "paneScale": 0.85
     },
     {
       "type": "screen",
@@ -52,8 +56,10 @@
       "type": "split",
       "src": "../../capture/out/cm-02/slides/structure-half.png",
       "duration": 30.93,
-      "avatar": "../../capture/out/cm-02/avatar/b7.mp4",
-      "avatarFrom": 0
+      "avatar": "../../capture/out/cm-02/avatar/b7.webm",
+      "avatarFrom": 0,
+      "avatarBg": "../../capture/out/cm-02/loft.png",
+      "paneScale": 0.85
     },
     {
       "type": "screen",
@@ -66,7 +72,7 @@
       "type": "avatar",
       "src": "../../capture/out/cm-02/avatar/b9.webm",
       "bg": "../../capture/out/cm-02/loft.png",
-      "scale": 0.85
+      "scale": 0.72
     }
   ]
 }
