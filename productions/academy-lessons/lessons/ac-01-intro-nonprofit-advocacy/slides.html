@@ -14,7 +14,8 @@
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { width: 1920px; height: 1080px; background: #FFFFFF; color: #05347E;
          font-family: "Schibsted Grotesk", "Helvetica Neue", system-ui, sans-serif; overflow: hidden; }
-  .slide { display: none; width: 1920px; height: 1080px; padding: 120px 140px;
+  /* full-bleed slides reserve the bubble zone (bottom-right circle) */
+  .slide { display: none; width: 1920px; height: 1080px; padding: 120px 520px 120px 140px;
            flex-direction: column; justify-content: center; position: relative; }
   .slide.on { display: flex; }
   .eyebrow { font-size: 30px; color: #5C87D1; margin-bottom: 36px; letter-spacing: .04em; text-transform: uppercase; }
@@ -115,7 +116,7 @@
 <style>
   /* half mode: 960x1080 variants for the split-screen pane, so nothing crops */
   body.half { width: 960px; }
-  body.half .slide { width: 960px; padding: 90px 70px; }
+  body.half .slide { width: 960px; padding: 90px 70px 90px 70px; }
   body.half .big { font-size: 72px; }
   body.half .mid { font-size: 46px; }
   body.half .rows { margin-top: 50px; gap: 26px; }

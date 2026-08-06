@@ -101,16 +101,20 @@ plan.segments.forEach((seg, i) => {
     const needChip = !disclosed || seg.disclose;
     if (needChip) disclosed = true;
     if (seg.bg) {
-      // transparent-webm presenter composited onto a background image at a
-      // controllable x offset, so scene elements (the logo) stay visible
-      // (Becky, 2026-08-05). seg.x shifts the presenter layer; positive = right.
-      const xShift = seg.x ?? 260;
+      // transparent-webm presenter composited onto a background image with
+      // controllable position and scale. seg.x shifts the layer (positive =
+      // right); seg.scale < 1 pulls the presenter back from the camera
+      // (Becky, 2026-08-06: distance reads as real, close reads as avatar),
+      // bottom-anchored so feet/waist stay planted.
+      const scale = seg.scale ?? 1;
+      const fw = Math.round((W * scale) / 2) * 2, fh = Math.round((H * scale) / 2) * 2;
+      const xShift = seg.x ?? (scale === 1 ? 260 : Math.round((W - fw) / 2));
       const post = needChip ? "," + chip("lt(t,3.5)") : "";
       execFileSync(FF, [
         "-y", "-loop", "1", "-i", rel(seg.bg),
         "-c:v", "libvpx-vp9", "-i", rel(seg.src),
         "-filter_complex",
-        `[0:v]${FIT(W, H)}[bg];[1:v]scale=${W}:${H},fps=${FPS}[fg];[bg][fg]overlay=${xShift}:0,format=yuv420p${post}[v]`,
+        `[0:v]${FIT(W, H)}[bg];[1:v]scale=${fw}:${fh},fps=${FPS}[fg];[bg][fg]overlay=${xShift}:${H - fh},format=yuv420p${post}[v]`,
         "-map", "[v]", "-map", "1:a", "-shortest",
         ...VID, ...AUDIO, part,
       ], { stdio: "inherit" });
