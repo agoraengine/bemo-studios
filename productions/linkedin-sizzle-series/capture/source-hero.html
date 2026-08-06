@@ -106,13 +106,15 @@
 
   /* scene 8: brand close */
   #sClose { background: var(--navy-deep); }
+  /* dark-ground rule (bemo-os 03-logo.md): the white knockout sits directly on
+     navy, never the color wordmark in a white box; clear space >= the b height */
+  .logow { height: 128px; display: block; opacity: 0; }
   .logochip { background: #FFFFFF; border-radius: 16px; padding: 14px 30px; opacity: 0; }
-  .logochip img { height: 84px; display: block; }
   /* the naming moment: the mark lands with the first spoken "BeMo" (thesis beat) */
   .logochip.lite { border: 1px solid var(--rule); border-radius: 13px; padding: 10px 22px;
     margin-bottom: 26px; box-shadow: 0 16px 34px -20px rgba(26,42,58,0.28); }
   .logochip.lite img { height: 52px; }
-  #clT { font-size: 50px; font-weight: 640; color: #FFFFFF; margin-top: 30px; opacity: 0; }
+  #clT { font-size: 50px; font-weight: 640; color: #FFFFFF; margin-top: 56px; opacity: 0; }
   #clU { font-family: "Geist Mono", monospace; font-size: 18px; letter-spacing: 0.06em;
     color: #9DB9E8; margin-top: 18px; opacity: 0; }
 </style></head>
@@ -194,7 +196,7 @@
   </div>
 
   <div class="scene" id="sClose">
-    <span class="logochip" id="clW"><img src="{{WORDMARK}}" alt="BeMo"></span>
+    <img class="logow" id="clW" src="{{WORDMARK_W}}" alt="BeMo">
     <div id="clT">Where missions gain momentum.</div>
     <div id="clU">bemointel.ai</div>
   </div>

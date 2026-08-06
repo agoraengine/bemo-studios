@@ -93,3 +93,7 @@ Becky's direction on the vH9 review: it was not clear the viewer is inside BeMo 
 Applied to R8H (vH10): the narration already ran the arc (problem at 0:00, the hint at 0:12, BeMo unspoken until 0:24), so the fix was visual orientation at the turns: a "You're inside BeMo" chip landing with the front-page reveal, the wordmark landing with the first spoken "BeMo." No narration or VO changes.
 
 Still owed: reels 8 (30s), 9, 10, 11, and 12 are DRAFTs and need auditing against the mini-story rule before capture. Reel 9 opens on the problem and names BeMo in its second beat at 0:08, which is likely too early under this rule; reels 10-12 need the same check. That is a script pass for a future session, gated on Becky's read of how vH10 lands.
+
+### The dark-ground logo rule reached R8H; reels 1, 1A, and the v2 cut still carry the old treatment (2026-08-06)
+
+Becky flagged the logo in R8H's close. The treatment (color wordmark boxed in a white chip on navy) is not a variant `bemo-os/docs/branding/03-logo.md` sanctions; dark grounds take the white knockout directly on the navy. Fixed in R8H vH11 with `capture/assets/wordmark-white.svg` derived from the canonical asset. The same white-chip close exists in `source-appcut.html` and `source-v2cut.html`, which means the approved reel 1 renders (30s v13, 60s v17) and the 1A candidate shipped with an off-canon close. Becky decides whether those re-render before the Drive upload; the fix is one scene swap per source now that the knockout asset exists.

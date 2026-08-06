@@ -78,7 +78,9 @@ function build() {
   const tpl = fs.readFileSync(path.join(HERE, "source-hero.html"), "utf8");
   const b64 = (f, mime) =>
     `data:${mime};base64,` + fs.readFileSync(path.join(HERE, "assets", f)).toString("base64");
-  const html = tpl.replace("{{WORDMARK}}", b64("wordmark.svg", "image/svg+xml"));
+  const html = tpl
+    .replace("{{WORDMARK}}", b64("wordmark.svg", "image/svg+xml"))
+    .replace("{{WORDMARK_W}}", b64("wordmark-white.svg", "image/svg+xml"));
   fs.writeFileSync(path.join(HERE, "source-hero.built.html"), html);
   console.log("source-hero.built.html built.");
 }
