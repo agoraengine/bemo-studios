@@ -31,7 +31,7 @@ The video is the website's front door continued, per `../../../bemo-website/DESI
 - Type: Bricolage Grotesque for display (lesson title card), Geist for captions, lower thirds, and chips.
 - Surfaces: warm paper backdrop for avatar frames; deep navy ink for text.
 - Product color: if a lesson belongs to one product's area, that product's family color (brass, sage, clay, ocean) may tint the lower third, at the site's identifier-not-decoration restraint.
-- Captions: burned in, 2-line max, Geist on a soft chip, `.srt` sidecar, per `docs/02-production-standards.md`.
+- Captions: **not burned in** (Becky, 2026-08-06, amending the burned-caption standard for this series). The lesson format already carries a reading layer (the slides), so on-screen captions doubled the same words across the composition. Every lesson ships its `.srt` sidecar so the hosting surface (the Academy course player, or any platform) offers captions as a viewer toggle. If a distribution surface cannot take a sidecar, burn captions small and bottom-left (Alignment=1), never centered over the composition. Note for anyone burning: libass `force_style` margins are in the subtitle coordinate space (384 wide by default), not output pixels; a pixel-sized margin squeezes captions into a one-word column.
 
 ## Capture
 

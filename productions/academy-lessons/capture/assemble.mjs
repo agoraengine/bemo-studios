@@ -143,7 +143,7 @@ plan.segments.forEach((seg, i) => {
         "-filter_complex",
         `[2:v]scale=${W}:${H}:force_original_aspect_ratio=increase,crop=${HALF}:${H}:${seg.bgCropX ?? 150}:0,fps=${FPS}[abg];` +
         `[0:v]${leftChain}[left];` +
-        `[1:v]scale=${Math.round(HALF * (seg.paneScale ?? 1) / 2) * 2 * 2}:${Math.round(H * (seg.paneScale ?? 1) / 2) * 2}:force_original_aspect_ratio=decrease,fps=${FPS},crop=min(iw\\,${HALF}):ih:(iw-min(iw\\,${HALF}))/2:0[fg];` +
+        `[1:v]scale=${Math.round(HALF * (seg.paneScale ?? 1) / 2) * 2 * 2}:${Math.round(H * (seg.paneScale ?? 1) / 2) * 2}:force_original_aspect_ratio=decrease,fps=${FPS},crop=min(iw\\,${HALF}):ih:${seg.avatarCropX != null ? `min(${seg.avatarCropX}\\,iw-min(iw\\,${HALF}))` : `(iw-min(iw\\,${HALF}))/2`}:0[fg];` +
         `[abg][fg]overlay=(W-w)/2:H-h[right];[left][right]hstack,format=yuv420p[v]`,
         "-map", "[v]", "-map", "1:a", "-t", dur, ...VID, ...AUDIO, part,
       ], { stdio: "inherit" });
