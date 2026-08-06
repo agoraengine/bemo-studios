@@ -85,3 +85,11 @@ Becky closed the two-day headline audition: the website hero is now **"How much 
 - **Stale VO inventory:** `hge-h1/h2` speak the pre-Aug-5 site hero ("Your nonprofit got smarter this week." / "Nobody wrote it down."); only retired cuts (1D, 1W) use them. If Reel 1A advances, its "hero hook pair" cold open needs regeneration against E3 (audio-only speech endpoint, per the Aug 4 path).
 - **Captures are self-healing:** anything filmed from the site build from now on shows E3 automatically. The R8H front-page take (`hero-front.mjs`) is unaffected; it deliberately opens inside the assembly track and never frames the H1.
 - **SEO note for reel end cards:** the site's title tag is now "where your nonprofit's knowledge lives" (keyword variant); the on-screen roof line stays "your organization's knowledge lives" as ratified. End cards keep using the roof verbatim.
+
+### Every reel is a mini story (Becky, 2026-08-06): standing direction for the batch
+
+Becky's direction on the vH9 review: it was not clear the viewer is inside BeMo or what they are looking at; a cold viewer gets confused. The rule going forward, for every reel: set up the problem, hint at the solution, then name it. A reel is a mini story, not a sequence of claims.
+
+Applied to R8H (vH10): the narration already ran the arc (problem at 0:00, the hint at 0:12, BeMo unspoken until 0:24), so the fix was visual orientation at the turns: a "You're inside BeMo" chip landing with the front-page reveal, the wordmark landing with the first spoken "BeMo." No narration or VO changes.
+
+Still owed: reels 8 (30s), 9, 10, 11, and 12 are DRAFTs and need auditing against the mini-story rule before capture. Reel 9 opens on the problem and names BeMo in its second beat at 0:08, which is likely too early under this rule; reels 10-12 need the same check. That is a script pass for a future session, gated on Becky's read of how vH10 lands.

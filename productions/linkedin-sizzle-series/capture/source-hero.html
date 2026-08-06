@@ -59,6 +59,14 @@
     padding: 13px 26px; border-radius: 12px; opacity: 0; max-width: 960px;
     line-height: 1.35; box-shadow: 0 22px 48px -20px rgba(1,20,58,0.55); }
   #inplay b { color: #FFFFFF; font-weight: 700; }
+  /* the orientation chip: lands with "This is your organization's front page."
+     so a cold viewer knows the composed page is a product screen, not a mockup */
+  #orient { position: absolute; top: 168px; right: 54px; background: var(--navy);
+    color: #F2EEE3; font-family: "Geist Mono", monospace; font-size: 15px;
+    letter-spacing: 0.09em; text-transform: uppercase; font-weight: 500;
+    padding: 9px 16px; border-radius: 9px; opacity: 0;
+    box-shadow: 0 16px 36px -16px rgba(1,20,58,0.5); }
+  #orient b { color: #FFFFFF; font-weight: 500; }
 
   /* scene 3: the thesis */
   #sThesis { background: var(--surface); }
@@ -100,6 +108,10 @@
   #sClose { background: var(--navy-deep); }
   .logochip { background: #FFFFFF; border-radius: 16px; padding: 14px 30px; opacity: 0; }
   .logochip img { height: 84px; display: block; }
+  /* the naming moment: the mark lands with the first spoken "BeMo" (thesis beat) */
+  .logochip.lite { border: 1px solid var(--rule); border-radius: 13px; padding: 10px 22px;
+    margin-bottom: 26px; box-shadow: 0 16px 34px -20px rgba(26,42,58,0.28); }
+  .logochip.lite img { height: 52px; }
   #clT { font-size: 50px; font-weight: 640; color: #FFFFFF; margin-top: 30px; opacity: 0; }
   #clU { font-family: "Geist Mono", monospace; font-size: 18px; letter-spacing: 0.06em;
     color: #9DB9E8; margin-top: 18px; opacity: 0; }
@@ -138,10 +150,12 @@
   <div class="scene vidscene" id="sFront">
     <video id="vFront" src="out/hero-front-raw.webm" muted preload="auto"></video>
     <div class="prov" id="provF">Illustrated &middot; fictional organization</div>
+    <div id="orient">You're inside <b>BeMo</b></div>
     <div id="inplay">The front page shows <b>what's in play</b>. The knowledge base tells you <b>what's missing</b>.</div>
   </div>
 
   <div class="scene" id="sThesis">
+    <span class="logochip lite" id="thW"><img src="{{WORDMARK}}" alt="BeMo"></span>
     <h1 class="disp" id="thH">BeMo is the first platform where your grant work, strategy, and communications <b class="mk">share the same memory</b>.</h1>
     <div class="converge">
       <span class="cv grant" id="cv1">Grant work</span>
@@ -248,12 +262,14 @@
     vid("sFront", "vFront", 6.6, 24.3, 1.35, t);
     // no push on the site take: 16:9 at exact fit, the filmed assembly moves on its own
     fadeTo($("provF"), 7.1, 0.3, 0.9, t);
+    rise($("orient"), 17.6, t);
     rise($("inplay"), 20.1, t);
     if (t > 23.9) fadeTo($("inplay"), 23.9, 0.4, 0, t);
 
-    // 3. the thesis
+    // 3. the thesis; the wordmark lands as "BeMo" is first spoken
     cut($("sThesis"), 24.3, 31.6, t);
     punch($("thH"), 24.5, t);
+    punch($("thW"), 24.9, t);
     rise($("cv1"), 26.9, t); rise($("cv2"), 27.2, t); rise($("cv3"), 27.5, t);
     fadeTo($("cva"), 28.0, 0.3, 1, t);
     punch($("cvm"), 28.4, t);
