@@ -89,6 +89,35 @@
 
 ---
 
+## Reel 1R: the punchline revision (DRAFT, 2026-08-05)
+
+**Why it exists:** Becky's call, Aug 5, applying Bill's Aug 4 notes to the series cut itself. Bill's read of the original: a good intro that stays an intro, and its trio (knows you, no starting over, your voice) is claimable by too many tools. The revision keeps the arc job (feel the stateless problem) but spends one beat on it instead of three, then gets to what only BeMo can show: answers with the source attached. The locked 30s v13 and 60s v17 stay on disk as records; **1R supersedes them for posting** once approved. Jon keeps sending v17 until the reel 8 hero 60 replaces it.
+
+**One message:** general AI starts from zero; BeMo starts from what your organization knows, and shows its sources.
+
+| Time | Narration | On screen | Shot |
+|---|---|---|---|
+| 0:00 | Another blank chat. Explain your mission. Again. | One empty AI chat with the mission being typed; ghost duplicates stack behind it. "Every one starts from zero." | R1R-S1 |
+| 0:07 | BeMo doesn't start from zero. It starts from everything your organization already knows. | The flip: the record assembles, facts landing in place. | R1R-S2 |
+| 0:13 | Ask what the board decided in March. It answers, and shows you where the answer came from. | An ask typed; the answer composes with its source line visible. Caption: "Every fact, sourced." Provenance: "Illustrated · fictional organization". | R1R-S3 |
+| 0:20 | That's not another chatbot. That's your organization's memory, at work. | Navy card: "Not a chatbot. Your organization's memory." | R1R-S4 |
+| 0:25 | BeMo. Where missions gain momentum. | Brand close. | R1R-S5 |
+
+**Notes.** The concession survives in compressed form (the ghost chats), so the opening still says "yes, that happens" without three beats of screen time. The differentiated substance is the sourced answer, which is the site's KB receipts story and stays out of reel 10's lane (the gaps message belongs to It Says So). "Not another chatbot" negates a category, which the anti-patterns doc bans as a self-description, not as a contrast; it is the site's own shipped line ("Not an AI chatbot that forgets you between sessions").
+
+**Clock:** 52 narration words, ~22s of speech. Comfortable.
+
+**Claim trace: reel 1R**
+
+| Line | Claim | Traces to |
+|---|---|---|
+| "Every one starts from zero." (on screen) | Stateless AI | Carried from the locked reel 1; `messaging-assets-v1.md` differentiator 1; site FAQ, one voice |
+| "starts from everything your organization already knows" | The roof, behavioral form | `messaging-assets-v1.md` section 1; map 2.1 |
+| "what the board decided in March... where the answer came from" | Preserves decisions with sources | Claim map ("preserves the reasoning behind decisions"); site KB copy ("Every fact shows its source"); March board decision is Common Table canon (fact sheet) |
+| "Not a chatbot. Your organization's memory." | Category contrast, negated | Site homepage ("Not an AI chatbot that forgets you between sessions"); `18-anti-patterns.md` positioning table (persistent and organizational vs stateless and generic) |
+
+---
+
 ## Reel 1C: the commercial cut (director's pass, 2026-08-04)
 
 **Why it exists:** Bill saw the approved 60s cut and it did not grab him the way the website does. Becky's direction: think like a commercial director and copywriter making a 60-second commercial. This cut keeps every ratified line and every scene asset, and changes the grammar: the approved cut explains; this one grabs.
@@ -153,14 +182,404 @@
 
 **Files:** `capture/source-lastday.html`, `capture/run-lastday.mjs`, VO `capture/out/vo/becky/hgd-*.wav` plus reused `hgc-*`/`hg-r1-*` segments. Renders as `bemo-linkedin-sizzle-series-r1d-60s-v<n>.mp4`.
 
-## Reels 2 and beyond
+## Reel 1W: the website cut (2026-08-05)
 
-Not started. Written one at a time as their arc-week pairings firm up, per the brief. The series is open-ended (brief amendment, 2026-08-02); currently planned: The Reconstruction Tax, It Already Knew, An Hour Not Three Days (Jen Allen proof), Where It Lives (holds for GA week; Meg card pending clearance recording), The Colleague (pillar 2 lead), What You Built Outlasts You (pillar 3 lead). The candidate backlog lives in the brief.
+**Why it exists:** Becky scrapped the built-scene direction and asked for a 60-second version developed from scratch out of the website build, which is the asset Bill responded to. Bill's advisory notes (2026-08-04 call, notes in Becky's Downloads) shaped it directly: get to a punchline early, deliver substance fast, and position BeMo as the comprehensive platform rather than touring named sub-modules.
+
+**The method:** the film IS the live site. `capture/site-tour.mjs` films the local build (localhost:4000, 1080p native, dev chrome hidden) in one continuous choreographed take: hero settle, What BeMo is, the scroll-driven assembly, the network thesis, the quotes, How BeMo works, the conversation spread, the CTA panel. `capture/run-website60.mjs` cuts windows of that take into story order and mixes VO, music, and captions. Every narrated line is the site's shipped copy verbatim (the hero pair, the fragments line, the assembly intro, "Why do capable organizations stall? They stop remembering.", "Four apps. One memory. Everything gets easier.", "Not four tools that integrate...", the conversation section's lines, "From the people using it.", "Find out what your nonprofit knows.", "Free to start. Your real work. Your data stays yours."), so the claim trace is the website itself and video-to-site consistency is exact.
+
+| Output | Scene (from the take) | VO |
+|---|---|---|
+| 0:00 | Hero settles, fragments drift | The hero pair, then the fragments line |
+| 0:10 | The assembly: fragments snap into the funder page, the front page composes | "BeMo is where that knowledge lives..." / "Watch a scattered week become Monday morning." |
+| 0:19 | "Nobody stops caring. They stop remembering." + the Mission Network drawing | The stall line |
+| 0:25 | What BeMo is: four apps on one platform, over one Knowledge Base | "Four apps. One memory. Everything gets easier." |
+| 0:29 | How BeMo works: the hub | "Not four tools that integrate..." |
+| 0:37 | "No menus. No training. Just ask." with the cited Meridian answer | The conversation lines |
+| 0:46 | From the people using it (Meg and Jen, the site's own cards) | "From the people using it." |
+| 0:50 | The navy CTA panel | "Find out what your nonprofit knows." / "Free to start. Your real work. Your data stays yours." |
+
+**Files:** `capture/site-tour.mjs` (the take), `capture/run-website60.mjs` (the cut), VO `capture/out/vo/becky/hgw-*.wav` + `hge-h1/h2`, renders as `bemo-linkedin-sizzle-series-r1w-60s-v<n>.mp4`.
+
+**Known nit in vW1:** a dev-only DEMO SLOT placeholder (renders null in production) peeks into one bottom edge during the What-BeMo-is hold; hide `[class*="dashed"]` or recapture against a production build before shipping.
+
+## Reel 1A: the app cut (2026-08-05)
+
+**Why it exists:** Becky's note on the website cut: it was all website clips. She wants the website's punch without pulling directly from it: video assets from the app, with branded screenshots. Reel 1A keeps 1W's story and site-copy narration, and swaps the visuals: branded motion frames in the v6 system plus real app footage.
+
+**Structure (58s + 2 tail):** the hero hook pair (branded dark card) -> the scattered week as branded cards using the site hero's own Common Table facts, snapping on the words of the fragments line, flying into the branded front page -> "Nobody stops caring. / They stop remembering." slam -> "Four apps. One memory." icons -> four real app clips ("Not four tools that integrate..." over the cited catch-her-up answer; "No training week. Day one is conversational." over Compass in flow, `website-demo-slots/capture/out/compass-in-flow-raw.webm`; the finished-work line over the Amplify letter; the grant-cycle line over the Grant Progress Report) -> the site's Jen Allen quote as a branded card ("From the people using it") -> close on the CTA panel's own headline "Find out what your nonprofit already knows." with wordmark, Start free, and the trust line.
+
+**Claim trace:** narration is the site's shipped copy plus two locked lines (finished-work, grant-cycle). The Jen quote is the site's published quote, verbatim, inside her blanket approval. Provenance labels on every product visual. One known delta: the close slam shows the site's full "already knows." while the VO reads the shorter "Find out what your nonprofit knows."; regenerate the line with "already" if it grates.
+
+**Files:** `capture/source-appcut.html`, `capture/run-appcut.mjs`, VO reuses `hgw-*`/`hge-*` plus `hgw-w13t.wav` (the close triplet with tightened gaps). Renders as `bemo-linkedin-sizzle-series-r1a-60s-v<n>.mp4`.
+
+## Reels 2 through 7 (DRAFT, 2026-08-05)
+
+Scripted as a batch per Becky's Aug 5 direction (the full roster built out, headline-led). Each keeps the arc job and proof assignment the brief ratified. Format rules identical to Batch 2 (16:9, 30.0s, muted-first, brand close, no GA mention, no urgency).
+
+---
+
+### Reel 2: The Reconstruction Tax (DRAFT)
+
+**Arc job:** name the pattern. Pillar 1. The Week 23 anchor's argument in video form.
+**One message:** the cost isn't the work; it's rebuilding the work you already did.
+
+| Time | Narration | On screen | Shot |
+|---|---|---|---|
+| 0:00 | You know how to do the work. That was never the problem. | Headline: "Knowing what to do was never the problem." | R2-S1 |
+| 0:07 | The problem is doing it again. The proposal rebuilt. The context re-explained. The file hunted down. | Ghost copies of the same document stack up; captions land: "rebuilt" / "re-explained" / "hunted down". Headline resolves: "The reconstruction tax." | R2-S2 |
+| 0:15 | The work keeps happening. It just doesn't always build. | The signature line alone on a light card. | R2-S3 |
+| 0:20 | BeMo is where the work builds instead. Nothing resets. | The stack collapses into one growing record (GA sizzle s3 grammar). "Nothing resets." beneath. | R2-S4 |
+| 0:26 | BeMo. Where missions gain momentum. | Brand close. | R2-S5 |
+
+**Clock:** 52 narration words, ~22s of speech. Comfortable.
+
+**Claim trace: reel 2**
+
+| Line | Claim | Traces to |
+|---|---|---|
+| "Knowing what to do was never the problem." | The Week 23 anchor headline, verbatim | Published arc anchor (brief's arc-pairing note); pillar 1 territory |
+| "the reconstruction tax" | Named pattern, external-cleared vocabulary | `ga-message-map.md` 5.1 ("starting over / the reconstruction tax / reconstructing context": external yes) |
+| "The work keeps happening. It just doesn't always build." | Signature line, verbatim | `ga-message-map.md` 2.1, established (Week 24) |
+| "BeMo is where the work builds instead. Nothing resets." | The inverse claim | Topline language ("Nothing resets."); map 5.1 ("work that compounds") |
+
+---
+
+### Reel 3: It Already Knew (DRAFT)
+
+**Arc job:** see it differently. The onboarding-archaeology rung; descends from Decision Moment.
+**One message:** catching someone up stops being a month of digging, because the organization's knowledge is already in one place.
+
+| Time | Narration | On screen | Shot |
+|---|---|---|---|
+| 0:00 | A new person starts Monday. Their first month? Archaeology. | Headline: "The first month is archaeology." Under it, a dig through folders: drives, inboxes, an old binder. | R3-S1 |
+| 0:09 | Ask BeMo to catch them up instead. The mission. The funders. The voice. What the board decided, and why. | The ask, typed: "Our new board member starts Monday. Catch her up." The briefing composes beneath, each fact with its source line. Provenance: "Illustrated · fictional organization". | R3-S2 |
+| 0:19 | It already knew. | The line alone on navy (the 1C card grammar). | R3-S3 |
+| 0:22 | Because everything your organization has learned already lives in one place. | The roof line resolves: "BeMo is where your organization's knowledge lives." | R3-S4 |
+| 0:26 | BeMo. Where missions gain momentum. | Brand close. | R3-S5 |
+
+**Clock:** 55 narration words, ~23s of speech. Comfortable.
+
+**Claim trace: reel 3**
+
+| Line | Claim | Traces to |
+|---|---|---|
+| "Their first month? Archaeology." | The onboarding problem | Brief's arc pairing (the new board member rung); site Compass copy ("starts from understanding instead of archaeology"), one voice |
+| "Ask BeMo to catch them up..." | Real product behavior, illustrated with fictional data | The site's demo ask pill ("Our new board member starts Monday. Catch her up."), shipped copy; KB catch-up is current behavior |
+| "What the board decided, and why." | Preserves reasoning | Claim map ("preserves the reasoning behind decisions, not just the decisions") |
+| "It already knew." | The reveal line | Locked GA sizzle script; 1C card |
+| Roof line | Verbatim | `messaging-assets-v1.md` section 1 |
+
+---
+
+### Reel 4: An Hour, Not Three Days (DRAFT)
+
+**Arc job:** proof from a peer. Pillar 1's Amplify expression. Beta evidence in video form (the arc's standing rule).
+**One message:** the annual report took about an hour instead of three days, for a real named person.
+
+| Time | Narration | On screen | Shot |
+|---|---|---|---|
+| 0:00 | Jennifer runs a library friends group. Her annual report used to take three days. | Headline: "The annual report took about an hour." Photo-free; her name and org in the eyebrow. | R4-S1 |
+| 0:09 | This year she built it in BeMo, in her organization's own voice. About an hour. | The real Amplify annual-report flow (existing capture), provenance: "Captured from the product". | R4-S2 |
+| 0:16 | (silent, music only) | Quote card: "The most painless report process I have ever experienced." Jennifer Allen, Friends of the Saratoga Springs Public Library. | R4-S3 |
+| 0:22 | Every piece of content reflects who you actually are. Not who you were three drafts ago. | The Amplify lead message as the card. | R4-S4 |
+| 0:26 | BeMo. Where missions gain momentum. | Brand close. | R4-S5 |
+
+**Clock:** 48 narration words plus a silent proof beat, ~20s of speech. Roomy on purpose; the quote card carries the middle.
+
+**Claim trace: reel 4**
+
+| Line | Claim | Traces to |
+|---|---|---|
+| "annual report... about an hour instead of three days" | Individual, attributed time story (never a statistical claim) | `ga-message-map.md` 3.2 Amplify proof cell and 3.4 proof ledger; customer-stories overview: **blanket approval** (July 31) |
+| Quote card | Verbatim, attributed | Jennifer Allen story file; blanket approval; quotes never composited |
+| "in her organization's own voice" | Amplify behavior | Map 3.2 Amplify row |
+| "Every piece of content reflects who you actually are, not who you were three drafts ago." | Amplify lead message, verbatim | `ga-message-map.md` 3.2 |
+
+**Provenance rule:** her story is described as hers; the words "self-initiated" or "unsolicited" appear nowhere on screen or in narration (map 3.4: welcome, self-initiated, never "unsolicited"; neither term is customer-facing).
+
+---
+
+### Reel 5: Where It Lives (DRAFT; HOLDS for GA week per the brief)
+
+**Arc job:** discover what exists; reveal register. The series' thesis reel, video companion to the platform launch post.
+**One message:** the roof, verbatim.
+**Gates:** ships GA week, not before (brief). The Meg card needs its own dated per-use line in the customer-stories overview before render (findings, Aug 1).
+
+| Time | Narration | On screen | Shot |
+|---|---|---|---|
+| 0:00 | Everything your organization knows lives somewhere. Right now, most of it lives in people's heads. | Headline: "Where does what you know live?" | R5-S1 |
+| 0:08 | Your processes. Your funders. Your voice. Your strategy. When someone leaves, it walks out the door. | Four labeled fragments drift apart and fade at the edges. | R5-S2 |
+| 0:15 | BeMo is where your organization's knowledge lives. | The roof, alone, full weight. | R5-S3 |
+| 0:20 | Four apps. One product. | Icons cascade (R1-S10 scene). | R5-S4 |
+| 0:23 | (silent, music only) | Quote card: "I better understand what I've created because of BeMo." Meg Poe, Executive Director, Autoimmune Encephalitis Alliance, Inc. GATED: per-use line required. | R5-S5 |
+| 0:27 | BeMo. Where missions gain momentum. | Brand close. | R5-S6 |
+
+**Clock:** 49 narration words plus a silent proof beat, ~20s of speech.
+
+**Claim trace: reel 5**
+
+| Line | Claim | Traces to |
+|---|---|---|
+| "lives in people's heads... walks out the door" | The ratified problem statement, compressed | `ga-message-map.md` 2.1, ratified 15-second problem statement |
+| Roof line | Verbatim | `messaging-assets-v1.md` section 1; map 2.1 |
+| "Four apps. One product." | Category line | Map 3.1, ratified Aug 4 |
+| Meg quote card | Cleared quote, gated placement | Map 3.4 ("best single line in the arsenal"); customer-stories overview: per-use approval required for this placement (findings) |
+
+---
+
+### Reel 6: The Colleague (DRAFT)
+
+**Arc job:** pillar 2 lead. Compass's converting message, behavior-proofed.
+**One message:** you don't have to be the only one who knows how this organization works.
+
+| Time | Narration | On screen | Shot |
+|---|---|---|---|
+| 0:00 | Somewhere along the way, you became the only one who knows how this organization works. | Headline: "You're the only one who knows how this place runs." | R6-S1 |
+| 0:09 | You don't have to be. | The turn, alone on a light card. | R6-S2 |
+| 0:12 | BeMo works less like software and more like a colleague who's been in every meeting. | The line lands over a Compass thinking-partner exchange (real capture, compass-in-flow). Provenance: "Captured from the product · fictional organization". | R6-S3 |
+| 0:19 | It remembers what you decided, and why. It picks up where you left off. And it's honest about what it doesn't know. | Three short captions land in turn over the exchange. | R6-S4 |
+| 0:25 | (silent beat) | Quote card: "BeMo is the best colleague." Meg Poe. GATED: per-use line for this placement required. | R6-S5 |
+| 0:27 | BeMo. Where missions gain momentum. | Brand close. | R6-S6 |
+
+**Clock:** 60 narration words plus a short silent beat, ~25s of speech. The Meg card can drop without harming the cut if clearance lags; the reel stands on behavior.
+
+**Claim trace: reel 6**
+
+| Line | Claim | Traces to |
+|---|---|---|
+| "the only one who knows how this organization works" / "You don't have to be." | Compass lead message, inverted then verbatim | `ga-message-map.md` 3.2 Compass row |
+| "less like software and more like a colleague who's been in every meeting" | The colleague frame, verbatim | Topline language (July 6, checked against approved GA hierarchy); map pillar 2 |
+| "remembers... picks up... honest about what it doesn't know" | Colleague behavior triple | Claim map ("behaves the way a trusted colleague would behave: it remembers, it knows its role, it is honest about limits"); map 2.3 |
+| Meg card | Cleared quote, gated placement | Approved for the GA sizzle quote card (Aug 1); this placement needs its own dated per-use line (customer-stories overview) |
+
+---
+
+### Reel 7: What You Built Outlasts You (DRAFT)
+
+**Arc job:** pillar 3 lead; the succession rung. Anonymized TTP evidence per the Week 16 precedent.
+**One message:** what you built should survive your leaving.
+
+| Time | Narration | On screen | Shot |
+|---|---|---|---|
+| 0:00 | A nonprofit leader told us: we haven't created a system where someone else can easily step in. | The anonymized verbatim as the headline card, quote-marked, unattributed by design. | R7-S1 |
+| 0:10 | Most organizations run on what's in one person's head. When that person leaves, the funder history, the reasoning, the voice, it all walks out the door. | The one-person diagram: threads from a single figure to every part of the org, then the figure steps away and threads snap. | R7-S2 |
+| 0:19 | BeMo is where it lives instead. Sourced, current, and ready for whoever steps in. | The threads re-anchor into the record; the with/without inheritance panel (site problem-section grammar). | R7-S3 |
+| 0:24 | What you built will outlast you. | The pillar line alone on navy. | R7-S4 |
+| 0:27 | BeMo. Where missions gain momentum. | Brand close. | R7-S5 |
+
+**Clock:** 65 narration words, ~27s of speech. Tight but inside; R7-S2's narration can shed "the funder history, the reasoning, the voice" to a caption-only list if the read runs hot.
+
+**Claim trace: reel 7**
+
+| Line | Claim | Traces to |
+|---|---|---|
+| "We haven't created a system where someone else can easily step in." | Anonymized pre-BeMo verbatim, listed in the map itself | `ga-message-map.md` (pillar 3 evidence); Week 16 precedent for anonymized TTP evidence (brief) |
+| "walks out the door" | The problem statement's core image | Map 2.1, ratified |
+| "BeMo is where it lives instead" | Roof application | Map 2.1 ("BeMo is where it lives instead," verbatim from the problem statement) |
+| "ready for whoever steps in" | Memory through transitions | Claim map ("holds institutional memory through leadership transitions") |
+| "What you built will outlast you." | Pillar 3, verbatim | Map 3.1 pillar table |
+
+---
+
+## Batch 2: the headline reels (DRAFT, 2026-08-05)
+
+**Why this batch exists:** Becky's direction, Aug 5, after the Christian Varano call and debrief: 30-second reels with provocative headlines that capture how groundbreaking BeMo is, without underselling. The message map's v1.3 additions (Becky, same day) supply the sanctioned language for exactly this rerun: the six-tools problem line, the in-play/what's-missing pair, and the Copilot contrast, all marked "working language for the sizzle rerun; ratification pending use." Publishing a reel that carries one of these lines is the ratification event.
+
+**What this batch deliberately does not use:** "headless," "operating system," "home screen," "everything opens into BeMo" (advisor register only, map 5.1 and Part 4), anything acquisition, and Christian's own words (uncleared; commitment rule, debrief action item). The groundbreaking register is carried instead by lines canon already sanctions: the anti-patterns doc's own model sentence ("the first platform where..."), the claim map's "building something the sector has not had access to before," and the compounding vocabulary.
+
+**Format, all four reels:** 16:9 only, 1920x1080, 30.0s, muted-first (on-screen text carries the argument), captions per production standards, brand close standardized (wordmark + spoken tagline + bemointel.ai small). No GA mention, no countdown, no urgency. VO: Becky's twin, audio-only speech endpoint, splice real silence for beats (never `[pause]`).
+
+---
+
+### Reel 8: Six Tools (DRAFT)
+
+**Arc job:** feel it, then see it differently. Pillar 1 with Home as the payoff. The Christian-call idea ("your at-a-glance of all work in play") in its external-safe form.
+**One message:** you shouldn't have to hunt across tools to know your own organization; BeMo composes it for you.
+
+| Time | Narration | On screen | Shot |
+|---|---|---|---|
+| 0:00 | How many tabs do you open just to find out what's happening in your own organization? | Generic tool windows pile up fast: mail, spreadsheet, docs, chat, calendar, folders. No vendor branding. Headline resolves over the pile: "You shouldn't have to open six tools to find out what's happening in your own organization." | R8-S1 |
+| 0:08 | This is your organization's front page. What happened. What's moving. What needs you. | The site's front-page composition: fragments snap into the weekly edition (Common Table). The three phrases land as captions in sync. Small provenance line: "Illustrated · fictional organization". | R8-S2 |
+| 0:17 | The front page shows what's in play. The knowledge base tells you what's missing. | The edition's "One thing worth a look" ask highlighted, then the grey invitation slot. Line on screen verbatim. | R8-S3 |
+| 0:23 | Nothing drops on the floor. | Navy card, the line alone. | R8-S4 |
+| 0:26 | BeMo. Where missions gain momentum. | Brand close, bemointel.ai small. Held to end. | R8-S5 |
+
+**Notes.** The headline card is the map's ratification-pending problem line verbatim; the narration asks it as a question so the spoken register stays conversational (variant logged in findings). The front-page scene is the website build's animation, filmed the Reel 1W way; it is illustrated fiction and is labeled as such on screen, which keeps rule 4 clean while the two-surfaces build ships. Home language rides the map's 3.2 row: front page, what's in play, "Nothing drops on the floor." (ratified Aug 1, already in the GA sizzle VO, so the line exists as locked audio).
+
+**Clock:** 57 narration words. At the production's measured pace (~2.4 w/s) that is ~24s of speech in 30s of film; the half-silent density holds.
+
+**Claim trace: reel 8**
+
+| Line | Claim | Traces to |
+|---|---|---|
+| "You shouldn't have to open six tools..." (on screen, verbatim) | The Home problem line | `ga-message-map.md` 3.2 Home row; still working language at v1.4 (Aug 6). The website hero is now the memory question ("How much of your nonprofit's memory lives only in your head?", ratified Aug 6); six-tools remains this reel's hook. Surface split logged in findings |
+| "your organization's front page. What happened. What's moving. What needs you." | Home lead message | `ga-message-map.md` 3.2 Home row, verbatim |
+| "The front page shows what's in play. The knowledge base tells you what's missing." | The gap-honesty pair | `ga-message-map.md` 3.2, ratified Aug 6 (v1.4), live on the site; 5.1 ("in play" external with Home); KB row ("it also tells you what's missing") |
+| "Nothing drops on the floor." | Home outcome line | `ga-message-map.md` 3.2, ratified Aug 1 (Becky), first used in GA sizzle VO |
+| "Where missions gain momentum." | Tagline | `messaging-assets-v1.md`, ratified |
+
+---
+
+### Reel 8H: the 60-second hero cut (DRAFT, 2026-08-05)
+
+**Why it exists:** the launch-week share asset (rollout plan v2): Six Tools extended to 60, merging Bill's one-platform note and the Christian call's day-in-BeMo energy into one video. Replaces reel 1's 60s v17 as the Bill/Jon send once rendered. Still a teaser: it shows the shape, the wow stays live.
+**Structure:** the 30s cut's four beats unchanged, then the fold-ins: the first-platform thesis, the four-apps beat, finished work with the Jen receipt, and a paired close.
+
+| Time | Narration | On screen | Shot |
+|---|---|---|---|
+| 0:00 | How many tabs do you open just to find out what's happening in your own organization? | As the 30s cut: tool windows pile; the six-tools line resolves verbatim. | R8-S1 |
+| 0:08 | This is your organization's front page. What happened. What's moving. What needs you. | The site's front-page assembly, three phrases in sync. Provenance: "Illustrated · fictional organization". | R8-S2 |
+| 0:17 | The front page shows what's in play. The knowledge base tells you what's missing. | The one honest ask, then the grey invitation slot. | R8-S3 |
+| 0:23 | Behind it, BeMo is the first platform where your grant work, strategy, and communications share the same memory. | The thesis sentence as headline; the memory diagram draws beneath (R9-S2 scene). | R8H-S4 |
+| 0:31 | Four apps. One product. | The four icons cascade (existing scene). | R8H-S5 |
+| 0:35 | So the work comes out finished, in your voice, with nothing re-explained. | A real finished Amplify letter, cropped to the body (reel 1 60s scene, unchanged). | R8H-S6 |
+| 0:41 | (silent, music only) | The Jen receipt: "The most painless report process I have ever experienced." Jennifer Allen, Friends of the Saratoga Springs Public Library. Eyebrow: "From a real user." Headline: "About an hour, instead of three days." | R8H-S7 |
+| 0:47 | Nothing drops on the floor. And nothing walks out the door. | The two lines land in turn on navy. | R8H-S8 |
+| 0:52 | BeMo. Where missions gain momentum. | Brand close, bemointel.ai small, held to end plus tail. | R8H-S9 |
+
+**Notes.** Beats one through three are the 30s cut verbatim, so the two renders share capture and VO. Three narrated lines already exist as locked audio: "So the work comes out finished..." (`hg-r1-l6`), "Four apps. One product." (`hg-r1-fourapps`, the upbeat B take), and the close pair (`hg-r1-l8` splice); only the six new-to-hero words around the thesis and the paired close need generation. The Jen receipt reuses the 1D quote-card scene with the hour-vs-three-days headline from the map's proof cell. The close pairs two ratified lines: Home's outcome line and the problem statement's inversion as the site hero states it.
+
+**Clock:** 90 narration words plus a silent proof beat, ~37s of speech across 60s. Same half-silent density as the locked reel 1 60s (78 words), read unhurried.
+
+**Claim trace: reel 8H** (rows new to the hero; beats 1-3 trace under reel 8)
+
+| Line | Claim | Traces to |
+|---|---|---|
+| "the first platform where your grant work, strategy, and communications share the same memory" | Category-first claim, verbatim | `18-anti-patterns.md` sanctioned example; claim map qualification ("the combination is what is new"); reel 9's trace |
+| "Four apps. One product." | Category line | Map 3.1, ratified Aug 4 |
+| "finished, in your voice, with nothing re-explained" | Deliverable claim | Locked reel 1 60s trace (`messaging-assets-v1.md` claim 1) |
+| Jen receipt card + "About an hour, instead of three days." | Individual, attributed time story | Map 3.2 Amplify proof cell; blanket approval July 31; story, never a statistical claim |
+| "Nothing drops on the floor." | Home outcome line | Map 3.2, ratified Aug 1 |
+| "And nothing walks out the door." | Memory through transitions, site-hero form | Site meta description (the phrase survives there after the Aug 6 hero change); claim map ("holds institutional memory through leadership transitions") |
+
+---
+
+### Reel 9: The First Platform (DRAFT)
+
+**Arc job:** see it differently; the category claim at full strength. One unified platform message (map 3.1).
+**One message:** BeMo is the first platform where the work shares one memory; that is a different kind of thing, not a better tool.
+
+| Time | Narration | On screen | Shot |
+|---|---|---|---|
+| 0:00 | Your grant tool has never met your strategy. Your comms tool has never heard your voice. | Two disconnected app windows drift apart on a dark ground; a hairline between them never connects. Headline: "None of your tools have met." | R9-S1 |
+| 0:08 | BeMo is the first platform where your grant work, strategy, and communications share the same memory. | The line resolves as the headline; beneath it the memory diagram draws: work flows in, one memory, work flows out. | R9-S2 |
+| 0:16 | Four apps. One product. | The four icons cascade in (existing scene, R1-S10 grammar). | R9-S3 |
+| 0:20 | Finish the annual report, and the next grant already knows what's in it. | Split beat: an Amplify finished report resolves left; a FunderStorm draft on the right pulls the same facts in, sourced. Provenance: "Illustrated · fictional data". | R9-S4 |
+| 0:26 | BeMo. Where missions gain momentum. | Brand close. | R9-S5 |
+
+**Notes.** The spine sentence is the anti-patterns doc's own sanctioned model ("Right:" example under "Never lead with features"), which is as close as canon comes to a pre-approved groundbreaking claim. The payoff beat states the shared-memory behavior as a deliverable, not a feature list. No named competitors anywhere; the opening indicts the category structure, not a vendor.
+
+**Clock:** 66 narration words, ~27s of speech. Tight but inside; if a beat must go, R9-S4's narration compresses to "Finish one thing, and the next already knows."
+
+**Claim trace: reel 9**
+
+| Line | Claim | Traces to |
+|---|---|---|
+| "Your grant tool has never met your strategy..." | The disconnection problem | Problem statement, `ga-message-map.md` 2.1 ("scattered tools"); site how-it-works ("Not four tools packaged together") |
+| "the first platform where your grant work, strategy, and communications share the same memory" | Category-first claim, verbatim | `18-anti-patterns.md`, sanctioned "Right" example; qualified backing: claim map ("building something the sector has not had access to before": the combination is what is new) |
+| "Four apps. One product." | Category line | `ga-message-map.md` 3.1, ratified Aug 4 (Becky) |
+| "the next grant already knows what's in it" | Shared memory moves context between apps | `ga-message-map.md` 3.1 ("they share organizational memory"); claim map ("a different starting point for every grant cycle") |
+
+---
+
+### Reel 10: It Says So (DRAFT)
+
+**Arc job:** see it differently; the honesty differentiator. KB pillar-3 adjacency, proof fully cleared.
+**One message:** BeMo tells you when it doesn't know, and tells you what's missing.
+
+| Time | Narration | On screen | Shot |
+|---|---|---|---|
+| 0:00 | Every AI sounds confident. Here's something rarer: software that knows what it doesn't know. | Dark card. "Every AI sounds confident." then the headline replaces it: "Software that knows what it doesn't know." | R10-S1 |
+| 0:08 | BeMo keeps your organization's knowledge with every fact sourced. | The site's KB receipts scene: the funder page with its source line and page history. Provenance: "Illustrated · fictional organization". | R10-S2 |
+| 0:14 | Ask about something it doesn't have, and it says so. Then it helps you fill the gap. | Real capture: the knows-whats-missing clip (chat names what it has, names what it lacks, offers to record it). Provenance: "Captured from the product · fictional organization". | R10-S3 |
+| 0:19 | (silent, music only) | Quote card: "I love that BeMo can tell you the 'gaps' that exist in your Knowledge Base." Attribution per canon record (see note). | R10-S4 |
+| 0:24 | No confident guesses about your organization. BeMo. Where missions gain momentum. | Trust line, then brand close, held to end. | R10-S5 |
+
+**Notes.** The behavior is validated in beta and publishable (map 2.3: "BeMo tells you when it doesn't know," validated Caigh It Forward). The quote is blanket-cleared (customer-stories overview, July 31). **Attribution resolved (Becky, Aug 5): the correct name is Maryellen Duggan**, Executive Director, Caigh It Forward Foundation, as the website credits it; the customer-stories overview's "MaryEllen O'Donohue" is the wrong record and needs Becky's correction in bemo-os (findings). S4 unblocked. R10-S3 reuses the real product capture already shipped on the website (`bemo-website/public/demos/knows-whats-missing.mp4`), so no new app capture is needed.
+
+**Clock:** 58 narration words plus a silent proof beat, ~24s of speech. Comfortable.
+
+**Claim trace: reel 10**
+
+| Line | Claim | Traces to |
+|---|---|---|
+| "software that knows what it doesn't know" | The honesty differentiator, headline form | `ga-message-map.md` 2.3 ("BeMo tells you when it doesn't know," publishable, validated); 3.3 ("BeMo knows what's missing," cleared) |
+| "every fact sourced" | KB provenance behavior | Site how-it-works ("Every fact shows its source"); map 3.2 KB row |
+| "it says so. Then it helps you fill the gap." | Real current behavior | The shipped knows-whats-missing capture (real product, 2026-08-03); demo-slots findings record this as the current form of the behavior |
+| Quote card | Cleared peer proof | Customer-stories overview: blanket approval July 31; quote verbatim, never composited |
+| "No confident guesses about your organization." | Trust posture line | `ga-message-map.md` 2.3; site commitments list, verbatim |
+
+---
+
+### Reel 11: Backwards (DRAFT)
+
+**Arc job:** see it differently; the compounding flip. Pillar 1's positive inverse as its own reel.
+**One message:** every other tool depreciates; BeMo compounds.
+
+| Time | Narration | On screen | Shot |
+|---|---|---|---|
+| 0:00 | Most software is at its best the day you buy it. Then it becomes the thing you put up with. | A bright generic app window slowly dims and gathers badge clutter. Headline: "Most software peaks on day one." | R11-S1 |
+| 0:09 | BeMo runs the other direction. Every conversation, every draft, every decision makes it more useful. | The dim frame cuts to the memory build: fragments land, the record grows (GA sizzle S3 grammar). Headline: "BeMo runs the other direction." | R11-S2 |
+| 0:17 | The hundredth interaction is more valuable than the first. | The line alone on a light card, the compounding curve drawing up behind it (site About-page curve grammar). | R11-S3 |
+| 0:23 | Nothing resets. The work compounds. | The two sentences resolve on the navy ground. | R11-S4 |
+| 0:26 | BeMo. Where missions gain momentum. | Brand close. | R11-S5 |
+
+**Notes.** The opening names a structural truth about the category without naming a vendor; it is the anti-patterns-safe version of "don't undersell." All spine lines are ratified vocabulary. The curve visual borrows the site About page's "same people, with a system" chart grammar so the reel and site rhyme.
+
+**Clock:** 55 narration words, ~23s of speech. Comfortable.
+
+**Claim trace: reel 11**
+
+| Line | Claim | Traces to |
+|---|---|---|
+| "Most software is at its best the day you buy it" | Category structure observation, not a vendor comparison | Positioning doctrine: BeMo is a different kind of thing (`18-anti-patterns.md`); the honest-contrast register of `09-overclaim-risk.md` |
+| "Every conversation... makes it more useful" | Compounding behavior | Topline language ("It compounds. The more you use it, the more it knows"); `ga-message-map.md` 5.1 ("work that compounds," external yes) |
+| "The hundredth interaction is more valuable than the first." | Compounding, verbatim | Site how-it-works, live copy; map pillar 1 territory |
+| "Nothing resets. The work compounds." | Supporting phrases | Topline language ("Nothing resets."); map 5.1 |
+
+---
+
+### Reel 12: Your Organization Is Not an Inbox (DRAFT, vendor-blind per Becky Aug 5)
+
+**Arc job:** see it differently; the unit-of-awareness contrast against the proactive-assistant wave. The Christian-call debrief's sharpest external-safe frame.
+**One message:** assistant AI knows the person; BeMo knows the organization.
+**Becky's call (Aug 5): no Copilot naming.** The reel runs vendor-blind; the map's 3.3 line stays available for sales conversations, and the published form is the category version below. Logged in findings for the map's record.
+
+| Time | Narration | On screen | Shot |
+|---|---|---|---|
+| 0:00 | The new AI assistants know your inbox. BeMo knows your organization. | The line as the cold-open headline, two halves landing in turn. | R12-S1 |
+| 0:07 | They know your calendar, your email, your day. That's you. Your organization is bigger than you. | Simple diagram: a small circle labeled "your day" inside a larger one labeled "your organization". | R12-S2 |
+| 0:15 | BeMo's unit isn't the person. It's the organization. The mission. The funders. The voice. The decisions. | The larger circle fills: four labeled nodes connect into the memory graph (site Mission Network grammar). | R12-S3 |
+| 0:23 | Built for the organization, not just the person in the chair. | The line alone. | R12-S4 |
+| 0:26 | BeMo. Where missions gain momentum. | Brand close. | R12-S5 |
+
+**Clock:** 60 narration words, ~25s of speech. Inside.
+
+**Claim trace: reel 12**
+
+| Line | Claim | Traces to |
+|---|---|---|
+| "The new AI assistants know your inbox. BeMo knows your organization." | Competitive one-liner, vendor-blind form | `ga-message-map.md` 3.3 (v1.3 working addition), published vendor-blind per Becky's Aug 5 decision; same architecture as the cleared DIY AI line |
+| "their unit of awareness is the person; BeMo's is the organization" (paraphrased in beats) | The frame behind the line | `ga-message-map.md` 3.3, verbatim frame |
+| "Built for the organization, not just the person in the chair." | The unit frame as the close | Same trace; "built for" is the sanctioned pattern (`16-voice-and-tone.md` language table) |
+
+---
 
 ## Change log
 
 | Version | Date | What changed and why |
 |---|---|---|
+| 8H-vH6 | 2026-08-06 | The make-it-a-10 pass, Becky's go on all five: (1) the site's beats rail hidden at capture (refilmed), so the assembly and held edition fill the frame with no site chrome; (2) the music is scored, not a bed: a small lift as the edition composes, a duck under the Jen silence, the existing swell into the close, plus typing sfx under the six-tools pile and a chime as the front page lands (appcut sfx set); (3) faster cold open, six windows in 1.5s, headline lands in two stages synced to the read's natural pause; (4) slow push-ins on the held edition (4%) and the real-work beat (6%); (5) green mark under "an hour" on the Jen card. 60.0s, -16.2 LUFS, -1.3 dBTP. New review link in assets.md; vH5 superseded |
+| 8H-vH5 | 2026-08-06 | Becky's 0:07 note: the site take's recording included the page load, so scene two opened on a flash of the website home page. Root cause fixed by seeking past the load-and-jump frames (1.35s); the beat now opens directly on the scattered paper artifacts. Her second note (the audio should be what BeMo can do): the locked reel 1 assembly line ("An email. A call note... they become what your organization knows. And it keeps building.", `hg-r1-l5`) now narrates the crawl, so the fragments-to-front-page motion is described while it happens; the front-page and in-play lines shift onto the held edition, thesis and downstream beats cascade accordingly. Site take refilmed with an 8.6s hold. 60.0s, -16.1 LUFS, -1.2 dBTP. New review link in assets.md |
+| 8H-vH4 | 2026-08-06 | Becky's vH3 review, three notes, all applied. (1) Sync: every scene retimed so narration starts on its visual, verified frame-by-frame at each VO start; the front-page line shortened to "This is your organization's front page." (new `hgh-l2s`) so it lands on the composed edition instead of mid-flight, with "what happened / what's moving / what needs you" carried by the edition itself. (2) The blank work screen: `live-appeal-letter.webm` is white for its first seconds (root cause of the blank beat); replaced with the real platform capture `amplify-in-flow` (Donor Email Editor, Common Table facts, "Captured from the product · fictional organization"). (3) The home page loads and holds: the site take refilmed with a compressed 8.6s assembly crawl and a 6.8s hold on the composed edition; the honest-ask panel and in-play card land on the held page. 60.0s, -16.4 LUFS, -1.4 dBTP |
+| 8H-vH3 | 2026-08-06 | Reel 8H rendered: five new VO lines on Becky's twin (`hgh-l1..l5`, audio-only speech endpoint, tail-trimmed to the 0.4s pad) plus three approved hg-r1 segments; the front-page beat is a fresh 16s film of the preview build's assembly animation with the new paper artifacts (`hero-front.mjs`, skip-ahead chrome hidden, take opens inside the track so fragments are on screen from frame one); scenes in `source-hero.html`, pipeline in `run-hero.mjs` (appcut architecture). vH1 had the in-play pill overflowing the frame over the caption; vH2 fixed wrap but rise() clobbered its centering transform (lesson: never center an element with translateX if an entrance animation writes transform); vH3 centers by margin auto. Freeze sweep maps to narrated holds and the by-design silent Jen beat. 60.0s, 1080p30, -16.4 LUFS, -1.0 dBTP, captions burned. For Becky's review, not shipping until she calls it |
+| 8H draft | 2026-08-05 | The hero 60 scripted on Becky's go (Reel 8H): Six Tools' beats verbatim plus the first-platform thesis, four-apps, the finished-work beat and Jen receipt, and the paired close. 90 words, three lines reuse locked VO; one capture serves both cuts of reel 8. Ships launch week, replaces v17 as the send asset |
+| 1R draft + plan v2 | 2026-08-05 | Becky's two calls on the rollout review: the AI-tools reel gets Bill's treatment (Reel 1R drafted: one compressed problem beat, then the sourced-answer punchline; supersedes v13/v17 for posting, v17 stays Jon's send until the hero 60 lands) and the cadence doubles to Mondays and Thursdays (rollout-plan.md v2: five weeks plus GA instead of nine, Monday reels pair with the arc rung, Thursdays are the sharpener slot) |
+| Roster complete draft | 2026-08-05 | Becky's same-day review of the batch report: Maryellen Duggan confirmed as the correct attribution (bemo-os overview is the wrong record; her fix), Reel 12 goes vendor-blind (no Copilot naming), and the full roster gets built out: reels 2-7 scripted as DRAFTs per their brief-ratified arc jobs and proofs (Reconstruction Tax, It Already Knew, An Hour Not Three Days, Where It Lives with its GA-week hold, The Colleague, What You Built Outlasts You). Meg cards in 5 and 6 gated on per-use lines. Shot lists appended; all twelve reels shared for review on the roster artifact page |
+| Batch 2 draft | 2026-08-05 | Reels 8-12 scripted as DRAFTs per Becky's provocative-headlines direction after the Christian call: Six Tools (Home/front page, map v1.3 lines), The First Platform (the sanctioned category-first sentence), It Says So (KB honesty, MaryEllen proof; attribution blocked on a site/canon name conflict), Backwards (compounding flip), and Your Organization Is Not an Inbox (Copilot contrast, held for a founder call on the vendor-named frame). Christian's own words used nowhere (uncleared). Shot list appended, grouped by capture source; nothing captured yet |
+| 1A-vA1 | 2026-08-05 | The app cut (see the Reel 1A section): Becky rejected the all-website-clips approach; same story and site-copy VO, visuals now branded v6 motion frames plus four real app clips, with the site hero's Common Table facts as the fragment cards and the site's Jen quote as the proof card. 60.0s, 1080p, -15.8 LUFS, -1.1 dBTP, sweep clean |
+| 1W-vW1 | 2026-08-05 | The website cut (see the Reel 1W section): Becky scrapped the built-scene direction; the film is now the live site build, captured in one choreographed 80s take and cut to 60s in story order, narrated entirely in the site's shipped copy. Informed by Bill's Aug 4 advisory notes (punchline early, substance fast, comprehensive platform over sub-module naming: the per-product showcase is deliberately not in the cut). First capture attempt letterboxed (Playwright DSF-2 recording quirk); refilmed at native 1080p with dev chrome hidden. 60.0s, -15.9 LUFS, -1.3 dBTP, blank-frame sweep clean. Old cuts retired |
 | 1D-vD4 | 2026-08-04 | Becky's vD3 review: a blank silent stretch (confirmed by frame sweep: a uniform second at 43-44s and a sparse quiet passage), Jen landing unframed, and the story not comprehensive. Rebuilt as four chapters: the problem (site hook, Maria, the walk-out wall), WHAT IT IS (thesis + "Four apps. One product." restored), WHAT YOU GET (answers with sources, finished work, the grant cycle, then the Jen receipt introduced by a new "From a real user." line and eyebrow), WHY NOW (payoff, Start free, trust line). New rule in the source: no second of the film both silent and static. Same day, Becky's brand-guidelines note: full pass against `bemo-website/DESIGN.md` v6. The serif display was off-brand (v6 is Schibsted Grotesk only, weight does the work): all display type now Schibsted 640, fonts pulled from the website build into `capture/fonts/`; green is now the underline mark (Inherited Mark Rule), never text color; Start free is ink-on-orange #1A2A3A at 6px (white-on-orange fails AA); Compass icon Sapphire, Amplify verdant-deep; palette corrected to tokens (ink-faint #5C6A82, verdant-deep #2F7D0D, navy grounds #05347E/#01143A); provenance labels on every product visual ("Captured from the product" / "Illustrated · fictional data") in Geist Mono, per the site's provenance rule. Known soft spot: the recording lags ~0.5s after the heavy capture scene, so "It already knew." lands late in its window. 60.0s, -16.0 LUFS, -1.4 dBTP |
 | 1D-vD3 | 2026-08-04 | The conversion pass, from Becky's "compelling enough to join the beta?" question and her catch that the cuts weren't pulling from the website Bill found compelling. Three changes: (1) the cold open is now the live site hero verbatim ("Your nonprofit got smarter this week." then "Nobody wrote it down." in orange), so the click-through lands on the sentence the video promised; (2) the Jen Allen receipt after the finished-work beat (headline from the map's Amplify proof cell, quote verbatim, name and organization, inside her July 31 blanket approval), silent under the music; (3) the end card matches the site's ask: Start free, bemointel.ai, in beta now, plus the site's trust line ("Your data is never used to train models."). The grant-cycle beat dropped for time; the receipt carries the outcome claim better. Two new VO lines (`hge-h1/h2`, site hero verbatim). vD2 (receipt + Start free, Maria open) superseded same day. 60.0s, -16.1 LUFS, -1.1 dBTP |
 | 1D-vD1 | 2026-08-04 | The Last Day storyline built (see the Reel 1D section): Becky asked for a different, more attention-grabbing story on top of the commercial grammar and picked the succession treatment from three pitched. Seven fresh audio-only VO lines (`hgd-*`), the rest reused from 1C's set; the four-apps beat dropped for story focus. Exactly 60.0s, 1080p, -15.9 LUFS, -1.2 dBTP. On the artifact page as candidate A beside 1C as candidate B |

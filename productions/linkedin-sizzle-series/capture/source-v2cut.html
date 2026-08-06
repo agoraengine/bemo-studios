@@ -1,0 +1,316 @@
+<!doctype html><html><head>
+<meta charset="utf-8">
+<title>BeMo Sizzle Reel 1V2: the announcement cut</title>
+<!--
+  Reel 1V2: recut to the GA website v2 spec (bemo-os ga-website-edits-v2.md).
+  The institutional-knowledge arc: recognition (the development-director pain
+  beat), diagnosis and reveal ("BeMo is the system."), the roof, the two-act
+  assembly, product lead messages Compass-first over full-bleed app footage,
+  the four-products converge, the proof, the invitation. Each idea said once.
+  16:9, 58s + 2s tail. Images spliced by run-v2cut.mjs - -build.
+-->
+<style>
+  @font-face { font-family: "Schibsted Grotesk"; src: url("fonts/SchibstedGrotesk-var.woff2"); font-weight: 400 900; }
+  @font-face { font-family: "Geist Mono"; src: url("fonts/GeistMono-var.woff2"); font-weight: 400 500; }
+  :root {
+    --surface: #FFFFFF; --snow: #F8F9FC; --ink: #1A2A3A; --ink-muted: #3D4F66;
+    --ink-faint: #5C6A82; --rule: #D1D9E6; --sapphire: #05347E; --navy: #05347E;
+    --black: #01143A; --orange: #FF8210; --green: #4CBB17; --green-deep: #2F7D0D;
+  }
+  html, body { margin: 0; padding: 0; height: 100%; }
+  body { background: #000; display: flex; align-items: center; justify-content: center;
+         font-family: "Schibsted Grotesk", ui-sans-serif, system-ui, sans-serif; min-height: 100vh; }
+  #stage { width: 1280px; height: 720px; background: var(--black); position: relative;
+           overflow: hidden; transform-origin: center center; }
+  .disp { font-weight: 640; letter-spacing: -0.025em; }
+  .scene { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center;
+           justify-content: center; opacity: 0; z-index: 1; }
+  #flash { position: absolute; inset: 0; background: #fff; opacity: 0; z-index: 9; pointer-events: none; }
+  .chip { position: absolute; top: 50px; left: 0; right: 0; text-align: center; font-size: 18px;
+          font-family: "Geist Mono", ui-monospace, monospace; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; opacity: 0; }
+  .chip.o { color: var(--orange); } .chip.b { color: #9DB9E8; }
+  .prov { position: absolute; top: 56px; right: 64px; font-size: 15px; font-family: "Geist Mono", ui-monospace, monospace;
+          letter-spacing: 0.04em; opacity: 0; }
+  .prov.lt { color: #5C6A82; } .prov.dk { color: #5C6A82; }
+  .mk { border-bottom: 5px solid var(--green); padding-bottom: 2px; }
+
+  /* recognition: what do they inherit */
+  #sPain { background: var(--black); }
+  .icard { position: absolute; width: 330px; padding: 20px 22px; background: #0D2149;
+           border: 1px solid #1E3A6E; border-radius: 10px; font-size: 19px; color: #8FA6CE; line-height: 1.4; opacity: 0; }
+  .icard .src { font-size: 12px; letter-spacing: 0.07em; text-transform: uppercase; color: #55698C;
+                margin-bottom: 5px; font-weight: 500; font-family: "Geist Mono", ui-monospace, monospace; }
+
+  /* diagnosis + reveal */
+  #sReveal { background: var(--navy); }
+  #sReveal .diag { font-size: 56px; color: #F2F0EA; text-align: center; line-height: 1.2; padding: 0 90px; margin: 0 0 40px; opacity: 0; font-weight: 560; letter-spacing: -0.018em; }
+  #sReveal .sys { display: flex; align-items: center; gap: 26px; opacity: 0; }
+  #sReveal .sys .t { font-size: 64px; color: #F2F0EA; font-weight: 640; letter-spacing: -0.025em; }
+  .logochip { background: #fff; border-radius: 20px; padding: 16px 36px; display: inline-block; }
+  .logochip img { height: 76px; width: auto; display: block; }
+
+  /* the roof */
+  .light { background: var(--snow); }
+  .lg { position: absolute; width: 720px; height: 720px; border-radius: 50%; filter: blur(100px); pointer-events: none; }
+  #lg1 { background: radial-gradient(circle, rgba(5,52,126,0.14), transparent 70%); top: -180px; left: -140px; }
+  #lg2 { background: radial-gradient(circle, rgba(76,187,23,0.12), transparent 70%); bottom: -200px; right: -160px; }
+  #sRoof h1 { font-size: 80px; color: var(--sapphire); margin: 0; max-width: 1080px; padding: 0 80px; text-align: center; line-height: 1.1; opacity: 0; }
+
+  /* act one: fragments */
+  .frag { position: absolute; width: 320px; padding: 18px 20px; background: var(--surface);
+          border: 1px solid var(--rule); border-radius: 10px; font-size: 18px; color: var(--ink-muted);
+          box-shadow: 0 10px 28px rgba(26,42,58,0.14); opacity: 0; line-height: 1.4; }
+  .frag .src { font-size: 12px; letter-spacing: 0.07em; text-transform: uppercase; color: var(--ink-faint);
+               margin-bottom: 5px; font-weight: 700; font-family: "Geist Mono", ui-monospace, monospace; }
+  #homeS { max-width: 1080px; height: auto; border-radius: 12px; box-shadow: 0 16px 44px rgba(26,42,58,0.2); opacity: 0; }
+  #gpop { position: absolute; inset: -10%; opacity: 0; filter: blur(60px); pointer-events: none;
+          background: radial-gradient(circle at 50% 45%, rgba(255,130,16,0.24), rgba(76,187,23,0.11) 45%, transparent 70%); }
+
+  /* app footage, framed */
+  .vidfull { background: var(--snow); }
+  .vidfull video { width: 1240px; border-radius: 12px; border: 1px solid var(--rule);
+        box-shadow: 0 16px 44px rgba(26,42,58,0.2); opacity: 0; }
+  .lead { position: absolute; left: 0; right: 0; bottom: 118px; text-align: center; z-index: 2; pointer-events: none; }
+  .lead span { display: inline-block; background: rgba(1,20,58,0.88); color: #F2F0EA; font-size: 28px; font-weight: 560;
+               letter-spacing: -0.018em; padding: 11px 24px; border-radius: 8px; opacity: 0; }
+
+  /* four products converge */
+  #sFour { background: var(--snow); }
+  #sFour .icons { display: flex; gap: 66px; position: relative; }
+  #sFour .app { text-align: center; opacity: 0; }
+  #sFour .ic { width: 120px; height: 120px; border-radius: 30px; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; }
+  #sFour .ic svg { width: 80px; height: 80px; }
+  #sFour .nm { font-size: 24px; font-weight: 600; color: var(--ink); }
+  #sFour .wordchip { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); opacity: 0; z-index: 3; }
+  #sFour .wordchip .logochip { box-shadow: 0 20px 60px rgba(26,42,58,0.25); border: 1px solid var(--rule); }
+
+  /* proof */
+  #sProof { background: var(--sapphire); }
+  #sProof .eyebrow { font-size: 22px; letter-spacing: 0.18em; text-transform: uppercase; color: #9DB9E8; font-weight: 500; margin-bottom: 26px; opacity: 0; font-family: "Geist Mono", ui-monospace, monospace; }
+  #sProof blockquote { font-size: 46px; color: #F2F0EA; font-style: italic; line-height: 1.3; margin: 0 0 30px; max-width: 1080px; padding: 0 90px; text-align: center; opacity: 0; font-weight: 560; letter-spacing: -0.018em; }
+  #sProof .attr { font-size: 22px; color: #8FA6CE; font-weight: 600; opacity: 0; }
+
+  /* invitation */
+  #sClose { background: var(--sapphire); }
+  #sClose .payoff { font-size: 74px; color: #F2F0EA; margin: 0 0 42px; max-width: 1120px; text-align: center; line-height: 1.1; opacity: 0; }
+  #sClose .payoff b { font-weight: 640; }
+  #sClose .cta { font-size: 27px; color: #C8D9F3; opacity: 0; }
+  #sClose .cta b { background: var(--orange); color: #1A2A3A; border-radius: 6px; padding: 13px 32px;
+                   font-size: 25px; margin-right: 18px; font-weight: 700; }
+  #sClose .trust { margin-top: 18px; font-size: 17px; color: #8FA6CE; opacity: 0; }
+</style>
+</head><body>
+<div id="stage" role="img" aria-label="A 60-second BeMo announcement">
+
+  <div class="scene" id="sPain">
+    <div class="chip o" id="painChip">Six weeks</div>
+    <div class="icard" id="i1"><div class="src">What they inherit</div>A folder of PDFs.</div>
+    <div class="icard" id="i2"><div class="src">What they inherit</div>A shared inbox.</div>
+    <div class="icard" id="i3"><div class="src">What they inherit</div>Whatever made it into the exit interview.</div>
+  </div>
+
+  <div class="scene" id="sReveal">
+    <h1 class="diag" id="rDiag">This is a systems problem,<br>not a people problem.</h1>
+    <div class="sys" id="rSys"><span class="logochip"><img src="{{WORDMARK}}" alt="BeMo"></span><span class="t">is the system.</span></div>
+  </div>
+
+  <div class="scene light" id="sRoof">
+    <div class="lg" id="lg1"></div><div class="lg" id="lg2"></div>
+    <h1 class="disp" id="roofH">BeMo is where your organization's <span class="mk">knowledge</span> lives.</h1>
+  </div>
+
+  <div class="scene light" id="sActs">
+    <div id="gpop"></div>
+    <div class="frag" id="f1"><div class="src">Strategy</div>Board decision, March: expand to a second Saturday site.</div>
+    <div class="frag" id="f2"><div class="src">Funding</div>Award letter, July 2025: $60,000 over two years.</div>
+    <div class="frag" id="f3"><div class="src">Communications</div>Renewal report due Aug 15. Marcus, can you pull three donor quotes?</div>
+    <div class="frag" id="f4"><div class="src">Call transcript</div>&ldquo;Sarah Chen asked for outcome data earlier than the deadline required.&rdquo;</div>
+    <div class="frag" id="f5"><div class="src">Spreadsheet</div>Q2 meal counts, final: 41,600 meals year to date.</div>
+    <img id="homeS" src="{{HOME0}}" alt="">
+    <div class="prov lt" id="prov1">Illustrated &middot; fictional data</div>
+  </div>
+
+  <div class="scene vidfull" id="sCompass">
+    <video id="vComp" src="../../website-demo-slots/capture/out/compass-in-flow-raw.webm" muted preload="auto"></video>
+    <div class="lead"><span id="leadC">Compass &middot; strategy</span></div>
+    <div class="prov dk" id="prov2">Captured from the product</div>
+  </div>
+
+  <div class="scene vidfull" id="sGrant">
+    <video id="vGrant" src="out/live-funderstorm-template.webm" muted preload="auto"></video>
+    <div class="lead"><span id="leadF">FunderStorm &middot; funding</span></div>
+    <div class="prov dk" id="prov3">Captured from the product</div>
+  </div>
+
+  <div class="scene vidfull" id="sWork">
+    <video id="vWork" src="out/live-appeal-letter.webm" muted preload="auto"></video>
+    <div class="lead"><span id="leadA">Amplify &middot; communications</span></div>
+    <div class="prov dk" id="prov4">Captured from the product</div>
+  </div>
+
+  <div class="scene" id="sFour">
+    <div class="icons">
+      <div class="app" id="a1"><div class="ic" style="background:#E9F0FA;"><svg viewBox="0 0 36 36" fill="none" stroke="#05347E" stroke-width="2"><circle cx="18" cy="18" r="12"/><path d="M23 13l-3.4 6.8L13 23l3.4-6.8z" fill="#05347E" stroke="none"/></svg></div><div class="nm">Compass</div></div>
+      <div class="app" id="a2"><div class="ic" style="background:#FFF3E6;"><svg viewBox="0 0 36 36" fill="none" stroke="#FF8210" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"><path d="M26 22h-14a5.5 5.5 0 1 1 1.2-10.9A8 8 0 0 1 28.6 13.5 4.5 4.5 0 0 1 26 22z"/><path d="M19 19l-2.6 5h3l-1.7 6 5.4-8h-3l1.6-3z" fill="#FF8210" stroke="none"/></svg></div><div class="nm">FunderStorm</div></div>
+      <div class="app" id="a3"><div class="ic" style="background:#EAF7E3;"><svg viewBox="0 0 36 36" fill="none" stroke="#2F7D0D" stroke-width="2" stroke-linejoin="round"><path d="M8 15v6h4l9 5V10l-9 5H8z"/><path d="M25 14a5 5 0 0 1 0 8" stroke-linecap="round"/><path d="M28.5 11a9 9 0 0 1 0 14" stroke-linecap="round"/></svg></div><div class="nm">Amplify</div></div>
+      <div class="app" id="a4"><div class="ic" style="background:#E4FAFB;"><svg viewBox="0 0 36 36" fill="none" stroke="#0F7C88" stroke-width="2" stroke-linejoin="round"><path d="M18 10 4 16l14 6 14-6z"/><path d="M10 19.5V25c0 2 4 4 8 4s8-2 8-4v-5.5"/><path d="M32 16.5V24" stroke-linecap="round"/></svg></div><div class="nm">Academy</div></div>
+      <div class="wordchip" id="wc"><span class="logochip"><img src="{{WORDMARK}}" alt="BeMo"></span></div>
+    </div>
+  </div>
+
+  <div class="scene" id="sProof">
+    <div class="eyebrow" id="pEye">From the people using it</div>
+    <blockquote id="pQ">&ldquo;It was like working with a thoughtful colleague who actually wanted to understand the project before diving in.&rdquo;</blockquote>
+    <div class="attr" id="pA">Jennifer Allen &middot; Friends of the Saratoga Springs Public Library</div>
+  </div>
+
+  <div class="scene" id="sClose">
+    <h1 class="disp payoff" id="clP">Find out what your nonprofit <b class="mk">already knows</b>.</h1>
+    <div class="cta" id="clC"><b>Start free</b> bemointel.ai &nbsp;&middot;&nbsp; no credit card</div>
+    <div class="trust" id="clD">Your data is never used to train models.</div>
+  </div>
+
+  <div id="flash"></div>
+</div>
+
+<script>
+(function () {
+  var DUR = 58;
+  var stage = document.getElementById("stage");
+  function $(id) { return document.getElementById(id); }
+  function fit() {
+    var s = Math.min((window.innerWidth - 16) / 1280, (window.innerHeight - 16) / 720, 1);
+    stage.style.transform = "scale(" + s + ")";
+  }
+  window.addEventListener("resize", fit); fit();
+
+  function seg(t, a, b) { return Math.max(0, Math.min(1, (t - a) / (b - a))); }
+  function ease(x) { return x < 0.5 ? 2 * x * x : 1 - Math.pow(-2 * x + 2, 2) / 2; }
+  function outBack(x) { var c = 1.70158; return 1 + (c + 1) * Math.pow(x - 1, 3) + c * Math.pow(x - 1, 2); }
+  function cut(el, tIn, tOut, t) { el.style.opacity = (t >= tIn && t < tOut) ? Math.min(seg(t, tIn, tIn + 0.08), 1 - seg(t, tOut - 0.08, tOut)) : 0; }
+  function punch(el, at, t) {
+    var k = seg(t, at, at + 0.26);
+    el.style.opacity = Math.min(k * 3, 1);
+    el.style.transform = "scale(" + (1.16 - 0.16 * outBack(k)) + ")";
+  }
+  function rise(el, at, t) {
+    var k = ease(seg(t, at, at + 0.4));
+    el.style.opacity = k;
+    el.style.transform = "translateY(" + (14 * (1 - k)) + "px)";
+  }
+  function push(el, a, b, from, to, t) { el.style.transform = "scale(" + (from + (to - from) * seg(t, a, b)) + ")"; }
+  var FLASHES = [7.6, 12.4, 15.6, 27.6, 42.6, 49.8, 53.8];
+  function flashAll(t) {
+    var o = 0;
+    FLASHES.forEach(function (ft) { if (t >= ft) o = Math.max(o, 0.85 * (1 - seg(t, ft, ft + 0.12))); });
+    $("flash").style.opacity = o;
+  }
+
+  var IP = [{ l: 110, t: 150 }, { l: 830, t: 210 }, { l: 400, t: 430 }];
+  ["i1", "i2", "i3"].forEach(function (id, i) {
+    $(id).style.left = IP[i].l + "px"; $(id).style.top = IP[i].t + "px";
+  });
+  var FP = [
+    { l: 60, t: 70, dx: 400, dy: 210 }, { l: 880, t: 60, dx: -380, dy: 220 },
+    { l: 80, t: 300, dx: 390, dy: -20 }, { l: 900, t: 310, dx: -390, dy: -30 },
+    { l: 470, t: 520, dx: 30, dy: -230 },
+  ];
+  ["f1", "f2", "f3", "f4", "f5"].forEach(function (id, i) {
+    $(id).style.left = FP[i].l + "px"; $(id).style.top = FP[i].t + "px";
+  });
+
+  function vidfull(sceneId, vidId, provId, leadId, tIn, tOut, seekTo, rate, t) {
+    cut($(sceneId), tIn, tOut, t);
+    var v = $(vidId);
+    if (t >= tIn && t < tOut + 0.2 && v.paused) { v.currentTime = seekTo; v.playbackRate = rate; v.play(); }
+    if (t >= tOut + 0.3 && !v.paused) v.pause();
+    v.style.opacity = t >= tIn + 0.02 ? 1 : 0;
+    v.style.transform = "scale(" + (1 + 0.04 * seg(t, tIn, tOut)) + ")";
+    $(provId).style.opacity = Math.min(seg(t, tIn + 0.4, tIn + 0.7), 1) * 0.9;
+    punch($(leadId), tIn + 0.35, t);
+  }
+
+  function render(t) {
+    // RECOGNITION: the development director pain beat
+    cut($("sPain"), 0, 7.6, t);
+    $("painChip").style.opacity = Math.min(seg(t, 3.9, 4.2) * 2, 1);
+    punch($("i1"), 0.6, t); punch($("i2"), 1.6, t); punch($("i3"), 2.7, t);
+    var drain = ease(seg(t, 5.6, 7.4));
+    ["i1", "i2", "i3"].forEach(function (id) {
+      var el = $(id);
+      el.style.opacity = Math.min(parseFloat(el.style.opacity || 0), 1 - 0.75 * drain);
+    });
+
+    // DIAGNOSIS and the reveal
+    cut($("sReveal"), 7.6, 12.4, t);
+    punch($("rDiag"), 7.85, t);
+    punch($("rSys"), 10.5, t);
+
+    // THE ROOF
+    cut($("sRoof"), 12.4, 15.6, t);
+    punch($("roofH"), 12.65, t);
+
+    // THE TWO ACTS: fragments snap, then compose
+    cut($("sActs"), 15.6, 27.6, t);
+    var starts = [16.16, 17.14, 17.96, 18.7, 19.4];
+    for (var i = 1; i <= 5; i++) {
+      var el = $("f" + i);
+      var k = seg(t, starts[i - 1], starts[i - 1] + 0.26);
+      var m = ease(seg(t, 21.4 + (i - 1) * 0.15, 22.8 + (i - 1) * 0.15));
+      var fp = FP[i - 1];
+      el.style.opacity = Math.min(k * 3, 1) * (1 - m);
+      el.style.transform = "translate(" + (fp.dx * m) + "px," + (fp.dy * m) + "px) scale(" + ((1.14 - 0.14 * outBack(k)) * (1 - 0.3 * m)) + ")";
+    }
+    $("gpop").style.opacity = 0.8 * ease(seg(t, 22.6, 23.6)) * (1 - 0.5 * seg(t, 26.2, 27.6));
+    var hk = seg(t, 23.2, 23.5);
+    $("homeS").style.opacity = Math.min(hk * 3, 1);
+    $("homeS").style.transform = "scale(" + ((1.1 - 0.1 * outBack(hk)) * (1 + 0.05 * seg(t, 23.5, 27.6))) + ")";
+    $("prov1").style.opacity = Math.min(seg(t, 16.4, 16.7), 1) * 0.9;
+
+    // PRODUCT: lead messages over full-bleed footage, Compass first
+    vidfull("sCompass", "vComp", "prov2", "leadC", 27.6, 32.4, 32.0, 1.0, t);
+    vidfull("sGrant", "vGrant", "prov3", "leadF", 32.4, 37.4, 8.2, 1.0, t);
+    vidfull("sWork", "vWork", "prov4", "leadA", 37.4, 42.6, 2.0, 1.7, t);
+
+    // FOUR PRODUCTS, ONE MEMORY: the converge
+    cut($("sFour"), 42.6, 49.8, t);
+    punch($("a1"), 43.0, t); punch($("a2"), 43.3, t); punch($("a3"), 43.6, t); punch($("a4"), 43.9, t);
+    var cv = ease(seg(t, 45.6, 47.0));
+    var offs = [-3, -1, 1, 3];
+    ["a1", "a2", "a3", "a4"].forEach(function (id, i) {
+      var el = $(id);
+      if (t > 45.6) {
+        el.style.transform = "translateX(" + (offs[i] * -93 * cv) + "px) scale(" + (1 - 0.35 * cv) + ")";
+        el.style.opacity = 1 - 0.85 * cv;
+      }
+    });
+    var wk = seg(t, 46.6, 46.9);
+    $("wc").style.opacity = Math.min(wk * 3, 1);
+    $("wc").style.transform = "translate(-50%, -50%) scale(" + (1.2 - 0.2 * outBack(wk)) + ")";
+
+    // PROOF
+    cut($("sProof"), 49.8, 53.8, t);
+    rise($("pEye"), 49.95, t);
+    punch($("pQ"), 50.35, t);
+    rise($("pA"), 51.4, t);
+
+    // INVITATION
+    cut($("sClose"), 53.8, DUR + 3, t);
+    punch($("clP"), 54.05, t);
+    rise($("clC"), 55.9, t);
+    rise($("clD"), 56.5, t);
+    flashAll(t);
+  }
+
+  var t0 = null;
+  function loop(now) {
+    if (t0 === null) t0 = now;
+    var t = (now - t0) / 1000;
+    render(Math.min(t, DUR));
+    if (t < DUR + 3) requestAnimationFrame(loop);
+  }
+  window.restart = function () { t0 = null; requestAnimationFrame(loop); };
+  requestAnimationFrame(loop);
+})();
+</script>
+</body></html>

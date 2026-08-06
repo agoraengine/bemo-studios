@@ -1,0 +1,281 @@
+<!doctype html><html><head>
+<meta charset="utf-8">
+<title>BeMo Sizzle Reel 1A: the app cut</title>
+<!--
+  Reel 1A: the website's punch without its pixels. Branded motion frames in
+  the v6 system carry the site's copy; the substance is real app footage
+  (the cited ask, Compass in flow, the Amplify letter, the Grant Progress
+  Report). Fragment cards use the site hero's own Common Table facts.
+  16:9, 58s + 2s tail = 60s. Images spliced by run-appcut.mjs - -build.
+-->
+<style>
+  @font-face { font-family: "Schibsted Grotesk"; src: url("fonts/SchibstedGrotesk-var.woff2"); font-weight: 400 900; }
+  @font-face { font-family: "Geist Mono"; src: url("fonts/GeistMono-var.woff2"); font-weight: 400 500; }
+  :root {
+    --surface: #FFFFFF; --snow: #F8F9FC; --ink: #1A2A3A; --ink-muted: #3D4F66;
+    --ink-faint: #5C6A82; --rule: #D1D9E6; --sapphire: #05347E; --navy: #05347E;
+    --black: #01143A; --orange: #FF8210; --green: #4CBB17; --green-deep: #2F7D0D;
+  }
+  html, body { margin: 0; padding: 0; height: 100%; }
+  body { background: #000; display: flex; align-items: center; justify-content: center;
+         font-family: "Schibsted Grotesk", ui-sans-serif, system-ui, sans-serif; min-height: 100vh; }
+  #stage { width: 1280px; height: 720px; background: var(--navy); position: relative;
+           overflow: hidden; transform-origin: center center; }
+  .disp { font-weight: 640; letter-spacing: -0.025em; }
+  .scene { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center;
+           justify-content: center; opacity: 0; z-index: 1; }
+  .cam { display: flex; flex-direction: column; align-items: center; justify-content: center; }
+  #flash { position: absolute; inset: 0; background: #fff; opacity: 0; z-index: 9; pointer-events: none; }
+  .chip { position: absolute; top: 50px; left: 0; right: 0; text-align: center; font-size: 18px;
+          font-family: "Geist Mono", ui-monospace, monospace; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; opacity: 0; }
+  .chip.dk { color: #9DB9E8; } .chip.lt { color: var(--ink-faint); }
+  .prov { position: absolute; top: 56px; right: 64px; font-size: 15px; font-family: "Geist Mono", ui-monospace, monospace;
+          letter-spacing: 0.04em; opacity: 0; }
+  .prov.lt { color: #5C6A82; } .prov.dk { color: #8FA6CE; }
+  .mk { border-bottom: 5px solid var(--green); padding-bottom: 2px; }
+
+  /* the hook */
+  #sHook { background: var(--black); }
+  #sHook .hl { font-size: 86px; color: #F2F0EA; text-align: center; line-height: 1.15; padding: 0 70px; opacity: 0; margin: 0; }
+  #sHook .hl2 { color: var(--orange); margin-top: 10px; }
+
+  /* the scattered week, branded */
+  .light { background: var(--snow); }
+  .lg { position: absolute; width: 720px; height: 720px; border-radius: 50%; filter: blur(100px); pointer-events: none; }
+  #lg1 { background: radial-gradient(circle, rgba(5,52,126,0.14), transparent 70%); top: -180px; left: -140px; }
+  #lg2 { background: radial-gradient(circle, rgba(76,187,23,0.12), transparent 70%); bottom: -200px; right: -160px; }
+  .frag { position: absolute; width: 320px; padding: 18px 20px; background: var(--surface);
+          border: 1px solid var(--rule); border-radius: 10px; font-size: 18px; color: var(--ink-muted);
+          box-shadow: 0 10px 28px rgba(26,42,58,0.14); opacity: 0; line-height: 1.4; }
+  .frag .src { font-size: 12px; letter-spacing: 0.07em; text-transform: uppercase; color: var(--ink-faint);
+               margin-bottom: 5px; font-weight: 700; font-family: "Geist Mono", ui-monospace, monospace; }
+  #homeS { max-width: 1080px; height: auto; border-radius: 12px; box-shadow: 0 16px 44px rgba(26,42,58,0.2); opacity: 0; }
+
+  /* the stall */
+  #sStall { background: var(--black); }
+  #sStall .eye { font-size: 44px; color: #8FA6CE; font-weight: 560; letter-spacing: -0.018em; margin-bottom: 18px; opacity: 0; }
+  #sStall h1 { font-size: 96px; color: #F2F0EA; margin: 0; opacity: 0; }
+  #sStall h1 b { font-weight: 640; }
+
+  /* four apps */
+  #sApps h1 { font-size: 70px; color: var(--sapphire); margin: 0 0 54px; opacity: 0; }
+  #sApps .icons { display: flex; gap: 66px; }
+  #sApps .app { text-align: center; opacity: 0; }
+  #sApps .ic { width: 120px; height: 120px; border-radius: 30px; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; }
+  #sApps .ic svg { width: 80px; height: 80px; }
+  #sApps .nm { font-size: 24px; font-weight: 600; color: var(--ink); }
+
+  /* app footage frames */
+  .vidscene { background: var(--snow); }
+  .vidscene video { width: 1150px; border-radius: 12px; border: 1px solid var(--rule);
+        box-shadow: 0 16px 44px rgba(26,42,58,0.2); opacity: 0; }
+
+  /* the proof: the site's own quote */
+  #sProof { background: var(--sapphire); }
+  #sProof .eyebrow { font-size: 22px; letter-spacing: 0.18em; text-transform: uppercase; color: #9DB9E8; font-weight: 700; margin-bottom: 26px; opacity: 0; font-family: "Geist Mono", ui-monospace, monospace; }
+  #sProof blockquote { font-size: 46px; color: #F2F0EA; font-style: italic; line-height: 1.3; margin: 0 0 30px; max-width: 1080px; padding: 0 90px; text-align: center; opacity: 0; }
+  #sProof .attr { font-size: 22px; color: #8FA6CE; font-weight: 600; opacity: 0; }
+
+  /* close */
+  #sClose { background: var(--sapphire); }
+  #sClose .payoff { font-size: 72px; color: #F2F0EA; margin: 0 0 40px; max-width: 1100px; text-align: center; line-height: 1.1; opacity: 0; }
+  #sClose .payoff b { font-weight: 640; }
+  .logochip { background: #fff; border-radius: 22px; padding: 20px 44px; display: inline-block; opacity: 0; }
+  .logochip img { height: 92px; width: auto; display: block; }
+  #sClose .cta { margin-top: 38px; font-size: 26px; color: #C8D9F3; opacity: 0; }
+  #sClose .cta b { background: var(--orange); color: #1A2A3A; border-radius: 6px; padding: 12px 30px;
+                   font-size: 24px; margin-right: 18px; font-weight: 700; }
+  #sClose .trust { margin-top: 16px; font-size: 17px; color: #8FA6CE; opacity: 0; }
+</style>
+</head><body>
+<div id="stage" role="img" aria-label="A 60-second BeMo commercial built from the app">
+
+  <div class="scene" id="sHook">
+    <h1 class="disp hl" id="hk1">Your nonprofit got smarter this week.</h1>
+    <h1 class="disp hl hl2" id="hk2">Nobody wrote it down.</h1>
+  </div>
+
+  <div class="scene light" id="sBuild">
+    <div class="lg" id="lg1"></div><div class="lg" id="lg2"></div>
+    <div class="frag" id="f1"><div class="src">Email</div>Renewal report due Aug 15. Marcus, can you pull three donor quotes?</div>
+    <div class="frag" id="f2"><div class="src">Call transcript</div>&ldquo;Sarah Chen asked for outcome data earlier than the deadline required.&rdquo;</div>
+    <div class="frag" id="f3"><div class="src">Spreadsheet</div>Q2 meal counts, final: 41,600 meals year to date.</div>
+    <div class="frag" id="f4"><div class="src">Document</div>Award letter, July 2025: $60,000 over two years.</div>
+    <div class="frag" id="f5"><div class="src">Board minutes</div>By the end of 2027, no single funder over half of revenue.</div>
+    <img id="homeS" src="{{HOME0}}" alt="">
+    <div class="prov lt" id="prov1">Illustrated &middot; fictional data</div>
+  </div>
+
+  <div class="scene" id="sStall">
+    <div class="eye" id="stEye">Nobody stops caring.</div>
+    <h1 class="disp" id="stH">They stop <b class="mk">remembering</b>.</h1>
+  </div>
+
+  <div class="scene light" id="sApps">
+    <h1 class="disp" id="appsH">Four apps. One memory.</h1>
+    <div class="icons">
+      <div class="app" id="a1"><div class="ic" style="background:#E9F0FA;"><svg viewBox="0 0 36 36" fill="none" stroke="#05347E" stroke-width="2"><circle cx="18" cy="18" r="12"/><path d="M23 13l-3.4 6.8L13 23l3.4-6.8z" fill="#05347E" stroke="none"/></svg></div><div class="nm">Compass</div></div>
+      <div class="app" id="a2"><div class="ic" style="background:#FFF3E6;"><svg viewBox="0 0 36 36" fill="none" stroke="#FF8210" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"><path d="M26 22h-14a5.5 5.5 0 1 1 1.2-10.9A8 8 0 0 1 28.6 13.5 4.5 4.5 0 0 1 26 22z"/><path d="M19 19l-2.6 5h3l-1.7 6 5.4-8h-3l1.6-3z" fill="#FF8210" stroke="none"/></svg></div><div class="nm">FunderStorm</div></div>
+      <div class="app" id="a3"><div class="ic" style="background:#EAF7E3;"><svg viewBox="0 0 36 36" fill="none" stroke="#2F7D0D" stroke-width="2" stroke-linejoin="round"><path d="M8 15v6h4l9 5V10l-9 5H8z"/><path d="M25 14a5 5 0 0 1 0 8" stroke-linecap="round"/><path d="M28.5 11a9 9 0 0 1 0 14" stroke-linecap="round"/></svg></div><div class="nm">Amplify</div></div>
+      <div class="app" id="a4"><div class="ic" style="background:#E4FAFB;"><svg viewBox="0 0 36 36" fill="none" stroke="#0F7C88" stroke-width="2" stroke-linejoin="round"><path d="M18 10 4 16l14 6 14-6z"/><path d="M10 19.5V25c0 2 4 4 8 4s8-2 8-4v-5.5"/><path d="M32 16.5V24" stroke-linecap="round"/></svg></div><div class="nm">Academy</div></div>
+    </div>
+  </div>
+
+  <div class="scene vidscene" id="sAsk">
+    <video id="vAsk" src="../../wrenfield-kb-load/capture/out/common-table-ask.webm" muted preload="auto"></video>
+    <div class="prov lt" id="prov2">Captured from the product</div>
+  </div>
+
+  <div class="scene vidscene" id="sCompass">
+    <video id="vComp" src="../../website-demo-slots/capture/out/compass-in-flow-raw.webm" muted preload="auto"></video>
+    <div class="prov lt" id="prov3">Captured from the product</div>
+  </div>
+
+  <div class="scene vidscene" id="sWork">
+    <video id="vWork" src="out/live-appeal-letter.webm" muted preload="auto"></video>
+    <div class="prov lt" id="prov4">Captured from the product</div>
+  </div>
+
+  <div class="scene vidscene" id="sGrant">
+    <video id="vGrant" src="out/live-funderstorm-template.webm" muted preload="auto"></video>
+    <div class="prov lt" id="prov5">Captured from the product</div>
+  </div>
+
+  <div class="scene" id="sProof">
+    <div class="eyebrow" id="pEye">From the people using it</div>
+    <blockquote class="disp" id="pQ">&ldquo;It was like working with a thoughtful colleague who actually wanted to understand the project before diving in.&rdquo;</blockquote>
+    <div class="attr" id="pA">Jennifer Allen &middot; Friends of the Saratoga Springs Public Library</div>
+  </div>
+
+  <div class="scene" id="sClose">
+    <h1 class="disp payoff" id="clP">Find out what your nonprofit <b class="mk">already knows</b>.</h1>
+    <span class="logochip" id="clW"><img src="{{WORDMARK}}" alt="BeMo"></span>
+    <div class="cta" id="clC"><b>Start free</b> bemointel.ai &nbsp;&middot;&nbsp; in beta now</div>
+    <div class="trust" id="clD">Your data is never used to train models.</div>
+  </div>
+
+  <div id="flash"></div>
+</div>
+
+<script>
+(function () {
+  var DUR = 58;
+  var stage = document.getElementById("stage");
+  function $(id) { return document.getElementById(id); }
+  function fit() {
+    var s = Math.min((window.innerWidth - 16) / 1280, (window.innerHeight - 16) / 720, 1);
+    stage.style.transform = "scale(" + s + ")";
+  }
+  window.addEventListener("resize", fit); fit();
+
+  function seg(t, a, b) { return Math.max(0, Math.min(1, (t - a) / (b - a))); }
+  function ease(x) { return x < 0.5 ? 2 * x * x : 1 - Math.pow(-2 * x + 2, 2) / 2; }
+  function outBack(x) { var c = 1.70158; return 1 + (c + 1) * Math.pow(x - 1, 3) + c * Math.pow(x - 1, 2); }
+  function cut(el, tIn, tOut, t) { el.style.opacity = (t >= tIn && t < tOut) ? Math.min(seg(t, tIn, tIn + 0.08), 1 - seg(t, tOut - 0.08, tOut)) : 0; }
+  function punch(el, at, t) {
+    var k = seg(t, at, at + 0.26);
+    el.style.opacity = Math.min(k * 3, 1);
+    el.style.transform = "scale(" + (1.16 - 0.16 * outBack(k)) + ")";
+  }
+  function drop(el, at, t) {
+    var k = seg(t, at, at + 0.5);
+    el.style.opacity = Math.min(k * 3, 1);
+    el.style.transform = "translateY(" + (-46 * (1 - outBack(k))) + "px)";
+  }
+  function rise(el, at, t) {
+    var k = ease(seg(t, at, at + 0.4));
+    el.style.opacity = k;
+    el.style.transform = "translateY(" + (14 * (1 - k)) + "px)";
+  }
+  function push(el, a, b, from, to, t) { el.style.transform = "scale(" + (from + (to - from) * seg(t, a, b)) + ")"; }
+  var FLASHES = [18.6, 22.8, 27.2, 39.6, 48.3, 52.3];
+  function flashAll(t) {
+    var o = 0;
+    FLASHES.forEach(function (ft) { if (t >= ft) o = Math.max(o, 0.85 * (1 - seg(t, ft, ft + 0.12))); });
+    $("flash").style.opacity = o;
+  }
+
+  var FP = [
+    { l: 60, t: 70, dx: 400, dy: 210 }, { l: 880, t: 60, dx: -380, dy: 220 },
+    { l: 80, t: 300, dx: 390, dy: -20 }, { l: 900, t: 310, dx: -390, dy: -30 },
+    { l: 470, t: 520, dx: 30, dy: -230 },
+  ];
+  ["f1", "f2", "f3", "f4", "f5"].forEach(function (id, i) {
+    $(id).style.left = FP[i].l + "px"; $(id).style.top = FP[i].t + "px";
+  });
+
+  function vid(sceneId, vidId, provId, tIn, tOut, seekTo, provAt, t) {
+    cut($(sceneId), tIn, tOut, t);
+    var v = $(vidId);
+    if (t >= tIn && t < tOut + 0.2 && v.paused) { v.currentTime = seekTo; v.play(); }
+    v.style.opacity = t >= tIn + 0.02 ? 1 : 0;
+    v.style.transform = "scale(" + (1 + 0.05 * seg(t, tIn, tOut)) + ")";
+    $(provId).style.opacity = Math.min(seg(t, tIn + 0.4, tIn + 0.7), 1) * 0.9;
+  }
+
+  function render(t) {
+    // the hook (the site's hero pair)
+    cut($("sHook"), 0, 4.4, t);
+    punch($("hk1"), 0.35, t);
+    punch($("hk2"), 2.6, t);
+    push($("sHook"), 0.35, 4.4, 1.0, 1.04, t);
+
+    // the scattered week: the site hero's facts as branded cards, snapping on her words
+    cut($("sBuild"), 4.4, 18.6, t);
+    var starts = [4.96, 5.9, 6.7, 7.62, 9.1];
+    for (var i = 1; i <= 5; i++) {
+      var el = $("f" + i);
+      var k = seg(t, starts[i - 1], starts[i - 1] + 0.26);
+      var m = ease(seg(t, 11.0 + (i - 1) * 0.15, 12.4 + (i - 1) * 0.15));
+      var fp = FP[i - 1];
+      el.style.opacity = Math.min(k * 3, 1) * (1 - m);
+      el.style.transform = "translate(" + (fp.dx * m) + "px," + (fp.dy * m) + "px) scale(" + ((1.14 - 0.14 * outBack(k)) * (1 - 0.3 * m)) + ")";
+    }
+    var hk = seg(t, 12.2, 12.5);
+    $("homeS").style.opacity = Math.min(hk * 3, 1);
+    $("homeS").style.transform = "scale(" + ((1.1 - 0.1 * outBack(hk)) * (1 + 0.05 * seg(t, 12.5, 18.6)) ) + ")";
+    $("prov1").style.opacity = Math.min(seg(t, 5.0, 5.3), 1) * 0.9;
+
+    // the stall
+    cut($("sStall"), 18.6, 22.8, t);
+    rise($("stEye"), 18.85, t);
+    punch($("stH"), 19.6, t);
+
+    // four apps, one memory
+    cut($("sApps"), 22.8, 27.2, t);
+    punch($("appsH"), 22.95, t);
+    punch($("a1"), 23.3, t); punch($("a2"), 23.6, t); punch($("a3"), 23.9, t); punch($("a4"), 24.2, t);
+
+    // the substance: real product
+    vid("sAsk", "vAsk", "prov2", 27.2, 35.2, 27.0, 27.6, t);
+    vid("sCompass", "vComp", "prov3", 35.2, 39.6, 32.0, 35.6, t);
+    vid("sWork", "vWork", "prov4", 39.6, 43.9, 2.0, 40.0, t);
+    vid("sGrant", "vGrant", "prov5", 43.9, 48.3, 8.2, 44.3, t);
+
+    // the proof: the site's own quote card
+    cut($("sProof"), 48.3, 52.3, t);
+    rise($("pEye"), 48.45, t);
+    punch($("pQ"), 48.9, t);
+    rise($("pA"), 50.0, t);
+
+    // the close: the site's ask
+    cut($("sClose"), 52.3, DUR + 3, t);
+    punch($("clP"), 52.55, t);
+    drop($("clW"), 54.4, t);
+    rise($("clC"), 55.3, t);
+    rise($("clD"), 56.0, t);
+    flashAll(t);
+  }
+
+  var t0 = null;
+  function loop(now) {
+    if (t0 === null) t0 = now;
+    var t = (now - t0) / 1000;
+    render(Math.min(t, DUR));
+    if (t < DUR + 3) requestAnimationFrame(loop);
+  }
+  window.restart = function () { t0 = null; requestAnimationFrame(loop); };
+  requestAnimationFrame(loop);
+})();
+</script>
+</body></html>

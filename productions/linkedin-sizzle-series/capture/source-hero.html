@@ -1,0 +1,295 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<title>Reel 8H: the hero 60</title>
+<style>
+  /* Six Tools extended: the launch-week hero. v6 system: Schibsted only, snow
+     ground, sapphire headlines, green marks, navy gravity moments. */
+  @font-face { font-family: "Schibsted Grotesk"; src: url("fonts/SchibstedGrotesk-var.woff2"); font-weight: 400 900; }
+  @font-face { font-family: "Geist Mono"; src: url("fonts/GeistMono-var.woff2"); font-weight: 400 500; }
+  :root {
+    --surface: #FFFFFF; --snow: #F8F9FC; --ink: #1A2A3A; --ink-muted: #3D4F66;
+    --ink-faint: #5C6A82; --rule: #D1D9E6; --sapphire: #05347E; --navy: #05347E;
+    --navy-deep: #01143A; --orange: #FF8210; --green: #4CBB17; --green-deep: #2F7D0D;
+    --cream: #F7F3EA;
+  }
+  * { box-sizing: border-box; margin: 0; }
+  html, body { height: 100%; background: #0B1526; display: grid; place-items: center;
+    font-family: "Schibsted Grotesk", sans-serif; overflow: hidden; }
+  #stage { width: 1280px; height: 720px; background: var(--surface); position: relative;
+    overflow: hidden; transform-origin: center; }
+  .scene { position: absolute; inset: 0; opacity: 0; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; text-align: center; padding: 0 90px; }
+  .disp { font-weight: 640; letter-spacing: -0.02em; line-height: 1.08; color: var(--sapphire);
+    text-wrap: balance; }
+  .mk { font-weight: inherit; box-shadow: inset 0 -6px 0 var(--green); }
+  .eyebrow { font-family: "Geist Mono", monospace; font-size: 15px; letter-spacing: 0.11em;
+    text-transform: uppercase; color: var(--green-deep); font-weight: 500; margin-bottom: 18px; }
+  .prov { position: absolute; left: 24px; bottom: 18px; font-family: "Geist Mono", monospace;
+    font-size: 14px; letter-spacing: 0.04em; color: var(--ink-faint); opacity: 0; }
+
+  /* scene 1: the six-tools pile */
+  #sTools { background: var(--snow); }
+  .win { position: absolute; width: 400px; border-radius: 10px; background: var(--surface);
+    border: 1px solid var(--rule); box-shadow: 0 18px 40px -18px rgba(26,42,58,0.28);
+    opacity: 0; }
+  .win .bar { height: 26px; border-bottom: 1px solid var(--rule); border-radius: 10px 10px 0 0;
+    background: var(--snow); display: flex; align-items: center; gap: 5px; padding: 0 10px; }
+  .win .bar i { width: 8px; height: 8px; border-radius: 50%; background: var(--rule); }
+  .win .bar .nm { font-size: 12px; color: var(--ink-faint); margin-left: 6px; font-weight: 600; }
+  .win .body { padding: 12px; display: grid; gap: 7px; }
+  .win .ln { height: 9px; border-radius: 4px; background: var(--snow); border: 1px solid var(--rule); }
+  .win .ln.w60 { width: 60%; } .win .ln.w80 { width: 80%; }
+  .win .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3px; }
+  .win .cell { height: 12px; background: var(--snow); border: 1px solid var(--rule); }
+  #toolsH { font-size: 54px; max-width: 1080px; position: relative; z-index: 5;
+    background: color-mix(in srgb, var(--snow) 55%, transparent); border-radius: 14px; padding: 10px 20px; }
+  .thalf { display: inline-block; opacity: 0; }
+
+  /* scene 2: the site take */
+  .vidscene { padding: 0; background: var(--surface); }
+  .vidscene video { width: 1280px; height: 720px; object-fit: cover; opacity: 0; }
+  #inplay { position: absolute; left: 0; right: 0; margin: 0 auto; width: fit-content; bottom: 118px;
+    background: var(--navy); color: #F2EEE3; font-size: 26px; font-weight: 600;
+    padding: 13px 26px; border-radius: 12px; opacity: 0; max-width: 960px;
+    line-height: 1.35; box-shadow: 0 22px 48px -20px rgba(1,20,58,0.55); }
+  #inplay b { color: #FFFFFF; font-weight: 700; }
+
+  /* scene 3: the thesis */
+  #sThesis { background: var(--surface); }
+  #thH { font-size: 50px; max-width: 1100px; }
+  .converge { display: flex; align-items: center; gap: 18px; margin-top: 44px; }
+  .cv { border: 1.5px solid var(--rule); border-radius: 999px; padding: 12px 26px;
+    font-size: 24px; font-weight: 600; color: var(--ink-muted); background: var(--surface);
+    opacity: 0; }
+  .cv.grant { border-color: var(--orange); } .cv.strat { border-color: var(--sapphire); }
+  .cv.comms { border-color: var(--green-deep); }
+  .cvarrow { font-size: 22px; color: var(--ink-faint); opacity: 0; }
+  .cvmem { background: var(--navy); color: #F2EEE3; border-radius: 999px; padding: 14px 30px;
+    font-size: 24px; font-weight: 700; opacity: 0; }
+
+  /* scene 4: four apps */
+  #sApps { background: var(--surface); }
+  #appsH { font-size: 58px; }
+  .icons { display: flex; gap: 66px; margin-top: 50px; }
+  .app { display: flex; flex-direction: column; align-items: center; gap: 12px; opacity: 0; }
+  .app .ic { width: 108px; height: 108px; border-radius: 26px; display: grid; place-items: center; }
+  .app .ic svg { width: 66px; height: 66px; }
+  .app .nm { font-size: 28px; font-weight: 600; color: var(--ink); }
+
+  /* scene 6: the Jen receipt */
+  #sProof { background: var(--snow); }
+  #prH { font-size: 56px; }
+  #prQ { font-size: 33px; color: var(--ink-muted); max-width: 980px; margin-top: 22px;
+    line-height: 1.35; opacity: 0; }
+  #prA { font-family: "Geist Mono", monospace; font-size: 17px; color: var(--ink-faint);
+    margin-top: 20px; opacity: 0; }
+
+  /* scene 7: the paired close */
+  #sPair { background: var(--navy); }
+  .pairln { font-size: 56px; font-weight: 640; letter-spacing: -0.02em; color: #FFFFFF;
+    opacity: 0; line-height: 1.2; }
+  #pl2 { color: #F2EEE3; margin-top: 10px; }
+
+  /* scene 8: brand close */
+  #sClose { background: var(--navy-deep); }
+  .logochip { background: #FFFFFF; border-radius: 16px; padding: 14px 30px; opacity: 0; }
+  .logochip img { height: 84px; display: block; }
+  #clT { font-size: 50px; font-weight: 640; color: #FFFFFF; margin-top: 30px; opacity: 0; }
+  #clU { font-family: "Geist Mono", monospace; font-size: 18px; letter-spacing: 0.06em;
+    color: #9DB9E8; margin-top: 18px; opacity: 0; }
+</style></head>
+<body>
+<div id="stage">
+
+  <div class="scene" id="sTools">
+    <div class="win" id="w1" style="left:16px; top:30px; transform:rotate(-4deg);">
+      <div class="bar"><i></i><i></i><i></i><span class="nm">Inbox</span></div>
+      <div class="body"><div class="ln w80"></div><div class="ln"></div><div class="ln w60"></div></div>
+    </div>
+    <div class="win" id="w2" style="right:24px; top:22px; transform:rotate(3deg);">
+      <div class="bar"><i></i><i></i><i></i><span class="nm">Spreadsheet</span></div>
+      <div class="body"><div class="grid"><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div></div></div>
+    </div>
+    <div class="win" id="w3" style="left:40px; top:430px; transform:rotate(2.5deg);">
+      <div class="bar"><i></i><i></i><i></i><span class="nm">Documents</span></div>
+      <div class="body"><div class="ln"></div><div class="ln w80"></div><div class="ln w60"></div></div>
+    </div>
+    <div class="win" id="w4" style="right:20px; top:440px; transform:rotate(-3deg);">
+      <div class="bar"><i></i><i></i><i></i><span class="nm">Chat</span></div>
+      <div class="body"><div class="ln w60"></div><div class="ln w80"></div><div class="ln w60"></div></div>
+    </div>
+    <div class="win" id="w5" style="left:440px; top:60px; transform:rotate(1.5deg);">
+      <div class="bar"><i></i><i></i><i></i><span class="nm">Calendar</span></div>
+      <div class="body"><div class="grid"><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div></div></div>
+    </div>
+    <div class="win" id="w6" style="left:460px; top:470px; transform:rotate(-1.5deg);">
+      <div class="bar"><i></i><i></i><i></i><span class="nm">Shared drive</span></div>
+      <div class="body"><div class="ln"></div><div class="ln w60"></div><div class="ln w80"></div></div>
+    </div>
+    <h1 class="disp" id="toolsH"><span class="thalf" id="tH1">You shouldn't have to open <b class="mk">six tools</b></span><br><span class="thalf" id="tH2">to find out what's happening in your own organization.</span></h1>
+  </div>
+
+  <div class="scene vidscene" id="sFront">
+    <video id="vFront" src="out/hero-front-raw.webm" muted preload="auto"></video>
+    <div class="prov" id="provF">Illustrated &middot; fictional organization</div>
+    <div id="inplay">The front page shows <b>what's in play</b>. The knowledge base tells you <b>what's missing</b>.</div>
+  </div>
+
+  <div class="scene" id="sThesis">
+    <h1 class="disp" id="thH">BeMo is the first platform where your grant work, strategy, and communications <b class="mk">share the same memory</b>.</h1>
+    <div class="converge">
+      <span class="cv grant" id="cv1">Grant work</span>
+      <span class="cv strat" id="cv2">Strategy</span>
+      <span class="cv comms" id="cv3">Communications</span>
+      <span class="cvarrow" id="cva">&rarr;</span>
+      <span class="cvmem" id="cvm">One shared memory</span>
+    </div>
+  </div>
+
+  <div class="scene" id="sApps">
+    <h1 class="disp" id="appsH">Four apps. One product.</h1>
+    <div class="icons">
+      <div class="app" id="a1"><div class="ic" style="background:#E9F0FA;"><svg viewBox="0 0 36 36" fill="none" stroke="#05347E" stroke-width="2"><circle cx="18" cy="18" r="12"/><path d="M23 13l-3.4 6.8L13 23l3.4-6.8z" fill="#05347E" stroke="none"/></svg></div><div class="nm">Compass</div></div>
+      <div class="app" id="a2"><div class="ic" style="background:#FFF3E6;"><svg viewBox="0 0 36 36" fill="none" stroke="#FF8210" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"><path d="M26 22h-14a5.5 5.5 0 1 1 1.2-10.9A8 8 0 0 1 28.6 13.5 4.5 4.5 0 0 1 26 22z"/><path d="M19 19l-2.6 5h3l-1.7 6 5.4-8h-3l1.6-3z" fill="#FF8210" stroke="none"/></svg></div><div class="nm">FunderStorm</div></div>
+      <div class="app" id="a3"><div class="ic" style="background:#EAF7E3;"><svg viewBox="0 0 36 36" fill="none" stroke="#2F7D0D" stroke-width="2" stroke-linejoin="round"><path d="M8 15v6h4l9 5V10l-9 5H8z"/><path d="M25 14a5 5 0 0 1 0 8" stroke-linecap="round"/><path d="M28.5 11a9 9 0 0 1 0 14" stroke-linecap="round"/></svg></div><div class="nm">Amplify</div></div>
+      <div class="app" id="a4"><div class="ic" style="background:#E4FAFB;"><svg viewBox="0 0 36 36" fill="none" stroke="#0F7C88" stroke-width="2" stroke-linejoin="round"><path d="M18 10 4 16l14 6 14-6z"/><path d="M10 19.5V25c0 2 4 4 8 4s8-2 8-4v-5.5"/><path d="M32 16.5V24" stroke-linecap="round"/></svg></div><div class="nm">Academy</div></div>
+    </div>
+  </div>
+
+  <div class="scene vidscene" id="sWork">
+    <video id="vWork" src="out/amplify-in-flow.mp4" muted preload="auto"></video>
+    <div class="prov" id="provW">Captured from the product &middot; fictional organization</div>
+  </div>
+
+  <div class="scene" id="sProof">
+    <div class="eyebrow" id="prE">From a real user</div>
+    <h1 class="disp" id="prH">About <b class="mk">an hour</b>, instead of three days.</h1>
+    <blockquote id="prQ">&ldquo;The most painless report process I have ever experienced.&rdquo;</blockquote>
+    <div id="prA">Jennifer Allen &middot; Friends of the Saratoga Springs Public Library</div>
+  </div>
+
+  <div class="scene" id="sPair">
+    <div class="pairln" id="pl1">Nothing drops on the floor.</div>
+    <div class="pairln" id="pl2">And nothing walks out the door.</div>
+  </div>
+
+  <div class="scene" id="sClose">
+    <span class="logochip" id="clW"><img src="{{WORDMARK}}" alt="BeMo"></span>
+    <div id="clT">Where missions gain momentum.</div>
+    <div id="clU">bemointel.ai</div>
+  </div>
+
+</div>
+
+<script>
+(function () {
+  var DUR = 58;
+  var stage = document.getElementById("stage");
+  function $(id) { return document.getElementById(id); }
+  function fit() {
+    var s = Math.min((window.innerWidth - 16) / 1280, (window.innerHeight - 16) / 720, 1);
+    stage.style.transform = "scale(" + s + ")";
+  }
+  window.addEventListener("resize", fit); fit();
+
+  function seg(t, a, b) { return Math.max(0, Math.min(1, (t - a) / (b - a))); }
+  function ease(x) { return x < 0.5 ? 2 * x * x : 1 - Math.pow(-2 * x + 2, 2) / 2; }
+  function outBack(x) { var c = 1.70158; return 1 + (c + 1) * Math.pow(x - 1, 3) + c * Math.pow(x - 1, 2); }
+  function cut(el, tIn, tOut, t) { el.style.opacity = (t >= tIn && t < tOut) ? Math.min(seg(t, tIn, tIn + 0.08), 1 - seg(t, tOut - 0.08, tOut)) : 0; }
+  function punch(el, at, t) {
+    var k = seg(t, at, at + 0.26);
+    el.style.opacity = Math.min(k * 3, 1);
+    el.style.transform = "scale(" + (1.16 - 0.16 * outBack(k)) + ")";
+  }
+  function drop(el, at, t) {
+    var k = seg(t, at, at + 0.5);
+    el.style.opacity = Math.min(k * 3, 1);
+    el.style.transform = "translateY(" + (-46 * (1 - outBack(k))) + "px)";
+  }
+  function rise(el, at, t) {
+    var k = ease(seg(t, at, at + 0.4));
+    el.style.opacity = k;
+    el.style.transform = "translateY(" + (14 * (1 - k)) + "px)";
+  }
+  function fadeTo(el, at, dur, target, t) {
+    el.style.opacity = target * Math.min(seg(t, at, at + dur), 1);
+  }
+  function vid(sceneId, vidId, tIn, tOut, seekTo, t) {
+    cut($(sceneId), tIn, tOut, t);
+    var v = $(vidId);
+    if (t >= tIn && t < tOut + 0.2 && v.paused) { v.currentTime = seekTo; v.play(); }
+    v.style.opacity = t >= tIn + 0.02 ? 1 : 0;
+  }
+
+  // the tool windows keep their authored rotations; entrances scale around them
+  var WROT = { w1: -4, w2: 3, w3: 2.5, w4: -3, w5: 1.5, w6: -1.5 };
+  function winIn(id, at, t) {
+    var el = $(id), k = seg(t, at, at + 0.3);
+    el.style.opacity = Math.min(k * 3, 1);
+    el.style.transform = "rotate(" + WROT[id] + "deg) scale(" + (1.2 - 0.2 * outBack(k)) + ")";
+  }
+
+  function render(t) {
+    // 1. the six-tools pile
+    cut($("sTools"), 0, 6.6, t);
+    winIn("w1", 0.3, t); winIn("w2", 0.55, t); winIn("w3", 0.8, t);
+    winIn("w4", 1.05, t); winIn("w5", 1.3, t); winIn("w6", 1.55, t);
+    punch($("tH1"), 2.0, t);
+    punch($("tH2"), 3.05, t);
+
+    // 2. the front page composes, then holds (the filmed site take; seek past
+    // the page-load frames so the scene opens on the scattered notes, never the site hero)
+    vid("sFront", "vFront", 6.6, 24.3, 1.35, t);
+    $("vFront").style.transform = "scale(" + (1 + 0.04 * ease(seg(t, 16.2, 24.3))) + ")";
+    fadeTo($("provF"), 7.1, 0.3, 0.9, t);
+    rise($("inplay"), 20.1, t);
+    if (t > 23.9) fadeTo($("inplay"), 23.9, 0.4, 0, t);
+
+    // 3. the thesis
+    cut($("sThesis"), 24.3, 31.6, t);
+    punch($("thH"), 24.5, t);
+    rise($("cv1"), 26.9, t); rise($("cv2"), 27.2, t); rise($("cv3"), 27.5, t);
+    fadeTo($("cva"), 28.0, 0.3, 1, t);
+    punch($("cvm"), 28.4, t);
+
+    // 4. four apps, one product
+    cut($("sApps"), 31.6, 35.0, t);
+    punch($("appsH"), 31.75, t);
+    punch($("a1"), 32.2, t); punch($("a2"), 32.5, t); punch($("a3"), 32.8, t); punch($("a4"), 33.1, t);
+
+    // 5. real work, real product
+    vid("sWork", "vWork", 35.0, 40.9, 5.8, t);
+    $("vWork").style.transform = "scale(" + (1 + 0.06 * seg(t, 35.0, 40.9)) + ")";
+    fadeTo($("provW"), 35.5, 0.3, 0.9, t);
+
+    // 6. the Jen receipt
+    cut($("sProof"), 40.9, 46.8, t);
+    rise($("prE"), 41.1, t);
+    punch($("prH"), 41.5, t);
+    rise($("prQ"), 42.5, t);
+    rise($("prA"), 43.5, t);
+
+    // 7. the paired close
+    cut($("sPair"), 46.8, 52.2, t);
+    drop($("pl1"), 47.15, t);
+    drop($("pl2"), 49.4, t);
+
+    // 8. brand close
+    cut($("sClose"), 52.2, DUR + 3, t);
+    drop($("clW"), 52.5, t);
+    rise($("clT"), 53.3, t);
+    rise($("clU"), 54.2, t);
+  }
+
+  var t0 = null;
+  function loop(now) {
+    if (t0 === null) t0 = now;
+    var t = (now - t0) / 1000;
+    render(Math.min(t, DUR));
+    if (t < DUR + 3) requestAnimationFrame(loop);
+  }
+  window.restart = function () { t0 = null; requestAnimationFrame(loop); };
+  requestAnimationFrame(loop);
+})();
+</script>
+</body></html>
