@@ -45,9 +45,15 @@
     background: color-mix(in srgb, var(--snow) 55%, transparent); border-radius: 14px; padding: 10px 20px; }
   .thalf { display: inline-block; opacity: 0; }
 
-  /* scene 2: the site take */
+  /* scene 2: the site take (16:9 source, exact fit, no crop; the film supplies its own motion) */
   .vidscene { padding: 0; background: var(--surface); }
-  .vidscene video { width: 1280px; height: 720px; object-fit: cover; opacity: 0; }
+  .vidscene video { width: 1280px; height: 720px; object-fit: contain; opacity: 0; }
+  /* scene 5: the Amplify screen is 16:10; it renders whole, as a framed product screen
+     on snow (win grammar), and the push-in moves the frame, never past the stage edge */
+  #sWork { background: var(--snow); }
+  #sWork video { width: 1024px; height: 640px; object-fit: contain; border: 1px solid var(--rule);
+    border-radius: 10px; background: var(--surface);
+    box-shadow: 0 24px 52px -22px rgba(26,42,58,0.32); }
   #inplay { position: absolute; left: 0; right: 0; margin: 0 auto; width: fit-content; bottom: 118px;
     background: var(--navy); color: #F2EEE3; font-size: 26px; font-weight: 600;
     padding: 13px 26px; border-radius: 12px; opacity: 0; max-width: 960px;
@@ -240,7 +246,7 @@
     // 2. the front page composes, then holds (the filmed site take; seek past
     // the page-load frames so the scene opens on the scattered notes, never the site hero)
     vid("sFront", "vFront", 6.6, 24.3, 1.35, t);
-    $("vFront").style.transform = "scale(" + (1 + 0.04 * ease(seg(t, 16.2, 24.3))) + ")";
+    // no push on the site take: 16:9 at exact fit, the filmed assembly moves on its own
     fadeTo($("provF"), 7.1, 0.3, 0.9, t);
     rise($("inplay"), 20.1, t);
     if (t > 23.9) fadeTo($("inplay"), 23.9, 0.4, 0, t);
@@ -259,7 +265,8 @@
 
     // 5. real work, real product
     vid("sWork", "vWork", 35.0, 40.9, 5.8, t);
-    $("vWork").style.transform = "scale(" + (1 + 0.06 * seg(t, 35.0, 40.9)) + ")";
+    // the framed screen pushes in but stays inside the stage: 1024x640 * 1.045 = 1070x669 < 1280x720
+    $("vWork").style.transform = "scale(" + (1 + 0.045 * seg(t, 35.0, 40.9)) + ")";
     fadeTo($("provW"), 35.5, 0.3, 0.9, t);
 
     // 6. the Jen receipt
