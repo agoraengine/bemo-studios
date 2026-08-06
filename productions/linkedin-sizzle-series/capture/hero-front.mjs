@@ -29,9 +29,21 @@ await page.addStyleTag({ content: "::-webkit-scrollbar{display:none !important} 
 await page.evaluate(async () => {
   const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
   const track = document.getElementById("trackA");
+  const stage = document.querySelector("#trackA .stage");
   const r = track.getBoundingClientRect();
   const top = r.top + window.scrollY;
   const span = r.height - window.innerHeight;
+  // camera lift: at the open the scattered artifacts ride low and small in the
+  // sticky viewport, so the stage starts lifted and scaled (fills the frame,
+  // Becky's 0:07 note) and eases to identity by mid-crawl, before the edition
+  // composes, so the held page keeps its exact vH7 framing
+  const LIFT = 150, SCALE = 0.12, EASE_OUT_BY = 0.55;
+  const cam = (k) => {
+    const p = Math.min(1, k / EASE_OUT_BY);
+    const e = p < 0.5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2;
+    stage.style.transform = `translateY(${-LIFT * (1 - e)}px) scale(${1 + SCALE * (1 - e)})`;
+  };
+  cam(0);
   // open just inside the track so the artifact fragments are on screen from frame one
   window.scrollTo(0, top + span * 0.05);
   window.dispatchEvent(new Event("scroll"));
@@ -42,10 +54,12 @@ await page.evaluate(async () => {
     function step(now) {
       const k = Math.min(1, (now - t0) / ms);
       window.scrollTo(0, from + (to - from) * k);
+      cam(k);
       if (k < 1) requestAnimationFrame(step); else resolve();
     }
     requestAnimationFrame(step);
   });
+  stage.style.transform = "";
   await sleep(8600); // the edition loads, then HOLDS: long enough to actually read it
 });
 
