@@ -32,9 +32,8 @@
 // - "text" items are the reading layer: each line appears at its "from"
 //   (segment-relative seconds) and persists to "to" (default: segment end),
 //   stacked in order as the running outline.
-// - The first avatar segment automatically gets the disclosure chip
-//   ("AI-generated presenter", >=3s) per the Academy exception in
-//   docs/01-pipeline.md; any segment may also set "disclose": true.
+// - No disclosure chip by default (Becky, 2026-08-06; disclosure lives at the
+//   surface level). A segment can opt in with "disclose": true.
 // - Omitting bubble/avatar keys (and avatar segments) yields the
 //   voice-over-capture fallback with no other change.
 //
@@ -98,8 +97,9 @@ plan.segments.forEach((seg, i) => {
   const part = path.join(tmp, `part${i}.mp4`);
 
   if (seg.type === "avatar") {
-    const needChip = !disclosed || seg.disclose;
-    if (needChip) disclosed = true;
+    // on-screen AI-presenter chip removed by default (Becky, 2026-08-06);
+    // a segment can still opt in with disclose: true
+    const needChip = !!seg.disclose;
     if (seg.bg) {
       // transparent-webm presenter composited onto a background image with
       // controllable position and scale. seg.x shifts the layer (positive =
@@ -108,13 +108,13 @@ plan.segments.forEach((seg, i) => {
       // bottom-anchored so feet/waist stay planted.
       const scale = seg.scale ?? 1;
       const fw = Math.round((W * scale) / 2) * 2, fh = Math.round((H * scale) / 2) * 2;
-      const xShift = seg.x ?? (scale === 1 ? 260 : Math.round((W - fw) / 2));
+      const xNudge = seg.x ?? 0;
       const post = needChip ? "," + chip("lt(t,3.5)") : "";
       execFileSync(FF, [
         "-y", "-loop", "1", "-i", rel(seg.bg),
         "-c:v", "libvpx-vp9", "-i", rel(seg.src),
         "-filter_complex",
-        `[0:v]${FIT(W, H)}[bg];[1:v]scale=${fw}:${fh},fps=${FPS}[fg];[bg][fg]overlay=${xShift}:${H - fh},format=yuv420p${post}[v]`,
+        `[0:v]${FIT(W, H)}[bg];[1:v]scale=${fw}:${fh}:force_original_aspect_ratio=decrease,fps=${FPS}[fg];[bg][fg]overlay=(W-w)/2+${xNudge}:H-h,format=yuv420p${post}[v]`,
         "-map", "[v]", "-map", "1:a", "-shortest",
         ...VID, ...AUDIO, part,
       ], { stdio: "inherit" });
@@ -143,8 +143,8 @@ plan.segments.forEach((seg, i) => {
         "-filter_complex",
         `[2:v]scale=${W}:${H}:force_original_aspect_ratio=increase,crop=${HALF}:${H}:${seg.bgCropX ?? 150}:0,fps=${FPS}[abg];` +
         `[0:v]${leftChain}[left];` +
-        `[1:v]scale=${W}:${H},fps=${FPS},crop=${HALF}:${H}:${seg.avatarCropX ?? HALF / 2}:0[fg];` +
-        `[abg][fg]overlay=0:0[right];[left][right]hstack,format=yuv420p[v]`,
+        `[1:v]scale=${Math.round(HALF * (seg.paneScale ?? 1) / 2) * 2 * 2}:${Math.round(H * (seg.paneScale ?? 1) / 2) * 2}:force_original_aspect_ratio=decrease,fps=${FPS},crop='min(iw,${HALF})':ih:(iw-min(iw,${HALF}))/2:0[fg];` +
+        `[abg][fg]overlay=(W-w)/2:H-h[right];[left][right]hstack,format=yuv420p[v]`,
         "-map", "[v]", "-map", "1:a", "-t", dur, ...VID, ...AUDIO, part,
       ], { stdio: "inherit" });
     } else {

@@ -8,7 +8,7 @@ The register is a college lesson, about five minutes: the viewer listens, reads,
 
 | Movement | Screen | Sound | Timing |
 |---|---|---|---|
-| **1. The welcome** | Presenter full screen (waist-up, plain warm-paper backdrop). Lesson title as a lower third. The AI-presenter disclosure appears here (see below). | The presenter speaks the open: the job to be done, in the viewer's terms, before any product noun, then what the next five minutes cover. | ~15-25s |
+| **1. The welcome** | Presenter full screen (waist-up, plain warm-paper backdrop). Lesson title as a lower third. | The presenter speaks the open: the job to be done, in the viewer's terms, before any product noun, then what the next five minutes cover. | ~15-25s |
 | **2. The lesson** | Never presenter-full-screen, and **never the Academy course player on camera** (Becky, 2026-08-04: the app's lesson page reads poorly at video scale and doubles the same text; the deck replaces it). Two framings, alternating by what serves the beat: **split screen** (presenter on one side, a designed slide on the other) and **bubble** (presenter in a circular bubble, bottom corner, over the full-bleed slide). Slides are the lecture deck in the **TED register** (Becky, 2026-08-04): one idea per slide, very large type, few words, a single striking phrase or figure, simple graphics and icons where they earn their place, bold color for the moment that must land (the prohibition in red, the green lights in green). Never bullet-dense; the slide punctuates what the voice is saying so the lesson lands twice. One slide per beat, built from `slides.html` per lesson. App capture appears only when a lesson genuinely teaches product UI. | The presenter narrates. Bullets on screen say what the voice is saying, so the lesson lands twice. | The body, ~3-5 min |
 | **3. The handle** | Presenter full screen again. Recap of what the viewer can now do, then where this lives in the product ("find this in Academy, or just start the work and ask"). | The presenter. No sell, no CTA beyond the product itself. | ~15-20s |
 
@@ -22,10 +22,7 @@ The open follows the problem-first rule at lesson scale: the first sentence name
 
 ## The disclosure
 
-Condition 2 of the Academy exception, non-negotiable, checked at the standards gate:
-
-- On screen from the first frame of movement 1, minimum 3 seconds: a small chip in the lower third area, `AI-generated presenter`, set in the site's body face at caption size, ink-muted on a soft surface chip (same construction as the "fictitious" chip in super-demo-60).
-- It reappears whenever the avatar returns full-frame after an absence of more than 30 seconds.
+Amended by Becky, 2026-08-06: **no on-screen chip.** Disclosure lives at the surface level (the course description or the page hosting the lesson states that lessons are presented by AI avatars of the founders). The assembler still supports `disclose: true` per segment if a distribution surface ever requires the burned-in label; see the amended condition 3 of the Academy exception in `docs/01-pipeline.md`.
 
 ## Look and feel
 
