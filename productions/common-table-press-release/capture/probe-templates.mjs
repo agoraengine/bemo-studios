@@ -1,0 +1,14 @@
+import { chromium } from "playwright";
+const SHOT = process.env.SHOT_DIR || "/private/tmp/claude-501/-Users-rebeccakern-Repositories-bemo-studios/80be43f1-83d5-4567-9def-5602501b5ce0/scratchpad";
+const context = await chromium.launchPersistentContext("/Users/rebeccakern/Repositories/bemo-studios/capture/.auth/profile", { headless: true, viewport: { width: 1440, height: 900 } });
+const page = context.pages()[0] || (await context.newPage());
+await page.goto("https://app.bemointel.ai/", { waitUntil: "networkidle" }).catch(() => {});
+await page.waitForTimeout(2500);
+await page.click("text=Templates").catch(e => console.log("templates click failed:", e.message));
+await page.waitForTimeout(2500);
+console.log("url:", page.url());
+await page.screenshot({ path: `${SHOT}/nav-03-templates.png`, fullPage: true });
+const text = await page.evaluate(() => document.body.innerText.slice(0, 5000));
+console.log("--- templates page text ---");
+console.log(text);
+await context.close();

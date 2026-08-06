@@ -25,6 +25,7 @@ Kebab-case, describes the video, not the date or the version. `ga-sizzle-reel`, 
 | [ga-sizzle-reel](ga-sizzle-reel/) | GA Launch Wave 0, debuts in Wave 2 | Brief drafted, awaiting ratification. Capture blocked on the two-surfaces build. |
 | [website-demo-slots](website-demo-slots/) | GA Launch Wave 1, the six DemoSlot placements in bemo-website | Two of six live 2026-08-03 (`funderstorm-cycle` on `/products/funderstorm`, `knows-whats-missing` on `/platform`). Four wait on product behavior; see `findings.md`. |
 | [academy-lessons](academy-lessons/) | The Academy product surface: the built-in lessons as videos, presented by a HeyGen digital twin per the Academy exception in `docs/01-pipeline.md` | Series brief drafted, awaiting ratification. Roster waits on the discovery probe (`capture/academy-probe.mjs`); twin setup is the long-lead item. |
+| [common-table-press-release](common-table-press-release/) | Real work seeded in the app (Harvest Supper press release in the templates / document editor), then a sizzle clip, likely reel 12 of the LinkedIn series | Brief drafted 2026-08-06, awaiting ratification. **Work seeded the same day**: "Press release: Harvest Supper 2026" finished in the app (Complete 5 of 5, quality score 90/100). Clip capture waits on the brief; findings in `findings.md`. |
 
 ## Queued
 

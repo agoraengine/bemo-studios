@@ -21,6 +21,10 @@ const HERE = path.dirname(fileURLToPath(import.meta.url));
 const OUT = path.join(HERE, "out");
 const VO = path.join(OUT, "vo", "becky");
 const SLUG = "bemo-linkedin-sizzle-series-r8h";
+// --meg: the split-proof-beat audition (Jen card then Meg card). Internal review
+// only until Meg's per-use approval for this placement.
+const MEG = process.argv.includes("--meg");
+const RAWSUF = MEG ? "-meg" : "";
 const DUR = 58, TAIL = 2;
 const W = 2560, H = 1440;
 
@@ -53,11 +57,11 @@ const CAPS = [
   [7.0, 12.1, "An email. A call note. A spreadsheet. A message.\\NScattered on their own."],
   [12.1, 17.2, "Held together, they become what your organization knows.\\NAnd it keeps building."],
   [17.5, 20.0, "This is your organization's front page."],
-  [20.1, 24.2, "The front page shows what's in play.\\NThe knowledge base tells you what's missing."],
+  [20.1, 24.4, "The front page shows what's in play.\\NThe knowledge base tells you what's missing."],
   [24.5, 31.6, "Behind it, BeMo is the first platform where your grant work,\\Nstrategy, and communications share the same memory."],
   [31.9, 34.6, "Four apps. One product."],
   [35.2, 40.5, "So the work comes out finished, in your voice,\\Nwith nothing re-explained."],
-  [47.0, 51.3, "Nothing drops on the floor.\\NAnd nothing walks out the door."],
+  [47.0, 51.3, "Nothing falls on the floor.\\NAnd nothing walks out the door."],
   [52.5, 57.5, "BeMo. Where missions gain momentum."],
 ];
 
@@ -95,7 +99,7 @@ async function render() {
     recordVideo: { dir: OUT, size: { width: W, height: H } },
   });
   const page = await context.newPage();
-  await page.goto("file://" + path.join(HERE, "source-hero.built.html"));
+  await page.goto("file://" + path.join(HERE, "source-hero.built.html") + (MEG ? "?meg=1" : ""));
   await page.addStyleTag({
     content: `
       html, body { background:#000 !important; overflow:hidden !important; margin:0 !important;
@@ -123,7 +127,7 @@ async function render() {
     .filter((f) => fs.statSync(f).mtimeMs > cutoff)
     .sort((a, b) => fs.statSync(b).mtimeMs - fs.statSync(a).mtimeMs)[0];
   if (!webm) throw new Error("No fresh recording found in out/");
-  const named = path.join(OUT, `${SLUG}-raw-60s.webm`);
+  const named = path.join(OUT, `${SLUG}-raw-60s${RAWSUF}.webm`);
   fs.renameSync(webm, named);
   console.log(`Raw: ${named}`);
 }
@@ -143,7 +147,7 @@ async function measureLUFS(file) {
 }
 
 async function finish() {
-  const raw = path.join(OUT, `${SLUG}-raw-60s.webm`);
+  const raw = path.join(OUT, `${SLUG}-raw-60s${RAWSUF}.webm`);
   if (!fs.existsSync(raw)) throw new Error(`Missing ${raw}; render first.`);
   const dur = DUR + TAIL;
   const outtag = arg("--outtag", "vH1");

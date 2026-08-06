@@ -94,6 +94,16 @@ Applied to R8H (vH10): the narration already ran the arc (problem at 0:00, the h
 
 Still owed: reels 8 (30s), 9, 10, 11, and 12 are DRAFTs and need auditing against the mini-story rule before capture. Reel 9 opens on the problem and names BeMo in its second beat at 0:08, which is likely too early under this rule; reels 10-12 need the same check. That is a script pass for a future session, gated on Becky's read of how vH10 lands.
 
+### "Nothing falls on the floor" reworded from "drops" (Becky, 2026-08-06, adopting Lee's note)
+
+Lee's hero-review note ("falls" sounds more natural than "drops") was adopted by Becky the same day. The map's Home outcome line is reworded in `../bemo-os/docs/internal/initiatives/ga-message-map.md` 3.2 (edit made in bemo-os, uncommitted there, same handling as the Aug 1 original ratification). R8H updated end to end in vH13: navy card, caption, srt, and a fresh Avatar V read (`hgh-l5`; the "drops" read archived as `hgh-l5-drops.wav`).
+
+**Divergence accepted, on record:** the shipped GA sizzle finals (`bemo-ga-sizzle-reel-{60s,30s}-final-captioned*`) carry "Nothing drops on the floor." in Becky's recorded VO, and the 30s reel 8 script now says "falls." The GA sizzle is not re-mastered by this change; if both assets end up in circulation simultaneously, the two wordings will coexist unless Becky orders a GA sizzle re-master.
+
+### Second testimonial in the hero (Lee's suggestion, 2026-08-06): audition rendered, gated on Meg
+
+Lee suggested a second testimonial; the only cleared-and-fitting candidate is Meg's "BeMo is the best colleague." (approved Aug 1 **for the GA sizzle reel quote card only**; per-use approval is required for each new placement per `../bemo-os/docs/customer-stories/00-overview.md`). vH13m renders the audition: the silent proof beat splits into the Jen card (40.9-44.0) and the Meg card (44.0-46.8, "Another real user" eyebrow, quote verbatim, attributed by name). **INTERNAL REVIEW ONLY.** Two gates before it can ship: Becky judges whether two cards in six seconds read comfortably, and Meg gives a dated per-use yes for the hero placement (she is back Aug 10; the approved-uses list in the customer-stories overview needs the new line). If either gate fails, vH13 is the hero.
+
 ### The dark-ground logo rule reached R8H; reels 1, 1A, and the v2 cut still carry the old treatment (2026-08-06)
 
 Becky flagged the logo in R8H's close. The treatment (color wordmark boxed in a white chip on navy) is not a variant `bemo-os/docs/branding/03-logo.md` sanctions; dark grounds take the white knockout directly on the navy. Fixed in R8H vH11 with `capture/assets/wordmark-white.svg` derived from the canonical asset. The same white-chip close exists in `source-appcut.html` and `source-v2cut.html`, which means the approved reel 1 renders (30s v13, 60s v17) and the 1A candidate shipped with an off-canon close. Becky decides whether those re-render before the Drive upload; the fix is one scene swap per source now that the knockout asset exists.

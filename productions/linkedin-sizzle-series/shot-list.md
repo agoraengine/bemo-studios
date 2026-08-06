@@ -40,13 +40,13 @@ Grouped by capture source, not by reel: the title-card pipeline builds one sourc
 | R8-S1 | Generic tool windows piling (mail, sheet, docs, chat, calendar, folders; no vendor branding), headline resolves: the six-tools line verbatim | title | 0:08 | n/a; new scene, ghost-window pile grammar from `source-commercial.html` | [x] |
 | R8-S2 | The site's front-page assembly: fragments snap into the Common Table weekly edition; three caption phrases land in sync; provenance line small | site | 0:09 | Preview build home, trackA scroll segment (beats 2-3), filmed at 1080p with dev chrome hidden | [x] |
 | R8-S3 | The edition's "One thing worth a look" ask, then the grey invitation slot; the in-play/missing line on screen | site | 0:06 | Preview build home, trackA end state (fp-piece sect + invite) | [x] |
-| R8-S4 | "Nothing drops on the floor." alone on navy | title | 0:03 | n/a; navy card grammar from 1C | [x] |
+| R8-S4 | "Nothing falls on the floor." alone on navy | title | 0:03 | n/a; navy card grammar from 1C | [x] |
 | R8-S5 | Brand close | title | 0:04 | n/a; existing close scene | [x] |
 | R8H-S4 | The first-platform thesis as headline; memory diagram draws beneath | site | 0:08 | Same scene as R9-S2; one capture serves both | [x] |
 | R8H-S5 | Four icons cascade | title | 0:04 | n/a; existing R1-S10 | [x] |
 | R8H-S6 | Real finished Amplify letter, cropped to body | title | 0:06 | Existing reel 1 60s scene (R1-S8 family), unchanged | [x] existing |
 | R8H-S7 | Jen receipt card with hour-vs-three-days headline | title | 0:06 | n/a; 1D Jen card scene with new headline line | [x] |
-| R8H-S8 | "Nothing drops on the floor." / "And nothing walks out the door." land in turn on navy | title | 0:05 | n/a; navy card grammar | [x] |
+| R8H-S8 | "Nothing falls on the floor." / "And nothing walks out the door." land in turn on navy | title | 0:05 | n/a; navy card grammar | [x] |
 | R8H-S9 | Brand close, held plus tail | title | 0:08 | n/a; existing | [x] |
 | R9-S1 | Two app windows drifting apart, hairline never connects; headline "None of your tools have met." | title | 0:08 | n/a; new scene | [ ] |
 | R9-S2 | The first-platform sentence as headline; memory diagram draws beneath | site | 0:08 | Preview build how-it-works memflow section, or rebuilt in the title pipeline if the film needs tighter sync | [ ] |

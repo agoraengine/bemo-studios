@@ -95,8 +95,14 @@
   #prH { font-size: 56px; }
   #prQ { font-size: 33px; color: var(--ink-muted); max-width: 980px; margin-top: 22px;
     line-height: 1.35; opacity: 0; }
-  #prA { font-family: "Geist Mono", monospace; font-size: 17px; color: var(--ink-faint);
+  #prA, #pr2A { font-family: "Geist Mono", monospace; font-size: 17px; color: var(--ink-faint);
     margin-top: 20px; opacity: 0; }
+
+  /* scene 6b (audition variant, ?meg=1): the Meg card. INTERNAL REVIEW ONLY until
+     Meg's per-use approval for this placement (customer-stories 00-overview.md:
+     GA-sizzle-card approval does not carry to the hero reel) */
+  #sProof2 { background: var(--snow); }
+  #pr2H { font-size: 56px; max-width: 1040px; }
 
   /* scene 7: the paired close */
   #sPair { background: var(--navy); }
@@ -190,8 +196,14 @@
     <div id="prA">Jennifer Allen &middot; Friends of the Saratoga Springs Public Library</div>
   </div>
 
+  <div class="scene" id="sProof2">
+    <div class="eyebrow" id="pr2E">Another real user</div>
+    <h1 class="disp" id="pr2H">&ldquo;BeMo is the best <b class="mk">colleague</b>.&rdquo;</h1>
+    <div id="pr2A">Meg Poe &middot; Autoimmune Encephalitis Alliance</div>
+  </div>
+
   <div class="scene" id="sPair">
-    <div class="pairln" id="pl1">Nothing drops on the floor.</div>
+    <div class="pairln" id="pl1">Nothing falls on the floor.</div>
     <div class="pairln" id="pl2">And nothing walks out the door.</div>
   </div>
 
@@ -206,6 +218,7 @@
 <script>
 (function () {
   var DUR = 58;
+  var MEG = /[?&]meg=1/.test(location.search);
   var stage = document.getElementById("stage");
   function $(id) { return document.getElementById(id); }
   function fit() {
@@ -287,12 +300,25 @@
     $("vWork").style.transform = "scale(" + (1 + 0.045 * seg(t, 35.0, 40.9)) + ")";
     fadeTo($("provW"), 35.5, 0.3, 0.9, t);
 
-    // 6. the Jen receipt
-    cut($("sProof"), 40.9, 46.8, t);
-    rise($("prE"), 41.1, t);
-    punch($("prH"), 41.5, t);
-    rise($("prQ"), 42.5, t);
-    rise($("prA"), 43.5, t);
+    // 6. the Jen receipt (with ?meg=1: split beat, Jen then the Meg card)
+    if (!MEG) {
+      cut($("sProof"), 40.9, 46.8, t);
+      rise($("prE"), 41.1, t);
+      punch($("prH"), 41.5, t);
+      rise($("prQ"), 42.5, t);
+      rise($("prA"), 43.5, t);
+      cut($("sProof2"), -2, -1, t);
+    } else {
+      cut($("sProof"), 40.9, 44.0, t);
+      rise($("prE"), 41.05, t);
+      punch($("prH"), 41.3, t);
+      rise($("prQ"), 42.0, t);
+      rise($("prA"), 42.7, t);
+      cut($("sProof2"), 44.0, 46.8, t);
+      rise($("pr2E"), 44.15, t);
+      punch($("pr2H"), 44.45, t);
+      rise($("pr2A"), 45.2, t);
+    }
 
     // 7. the paired close
     cut($("sPair"), 46.8, 52.2, t);

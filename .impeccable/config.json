@@ -17,6 +17,12 @@
         ],
         "createdAt": "2026-08-02T13:19:19.612Z",
         "reason": "Becky confirmed the soft glow wash as the approved background treatment for the sizzle capture sources (GA sizzle look, carried across the series)"
+      },
+      {
+        "rule": "overused-font",
+        "value": "geist mono",
+        "createdAt": "2026-08-05T12:26:37.296Z",
+        "reason": "Brand-mandated label/mono face per bemo-website DESIGN.md; Becky directed videos to follow the brand guidelines"
       }
     ]
   }

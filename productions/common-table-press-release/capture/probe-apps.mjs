@@ -1,0 +1,16 @@
+import { chromium } from "playwright";
+const SHOT = process.env.SHOT_DIR || "/private/tmp/claude-501/-Users-rebeccakern-Repositories-bemo-studios/80be43f1-83d5-4567-9def-5602501b5ce0/scratchpad";
+const context = await chromium.launchPersistentContext("/Users/rebeccakern/Repositories/bemo-studios/capture/.auth/profile", { headless: true, viewport: { width: 1440, height: 900 } });
+const page = context.pages()[0] || (await context.newPage());
+await page.goto("https://app.bemointel.ai/", { waitUntil: "networkidle" }).catch(() => {});
+await page.waitForTimeout(2500);
+await page.click("button:has-text('apps')").catch(e => console.log("apps click failed:", e.message));
+await page.waitForTimeout(1200);
+await page.screenshot({ path: `${SHOT}/nav-02-apps-menu.png` });
+const links = await page.$$eval("a[href]", as => as.map(a => `${a.getAttribute("href")}  |  ${(a.innerText || "").trim().replace(/\n/g, " / ").slice(0, 80)}`));
+console.log("--- links after apps click ---");
+console.log([...new Set(links)].join("\n"));
+const menuText = await page.evaluate(() => document.body.innerText.slice(0, 3000));
+console.log("--- body text ---");
+console.log(menuText);
+await context.close();
