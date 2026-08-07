@@ -17,12 +17,23 @@ Raised 2026-08-06 while seeding the Harvest Supper press release (`doc_OvkWEuIjn
 | 2026-08-06 | **The quality score rubric assumes standard press conventions**: it scored 4/5 on factual accuracy and AP style specifically because the media contact has no phone/email, which was the org's deliberate choice. No way to tell the rubric "we do name-and-title only." Score was 90/100 overall with a six-dimension breakdown; the feature is real and demo-worthy. | Open |
 | 2026-08-06 | **Interview form fields are flaky to automate but the chat path works.** The structured form (radio + text fields) mounts ~8s after page load and re-renders in and out of the DOM; Playwright form-fills timed out. Typing the same answers into the chat box committed all fields correctly ("Let me now commit the fields you just provided"). Capture scripts should drive interviews through chat, as the website-demo-slots runs did. | Open |
 
+## Product findings from the 2026-08-06 preview recording (for Lee)
+
+| Date | Finding | Raised |
+|---|---|---|
+| 2026-08-06 | **In-flight documents have no visible delete affordance.** Three scrap docs from failed automation takes (doc_sP3luKuTiRRz0y97, doc_75VvYaGtKWyL2Ksb, doc_Iuz9fpgrxPwKuAC4) cannot be removed from Home or the editor; the kebab menus on Home belong to chats only. Together with chat being unable to rename documents, workspace hygiene has no self-serve path. | Open |
+| 2026-08-06 | **The KB-inputs Submit click can silently not register**: the app re-presents the same list and the flow stays at stage 1. A human would just click again; automation needs verification. One repeat click fixed it. | Open |
+| 2026-08-06 | **A garbled interview message was handled gracefully**: when two answers got interleaved into one mangled message (automation fault), the app committed the parseable fields and asked to complete the cut-off thought instead of failing or inventing. Good behavior worth knowing about. | Open (positive) |
+| 2026-08-06 | **Quality score did not persist when clicked mid-Editing during the recorded take** ("score shown" in the log but "No score yet" on the doc afterward). Clicking it deliberately on the seeded doc worked (90/100). Timing-sensitive. | Open |
+| 2026-08-06 | **The Drive research step attached the seeded press release** ("Press release: Harvest Supper 2026") as context for the new document: earlier work informing the next piece, on camera. The compounding story, real. | Open (positive) |
+
 ## Capture notes (for this production's shot list, when the brief ratifies)
 
 - **KB-aware placeholders**: the interview form's example text is derived from the org's KB ("e.g. Common Table Food Pantry Hosts Annual Harvest Supper October 17" as the headline placeholder). The product knows the org before you type. Strong "sounds like you" beat.
 - The Collected Facts panel counting up (8 from the KB at open, 14 by draft time) is the "it already knew" moment made visible.
 - The [NEEDS:] markers and the quality score are the two most demo-worthy beats after the KB facts arriving.
 - The shipping take starts a FRESH document (standing rule); this seeded doc is set dressing, not the take.
+- A preview reel exists (2026-08-06): `capture/out/press-release-flow-preview.mp4`, 93s, cut from a full fresh-document run (`capture/record-flow.mjs`, cut with `capture/cut-preview.mjs`). Preview only: no VO, no titles, product em dashes still on screen, and the Amplify templates page shows the chat sidebar (one old chat title says "Gala"); the shipping take should frame or crop accordingly.
 
 ## Demo-org notes (this repo)
 
