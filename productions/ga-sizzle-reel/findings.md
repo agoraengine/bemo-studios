@@ -22,7 +22,7 @@ Raised for whoever owns the page. Studios reads `bemo-website` and does not comm
 
 | Date | Finding | Raised |
 |---|---|---|
-| 2026-07-31 | **Site attribution lags the decision.** `app/customers/page.tsx` and the home page use role and organization without names ("Executive Director, Autoimmune Encephalitis Alliance"). With names now approved for Jen, MaryEllen, and expected for Meg, the site should carry names so the video and the site agree. A stranger who watches the reel and lands on the site should meet the same people. | Open, for Lee |
+| 2026-07-31 | **Site attribution lags the decision.** `app/customers/page.tsx` and the home page use role and organization without names ("Executive Director, Autoimmune Encephalitis Alliance"). With names now approved for Jen, MaryEllen, and expected for Meg, the site should carry names so the video and the site agree. A stranger who watches the reel and lands on the site should meet the same people. | Resolved Aug 9 (Becky's alignment order): home already named Jen and Meg; the customers page's anonymous Meg quote (per-use gated) replaced with Maryellen Duggan's Knowledge Base line, verbatim from the map's proof cell under her blanket approval, matching the hero reel's cast (bemo-website `c8bec49`, committed there, not pushed) |
 
 ## Product findings
 
