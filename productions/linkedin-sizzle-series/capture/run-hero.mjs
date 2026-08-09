@@ -50,7 +50,11 @@ const MIX = [
   [path.join(VO, "hg-r1-l8.wav"), 52.5],
 ];
 const MUSIC = path.join(OUT, "sfx", "music-D-ext.wav");
-const SWELL_AT = 52.2;
+// vH17: the swell waits for the close line to finish (speech ends 55.3). At
+// 52.2 it sat under the voice; with the evened chain the voice no longer gets
+// pushed above it, so the line sounded buried and limiter-pinched (Becky's
+// "off and tinny" note). Bed stays at 0.18 under the words, swells into the tail.
+const SWELL_AT = 55.4;
 // [file, delaySec, trimStart, trimEnd, volume]
 const SFX = [
   [path.join(OUT, "sfx", "typing.mp3"), 0.3, 0.0, 2.3, 0.12],
