@@ -62,6 +62,16 @@ Platform UI covers the edges, and vertical is the worst offender.
 - No stock music with a drop. The tone is calm, grounded, confident, per the arc's design principles, and a drop reads as hype.
 - Two seconds of room at the head and tail. Platforms clip the edges.
 
+**The reference mix chain (ratified by Becky, August 9, 2026, with the hero vH18 final).** New renders use the chain in `productions/linkedin-sizzle-series/capture/run-hero.mjs`, not the older dynaudnorm pipelines, so every track sounds like one recording:
+
+- Per-segment gains match **speech-median momentary loudness** (ebur128 frames within 12 LU of the segment's own peak), never whole-file integrated loudness, which silence padding skews. A second measurement pass trims each segment through the shared bus chain until the post-chain medians agree (the reel 8H bar: within ~0.1 LU).
+- The VO bus is one uniform chain for every segment: highpass 75 Hz, one compressor (threshold 0.05, ratio 2, attack 6 ms, release 150 ms), a +2.5 dB low shelf at 220 Hz after the compressor (restores the body compression shaves; vH13's frame-leveler used to add it by accident), and a true-peak-safe limiter. **No dynaudnorm**: per-frame leveling boosts each segment's breaths and noise floor by different amounts, which reads as spliced-together recordings.
+- The master is a **probe-measured fixed gain** plus limiter to the delivery target, never dynamic loudnorm, whose time-varying gain drifts upward after quiet passages and silently reshapes scored music moves.
+- Score the music envelope explicitly (lifts, ducks, swells written into the volume expression); never let mastering create them. Keep the swell off the spoken close: the voice rides clear of the bed, and the swell lands after the last word.
+- The close line is the fresh Avatar V read `out/vo/becky/hgh-l8.wav` ("BeMo. Where missions gain momentum.", tilt matched to the track); the reel 1 `hg-r1-l8` splice is archive, its second sentence measures 4 LU thin.
+
+The appcut and v2cut pipelines still carry the old chain and adopt this one before any re-render (logged in the linkedin-sizzle-series findings).
+
 ## The opening three seconds
 
 The single highest-leverage constraint, so it gets its own section.
