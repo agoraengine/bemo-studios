@@ -22,7 +22,11 @@ BeMo is where your organization's knowledge lives.
 An email. A call note. A spreadsheet. A message. Scattered on their own. Held together, they become what your organization knows. And it keeps building.
 
 **Line 6** (60s front page; warm, like showing someone something you're proud of):
-Every week, BeMo writes your front page: what happened, what's moving, what needs you. Nothing drops on the floor.
+Every week, BeMo writes your front page: what happened, what's moving, what needs you. Nothing falls on the floor.
+
+**Line 6b, pickup (2026-08-09, optional).** The close of line 6 was reworded "drops" to "falls" (map rewording Aug 6; remaster ordered Aug 9). The remastered finals currently splice the hero reel's Avatar V read of "Nothing falls on the floor." into your recorded track; if that seam bothers your ear, record just this sentence, same warm register as line 6, and save it as `capture/out/vo/becky/b-l6b-falls.wav`. Then `node capture/remaster-falls.mjs` rebuilds both 60s finals around your read automatically.
+
+Nothing falls on the floor.
 
 **Line 7** (30s front page):
 Your weekly snapshot, built from your Knowledge Base.

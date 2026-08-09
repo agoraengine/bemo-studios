@@ -1,0 +1,23 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "overused-font",
+        "value": "geist mono",
+        "createdAt": "2026-08-09T19:21:36.765Z",
+        "reason": "Brand utility face per bemo-website DESIGN.md; Becky confirmed Aug 9"
+      },
+      {
+        "rule": "dark-glow",
+        "value": "*",
+        "files": [
+          "productions/linkedin-sizzle-series/capture/source-hero.html"
+        ],
+        "createdAt": "2026-08-09T19:21:36.805Z",
+        "reason": "Offset ink-tinted elevation shadow in the approved vH8+ tool-window scene, not a chromatic halo"
+      }
+    ]
+  }
+}

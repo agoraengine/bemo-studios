@@ -95,7 +95,7 @@
   #prH { font-size: 56px; }
   #prQ { font-size: 33px; color: var(--ink-muted); max-width: 980px; margin-top: 22px;
     line-height: 1.35; opacity: 0; }
-  #prA, #pr2A { font-family: "Geist Mono", monospace; font-size: 17px; color: var(--ink-faint);
+  #prA, #pr2A, #pr3A { font-family: "Geist Mono", monospace; font-size: 17px; color: var(--ink-faint);
     margin-top: 20px; opacity: 0; }
 
   /* scene 6b (audition variant, ?meg=1): the Meg card. INTERNAL REVIEW ONLY until
@@ -103,6 +103,32 @@
      GA-sizzle-card approval does not carry to the hero reel) */
   #sProof2 { background: var(--snow); }
   #pr2H { font-size: 56px; max-width: 1040px; }
+
+  /* scene 6c (audition variant, ?mel=1): the Maryellen card. Blanket approval
+     (customer-stories 00-overview.md, July 31); quote verbatim from the message
+     map's Knowledge Base proof cell, and it is the proof for this reel's own
+     "tells you what's missing" line. Longer quote, smaller size. */
+  #sProof3 { background: var(--snow); }
+  #pr3H { font-size: 44px; max-width: 1080px; }
+
+  /* scene 6d (vH15 default): both receipts on one screen, Jen then Maryellen,
+     each animating in, both sinking out together before the paired close.
+     Becky's call, Aug 9: same screen instead of the sequential split. */
+  #sProofD { background: var(--snow); }
+  #pdE { margin-bottom: 34px; }
+  .pdgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 64px; max-width: 1150px;
+    align-items: center; text-align: left; }
+  .pdcol { opacity: 0; }
+  .pdcol h2 { font-weight: 640; letter-spacing: -0.02em; line-height: 1.16; color: var(--sapphire);
+    font-size: 33px; text-wrap: balance; }
+  .pdcol blockquote { font-size: 23px; color: var(--ink-muted); line-height: 1.4; margin-top: 16px; }
+  #pdMelQ { font-size: 30px; font-weight: 640; letter-spacing: -0.02em; line-height: 1.24;
+    color: var(--sapphire); text-wrap: balance; }
+  .pdattr { font-family: "Geist Mono", monospace; font-size: 15px; color: var(--ink-faint);
+    margin-top: 18px; }
+  .pdrule { width: 1px; height: 260px; background: var(--rule); position: absolute;
+    left: 50%; top: 50%; transform: translateY(-50%); }
+  .pdwrap { position: relative; }
 
   /* scene 7: the paired close */
   #sPair { background: var(--navy); }
@@ -202,6 +228,30 @@
     <div id="pr2A">Meg Poe &middot; Autoimmune Encephalitis Alliance</div>
   </div>
 
+  <div class="scene" id="sProof3">
+    <div class="eyebrow" id="pr3E">Another real user</div>
+    <h1 class="disp" id="pr3H">&ldquo;I love that BeMo can tell you the <b class="mk">&lsquo;gaps&rsquo;</b> that exist in your Knowledge Base.&rdquo;</h1>
+    <div id="pr3A">Maryellen Duggan &middot; Caigh It Forward Foundation</div>
+  </div>
+
+  <div class="scene" id="sProofD">
+    <div class="eyebrow" id="pdE">From real users</div>
+    <div class="pdwrap">
+      <div class="pdgrid">
+        <div class="pdcol" id="pdJen">
+          <h2>About <b class="mk">an hour</b>, instead of three&nbsp;days.</h2>
+          <blockquote>&ldquo;The most painless report process I have ever experienced.&rdquo;</blockquote>
+          <div class="pdattr">Jennifer Allen &middot; Friends of the Saratoga Springs Public Library</div>
+        </div>
+        <div class="pdcol" id="pdMel">
+          <div id="pdMelQ">&ldquo;I love that BeMo can tell you the <b class="mk">&lsquo;gaps&rsquo;</b> that exist in your Knowledge Base.&rdquo;</div>
+          <div class="pdattr">Maryellen Duggan &middot; Caigh It Forward Foundation</div>
+        </div>
+      </div>
+      <div class="pdrule" id="pdRule"></div>
+    </div>
+  </div>
+
   <div class="scene" id="sPair">
     <div class="pairln" id="pl1">Nothing falls on the floor.</div>
     <div class="pairln" id="pl2">And nothing walks out the door.</div>
@@ -219,6 +269,7 @@
 (function () {
   var DUR = 58;
   var MEG = /[?&]meg=1/.test(location.search);
+  var MEL = /[?&]mel=1/.test(location.search);
   var stage = document.getElementById("stage");
   function $(id) { return document.getElementById(id); }
   function fit() {
@@ -245,6 +296,15 @@
     var k = ease(seg(t, at, at + 0.4));
     el.style.opacity = k;
     el.style.transform = "translateY(" + (14 * (1 - k)) + "px)";
+  }
+  function duo(el, tIn, tOut, xShift, t) {
+    var kIn = ease(seg(t, tIn, tIn + 0.4));
+    var kOut = ease(seg(t, tOut, tOut + 0.35));
+    el.style.opacity = kIn * (1 - kOut);
+    el.style.transform = "translate(" + xShift + "px," + (14 * (1 - kIn) + 10 * kOut) + "px)";
+  }
+  function fadeInOut(el, tIn, tOut, t) {
+    el.style.opacity = ease(seg(t, tIn, tIn + 0.4)) * (1 - ease(seg(t, tOut, tOut + 0.35)));
   }
   function fadeTo(el, at, dur, target, t) {
     el.style.opacity = target * Math.min(seg(t, at, at + dur), 1);
@@ -300,15 +360,9 @@
     $("vWork").style.transform = "scale(" + (1 + 0.045 * seg(t, 35.0, 40.9)) + ")";
     fadeTo($("provW"), 35.5, 0.3, 0.9, t);
 
-    // 6. the Jen receipt (with ?meg=1: split beat, Jen then the Meg card)
-    if (!MEG) {
-      cut($("sProof"), 40.9, 46.8, t);
-      rise($("prE"), 41.1, t);
-      punch($("prH"), 41.5, t);
-      rise($("prQ"), 42.5, t);
-      rise($("prA"), 43.5, t);
-      cut($("sProof2"), -2, -1, t);
-    } else {
+    // 6. the Jen receipt (auditions split the beat: ?meg=1 Jen then Meg,
+    //    ?mel=1 Jen then Maryellen; Maryellen's longer quote gets 3.4s)
+    if (MEG) {
       cut($("sProof"), 40.9, 44.0, t);
       rise($("prE"), 41.05, t);
       punch($("prH"), 41.3, t);
@@ -318,6 +372,34 @@
       rise($("pr2E"), 44.15, t);
       punch($("pr2H"), 44.45, t);
       rise($("pr2A"), 45.2, t);
+      cut($("sProof3"), -2, -1, t);
+      cut($("sProofD"), -2, -1, t);
+    } else if (MEL) {
+      cut($("sProof"), 40.9, 43.4, t);
+      rise($("prE"), 41.05, t);
+      punch($("prH"), 41.3, t);
+      rise($("prQ"), 41.9, t);
+      rise($("prA"), 42.5, t);
+      cut($("sProof2"), -2, -1, t);
+      cut($("sProof3"), 43.4, 46.8, t);
+      rise($("pr3E"), 43.55, t);
+      punch($("pr3H"), 43.8, t);
+      rise($("pr3A"), 44.9, t);
+      cut($("sProofD"), -2, -1, t);
+    } else {
+      // vH16 default: both receipts share the screen. Jen opens centered,
+      // slides left to make room as the rule and Maryellen arrive, and both
+      // sink out together before the paired close.
+      cut($("sProofD"), 40.9, 46.8, t);
+      rise($("pdE"), 41.05, t);
+      var jc = $("pdJen"), jw = jc.offsetParent;
+      var jCentered = jw.offsetWidth / 2 - (jc.offsetLeft + jc.offsetWidth / 2);
+      duo(jc, 41.3, 46.45, jCentered * (1 - ease(seg(t, 43.0, 43.55))), t);
+      duo($("pdMel"), 43.45, 46.45, 0, t);
+      fadeInOut($("pdRule"), 43.35, 46.45, t);
+      cut($("sProof"), -2, -1, t);
+      cut($("sProof2"), -2, -1, t);
+      cut($("sProof3"), -2, -1, t);
     }
 
     // 7. the paired close

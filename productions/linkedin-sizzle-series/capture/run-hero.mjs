@@ -7,6 +7,10 @@
 //
 // VO: the hgh-* hero set plus three approved hg-r1 segments (fourapps, l6, l8).
 // Film the site take first: node hero-front.mjs (serves from bemo-website/public on :8931).
+//
+// Audition flags (each films its own raw, suffixed):
+//   --meg   split proof beat, Jen then Meg           (INTERNAL until Meg's per-use approval)
+//   --mel   split proof beat, Jen then Maryellen     (blanket approval, customer-stories 00-overview)
 
 import { chromium } from "playwright";
 import ffmpegPath from "ffmpeg-static";
@@ -24,7 +28,8 @@ const SLUG = "bemo-linkedin-sizzle-series-r8h";
 // --meg: the split-proof-beat audition (Jen card then Meg card). Internal review
 // only until Meg's per-use approval for this placement.
 const MEG = process.argv.includes("--meg");
-const RAWSUF = MEG ? "-meg" : "";
+const MEL = process.argv.includes("--mel");
+const RAWSUF = MEG ? "-meg" : MEL ? "-mel" : "";
 const DUR = 58, TAIL = 2;
 const W = 2560, H = 1440;
 
@@ -99,7 +104,7 @@ async function render() {
     recordVideo: { dir: OUT, size: { width: W, height: H } },
   });
   const page = await context.newPage();
-  await page.goto("file://" + path.join(HERE, "source-hero.built.html") + (MEG ? "?meg=1" : ""));
+  await page.goto("file://" + path.join(HERE, "source-hero.built.html") + (MEG ? "?meg=1" : MEL ? "?mel=1" : ""));
   await page.addStyleTag({
     content: `
       html, body { background:#000 !important; overflow:hidden !important; margin:0 !important;
@@ -132,18 +137,48 @@ async function render() {
   console.log(`Raw: ${named}`);
 }
 
-const VO_TARGET_LUFS = -16;
-const lufsCache = new Map();
-async function measureLUFS(file) {
-  if (lufsCache.has(file)) return lufsCache.get(file);
+// vH14 (Becky's evenness note, Aug 9): match segments on what the ear compares,
+// the level while she is speaking, not whole-file integrated loudness, which the
+// segments' differing silence padding skews. Median momentary loudness over
+// speech-active frames (within 12 LU of the segment's own peak).
+const VO_SPEECH_TARGET = -17.5;
+const VO_BUS_MAKEUP = 2.7; // linear gain after the uniform compressor (~ +8.6dB)
+const MASTER_TARGET_I = -15.8; // vH13's delivered integrated loudness
+const VO_BUS_CHAIN = `highpass=f=75,acompressor=threshold=0.05:ratio=2:attack=6:release=150:makeup=${VO_BUS_MAKEUP},alimiter=limit=0.891:attack=3:release=80:level=false`;
+const speechCache = new Map();
+async function measureSpeechMedian(file) {
+  if (speechCache.has(file)) return speechCache.get(file);
   const res = await run(ffmpegPath, [
-    "-nostdin", "-hide_banner", "-i", file, "-af", "loudnorm=print_format=json", "-f", "null", "-",
-  ]).catch((e) => e);
-  const m = String(res.stderr).match(/"input_i"\s*:\s*"(-?[\d.]+)"/);
-  if (!m) throw new Error(`Could not measure loudness of ${file}`);
-  const lufs = parseFloat(m[1]);
-  lufsCache.set(file, lufs);
-  return lufs;
+    "-nostdin", "-hide_banner", "-loglevel", "verbose", "-i", file,
+    "-af", "ebur128=framelog=verbose", "-f", "null", "-",
+  ], { maxBuffer: 64e6 }).catch((e) => e);
+  const M = [...String(res.stderr).matchAll(/M:\s*(-?[\d.]+)/g)].map((m) => parseFloat(m[1]));
+  const peak = Math.max(...M);
+  const act = M.filter((v) => v > peak - 12).sort((a, b) => a - b);
+  if (!act.length) throw new Error(`Could not measure speech level of ${file}`);
+  const med = act[Math.floor(act.length / 2)];
+  speechCache.set(file, med);
+  return med;
+}
+
+// Speech median after the gain and the shared bus chain: because segments never
+// overlap in time, running one segment through the bus filters predicts exactly
+// how it will sit in the mixed [voe] bus.
+async function measurePostChain(file, gainDb) {
+  const key = `${file}|${gainDb.toFixed(2)}`;
+  if (speechCache.has(key)) return speechCache.get(key);
+  const res = await run(ffmpegPath, [
+    "-nostdin", "-hide_banner", "-loglevel", "verbose", "-i", file,
+    "-af", `volume=${gainDb.toFixed(2)}dB,${VO_BUS_CHAIN},ebur128=framelog=verbose`,
+    "-f", "null", "-",
+  ], { maxBuffer: 64e6 }).catch((e) => e);
+  const M = [...String(res.stderr).matchAll(/M:\s*(-?[\d.]+)/g)].map((m) => parseFloat(m[1]));
+  const peak = Math.max(...M);
+  const act = M.filter((v) => v > peak - 12).sort((a, b) => a - b);
+  if (!act.length) throw new Error(`Could not measure post-chain level of ${file}`);
+  const med = act[Math.floor(act.length / 2)];
+  speechCache.set(key, med);
+  return med;
 }
 
 async function finish() {
@@ -162,23 +197,60 @@ async function finish() {
   const n = segs.length;
   const gains = [];
   for (const [f] of segs) {
-    const lufs = await measureLUFS(f);
-    gains.push(Math.max(-12, Math.min(12, VO_TARGET_LUFS - lufs)));
+    const med = await measureSpeechMedian(f);
+    gains.push(Math.max(-12, Math.min(12, VO_SPEECH_TARGET - med)));
+  }
+  // Second pass: equalize what actually leaves the bus chain. The compressor's
+  // 2:1 slope halves input trims above threshold, so correct by 2x, twice.
+  for (let pass = 0; pass < 2; pass++) {
+    const posts = [];
+    for (let i = 0; i < segs.length; i++) posts.push(await measurePostChain(segs[i][0], gains[i]));
+    const target = posts.reduce((a, b) => a + b, 0) / posts.length;
+    let worst = 0;
+    for (let i = 0; i < segs.length; i++) {
+      const err = target - posts[i];
+      worst = Math.max(worst, Math.abs(err));
+      gains[i] = Math.max(-12, Math.min(12, gains[i] + Math.max(-3, Math.min(3, err * 2))));
+    }
+    console.log(`VO evenness pass ${pass + 1}: post-chain spread ${(Math.max(...posts) - Math.min(...posts)).toFixed(2)} LU, worst err ${worst.toFixed(2)}`);
+    if (worst < 0.2) break;
   }
   console.log("VO gains: " + gains.map((g) => g.toFixed(1) + "dB").join(", "));
   let fc = segs
     .map(([, at], i) => `[${i + 1}:a]volume=${gains[i].toFixed(2)}dB,adelay=${Math.round(at * 1000)}|${Math.round(at * 1000)}[a${i}]`)
     .join(";");
-  fc += `;[${n + 1}:a]apad=whole_dur=${dur},volume='if(lt(t,${SWELL_AT}),0.18+0.04*clip((t-16.2)/0.6,0,1)-0.04*clip((t-23.9)/0.6,0,1)-0.05*clip((t-41.2)/0.6,0,1)+0.05*clip((t-46.2)/0.6,0,1),min(0.18+0.1*(t-${SWELL_AT})/1.2,0.28))':eval=frame,afade=t=in:d=0.6,afade=t=out:st=${dur - 3}:d=3[musv]`;
+  // Jen beat (41.2-46.2): the music rises to fill the silence, +0.12 over base.
+  // vH13 scored a duck there, but its dynamic master boosted the quiet stretch
+  // ~8dB and that rise is the sound Becky approved; with the fixed master (vH14)
+  // the rise is scored on purpose instead of appearing by accident.
+  fc += `;[${n + 1}:a]apad=whole_dur=${dur},volume='if(lt(t,${SWELL_AT}),0.18+0.04*clip((t-16.2)/0.6,0,1)-0.04*clip((t-23.9)/0.6,0,1)+0.12*clip((t-41.2)/0.6,0,1)-0.12*clip((t-46.2)/0.6,0,1),min(0.18+0.1*(t-${SWELL_AT})/1.2,0.28))':eval=frame,afade=t=in:d=0.6,afade=t=out:st=${dur - 3}:d=3[musv]`;
   SFX.forEach(([f]) => inputs.push("-i", f));
   SFX.forEach(([, at, t0, t1, vol], i) => {
     fc += `;[${n + 2 + i}:a]atrim=${t0}:${t1},asetpts=PTS-STARTPTS,volume=${vol},afade=t=in:d=0.2,afade=t=out:st=${Math.max(t1 - t0 - 0.35, 0)}:d=0.35,adelay=${Math.round(at * 1000)}|${Math.round(at * 1000)}[sx${i}]`;
   });
   fc += `;[musv]` + SFX.map((_, i) => `[sx${i}]`).join("") + `amix=inputs=${SFX.length + 1}:normalize=0[bed]`;
   fc += ";" + segs.map((_, i) => `[a${i}]`).join("") + `amix=inputs=${n}:normalize=0[vob]`;
-  fc += `;[vob]highpass=f=75,dynaudnorm=f=250:g=15:p=0.9:m=4[voe]`;
+  // vH14: dynaudnorm dropped. It re-leveled each 250ms frame toward full scale
+  // (up to +12dB), so breaths, tails, and each segment's own noise floor came up
+  // by different amounts: the per-segment pumping Becky heard as separate
+  // recordings. One uniform compressor + limiter instead, identical for every
+  // segment; VO_BUS_MAKEUP tuned so speech sits at vH13's level over the music.
+  fc += `;[vob]${VO_BUS_CHAIN}[voe]`;
   fc += `;[voe][bed]amix=inputs=2:normalize=0[mix]`;
-  fc += `;[mix]loudnorm=I=-14:TP=-1.5:LRA=11[aout]`;
+  // vH14: the master is a measured fixed gain + limiter, not dynamic loudnorm,
+  // whose time-varying gain crept upward after quiet passages (another source of
+  // "different recordings"). Probe pass measures the mix, then one gain for the
+  // whole minute.
+  const probe = await run(ffmpegPath, [
+    "-nostdin", "-hide_banner", "-i", raw, ...inputs,
+    "-filter_complex", fc + `;[mix]loudnorm=print_format=json[aout]`,
+    "-map", "[aout]", "-t", String(dur), "-f", "null", "-",
+  ], { maxBuffer: 64e6 }).catch((e) => e);
+  const pm = String(probe.stderr).match(/"input_i"\s*:\s*"(-?[\d.]+)"/);
+  if (!pm) throw new Error("Master probe failed to measure the mix");
+  const masterGain = MASTER_TARGET_I - parseFloat(pm[1]);
+  console.log(`Master: mix at ${pm[1]} LUFS, gain ${masterGain.toFixed(2)}dB to ${MASTER_TARGET_I}`);
+  fc += `;[mix]volume=${masterGain.toFixed(2)}dB,alimiter=limit=0.813:attack=5:release=100:level=false[aout]`;
   fc += `;[0:v]scale=1920:1080[vs]`;
   fc += `;[vs]subtitles='${srt.replace(/'/g, "\\'")}':fontsdir='${path.join(HERE, "fonts").replace(/'/g, "\\'")}':force_style='FontName=Schibsted Grotesk,FontSize=10.5,PrimaryColour=&H003A2A1A,BorderStyle=4,BackColour=&H14FFFFFF,OutlineColour=&H14FFFFFF,Outline=1.1,Shadow=0,Alignment=2,MarginV=24'[vout]`;
 
