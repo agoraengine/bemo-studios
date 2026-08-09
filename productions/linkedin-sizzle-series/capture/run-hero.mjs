@@ -47,7 +47,10 @@ const MIX = [
   [path.join(VO, "hg-r1-fourapps.wav"), 31.9],
   [path.join(VO, "hg-r1-l6.wav"), 35.2],
   [path.join(VO, "hgh-l5.wav"), 47.0],
-  [path.join(VO, "hg-r1-l8.wav"), 52.5],
+  // vH18: fresh Avatar V read. The reel 1 l8 was a splice whose second sentence
+  // measured 4 LU thinner than every neighbor (Becky's tinny note); the new
+  // full-line read matches the track's warmth. hg-r1-l8.wav stays as archive.
+  [path.join(VO, "hgh-l8.wav"), 52.5],
 ];
 const MUSIC = path.join(OUT, "sfx", "music-D-ext.wav");
 // vH17: the swell waits for the close line to finish (speech ends 55.3). At
@@ -148,7 +151,10 @@ async function render() {
 const VO_SPEECH_TARGET = -17.5;
 const VO_BUS_MAKEUP = 2.7; // linear gain after the uniform compressor (~ +8.6dB)
 const MASTER_TARGET_I = -15.8; // vH13's delivered integrated loudness
-const VO_BUS_CHAIN = `highpass=f=75,acompressor=threshold=0.05:ratio=2:attack=6:release=150:makeup=${VO_BUS_MAKEUP},alimiter=limit=0.891:attack=3:release=80:level=false`;
+// The low shelf restores the body the compressor shaves off vowels (vH13's
+// leveler used to over-boost lows by accident; measured tilt gap ~3dB). One
+// shelf for every segment, so the evenness calibration still holds.
+const VO_BUS_CHAIN = `highpass=f=75,acompressor=threshold=0.05:ratio=2:attack=6:release=150:makeup=${VO_BUS_MAKEUP},lowshelf=g=2.5:f=220:width_type=q:width=0.6,alimiter=limit=0.891:attack=3:release=80:level=false`;
 const speechCache = new Map();
 async function measureSpeechMedian(file) {
   if (speechCache.has(file)) return speechCache.get(file);
