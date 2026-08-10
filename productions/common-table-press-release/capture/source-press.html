@@ -1,0 +1,161 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<title>Common Table Press Release: Becky's share cut</title>
+<style>
+  /* v6 system: Schibsted only, snow ground, sapphire headlines, green marks,
+     navy gravity close. Same grammar as the series hero stage. */
+  @font-face { font-family: "Schibsted Grotesk"; src: url("fonts/SchibstedGrotesk-var.woff2"); font-weight: 400 900; }
+  @font-face { font-family: "Geist Mono"; src: url("fonts/GeistMono-var.woff2"); font-weight: 400 500; }
+  :root {
+    --surface: #FFFFFF; --snow: #F8F9FC; --ink: #1A2A3A; --ink-muted: #3D4F66;
+    --ink-faint: #5C6A82; --rule: #D1D9E6; --sapphire: #05347E; --navy: #05347E;
+    --navy-deep: #01143A; --orange: #FF8210; --green: #4CBB17; --green-deep: #2F7D0D;
+    --cream: #F2EEE3;
+  }
+  * { box-sizing: border-box; margin: 0; }
+  html, body { height: 100%; background: #0B1526; display: grid; place-items: center;
+    font-family: "Schibsted Grotesk", sans-serif; overflow: hidden; }
+  #stage { width: 1280px; height: 720px; background: var(--surface); position: relative;
+    overflow: hidden; transform-origin: center; }
+  .scene { position: absolute; inset: 0; opacity: 0; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; text-align: center; padding: 0 90px;
+    transition: opacity 0.5s ease; }
+  .scene.on { opacity: 1; }
+  .disp { font-weight: 640; letter-spacing: -0.02em; line-height: 1.12; color: var(--sapphire);
+    text-wrap: balance; }
+  .mk { font-weight: inherit; box-shadow: inset 0 -6px 0 var(--green); }
+  .eyebrow { font-family: "Geist Mono", monospace; font-size: 15px; letter-spacing: 0.11em;
+    text-transform: uppercase; color: var(--green-deep); font-weight: 500; margin-bottom: 18px; }
+
+  /* provenance chip: on for every footage scene */
+  #prov { position: absolute; left: 24px; bottom: 18px; font-family: "Geist Mono", monospace;
+    font-size: 13.5px; letter-spacing: 0.05em; color: var(--ink-faint); opacity: 0;
+    transition: opacity 0.5s ease; z-index: 20; text-transform: uppercase; }
+  #prov.on { opacity: 1; }
+
+  /* scene 1: the career line */
+  #sCareer { background: var(--snow); }
+  #sCareer .disp { font-size: 52px; max-width: 1020px; }
+
+  /* scene 2: the hunt */
+  #sHunt { background: var(--snow); }
+  #sHunt .disp { font-size: 48px; max-width: 980px; }
+  .pile { display: flex; gap: 20px; margin-top: 46px; }
+  .piece { border: 1.5px solid var(--rule); border-radius: 999px; padding: 12px 24px;
+    font-size: 21px; font-weight: 600; color: var(--ink-muted); background: var(--surface);
+    white-space: nowrap;
+    opacity: 0; transform: translateY(14px); transition: opacity 0.45s ease, transform 0.45s ease; }
+  .piece b { color: var(--ink); font-weight: 640; }
+  .piece.on { opacity: 1; transform: none; }
+
+  /* footage scenes: framed product windows on snow */
+  .film { background: var(--snow); }
+  .film video { border: 1px solid var(--rule); border-radius: 10px; background: var(--surface);
+    box-shadow: 0 24px 52px -22px rgba(26,42,58,0.32); }
+  #vTemplates { width: 853px; height: 640px; transform: scale(1);
+    transform-origin: 22% 16%; transition: transform 6.5s linear; }
+  #sTemplates.push #vTemplates { transform: scale(1.06); }
+  #vKb { width: 850px; height: 560px; transform: scale(1);
+    transition: transform 10s linear; }
+  #sKb.push #vKb { transform: scale(1.035); }
+  #vInterview { width: 900px; height: 562px; }
+  /* the drafted release as a paper page, slow push-in */
+  #vDraft { width: 562px; height: 640px; transform: scale(1);
+    transition: transform 8.5s linear; }
+  #sDraft.push #vDraft { transform: scale(1.055); }
+  /* orientation chip (hero grammar): names the surface for a cold viewer */
+  #orient { position: absolute; top: 44px; right: 48px; background: var(--navy);
+    color: #F2EEE3; font-family: "Geist Mono", monospace; font-size: 14px;
+    letter-spacing: 0.08em; text-transform: uppercase; font-weight: 500;
+    padding: 9px 15px; border-radius: 9px; opacity: 0; transition: opacity 0.5s ease;
+    box-shadow: 0 16px 36px -16px rgba(1,20,58,0.5); }
+  #orient b { color: #FFFFFF; font-weight: 500; }
+  #orient.on { opacity: 1; }
+
+  /* scene 7: the Amplify lead message */
+  #sVoice { background: var(--surface); }
+  #sVoice .disp { font-size: 47px; max-width: 1080px; }
+
+  /* scene 8: the close. Standing rule (Becky, Aug 9): every video's last screen
+     is the BeMo blue (Deep Sapphire, the site's footer/CTA ground) with the
+     white knockout wordmark and the website URL. */
+  #sClose { background: var(--navy); }
+  #sClose img { width: 340px; opacity: 0; transition: opacity 0.7s ease; }
+  #sClose img.on { opacity: 1; }
+  #closeTag { margin-top: 30px; font-size: 30px; font-weight: 600; color: #FFFFFF;
+    opacity: 0; transition: opacity 0.7s ease; }
+  #closeTag.on { opacity: 1; }
+  #closeUrl { margin-top: 22px; font-family: "Geist Mono", monospace; font-size: 18px;
+    letter-spacing: 0.09em; color: var(--cream); opacity: 0; transition: opacity 0.7s ease; }
+  #closeUrl.on { opacity: 1; }
+</style></head>
+<body>
+<div id="stage">
+  <div class="scene on" id="sCareer">
+    <div class="disp">I've been writing and editing press releases <span class="mk">my entire career</span>.</div>
+  </div>
+
+  <div class="scene" id="sHunt">
+    <div class="disp">The work never begins with the writing.</div>
+    <div class="pile">
+      <div class="piece" id="p1"><b>the numbers</b> &middot; a spreadsheet</div>
+      <div class="piece" id="p2"><b>the history</b> &middot; someone's head</div>
+      <div class="piece" id="p3"><b>the boilerplate</b> &middot; whichever doc used it last</div>
+    </div>
+  </div>
+
+  <div class="scene film" id="sTemplates"><video id="vTemplates" src="out/seg-templates.mp4" muted preload="auto"></video></div>
+  <div class="scene film" id="sKb"><video id="vKb" src="out/seg-kb.mp4" muted preload="auto"></video></div>
+  <div class="scene film" id="sInterview"><video id="vInterview" src="out/seg-interview.mp4" muted preload="auto"></video></div>
+  <div class="scene film" id="sDraft"><img id="vDraft" src="{{DRAFT_PAGE}}" alt="">
+    <div id="orient"><b>Amplify</b> &middot; BeMo's communications app &middot; Press Release editor</div>
+  </div>
+
+  <div class="scene" id="sVoice">
+    <div class="disp">Every piece of content reflects <span class="mk">who you actually are</span>, not who you were three drafts ago.</div>
+  </div>
+
+  <div class="scene" id="sClose">
+    <img id="closeMark" src="{{WORDMARK_W}}" alt="">
+    <div id="closeTag">Where missions gain momentum.</div>
+    <div id="closeUrl">www.bemointel.ai</div>
+  </div>
+
+  <div id="prov">Captured from the product &middot; Common Table is a fictional demo org</div>
+</div>
+
+<script>
+  const $ = (id) => document.getElementById(id);
+  let timers = [];
+  const at = (t, fn) => timers.push(setTimeout(fn, t * 1000));
+  const show = (id) => { document.querySelectorAll(".scene").forEach((s) => s.classList.remove("on")); $(id).classList.add("on"); };
+
+  window.restart = () => {
+    timers.forEach(clearTimeout); timers = [];
+    document.querySelectorAll("video").forEach((v) => { v.pause(); v.currentTime = 0; });
+    ["p1","p2","p3","orient","closeMark","closeTag","closeUrl"].forEach((id) => $(id).classList.remove("on"));
+    ["sTemplates","sKb","sDraft"].forEach((id) => $(id).classList.remove("push"));
+    $("prov").classList.remove("on");
+    show("sCareer");
+
+    // the hunt: pieces land on the VO's own word timings
+    at(4.6, () => show("sHunt"));
+    at(9.1, () => $("p1").classList.add("on"));
+    at(10.7, () => $("p2").classList.add("on"));
+    at(12.4, () => $("p3").classList.add("on"));
+
+    // footage block, provenance on throughout
+    at(16.0, () => { show("sTemplates"); $("sTemplates").classList.add("push"); $("prov").classList.add("on"); $("vTemplates").play(); });
+    at(22.0, () => { show("sKb"); $("sKb").classList.add("push"); $("vKb").play(); });
+    at(32.4, () => { show("sInterview"); $("vInterview").play(); });
+    at(38.6, () => { show("sDraft"); $("sDraft").classList.add("push"); });
+    at(39.6, () => $("orient").classList.add("on"));
+
+    at(46.6, () => { show("sVoice"); $("prov").classList.remove("on"); });
+    at(53.4, () => show("sClose"));
+    at(53.9, () => $("closeMark").classList.add("on"));
+    at(54.9, () => $("closeTag").classList.add("on"));
+    at(55.7, () => $("closeUrl").classList.add("on"));
+  };
+</script>
+</body></html>

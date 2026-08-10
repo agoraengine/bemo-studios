@@ -1,0 +1,269 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<title>Common Table Press Release: 30s feature cut, 9:16 vertical</title>
+<style>
+  /* 30-second cutdown of the motion cut (Becky, Aug 10: "a 30 sec clip will
+     make it pop more"). Four beats from the locked v3 narration, at sentence
+     boundaries: the problem line, the KB facts arriving, the draft in the
+     org's voice, the close. Same grammar as source-motion.html, nothing new:
+     kinetic type, navy wipe with the orange leading edge, sub-shot footage,
+     found-chips, the standing navy close with the ink-on-orange URL pill. */
+  @font-face { font-family: "Schibsted Grotesk"; src: url("fonts/SchibstedGrotesk-var.woff2"); font-weight: 400 900; }
+  @font-face { font-family: "Geist Mono"; src: url("fonts/GeistMono-var.woff2"); font-weight: 400 500; }
+  :root {
+    --surface: #FFFFFF; --snow: #F8F9FC; --ink: #1A2A3A; --ink-muted: #3D4F66;
+    --ink-faint: #5C6A82; --rule: #D1D9E6; --sapphire: #05347E; --navy: #05347E;
+    --navy-deep: #01143A; --orange: #FF8210; --green: #4CBB17; --green-deep: #2F7D0D;
+    --cream: #F2EEE3;
+    --glide: cubic-bezier(0.22, 0.9, 0.24, 1);
+    --spring: cubic-bezier(0.34, 1.35, 0.35, 1);
+    --push: cubic-bezier(0.25, 0.55, 0.2, 1);
+  }
+  * { box-sizing: border-box; margin: 0; }
+  html, body { height: 100%; background: #0B1526; display: grid; place-items: center;
+    font-family: "Schibsted Grotesk", sans-serif; overflow: hidden; }
+  #stage { width: 540px; height: 960px; background: var(--surface); position: relative;
+    overflow: hidden; transform-origin: center; }
+  .scene { position: absolute; inset: 0; opacity: 0; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; text-align: center; padding: 0 36px; }
+  .scene.on { opacity: 1; }
+  .disp { font-weight: 640; letter-spacing: -0.02em; line-height: 1.14; color: var(--sapphire);
+    text-wrap: balance; }
+
+  @keyframes rise { from { opacity: 0; transform: translateY(28px); }
+    to { opacity: 1; transform: none; } }
+  .ln { display: block; opacity: 0; }
+  .scene.on .ln { animation: rise 0.6s var(--glide) both; }
+
+  /* the green mark wipes left to right after its line lands */
+  @keyframes markWipe { from { background-size: 0% 0.14em; } to { background-size: 100% 0.14em; } }
+  .mk { font-weight: inherit; background-image: linear-gradient(var(--green), var(--green));
+    background-repeat: no-repeat; background-position: 0 94%; background-size: 0% 0.14em;
+    padding-bottom: 0.04em; }
+  .scene.on .mk { animation: markWipe 0.55s var(--glide) 0.6s forwards; }
+
+  #wipe { position: absolute; inset: -60px; background: var(--navy); z-index: 50;
+    transform: translateX(-112%) skewX(-6deg); }
+  #wipe::after { content: ""; position: absolute; top: 0; bottom: 0; right: -10px;
+    width: 10px; background: var(--orange); }
+  @keyframes wipeAcross { from { transform: translateX(-112%) skewX(-6deg); }
+    to { transform: translateX(112%) skewX(-6deg); } }
+  #wipe.go { animation: wipeAcross 0.62s cubic-bezier(0.6, 0.05, 0.2, 1) both; }
+
+  /* v5 story pass (Becky-ratified narration, Aug 10): stakes card opens,
+     then the gathering card with the pills. Line 2 of the stakes card rises
+     on its own VO word, driver-triggered. */
+  #sStakes { background: var(--snow); }
+  #sStakes .disp { font-size: 42px; max-width: 470px; }
+  #st2 { animation: none; }
+  #sStakes.on #st2.on { animation: rise 0.6s var(--glide) both; }
+  #sHunt { background: var(--snow); }
+  #sHunt .disp { font-size: 38px; max-width: 470px; }
+  /* pre-CTA thesis: the unified platform claim, white ground before the navy */
+  #sOne { background: var(--surface); }
+  #sOne .disp { font-size: 40px; max-width: 460px; }
+  .pile { display: flex; flex-direction: column; gap: 12px; margin-top: 36px; align-items: center; }
+  @keyframes popIn { 0% { opacity: 0; transform: translateY(20px) scale(0.94); }
+    60% { opacity: 1; transform: translateY(-4px) scale(1.02); }
+    100% { opacity: 1; transform: none; } }
+  /* 19px keeps the three pills inside the stage padding; at 21px the row
+     overflowed and read as cut off at the frame edges */
+  .piece { border: 1.5px solid var(--rule); border-radius: 999px; padding: 10px 20px;
+    font-size: 17px; font-weight: 600; color: var(--ink-muted); background: var(--surface);
+    white-space: nowrap; opacity: 0; }
+  .piece b { color: var(--ink); font-weight: 640; }
+  .piece.on { animation: popIn 0.5s var(--spring) both; }
+
+  .film { background: var(--snow); padding-bottom: 150px; }
+  .frame { position: relative; border: 1px solid var(--rule); border-radius: 10px;
+    background: var(--surface); overflow: hidden; opacity: 0;
+    box-shadow: 0 24px 52px -22px rgba(26,42,58,0.32); }
+  @keyframes frameIn { from { opacity: 0; transform: translateY(46px) scale(0.965); }
+    to { opacity: 1; transform: none; } }
+  .film.on .frame { animation: frameIn 0.7s var(--glide) both; }
+  .frame video, .frame img { width: 100%; height: 100%; display: block;
+    transform: scale(1); }
+  /* one 16:10 window for every app shot (Becky, Aug 10). Second pass, same
+     day: all three KB shots share ONE generous crop (seg4, the whole card
+     with margins); the shot difference is the push depth and origin, so no
+     content edge is ever cut. Draft shows the full page width; pushes stay
+     inside the page's own margins. */
+  .appwin { width: 480px; height: 300px; }
+  .appwin video { transition: transform 3.2s var(--push); }
+  /* v8 (Becky: same-image sub-shots read as jump cuts): the KB beat is ONE
+     continuous shot; the camera dives slowly from the full card toward the
+     submit corner while the UI itself moves (checks land, Submitted appears).
+     Cuts now happen only between genuinely different images. */
+  #fKb video { transform: scale(1.02); transform-origin: 45% 42%;
+    transition: transform 6.2s var(--push); }
+  #sKb.push #fKb video { transform: scale(1.16) translate(-18px, -22px); }
+  /* the reveal: start tight on the Press Release card, pull back to the
+     whole template shelf ("just one of more than twenty") */
+  #fTplA video { transform: scale(1.5); transform-origin: 22% 14%;
+    transition: transform 3.4s var(--push); }
+  #sTplA.push #fTplA video { transform: scale(1.0); }
+  #fIntA video { transform-origin: 50% 30%; }
+  #sIntA.push #fIntA video { transform: scale(1.045); }
+  #fIntB video { transform-origin: 50% 60%; }
+  #sIntB.push #fIntB video { transform: scale(1.05); }
+  /* the draft is one continuous shot too: push in while drifting down the
+     page to the quotes; the scale stays inside the page's own margins */
+  #fDraft { width: 440px; height: 500px; }
+  #fDraft img { height: auto; transform: scale(1.04); transform-origin: 50% 0;
+    transition: transform 5.1s var(--push); }
+  #sDraft.push #fDraft img { transform: translateY(-140px) scale(1.12); }
+
+  .chips { position: absolute; right: 14px; top: 56%; transform: translateY(-50%);
+    display: flex; flex-direction: column; gap: 16px; z-index: 30; align-items: flex-start;
+    pointer-events: none; }
+  #iChips { right: 110px; top: auto; bottom: 190px; transform: none; }
+  .chip { border: 1.5px solid var(--rule); border-radius: 999px; padding: 8px 16px;
+    background: var(--surface); font-size: 15px; font-weight: 600; color: var(--ink);
+    box-shadow: 0 18px 38px -18px rgba(26,42,58,0.4); white-space: nowrap; opacity: 0; }
+  .chip .tick { color: var(--green-deep); font-weight: 640; margin-right: 8px; }
+  .chip.on { animation: popIn 0.5s var(--spring) both; }
+
+  #orient { position: absolute; top: 64px; right: 14px; max-width: 330px; white-space: normal; text-align: left; line-height: 1.5; background: var(--navy);
+    color: #F2EEE3; font-family: "Geist Mono", monospace; font-size: 10.5px;
+    letter-spacing: 0.07em; text-transform: uppercase; font-weight: 500;
+    padding: 9px 15px; border-radius: 9px; opacity: 0;
+    box-shadow: 0 16px 36px -16px rgba(1,20,58,0.5); }
+  #orient b { color: #FFFFFF; font-weight: 500; }
+  #orient.on { animation: popIn 0.5s var(--spring) both; }
+
+  #prov { position: absolute; left: 16px; top: 100px; max-width: 400px; line-height: 1.6; font-family: "Geist Mono", monospace;
+    font-size: 10px; letter-spacing: 0.05em; color: var(--ink-faint); opacity: 0;
+    transition: opacity 0.5s ease; z-index: 20; text-transform: uppercase; }
+  #prov.on { opacity: 1; }
+
+  #sClose { background: var(--navy); }
+  @keyframes markPop { 0% { opacity: 0; transform: translateY(14px) scale(0.95); }
+    60% { opacity: 1; transform: translateY(-3px) scale(1.015); }
+    100% { opacity: 1; transform: none; } }
+  #sClose img { width: 240px; opacity: 0; }
+  #sClose img.on { animation: markPop 0.7s var(--spring) both; }
+  #closeTag { margin-top: 24px; font-size: 21px; font-weight: 600; color: #FFFFFF; opacity: 0; }
+  #closeTag.on { animation: rise 0.6s var(--glide) both; }
+  #closeUrl { margin-top: 20px; font-family: "Geist Mono", monospace; font-size: 14px;
+    letter-spacing: 0.07em; color: var(--ink); background: var(--orange);
+    padding: 11px 24px; border-radius: 999px; font-weight: 500; opacity: 0; }
+  #closeUrl.on { animation: markPop 0.6s var(--spring) both; }
+</style></head>
+<body>
+<div id="stage">
+  <div class="scene on" id="sStakes">
+    <div class="disp"><span class="ln">The press release needs to go out tomorrow.</span>
+      <span class="ln" id="st2">And the writing was never the starting point.</span></div>
+  </div>
+
+  <div class="scene" id="sHunt">
+    <div class="disp"><span class="ln">The starting point is gathering all the facts.</span></div>
+    <div class="pile">
+      <div class="piece" id="p1"><b>the numbers</b> &middot; a spreadsheet</div>
+      <div class="piece" id="p2"><b>the history</b> &middot; someone's head</div>
+      <div class="piece" id="p3"><b>the boilerplate</b> &middot; whichever doc used it last</div>
+    </div>
+  </div>
+
+  <div class="scene film" id="sKb">
+    <div class="frame appwin" id="fKb"><video src="out/seg5-kb.mp4" muted preload="auto"></video></div>
+  </div>
+  <div class="scene film" id="sTplA">
+    <div class="frame appwin" id="fTplA"><video src="out/seg3-tplA.mp4" muted preload="auto"></video></div>
+  </div>
+  <div class="scene film" id="sIntA">
+    <div class="frame appwin" id="fIntA"><video src="out/seg3-intA.mp4" muted preload="auto"></video></div>
+  </div>
+  <div class="scene film" id="sIntB">
+    <div class="frame appwin" id="fIntB"><video src="out/seg3-intB.mp4" muted preload="auto"></video></div>
+  </div>
+  <div class="scene film" id="sDraft">
+    <div class="frame" id="fDraft"><img src="{{DRAFT_PAGE}}" alt=""></div>
+  </div>
+
+  <div class="scene" id="sOne">
+    <div class="disp"><span class="ln">It all lives in <span class="mk">one platform</span>.</span></div>
+  </div>
+
+  <div class="scene" id="sClose">
+    <img id="closeMark" src="{{WORDMARK_W}}" alt="">
+    <div id="closeTag">Where missions gain momentum.</div>
+    <div id="closeUrl">www.bemointel.ai</div>
+  </div>
+
+  <div class="chips" id="kChips">
+    <div class="chip" id="c1"><span class="tick">&#10003;</span>the boilerplate</div>
+    <div class="chip" id="c2"><span class="tick">&#10003;</span>the media contact</div>
+    <div class="chip" id="c3"><span class="tick">&#10003;</span>the organization's own facts</div>
+  </div>
+  <div class="chips" id="iChips">
+    <div class="chip" id="i1"><span class="tick">&#10003;</span>what you're announcing</div>
+    <div class="chip" id="i2"><span class="tick">&#10003;</span>why it matters</div>
+  </div>
+  <div id="orient"><b>Amplify</b> &middot; BeMo's communications app &middot; Press Release editor</div>
+  <div id="prov">Captured from the product &middot; Common Table is a fictional demo org</div>
+  <div id="wipe"></div>
+</div>
+
+<script>
+  const $ = (id) => document.getElementById(id);
+  let timers = [];
+  const at = (t, fn) => timers.push(setTimeout(fn, t * 1000));
+  const show = (id) => {
+    document.querySelectorAll(".scene").forEach((s) => s.classList.remove("on"));
+    const el = $(id); void el.offsetWidth; el.classList.add("on");
+  };
+  const wipeTo = (id) => {
+    const w = $("wipe");
+    w.classList.remove("go");
+    void w.offsetWidth;
+    w.classList.add("go");
+    timers.push(setTimeout(() => show(id), 280));
+    timers.push(setTimeout(() => w.classList.remove("go"), 700));
+  };
+  const shot = (id) => { show(id); $(id).classList.add("push");
+    const v = $(id).querySelector("video"); if (v) v.play(); };
+
+  window.restart = () => {
+    timers.forEach(clearTimeout); timers = [];
+    document.querySelectorAll("video").forEach((v) => { v.pause(); v.currentTime = 0; });
+    ["st2","p1","p2","p3","c1","c2","c3","i1","i2","orient","closeMark","closeTag","closeUrl"].forEach((id) => $(id).classList.remove("on"));
+    ["sKb","sTplA","sIntA","sIntB","sDraft"].forEach((id) => $(id).classList.remove("push"));
+    $("prov").classList.remove("on");
+    $("wipe").classList.remove("go");
+    show("sStakes");
+
+    // v10 (Becky: land at 30): same single performance (pr-bodyf.wav), three
+    // sentence pauses trimmed at known timestamps + 12% tempo. Word times
+    // below are (t - cuts)/1.12 + 0.4.
+    at(2.45, () => $("st2").classList.add("on"));
+
+    // the gathering: card, then pills on the VO's word timestamps
+    at(4.05, () => show("sHunt"));
+    at(6.15, () => $("p1").classList.add("on"));
+    at(6.9, () => $("p2").classList.add("on"));
+    at(8.5, () => $("p3").classList.add("on"));
+
+    // KB beat: one continuous shot landing on "Inside BeMo"
+    at(9.3, () => wipeTo("sKb"));
+    at(9.65, () => { $("sKb").classList.add("push"); $("prov").classList.add("on"); $("sKb").querySelector("video").play(); });
+    at(11.6, () => $("c1").classList.add("on"));
+    at(12.45, () => $("c2").classList.add("on"));
+    at(13.65, () => $("c3").classList.add("on"));
+
+    // the draft on "And the draft comes back"
+    at(15.0, () => { ["c1","c2","c3"].forEach((id) => $(id).classList.remove("on")); shot("sDraft"); });
+    at(15.8, () => $("orient").classList.add("on"));
+
+    // the reveal on "The press release is just one"
+    at(19.6, () => { $("orient").classList.remove("on"); shot("sTplA"); });
+
+    // the platform card on "And it all lives", then the close
+    at(22.8, () => { show("sOne"); $("prov").classList.remove("on"); });
+    at(24.85, () => wipeTo("sClose"));
+    at(25.95, () => $("closeMark").classList.add("on"));
+    at(26.75, () => $("closeTag").classList.add("on"));
+    at(27.45, () => $("closeUrl").classList.add("on"));
+  };
+</script>
+</body></html>

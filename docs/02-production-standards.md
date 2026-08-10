@@ -8,12 +8,15 @@ Specs every production meets. These are checkable, which is the point: the assem
 |---|---|---|
 | Sizzle reel | 60-75 seconds | 90 |
 | Core video set (the six) | 60-90 seconds | 120 |
-| Workflow or feature capture | 45-90 seconds | 120 |
+| Product feature video | 30 seconds | 45 |
+| Workflow capture (multi-feature) | 45-90 seconds | 120 |
 | Founder POV | 60-120 seconds | 180 |
 | Vertical cutdown | 30-45 seconds | 60 |
 | Academy lesson | 4-6 minutes | 8 minutes |
 
 The narrative arc set the 60-90 second range for the core videos and it holds. Anything running long is usually trying to do two videos' work.
+
+The product feature row is Becky's ruling (2026-08-10, from the press-release 30s cutdown): a single product feature gets 30 seconds, in the motion-cut grammar, over the series' 30-second upbeat bed. Four beats: the problem named, the feature doing its work on real capture, the payoff, the standing close. The 30s bed is the one exception to the calm-bed default below; it is the series' own approved track, not stock hype, and it still carries no drop.
 
 The Academy lesson row is the deliberate outlier (Becky, August 4, 2026): a lesson is a college-lecture register, watched by a signed-in user who chose it, and it earns the length by changing frame every 20-40 seconds and giving the viewer something to read as well as hear. The series treatment (`productions/academy-lessons/treatment.md`) holds that grammar. A lesson over 8 minutes is two lessons.
 
