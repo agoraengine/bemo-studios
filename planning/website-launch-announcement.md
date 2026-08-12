@@ -1,7 +1,7 @@
 # Website Launch and Announcement Plan
 
-**Written:** Tuesday, August 12, 2026
-**Launch day:** Thursday, August 14, 2026 (site live in beta posture, per the August 11 board). Note: the sizzle rollout plan of August 11 said Thursday August 13, and Lee's GTM board has carried both dates. Confirm the single date with Lee before Wednesday ends; every step below is written as "launch day" so the plan holds either way.
+**Written:** Wednesday, August 12, 2026; dates settled that evening
+**Launch day:** Thursday, August 13, 2026, tomorrow. Becky confirmed Wednesday evening: the site flips live for Thursday, and the announcement wave (the posts, Bill, the emails) runs the same day per the sequence below. The August 14 date that circulated from the August 11 board is superseded; August 14 is a Friday anyway.
 **Posture:** soft launch. The site goes live quietly and the announcement is the LinkedIn post plus direct shares, not a press push. Beta signups are open from the moment the site is live. No GA language anywhere, no countdown, teaser register throughout.
 
 ## What ships

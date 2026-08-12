@@ -2,7 +2,7 @@
 
 Working timeline, built 2026-08-11 from the BeMo GTM and BeMo Strategic Tasks Trello boards. Trello stays the system of record; this page is the at-a-glance view. It also doubles as the working draft for "Deliver the GA timeline with error bars to Bill" (due Sep 4).
 
-**The shape of it:** site live in beta posture Thursday Aug 14, launch-week content and the pricing decisions clear through Aug 21, Lee builds Wave 3 (the editor and front page) while the pricing experiment runs through Aug 28, editions ship and get benchmarked through Sep 4, billing gets built the week of Sep 7, everything gets tested the week of Sep 14, then the GA gate. **GA date model per the board: P50 = week of Sep 21, P80 = by Oct 2.** GA itself is deliberately small: "Start beta" becomes "Start free" and pricing switches on, on a page that is already proven.
+**The shape of it:** site live in beta posture Thursday Aug 13 (confirmed by Becky the evening of Aug 12; the board's Aug 14 date is superseded, and Aug 14 is a Friday), launch-week content and the pricing decisions clear through Aug 21, Lee builds Wave 3 (the editor and front page) while the pricing experiment runs through Aug 28, editions ship and get benchmarked through Sep 4, billing gets built the week of Sep 7, everything gets tested the week of Sep 14, then the GA gate. **GA date model per the board: P50 = week of Sep 21, P80 = by Oct 2.** GA itself is deliberately small: "Start beta" becomes "Start free" and pricing switches on, on a page that is already proven.
 
 Owner tags come from board labels and list ownership. "Blocked" means the card carries the Blocked label; most unblock when the item above them lands.
 
@@ -27,7 +27,7 @@ Owner tags come from board labels and list ownership. "Blocked" means the card c
 - [x] Turn on indexing (ALLOW_INDEXING=true) and gate orphan routes (done)
 - [x] Beta copy pass: "Start free" to "Start beta," expectations line, grandfather commitment (done)
 
-### Friday Aug 14: site-live day
+### Thursday Aug 13, continued: site-live day (moved up from Friday Aug 14, Becky's call the evening of Aug 12)
 - [ ] (blocked): Remove beta mode from signup
 - [ ] Verify signup leads land where Jon can work them
 - [ ] **Becky:** Publish the launch post on LinkedIn, nudge Bill to comment
