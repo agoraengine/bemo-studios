@@ -8,10 +8,12 @@ The week's spine, in three registers: what the product does when it doesn't know
 
 Week of Sunday, August 9 through Friday, August 14.
 
+**This week's Field Notes anchor is Maryellen's story:** "It Told Her When It Was Guessing," Maryellen Duggan and the Caigh It Forward Foundation, on what the product does when it doesn't know. The Sunday video opens it, the Monday article tells it in full, and Thursday's quote card carries her line.
+
 | Day | What runs | Theme and notes |
 |---|---|---|
-| Sunday Aug 9 | Field Notes video and post (60 seconds, Becky to camera, LinkedIn) | The Field Notes anchor theme: what the product does when it doesn't know |
-| Monday Aug 10 | The anchor story publishes: LinkedIn article plus feed post and comment seeds | Maryellen Duggan and the Caigh It Forward Foundation: "It Told Her When It Was Guessing" |
+| Sunday Aug 9 | Field Notes video and post (60 seconds, Becky to camera, LinkedIn) | Opens the anchor |
+| Monday Aug 10 | The anchor publishes: LinkedIn article plus feed post and comment seeds | Maryellen's story in full |
 | Tuesday Aug 11 | Sizzle reel | The reel slot for the week |
 | Wednesday Aug 12 | Carousel ("ask it something it can't know"); Lee's Build Notes | Build Notes theme: "Modular, Not Monolithic" revisited |
 | Thursday Aug 13 | **Launch day** (full sequence below); plus Maryellen's quote card, the colleague-test post, Lee's Principle 9 reshare, Instagram day, and Becky's reshare of Build Notes | The site and the launch reel land inside the week's honesty argument on purpose: the reel's center line is "The front page shows what's in play. The knowledge base tells you what's missing." |
