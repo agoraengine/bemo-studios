@@ -28,7 +28,7 @@ Retired candidates (kept in `capture/out/`): Reel 1W "the website cut" vW1, Reel
 | Captions (.srt), 30s and 60s | PENDING upload; generated from the locked script, not auto-transcribed |
 | Voiceover audio | PENDING upload; `capture/out/vo/` (five reel 1 segments plus three reused GA sizzle segments, listed in `script.md`) |
 | Raw capture footage | PENDING upload; four `.webm` raws in `capture/out/` |
-| Thumbnail | not yet produced |
+| Thumbnail (YouTube, hero) | Produced 2026-08-12: `capture/out/bemo-hero-sizzle-thumbnail-v1.png`, 1280x720, built from the film's six-tools pile frame with the reel's headline verbatim (v6 system, `capture/thumb-hero.html` is the source); Drive upload after Becky's pick |
 
 ## Where this has been used
 

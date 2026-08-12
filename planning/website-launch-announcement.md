@@ -36,7 +36,7 @@ Roles: the 30 earns attention in the feed. The 60 goes where someone has already
 - One site link in the post body, the video link only in the first comment.
 - After launch day the series continues from the rollout plan: two reels a week, Mondays and Thursdays.
 
-## The copy (drafts, ready for your edit)
+## Thursday's copy (the set that ships)
 
 Becky's launch post began as the draft in the production's post-copy file (productions/linkedin-sizzle-series/post-copy.md), where its full claim trace lives; every line below either comes from that traced draft or reuses lines already ratified in the message map. The two Week 29 flags are ruled (Becky, August 12 evening, recorded in the Week 29 plan in bemo-os): the videos are standing product assets and publish as approved, close pair and Jen's story included. The rule still binds all text: no post copy, card, or comment reply connects walks-out-the-door or legacy language to the memory thesis, and no number appears in any editorial asset. One follow-through: the hero names Maryellen and Caigh It Forward, so it goes in her named-surface re-confirm batch before it publishes.
 
@@ -79,42 +79,6 @@ Becky's launch post began as the draft in the production's post-copy file (produ
 **If Bill also reshares (second touch, later in the day):**
 
 > Worth half a minute of any nonprofit leader's time. One platform where your organization's knowledge accumulates, instead of six tools that each start from zero. The beta is open.
-
-### Six Tools reel copy, per account
-
-The drafts above are launch-announcement framing: the site is the news and the reel is the evidence. The versions below are the reel on its own legs, for whichever accounts post Six Tools as its own moment (if the launch post and the reel split, or for a repost later in the series). Every line comes from reel 8's own claim trace: the six-tools hook, the front-page lead message, and the gap-honesty pair, all ratified in the message map.
-
-**Becky (personal account, video attached):**
-
-> How many tabs do you open just to find out what's happening in your own organization?
->
-> BeMo gives your organization a front page. What happened. What's moving. What needs you. And behind it, one memory that your grant work, strategy, and communications all share.
->
-> The front page shows what's in play. The knowledge base tells you what's missing. When BeMo shows an organization what it knows, it also says what it does not.
-
-**First comment:** The beta is open. It asks for nothing: free, no credit card. bemointel.ai
-
-**Lee (personal account, video attached):**
-
-> Every tool your nonprofit uses has its own idea of what is happening. None of them holds the whole picture, so you end up being the integration.
->
-> We built Home to end that: your organization's front page. What happened. What's moving. What needs you. Composed from your own record, and honest about the gaps.
->
-> The front page shows what's in play. The knowledge base tells you what's missing.
-
-**First comment:** The beta is open at bemointel.ai. Free, no credit card.
-
-**BeMo company page (video attached):**
-
-> You should not have to open six tools to find out what is happening in your own organization.
->
-> BeMo gives you a front page: what happened, what's moving, what needs you. Behind it, one memory your grant work, strategy, and communications all share. And when something is missing, it says so.
-
-**First comment:** Start the beta at bemointel.ai. Free, no credit card.
-
-**Bill (comment or share note for whichever post he amplifies):**
-
-> Every nonprofit I have advised runs this exact scavenger hunt: six tools open, and the real answer in none of them. This is the first product I have seen treat that as the problem instead of selling a seventh tab. Worth half a minute.
 
 ### The beta-signup email (HubSpot, from Becky)
 
@@ -184,3 +148,39 @@ The HubSpot list is mostly nonprofit contacts imported from LinkedIn who never o
 - Beta email: opens, clicks, signups started and finished, unsubscribes (list health).
 - Site: beta signups from launch week overall.
 - Jon's pipeline: how many warm leads the email and post hand him.
+
+## Appendix: Six Tools reel copy for later (NOT Thursday's set)
+
+Nothing here posts on launch day. These frame the reel as its own story with no "live today" news, for a standalone Six Tools moment later: a repost in a few weeks, or any account posting the reel on its own legs. Every line comes from reel 8's own claim trace: the six-tools hook, the front-page lead message, and the gap-honesty pair, all ratified in the message map.
+
+**Becky (personal account, video attached):**
+
+> How many tabs do you open just to find out what's happening in your own organization?
+>
+> BeMo gives your organization a front page. What happened. What's moving. What needs you. And behind it, one memory that your grant work, strategy, and communications all share.
+>
+> The front page shows what's in play. The knowledge base tells you what's missing. When BeMo shows an organization what it knows, it also says what it does not.
+
+**First comment:** The beta is open. It asks for nothing: free, no credit card. bemointel.ai
+
+**Lee (personal account, video attached):**
+
+> Every tool your nonprofit uses has its own idea of what is happening. None of them holds the whole picture, so you end up being the integration.
+>
+> We built Home to end that: your organization's front page. What happened. What's moving. What needs you. Composed from your own record, and honest about the gaps.
+>
+> The front page shows what's in play. The knowledge base tells you what's missing.
+
+**First comment:** The beta is open at bemointel.ai. Free, no credit card.
+
+**BeMo company page (video attached):**
+
+> You should not have to open six tools to find out what is happening in your own organization.
+>
+> BeMo gives you a front page: what happened, what's moving, what needs you. Behind it, one memory your grant work, strategy, and communications all share. And when something is missing, it says so.
+
+**First comment:** Start the beta at bemointel.ai. Free, no credit card.
+
+**Bill (comment or share note for whichever post he amplifies):**
+
+> Every nonprofit I have advised runs this exact scavenger hunt: six tools open, and the real answer in none of them. This is the first product I have seen treat that as the problem instead of selling a seventh tab. Worth half a minute.
