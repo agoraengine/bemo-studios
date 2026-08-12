@@ -68,6 +68,44 @@ The new site is live, and the beta is open.
 
 ---
 
+## Six Tools standalone copy, per account (drafted Aug 12; shelf copy, not launch day)
+
+For a standalone Six Tools moment after launch week (a repost, or any account posting the reel on its own legs, without the "live today" news). Every line from reel 8's claim trace. Moved here from the launch plan Aug 12 evening when that doc became the Lee-shareable version.
+
+**Becky (personal account, video attached):**
+
+> How many tabs do you open just to find out what's happening in your own organization?
+>
+> BeMo gives your organization a front page. What happened. What's moving. What needs you. And behind it, one memory that your grant work, strategy, and communications all share.
+>
+> The front page shows what's in play. The knowledge base tells you what's missing. When BeMo shows an organization what it knows, it also says what it does not.
+
+**First comment:** The beta is open. It asks for nothing: free, no credit card. bemointel.ai
+
+**Lee (personal account, video attached):**
+
+> Every tool your nonprofit uses has its own idea of what is happening. None of them holds the whole picture, so you end up being the integration.
+>
+> We built Home to end that: your organization's front page. What happened. What's moving. What needs you. Composed from your own record, and honest about the gaps.
+>
+> The front page shows what's in play. The knowledge base tells you what's missing.
+
+**First comment:** The beta is open at bemointel.ai. Free, no credit card.
+
+**BeMo company page (video attached):**
+
+> You should not have to open six tools to find out what is happening in your own organization.
+>
+> BeMo gives you a front page: what happened, what's moving, what needs you. Behind it, one memory your grant work, strategy, and communications all share. And when something is missing, it says so.
+
+**First comment:** Start the beta at bemointel.ai. Free, no credit card.
+
+**Bill (comment or share note for whichever post he amplifies):**
+
+> Every nonprofit I have advised runs this exact scavenger hunt: six tools open, and the real answer in none of them. This is the first product I have seen treat that as the problem instead of selling a seventh tab. Worth half a minute.
+
+---
+
 ## Reel 5 (old Reel 1): Starting From Zero
 
 The beta invitation lives in the post, not the video (brand-close decision, Aug 2). Written for Becky's own account, founder-thinking-publicly register, paired with the thinking-partner rung. Pre-GA rules apply: no GA mention, no countdown, no urgency.
