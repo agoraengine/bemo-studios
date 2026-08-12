@@ -38,7 +38,7 @@ Roles: the 30 earns attention in the feed. The 60 goes where someone has already
 
 ## The copy (drafts, ready for your edit)
 
-Becky's launch post began as the draft in the production's post-copy file (productions/linkedin-sizzle-series/post-copy.md), where its full claim trace lives; every line below either comes from that traced draft or reuses lines already ratified in the message map. Two Week 29 rulings stay open (see the fit notes in post-copy.md): the reel's paired close uses walks-out-the-door language inside honesty week, and the hero carries Jen's time story, which is a number. The post and email text below avoids both; the videos carry them, which is exactly the ruling to make before Thursday.
+Becky's launch post began as the draft in the production's post-copy file (productions/linkedin-sizzle-series/post-copy.md), where its full claim trace lives; every line below either comes from that traced draft or reuses lines already ratified in the message map. The two Week 29 flags are ruled (Becky, August 12 evening, recorded in the Week 29 plan in bemo-os): the videos are standing product assets and publish as approved, close pair and Jen's story included. The rule still binds all text: no post copy, card, or comment reply connects walks-out-the-door or legacy language to the memory thesis, and no number appears in any editorial asset. One follow-through: the hero names Maryellen and Caigh It Forward, so it goes in her named-surface re-confirm batch before it publishes.
 
 ### Becky's post (personal account, the 30-second cut attached)
 
