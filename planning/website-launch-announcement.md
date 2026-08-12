@@ -14,10 +14,14 @@ Week of Sunday, August 9 through Friday, August 14.
 |---|---|---|
 | Sunday Aug 9 | Field Notes video and post (60 seconds, Becky to camera, LinkedIn) | Opens the anchor |
 | Monday Aug 10 | The anchor publishes: LinkedIn article plus feed post and comment seeds | Maryellen's story in full |
-| Tuesday Aug 11 | Sizzle reel | The reel slot for the week |
-| Wednesday Aug 12 | Carousel ("ask it something it can't know"); Lee's Build Notes | Build Notes theme: "Modular, Not Monolithic" revisited |
-| Thursday Aug 13 | **Launch day** (full sequence below); plus Maryellen's quote card, the colleague-test post, Lee's Principle 9 reshare, Instagram day, and Becky's reshare of Build Notes | The site and the launch reel land inside the week's honesty argument on purpose: the reel's center line is "The front page shows what's in play. The knowledge base tells you what's missing." |
-| Friday Aug 14 | Newsletter (the anchor story with a personal note on top), Facebook adaptation, closing card | Week close |
+| Tuesday Aug 11 | Extension post (the flyers argument) | Ran |
+| Wednesday Aug 12 | Maryellen's quote card and the colleague-test post; Lee's Build Notes | Ran today. Build Notes theme: "Modular, Not Monolithic" revisited |
+| Thursday Aug 13 | **Launch day** (full sequence below); plus Lee's Principle 9 reshare, Instagram day, and Becky's reshare of Build Notes | The site and the launch reel land inside the week's honesty argument on purpose: the reel's center line is "The front page shows what's in play. The knowledge base tells you what's missing." |
+| Friday Aug 14 | Newsletter (the anchor story with a personal note on top), Facebook adaptation, and the closing card post | Week close |
+
+**Friday's post is the closing card:** dark brand background, two lines, "Ask it something it can't know. / The ones worth keeping will tell you when they're guessing." Becky's own line from the anchor, no attribution needed. It closes the week's argument the day after the launch shows the product making that exact bet.
+
+The sizzle reels join the weekly rhythm after launch, in the Tuesday slot.
 
 ## The videos
 
