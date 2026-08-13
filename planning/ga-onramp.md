@@ -56,10 +56,11 @@ Owner tags come from board labels and list ownership. "Blocked" means the card c
 ## Week of Aug 17: proof, pipeline, and the decision stack
 
 - [ ] Aug 17: Contracts and terms of service established (legal foundation)
-- [ ] Aug 19 **Becky:** Meg Poe quote-card sign-off, then release the Meg story (opens the standing cadence)
+- [x] Meg Poe story sign-off: arrived early, August 13 (recorded in bemo-os, `docs/customer-stories/meg-poe-aea-sponsorship-program.md`)
+- **Moved (Becky, Aug 13): the Meg case study is not available until the week of Aug 31.** Release rescheduled to that week's section below; nothing Meg-related runs this week.
 - [ ] Aug 19 **Becky:** Brief Mark on Allocate before the Thursday Monica call
 - [ ] Aug 21 **Becky:** Build the HubSpot Partner Claims view; log Jon's prospects first (unblocks Jon and Molly)
-- [ ] Aug 21 **Becky:** Second customer story: check sign-off, queue two weeks after Meg
+- [ ] Aug 21 **Becky:** Second customer story: check sign-off; queues two weeks after Meg's release, now mid-September per the Aug 13 move
 - [ ] Aug 21 **Becky:** White-glove onboard Jay's beta org (Daniel); credentials already sent the week of Aug 3 (Becky, Aug 11)
 - [ ] Aug 21 **Becky:** Map the beta cohort into one live HubSpot pipeline
 - [ ] Aug 21 **Becky:** Ecosystem contact map
@@ -95,6 +96,7 @@ Owner tags come from board labels and list ownership. "Blocked" means the card c
 
 ## Week of Aug 31: editions ship, month-end reviews (due Aug 31 to Sep 4)
 
+- [ ] **Becky:** Release the Meg Poe case study (moved here from Aug 19, Becky's call Aug 13; sign-off in hand since Aug 13, curation instruction in the story file). Opens the standing customer-story cadence; the second story queues two weeks behind it.
 - [ ] Aug 31 **Lee** (blocked): Ship the email edition; founders' Monday edition first (starts the dogfood validation clock)
 - [ ] Aug 31 **Becky:** Define the BFG case-study pilot (needs review; an August commitment)
 - [ ] Aug 31 (blocked): Partner follow-ups: Compliagence, BFG, Nonprofit Hive, Blackbaud
@@ -183,7 +185,7 @@ All of these hold before the sign changes. P50 is this week; P80 is by Oct 2.
 ## Standing cadence (runs the whole onramp)
 
 - Office hours daily for the first two weeks, then Monday/Wednesday/Friday
-- Never two weeks without published beta evidence (Meg first, second story two weeks behind)
+- Never two weeks without published beta evidence (Meg releases the week of Aug 31 per the Aug 13 move, second story two weeks behind). **Gap to cover:** Maryellen's story ran Aug 10, so with Meg moved, the week of Aug 24 has no published evidence scheduled and would breach this rule. Candidates already on the plan: the report-card posts and weekly beta newsletter stand up that week, or a Maryellen derivative (her blanket covers her name and words; naming the foundation needs her look). Becky's call.
 - Kill underperforming ads within 14 days, no exceptions
 - Two-strata outcome capture in every beta conversation (what changed, who did you tell)
 
