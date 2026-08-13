@@ -60,7 +60,7 @@ Owner tags come from board labels and list ownership. "Blocked" means the card c
 - **Moved (Becky, Aug 13): the Meg case study is not available until the week of Aug 31.** Release rescheduled to that week's section below; nothing Meg-related runs this week.
 - [ ] Aug 19 **Becky:** Brief Mark on Allocate before the Thursday Monica call
 - [ ] Aug 21 **Becky:** Build the HubSpot Partner Claims view; log Jon's prospects first (unblocks Jon and Molly)
-- [ ] Aug 21 **Becky:** Second customer story: check sign-off; queues two weeks after Meg's release, now mid-September per the Aug 13 move
+- [ ] Aug 21 **Becky:** Second customer story: Landis Andrews said yes Aug 13 (multi-client consultant ICP, a different segment than Meg per the message-house spacing rule; DM thread preserved in bemo-os `docs/source-files/`). Landis builds it in BeMo during a heavy-usage week starting ~Aug 16; check in around Aug 21. Queues two weeks after Meg's release, mid-September
 - [ ] Aug 21 **Becky:** White-glove onboard Jay's beta org (Daniel); credentials already sent the week of Aug 3 (Becky, Aug 11)
 - [ ] Aug 21 **Becky:** Map the beta cohort into one live HubSpot pipeline
 - [ ] Aug 21 **Becky:** Ecosystem contact map
