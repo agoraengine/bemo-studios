@@ -65,6 +65,7 @@ Owner tags come from board labels and list ownership. "Blocked" means the card c
 - [ ] Aug 19 **Becky:** Brief Mark on Allocate before the Thursday Monica call
 - [ ] Aug 21 **Becky:** Build the HubSpot Partner Claims view; log Jon's prospects first (unblocks Jon and Molly)
 - [ ] Aug 21 **Becky:** Landis Andrews customer story check-in: she builds it in BeMo during her heavy-usage week starting ~Aug 16 (yes received Aug 13, DM thread in bemo-os `docs/source-files/`). **Story order swapped (Becky, Aug 13): Landis releases first, week of Aug 31; Meg follows the week of Sep 7.** When the story arrives: her edits are the approval of the words; confirm the specific placement in the thank-you reply
+  - **May land a week early (Becky, Aug 13): Landis possibly back in time for the week of Aug 24.** This check-in is the decision point. The gate does not move: story in hand with her edits, placement confirmed in the thank-you reply. If all three hold by Aug 21, release Aug 24; if not, it stays Aug 31 and nothing is lost. Treat Aug 24 as a gate, never a date, because she starts building ~Aug 16 and a release that week asks her to finish inside about a week
 - [ ] Aug 21 **Becky:** White-glove onboard Jay's beta org (Daniel); credentials already sent the week of Aug 3 (Becky, Aug 11)
 - [ ] Aug 21 **Becky:** Map the beta cohort into one live HubSpot pipeline
 - [ ] Aug 21 **Becky:** Ecosystem contact map
@@ -86,6 +87,8 @@ Owner tags come from board labels and list ownership. "Blocked" means the card c
 
 ## Week of Aug 24: Wave 3 build and the pricing experiment (due Aug 28)
 
+- [ ] **Becky (conditional, Becky's Aug 13 read):** Release the Landis Andrews case study here instead of Aug 31 if her story is in hand with her edits by the Aug 21 check-in. Same gate, same story, one week earlier. Two things get better if it lands: the customer-story cadence runs four consecutive weeks (Maryellen Aug 10, appeal letter Aug 17, Landis Aug 24), and the spacing to Meg on Sep 7 widens to two weeks, which **retires the one-week exception** recorded against the Landis/Meg pair below and puts the pair back inside the message-house at-least-two-weeks guidance. If it slips, it stays Aug 31 with no cost
+
 - [ ] **Lee:** Build Wave 3: the editor and the front page (THE remaining GA-gating build)
 - [ ] **Lee:** Build the art desks: photo desk (Drive) and numbers desk (charts as citations)
 - [ ] **Lee:** Create the staging environment for the GA release (nowhere to rehearse the cutover today)
@@ -100,7 +103,7 @@ Owner tags come from board labels and list ownership. "Blocked" means the card c
 
 ## Week of Aug 31: editions ship, month-end reviews (due Aug 31 to Sep 4)
 
-- [ ] **Becky:** Release the Landis Andrews case study (order swap, Becky's call Aug 13: Landis leads, built in BeMo in her own words during the week of Aug 16; multi-client consultant ICP, the organizational-memory register). Opens the standing customer-story cadence. Gate: the story is in hand with her edits, and placement confirmed in the thank-you reply.
+- [ ] **Becky:** Release the Landis Andrews case study (order swap, Becky's call Aug 13: Landis leads, built in BeMo in her own words during the week of Aug 16; multi-client consultant ICP, the organizational-memory register). Opens the standing customer-story cadence. Gate: the story is in hand with her edits, and placement confirmed in the thank-you reply. **This is now the fallback week:** if her story clears the gate by the Aug 21 check-in it releases the week of Aug 24 instead (see that section), and this line closes.
 - [ ] Aug 31 **Lee** (blocked): Ship the email edition; founders' Monday edition first (starts the dogfood validation clock)
 - [ ] Aug 31 **Becky:** Define the BFG case-study pilot (needs review; an August commitment)
 - [ ] Aug 31 (blocked): Partner follow-ups: Compliagence, BFG, Nonprofit Hive, Blackbaud
@@ -123,7 +126,7 @@ Owner tags come from board labels and list ownership. "Blocked" means the card c
 
 ## Week of Sep 7: billing week (due Sep 7)
 
-- [ ] **Becky:** Release the Meg Poe case study (pushed one week from Aug 31, Becky's call Aug 13, so Landis leads; sign-off in hand since Aug 13, curation instruction in the story file). Second story in the cadence. Note: one week behind Landis, which amends the message-house at-least-two-weeks spacing guidance for this pair; Becky's call
+- [ ] **Becky:** Release the Meg Poe case study (pushed one week from Aug 31, Becky's call Aug 13, so Landis leads; sign-off in hand since Aug 13, curation instruction in the story file). Second story in the cadence. **Meg stays here either way**, whether Landis runs Aug 24 or Aug 31; moving her up to chase Landis would only recreate the one-week spacing this is meant to avoid. Note: one week behind Landis, which amends the message-house at-least-two-weeks spacing guidance for this pair; Becky's call. **The amendment self-retires if Landis lands the week of Aug 24**, since the gap widens to two weeks and the pair no longer needs an exception
 - [ ] **Lee** (blocked): Widen ga.home (Waves 1 through 3) to the beta cohort (GA wants one stable week on this)
 - [ ] **Lee:** Configure products in Stripe (Free, Individual $100, Team $250 + seats)
 - [ ] **Lee:** Integrate Stripe into the BeMo UI (plan selection, checkout, subscription management)
@@ -191,6 +194,8 @@ All of these hold before the sign changes. P50 is this week; P80 is by Oct 2.
 
 - Office hours daily for the first two weeks, then Monday/Wednesday/Friday
 - Never two weeks without published beta evidence (order per Becky's Aug 13 calls: Landis releases the week of Aug 31, Meg the week of Sep 7). **Gap now covered (Becky, Aug 13):** Maryellen's story ran Aug 10 and the weeks of Aug 17 and Aug 24 were dark, which breached this rule. The appeal letter story (unnamed) takes the week of Aug 17, and the report-card posts plus the weekly beta newsletter stand up the week of Aug 24, so the cadence runs unbroken into Landis on Aug 31. Held in reserve if either slips: a Patti Connolly quote card (needs her ok) or a Maryellen derivative (her blanket covers her name and words; naming the foundation needs her look).
+
+  **If Landis lands the week of Aug 24** (Becky's Aug 13 read, gated on the Aug 21 check-in): Aug 10 Maryellen, Aug 17 appeal letter unnamed, Aug 24 Landis, Aug 31 report cards and newsletter, Sep 7 Meg. Four straight weeks of story evidence and no week over the line. Note what this does to the Aug 17 slot: with Landis on Aug 24 the dark stretch was only ever one week, so the appeal letter stops being required and becomes a choice. Keep it anyway. It is the only release on this board that depends on nobody else, the story is finished and permissioned today, and if it holds the week then Landis slipping costs a week of polish instead of the cadence rule.
 - Kill underperforming ads within 14 days, no exceptions
 - Two-strata outcome capture in every beta conversation (what changed, who did you tell)
 
