@@ -105,6 +105,8 @@ Start a video with the `new-production` skill. It scaffolds the folder from `tem
 
 The pipeline is five stages and they are gated in order. Do not skip forward: a script written before the brief is ratified is a script that gets thrown away. See `docs/01-pipeline.md`.
 
+Every published artifact carries a version and date in its header (`v2 · August 14, 2026`) and a footer line saying what changed in that version. These pages get shared with reviewers and revised at the same URL, so a reader who opened the previous version has no other way to know what moved. Increment on substantive revision, not on restyling, and keep the title stable across versions.
+
 ## Who operates this
 
-Becky runs productions. Lee is needed only for capture against local builds and for anything touching the app's data. Write instructions in this repo so Becky can run them without Lee present.
+Becky runs productions. Live-app capture runs without Lee through the Cottage 2 harness (Becky's saved session in `capture/.auth/`, per `../bemo-os/docs/internal/initiatives/cottage-2/`); its guardrails are conditions of use. Lee is needed only for capture against local builds and for app-side changes the harness cannot make through the front door. Write instructions in this repo so Becky can run them without Lee present.
