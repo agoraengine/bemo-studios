@@ -190,7 +190,7 @@ The quote card left the reel (Becky's Aug 16 ruling), so the post carries the pr
 ### Open
 
 - The Amplify v1 finals carry no on-screen provenance line; this reel adds one (mandatory for every Week 30 product visual). One treatment should win the slate; whichever way Becky rules, the losing set re-renders in one pass.
-- YouTube channel ownership still unconfirmed; gates the Tuesday YouTube post, not the LinkedIn post.
+- ~~YouTube channel ownership still unconfirmed; gates the Tuesday YouTube post, not the LinkedIn post.~~ Resolved (Becky, 2026-08-16): Becky handles the YouTube page and posts the full cuts herself; nothing gates the video posts. The open confirm moved to Lee: UTM tracking end to end (tagged links recorded, signup goal fires), asked before Monday.
 - Music licence terms for paid use, standing item, before the 15s core runs behind the Aug 21 paid gates.
 
 ---
