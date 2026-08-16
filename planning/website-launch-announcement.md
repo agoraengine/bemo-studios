@@ -1,6 +1,8 @@
 # BeMo Launch Week
 
-The site goes live in beta posture Thursday, August 13. Soft launch: the site flips quietly, and the announcement is the LinkedIn post plus direct shares, not a press push. Beta signups are open from the moment the site is live. No GA language anywhere, no countdown, teaser register throughout.
+**Shareable page (private until shared, built August 13 against the Friday move):** https://claude.ai/code/artifact/21484aa6-4970-4b1f-a9e7-28934dc56756 — the run of show plus every copy block, each with a copy button. Send to Lee, Bill, and Jon instead of pasting their pieces one at a time.
+
+The site goes live in beta posture Friday, August 14 (moved from Thursday, August 13). Soft launch: the site flips quietly, and the announcement is the LinkedIn post plus direct shares, not a press push. Beta signups are open from the moment the site is live. No GA language anywhere, no countdown, teaser register throughout.
 
 The week's spine, in three registers: what the product does when it doesn't know (Becky, all week), what the builder got wrong and is saying so (Lee, midweek), and the claim that survived and needs no revision (Lee, Thursday).
 
@@ -15,11 +17,11 @@ Week of Sunday, August 9 through Friday, August 14.
 | Sunday Aug 9 | Field Notes video and post (60 seconds, Becky to camera, LinkedIn) | Opens the anchor |
 | Monday Aug 10 | The anchor publishes: LinkedIn article plus feed post and comment seeds | Maryellen's story in full |
 | Tuesday Aug 11 | Extension post (the flyers argument) | Ran |
-| Wednesday Aug 12 | Maryellen's quote card and the colleague-test post; Lee's Build Notes | Ran today. Build Notes theme: "Modular, Not Monolithic" revisited |
-| Thursday Aug 13 | **Launch day** (full sequence below); plus Lee's Principle 9 reshare, Instagram day, and Becky's reshare of Build Notes | The site and the launch reel land inside the week's honesty argument on purpose: the reel's center line is "The front page shows what's in play. The knowledge base tells you what's missing." |
-| Friday Aug 14 | Newsletter (the anchor story with a personal note on top), Facebook adaptation, and the closing card post | Week close |
+| Wednesday Aug 12 | Maryellen's quote card and the colleague-test post; Lee's Build Notes | Ran. Build Notes theme: "Modular, Not Monolithic" revisited |
+| Thursday Aug 13 | Launch eve: Lee's Principle 9 reshare, Instagram day, Becky's reshare of Build Notes. Plus the prep steps that used to sit on Wednesday night (hero to YouTube, Bill's heads-up, Maryellen's re-confirm) | No launch signal in any of it |
+| Friday Aug 14 | **Launch day** (full sequence below), then the newsletter, the Facebook adaptation, and the closing card post | Launch and week close now share one day, sequenced morning to evening. The site and the launch reel land inside the week's honesty argument on purpose: the reel's center line is "The front page shows what's in play. The knowledge base tells you what's missing." |
 
-**Friday's post is the closing card:** dark brand background, two lines, "Ask it something it can't know. / The ones worth keeping will tell you when they're guessing." Becky's own line from the anchor, no attribution needed. It closes the week's argument the day after the launch shows the product making that exact bet.
+**Friday's post is the closing card:** dark brand background, two lines, "Ask it something it can't know. / The ones worth keeping will tell you when they're guessing." Becky's own line from the anchor, no attribution needed. It closes the week's argument hours after the launch shows the product making that exact bet, so it runs last, in the evening.
 
 The sizzle reels join the weekly rhythm after launch, in the Tuesday slot.
 
@@ -33,22 +35,24 @@ The sizzle reels join the weekly rhythm after launch, in the Tuesday slot.
 
 Roles: the 30 earns attention in the feed. The 60 goes where someone already agreed to pay attention: YouTube, email, direct messages. Drive is the archive.
 
-## Launch day sequence (Thursday, August 13)
+## Launch day sequence (Friday, August 14)
 
 | When | Step | Who |
 |---|---|---|
-| Wednesday night | Hero live on YouTube (public, thumbnail, description); Bill's heads-up email; Maryellen's re-confirm note covering the hero as a named surface | Becky |
+| Thursday evening | Hero live on YouTube (public, thumbnail, description); Bill's heads-up email; Maryellen's re-confirm note covering the hero as a named surface | Becky |
 | Morning | Confirm the site is live at bemointel.ai and click through the main pages once | Becky |
 | Late morning | Launch post publishes: the 30-second reel uploaded natively into the post, copy below, links in the first comment | Becky, by hand |
 | Right after posting | First comment: the beta line, the site link, the YouTube link to the 60 | Becky |
 | Same hour | BeMo company page posts its version (copy below), reel uploaded natively there too | Becky, as the page |
 | Same hour | Bill comments on Becky's post (copy below) | Bill |
 | Afternoon | Lee reshares the launch post with his note (copy below) | Lee |
+| Early afternoon | Beta-signup email (below). Friday sends land best before mid-afternoon; if it slips past that, hold it for Monday morning | Becky |
 | Afternoon | Jon's one-to-one sends switch to the 60-second hero | Jon |
 | Afternoon | Emails to Jay, Mark, and Christian: site link, YouTube link, share-forward invitation, thanks | Becky |
-| Afternoon or Friday morning | Beta-signup email (below) | Becky |
+| Afternoon | Newsletter (the anchor story with a personal note on top) and the Facebook adaptation | Becky |
+| Evening | The closing card post | Becky |
 
-## Thursday's copy
+## Friday's copy
 
 ### Becky's post (personal account, the 30-second reel attached)
 
@@ -125,7 +129,7 @@ Tag the button and thumbnail with launch UTMs (utm_campaign=site-launch) so laun
 
 - YouTube link drops into the two first comments, the three emails, and the beta email once the upload finishes.
 - HubSpot source tagging (beta signup vs LinkedIn import) before the beta email sends.
-- Fit check on Thursday's feed volume: launch post, quote card, Instagram, and reshares share one day; sequence them morning to evening rather than all at once.
+- Fit check on Friday's feed volume, which the date move made heavier: launch post, reshares, newsletter, Facebook adaptation, and the closing card now share one day. Sequence them morning to evening rather than all at once, and let the launch post hold the morning by itself.
 
 ## What we watch in week one
 

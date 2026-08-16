@@ -3,6 +3,17 @@
     "additionalDirectories": [
       "../bemo-os",
       "../bemo-website"
+    ],
+    "allow": [
+      "mcp__heygen__get_video",
+      "mcp__heygen__bulk_video_statuses",
+      "mcp__heygen__list_avatar_looks",
+      "mcp__heygen__list_avatar_groups",
+      "mcp__heygen__get_voice",
+      "mcp__heygen__create_video_from_avatar",
+      "mcp__heygen__create_speech",
+      "mcp__playwright__browser_take_screenshot",
+      "mcp__playwright__browser_snapshot"
     ]
   }
 }

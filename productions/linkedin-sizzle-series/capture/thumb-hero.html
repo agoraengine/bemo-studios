@@ -1,0 +1,40 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<title>Hero YouTube thumbnail</title>
+<style>
+  /* The hero's own v6 tokens (source-hero.html): Schibsted only, snow ground,
+     sapphire headline, green mark. Background is the six-tools pile from the
+     film itself (caption-free raw frame), washed so the type carries. */
+  @font-face { font-family: "Schibsted Grotesk"; src: url("fonts/SchibstedGrotesk-var.woff2"); font-weight: 400 900; }
+  :root {
+    --snow: #F8F9FC; --sapphire: #05347E; --green: #4CBB17;
+  }
+  * { box-sizing: border-box; margin: 0; }
+  html, body { width: 1280px; height: 720px; overflow: hidden; }
+  #stage { width: 1280px; height: 720px; position: relative; overflow: hidden;
+    font-family: "Schibsted Grotesk", sans-serif; background: var(--snow); }
+  #bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  /* wash: keep the pile readable as texture, give the type a clear field */
+  #wash { position: absolute; inset: 0;
+    background: linear-gradient(180deg,
+      rgba(248,249,252,0.42) 0%, rgba(248,249,252,0.62) 44%, rgba(248,249,252,0.88) 100%); }
+  #copy { position: absolute; inset: 0; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; text-align: center; padding: 0 70px; }
+  #l1 { font-size: 92px; font-weight: 750; letter-spacing: -0.02em; line-height: 1.04;
+    color: var(--sapphire); text-wrap: balance; }
+  #l1 .mk { box-shadow: inset 0 -10px 0 var(--green); }
+  #l2 { margin-top: 26px; font-size: 44px; font-weight: 520; letter-spacing: -0.01em;
+    color: var(--sapphire); opacity: 0.82; text-wrap: balance; }
+  #wm { position: absolute; right: 44px; bottom: 34px; width: 150px; opacity: 0.92; }
+</style></head>
+<body>
+<div id="stage">
+  <img id="bg" src="assets/thumb-bg-pile.png">
+  <div id="wash"></div>
+  <div id="copy">
+    <div id="l1">You shouldn't have to<br>open <span class="mk">six tools</span></div>
+    <div id="l2">to find out what's happening in your own organization.</div>
+  </div>
+  <img id="wm" src="assets/wordmark.svg">
+</div>
+</body></html>

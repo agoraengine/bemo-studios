@@ -1,6 +1,16 @@
 # Roster Expansion: Reels 8 through 19
 
-**Status:** DRAFT, awaiting Becky's ratification. This is a proposed amendment to the ratified series brief (`brief.md`), which made the series open-ended (Becky, 2026-08-02) and set the rule this document follows: a reel joins the roster only when its one message is already ratified in the message map and its proof is cleared. Nothing below gets a script until Becky ratifies the roster, per the pipeline gate.
+> **Numbering note (2026-08-11):** the numbers 8 through 19 below predate the series renumber and are superseded for naming. These twelve proposals are series reels **13 through 24** in `roster.md` (the naming authority), same order. Two of them (It Tells You What's Missing, It Says "I Don't Know") now overlap the scheduled reel 4, It Says So; merge-or-keep is a ratification call.
+
+**Status:** RATIFIED (Becky, 2026-08-11). The twelve proposals join the roster as series reels 13 through 24 per the ledger in `roster.md`. How the five ratification decisions landed:
+
+1. The roster is ratified as proposed, with one amendment: **It Tells You What's Missing (series 14) and It Says "I Don't Know" (series 16) merge into scheduled reel 4, It Says So**, whose script already carries both the gaps quote and the says-so behavior. Applied under Becky's same-day no-overlap directive for the feature slate; the numbers 14 and 16 retire and are never reassigned, per the numbering rule.
+2. The descent column may hold "none": reels without a core-set parent (19, 21, 23) stand as ratified.
+3. The Claude Is Yours register call (series 22) **stays open**: naming Claude/ChatGPT publicly needs its own decision before that reel is scripted; unnamed is the default if it comes due first.
+4. The stale "Nothing drops on the floor" line is removed from `brief.md`'s must-not-say (the line was ratified into the map Aug 1 and reworded to "falls" Aug 6).
+5. Reel-to-anchor pairing for the new reels waits on the Week 30+ asset plans, same as reels 1 through 12.
+
+This was a proposed amendment to the ratified series brief (`brief.md`), which made the series open-ended (Becky, 2026-08-02) and set the rule this document follows: a reel joins the roster only when its one message is already ratified in the message map and its proof is cleared. Scheduling is separate: the organic calendar is full through GA, so ratified reels queue for the post-GA wave unless a slot opens. The same-day li-product-feature-reels slate (Wednesdays) is the complementary tier, not a competitor; territory overlaps between the two are handled by the two-week clearance rule in that production's rollout plan.
 **Opened:** 2026-08-03, after the super demo 60 review cut rendered (Becky's directive: once the Tiffany 60 is built, survey the rest of the platform and plan the next dozen 30-second reels)
 **Canon read:** `ga-message-map.md` v1.2, `messaging-assets-v1.md`, `04-core-video-set.md`, `05-claim-map.md`, `customer-stories/00-overview.md`, all read 2026-08-03. Clearances re-checked at script time regardless, per hard rule 3.
 

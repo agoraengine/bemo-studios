@@ -1,0 +1,579 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<title>BeMo short-form animations: the ten-second cuts</title>
+<!--
+  Three silent cuts on the Apple grammar: ask, withhold, resolve, mark.
+  Query param: ?cut=1|2|3   (see brief.md for what each one lands on)
+
+  Every cut holds at least one full second of near-empty frame. That beat is
+  the format, not padding: it is the only place the viewer answers the question
+  themselves, which is the whole mechanism the reference analysis pulls out of
+  Apple's post. If a timing change squeezes it, change something else.
+
+  No product, no capture, no proof, no speech. v6 system throughout:
+  Schibsted only, Snow ground, Deep Sapphire display, green as an inherited
+  3px underline, orange nowhere. DUR values must match run.mjs.
+-->
+<style>
+  @font-face { font-family: "Schibsted Grotesk"; src: url("fonts/SchibstedGrotesk-var.woff2"); font-weight: 400 900; }
+  @font-face { font-family: "Geist Mono"; src: url("fonts/GeistMono-var.woff2"); font-weight: 400 500; }
+  :root {
+    --surface: #FFFFFF; --snow: #F8F9FC; --ink: #1A2A3A; --ink-muted: #3D4F66;
+    --ink-faint: #5C6A82; --rule: #D1D9E6; --sapphire: #05347E; --navy: #05347E;
+    --green: #4CBB17; --green-deep: #2F7D0D; --orange: #FF8210;
+  }
+  * { box-sizing: border-box; margin: 0; }
+  html, body { height: 100%; background: #0B1526; display: grid; place-items: center;
+    font-family: "Schibsted Grotesk", sans-serif; overflow: hidden; }
+  /* the stage ground is Snow, so a scene fading out leaves an empty frame
+     rather than a hole; the empty beat has to look deliberate */
+  #stage { width: 1280px; height: 720px; background: var(--snow); position: relative;
+    overflow: hidden; transform-origin: center; }
+  .scene { position: absolute; inset: 0; opacity: 0; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; text-align: center; padding: 0 100px; }
+  .disp { font-weight: 640; letter-spacing: -0.025em; line-height: 1.1; color: var(--sapphire);
+    text-wrap: balance; opacity: 0; }
+  /* Inherited Mark Rule: green is a 3px underline under text that keeps its own
+     colour, never green type. Drawn left to right so it reads as a mark being
+     made rather than a highlight switching on. */
+  .mk { position: relative; display: inline-block; white-space: nowrap; }
+  .mk::after { content: ""; position: absolute; left: 0; right: 0; bottom: -0.06em; height: 6px;
+    background: var(--green); transform-origin: left center;
+    /* ::after takes no inline style, so the draw rides a custom property that
+       the timeline sets on the .mk element (markScale below) */
+    transform: scaleX(var(--mkk, 0)); }
+
+  /* ---- cut 1: the only one ----
+     max-width belongs on the text, never on .scene: a scene is inset:0 and
+     absolutely positioned, so capping its width pins it left instead of
+     narrowing the measure. */
+  #c1askT { font-size: 56px; max-width: 1000px; }
+  #c1room { justify-content: center; }
+  .chipgrid { display: grid; grid-template-columns: repeat(4, 220px); gap: 26px; }
+  .chip { height: 66px; border-radius: 12px; background: var(--surface); border: 1px solid var(--rule);
+    display: grid; place-items: center; font-size: 21px; font-weight: 500; color: var(--ink);
+    box-shadow: 0 12px 26px -18px rgba(26,42,58,0.35); opacity: 0; }
+  #c1lineT { font-size: 52px; max-width: 1060px; }
+
+  /* ---- cut 2: where did they go ---- */
+  #c2aT, #c2bT { font-size: 58px; max-width: 1020px; }
+  #c2aT .w { display: inline-block; opacity: 0; }
+
+  /* ---- cut 3: seven tabs ---- */
+  #c3 { justify-content: center; gap: 46px; }
+  .win { width: 1080px; border-radius: 12px 12px 10px 10px; background: var(--surface);
+    border: 1px solid var(--rule); box-shadow: 0 26px 56px -26px rgba(26,42,58,0.34);
+    overflow: hidden; opacity: 0; }
+  .strip { height: 52px; background: var(--snow); border-bottom: 1px solid var(--rule);
+    position: relative; }
+  /* one tab reads active and the rest recede, the way a real strip does; the
+     active one is the tab left standing when the strip collapses */
+  .tab { position: absolute; top: 10px; height: 42px; width: 146px; border-radius: 9px 9px 0 0;
+    background: #EDF1F7; border: 1px solid var(--rule); border-bottom: none;
+    display: grid; place-items: center; font-size: 15px; color: var(--ink-faint);
+    white-space: nowrap; overflow: hidden; opacity: 0; }
+  .tab.on { top: 8px; height: 44px; background: var(--surface); color: var(--ink); }
+  .body { height: 186px; padding: 26px 28px; display: grid; gap: 13px; align-content: start; }
+  .ln { height: 11px; border-radius: 5px; background: var(--snow); border: 1px solid var(--rule); }
+  .ln.w80 { width: 80%; } .ln.w60 { width: 60%; } .ln.w45 { width: 45%; }
+  /* sits on the window's right edge, one line above it */
+  #c3count { position: absolute; right: 100px; top: 146px; font-family: "Geist Mono", monospace;
+    font-size: 17px; letter-spacing: 0.1em; color: var(--ink-faint); opacity: 0; }
+  #c3line { font-size: 50px; }
+
+  /* ---- cut 4: the brand build ---- */
+  #c4 { background: var(--navy); justify-content: center; }
+  #c4mark { margin-bottom: 8px; }
+  /* letters and arcs animate as groups; transform-box makes origins local.
+     Direct children only: each arc is triple-wrapped in clip groups, and
+     hiding the inner wrappers too would keep the arcs invisible forever. */
+  #c4mark #a3a4bac5b9 > g[style], #c4mark #a3a4bac5b9 > g[clip-path] {
+    transform-box: fill-box; opacity: 0; }
+  #c4mark #a3a4bac5b9 > g[style] { transform-origin: 50% 100%; }
+  /* the arcs radiate up and right from the o, so they grow from that corner */
+  #c4mark #a3a4bac5b9 > g[clip-path] { transform-origin: 0% 100%; }
+  #c4tag { font-size: 40px; font-weight: 640; letter-spacing: -0.02em; color: #FFFFFF;
+    margin-top: 34px; opacity: 0; }
+  #c4url { font-family: "Geist Mono", monospace; font-size: 16px; letter-spacing: 0.07em;
+    color: #9DB9E8; margin-top: 15px; opacity: 0; }
+
+  /* ---- cut 5: the poster ----
+     The Apple grammar, measured off the real post (6s, one composition,
+     everything present from frame one, exactly one element animates: their
+     "#1" rolls like an odometer and clicks in). Ours: giant type carrying the
+     approved paired close, the wordmark embossed tone-on-tone in the ground
+     bleeding off the edge, support line and URL pill lower left, and the one
+     moving thing is the word "falls": it slips off the baseline and is caught. */
+  #c5, #cq { background: radial-gradient(120% 140% at 30% 20%, #0A4193 0%, var(--navy) 55%, #032a68 100%);
+    align-items: flex-start; justify-content: flex-start; text-align: left;
+    padding: 72px 84px 40px; }
+  /* fine grain over the gradient: platform re-encodes band smooth navy
+     ramps, and the noise floor keeps the ramp intact after compression */
+  #c5::after, #cq::after { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: 0.05;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="220" height="220"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2"/><feColorMatrix values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.6 0"/></filter><rect width="220" height="220" filter="url(%23n)"/></svg>'); }
+  /* the wordmark fills the blue space under the headline and breathes: the
+     letters hold as a still emboss, the arcs pulse in sequence like the
+     signal going out. Per-group opacity is set from the timeline. The tagline
+     and URL sit centered beneath it, the standing-close stack from the reels. */
+  #c5emboss, #cqemboss { width: 780px; margin: 26px auto 0; align-self: center; pointer-events: none; }
+  #c5emboss svg, #cqemboss svg { width: 100%; height: auto; display: block; }
+  #c5h, #cqh { font-size: 76px; font-weight: 640; letter-spacing: -0.025em; line-height: 1.16;
+    color: #FFFFFF; position: relative; z-index: 2; }
+  /* the two acted-out words and the closing period carry the green, Becky's
+     direction Aug 14 (a sanctioned exception to the underline-only mark rule) */
+  #c5fall, #c5door, #c5dot, .gw { color: var(--green); }
+  .gw { display: inline-block; }
+  /* generic door word (cut 10 reuses the swing) */
+  .doorw { transform-origin: left center; }
+  /* generic strike-through: draws with --stk, lingers, lifts with --stko */
+  .strik { position: relative; }
+  .strik::after { content: ""; position: absolute; left: -0.06em; right: -0.06em; top: 0.52em;
+    height: 7px; background: var(--green); transform-origin: left center;
+    transform: scaleX(var(--stk, 0)); opacity: var(--stko, 1); }
+  /* the blinking caret for the waiting "Who" */
+  .qcaret { display: inline-block; width: 0.09em; height: 0.82em; background: var(--green);
+    vertical-align: -0.07em; margin-left: 0.06em; opacity: var(--ck, 0); }
+  /* absolute variant: hangs off its word without adding layout width */
+  .qcaret.qcabs { position: absolute; right: -0.26em; top: 0.12em; margin-left: 0; }
+  /* the multiplying word: ghost copies stack up behind "tabs" as the count
+     climbs, one per tick, like a browser filling */
+  .tghost { position: absolute; left: 0; top: 0; opacity: 0; color: var(--green);
+    pointer-events: none; }
+  #qwtop { position: relative; z-index: 1; }
+  /* the tab counter, mono, top right of the poster */
+  #qcount { position: absolute; right: 84px; top: 84px; font-family: "Geist Mono", monospace;
+    font-size: 22px; letter-spacing: 0.1em; color: #9DB9E8; opacity: 0; }
+  body.sq #qcount { right: 70px; top: 70px; }
+  #c5fall { display: inline-block; transform-origin: 42% 96%; }
+  /* the word is the door: it swings open on its left edge (the hinge) and
+     shuts again. Nothing walks out while it is open. The period stays put.
+     perspective() lives in the word's own transform so the vanishing point
+     sits on the door, not on the headline's center. */
+  #c5door { display: inline-block; transform-origin: left center; }
+  #c5sub, #cqsub { align-self: center; margin-top: 10px; font-size: 24px; color: #C8D9F3; }
+  #c5cta, #cqcta { align-self: center; margin-top: 22px; }
+  /* Ink-on-Orange: the pill is an action (the URL), the one place orange is
+     allowed to carry ink text in video */
+  #c5cta span, #cqcta span { background: var(--orange, #FF8210); color: #1A2A3A; font-weight: 600;
+    font-size: 20px; border-radius: 10px; padding: 12px 26px; letter-spacing: 0.01em; }
+
+  /* the 1080x1080 feed square: same poster, stacked tighter and centered */
+  body.sq #stage { width: 1080px; height: 1080px; }
+  body.sq #c5, body.sq #cq { padding: 70px; justify-content: center; }
+  body.sq #c5h, body.sq #cqh { font-size: 61px; }
+  body.sq #c5emboss, body.sq #cqemboss { width: 700px; margin-top: 78px; }
+  body.sq #c5sub, body.sq #cqsub { margin-top: 18px; }
+  body.sq #c5cta, body.sq #cqcta { margin-top: 26px; }
+
+  /* ---- shared close ---- */
+  #sClose { background: var(--navy); }
+  .logow { height: 118px; display: block; opacity: 0; }
+  #clT { font-size: 44px; font-weight: 640; letter-spacing: -0.02em; color: #FFFFFF;
+    margin-top: 48px; opacity: 0; }
+  #clU { font-family: "Geist Mono", monospace; font-size: 17px; letter-spacing: 0.07em;
+    color: #9DB9E8; margin-top: 16px; opacity: 0; }
+</style>
+</head>
+<body>
+<div id="stage">
+
+  <div class="scene" id="c1ask">
+    <div class="disp" id="c1askT">Guess who knows how this organization actually works.</div>
+  </div>
+
+  <div class="scene" id="c1room">
+    <div class="chipgrid" id="c1grid">
+      <div class="chip">Board chair</div>
+      <div class="chip">Program director</div>
+      <div class="chip">Grants manager</div>
+      <div class="chip">Bookkeeper</div>
+      <div class="chip">Volunteer lead</div>
+      <div class="chip">You</div>
+      <div class="chip">New hire</div>
+      <div class="chip">Communications</div>
+    </div>
+  </div>
+
+  <div class="scene" id="c1line">
+    <div class="disp" id="c1lineT">You don't have to be <span class="mk" id="c1mk">the only one</span> who knows how this organization works.</div>
+  </div>
+
+  <div class="scene" id="c2a">
+    <div class="disp" id="c2aT"></div>
+  </div>
+
+  <div class="scene" id="c2b">
+    <div class="disp" id="c2bT"><span class="mk" id="c2mk">Where did they go?</span></div>
+  </div>
+
+  <div class="scene" id="c3">
+    <div class="win" id="c3win">
+      <div class="strip" id="c3strip"></div>
+      <div class="body" id="c3body">
+        <div class="ln w80"></div><div class="ln"></div><div class="ln w60"></div><div class="ln w45"></div>
+      </div>
+    </div>
+    <div class="disp" id="c3line">Seven tabs. <span class="mk" id="c3mk">One organization.</span></div>
+  </div>
+  <div id="c3count">00</div>
+
+  <!-- cut 4: the brand build. One held composition, no scene cuts: the
+       wordmark assembles on the Sapphire ground and the tagline settles under
+       it. The inline svg is assets/wordmark-white.svg verbatim (root resized);
+       inlined because the pieces animate individually, which an image tag cannot. -->
+  <div class="scene" id="c4">
+    <div id="c4mark">
+<svg data-provenance="white knockout derived from bemo-os/docs/branding/assets/logo-horizontal.svg per 03-logo.md monochrome variants" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="bmk" width="620" zoomAndPan="magnify" viewBox="5 213 800 312" height="242" preserveAspectRatio="xMidYMid meet" version="1.2"><defs><clipPath id="c244eb507c"><path d="M 582 294 L 797 294 L 797 351 L 582 351 Z M 582 294 "/></clipPath><clipPath id="a76d976582"><path d="M 582.066406 338.546875 L 689.171875 231.4375 L 796.277344 338.546875 L 689.171875 445.652344 Z M 582.066406 338.546875 "/></clipPath><clipPath id="d1ad1a85fa"><path d="M 582.066406 338.546875 L 689.171875 231.4375 L 796.277344 338.546875 L 689.171875 445.652344 Z M 582.066406 338.546875 "/></clipPath><clipPath id="4a35103eca"><path d="M 602 323 L 776 323 L 776 369 L 602 369 Z M 602 323 "/></clipPath><clipPath id="3eba11d3c7"><path d="M 602.847656 359.328125 L 689.128906 273.046875 L 775.410156 359.328125 L 689.128906 445.609375 Z M 602.847656 359.328125 "/></clipPath><clipPath id="264337594b"><path d="M 602.847656 359.328125 L 689.128906 273.046875 L 775.410156 359.328125 L 689.128906 445.609375 Z M 602.847656 359.328125 "/></clipPath><clipPath id="a8cbae664d"><path d="M 620 349 L 759 349 L 759 386 L 620 386 Z M 620 349 "/></clipPath><clipPath id="39ecd415a9"><path d="M 620.261719 378.324219 L 689.1875 309.398438 L 758.109375 378.324219 L 689.1875 447.246094 Z M 620.261719 378.324219 "/></clipPath><clipPath id="d84a981dee"><path d="M 620.261719 378.324219 L 689.1875 309.398438 L 758.109375 378.324219 L 689.1875 447.246094 Z M 620.261719 378.324219 "/></clipPath></defs><g id="a3a4bac5b9"><rect x="0" width="810" y="0" height="809.999993" style="fill:none;stroke:none;"/><rect x="0" width="810" y="0" height="809.999993" style="fill:none;stroke:none;"/><g style="fill:#FFFFFF;fill-opacity:1;"><g transform="translate(15.932284, 513.598828)"><path style="stroke:none" d="M 97.265625 -136.171875 C 109.734375 -136.171875 121.078125 -133.300781 131.296875 -127.5625 C 141.523438 -121.820312 149.546875 -113.753906 155.359375 -103.359375 C 161.179688 -92.972656 164.09375 -80.882812 164.09375 -67.09375 C 164.09375 -53.289062 161.179688 -41.191406 155.359375 -30.796875 C 149.546875 -20.410156 141.523438 -12.347656 131.296875 -6.609375 C 121.078125 -0.867188 109.734375 2 97.265625 2 C 78.804688 2 64.753906 -3.820312 55.109375 -15.46875 L 55.109375 0 L 17.953125 0 L 17.953125 -185.046875 L 56.859375 -185.046875 L 56.859375 -119.953125 C 66.671875 -130.765625 80.140625 -136.171875 97.265625 -136.171875 Z M 90.53125 -29.921875 C 100.507812 -29.921875 108.695312 -33.285156 115.09375 -40.015625 C 121.488281 -46.753906 124.6875 -55.78125 124.6875 -67.09375 C 124.6875 -78.394531 121.488281 -87.410156 115.09375 -94.140625 C 108.695312 -100.878906 100.507812 -104.25 90.53125 -104.25 C 80.550781 -104.25 72.359375 -100.878906 65.953125 -94.140625 C 59.554688 -87.410156 56.359375 -78.394531 56.359375 -67.09375 C 56.359375 -55.78125 59.554688 -46.753906 65.953125 -40.015625 C 72.359375 -33.285156 80.550781 -29.921875 90.53125 -29.921875 Z M 90.53125 -29.921875 "/></g></g><g style="fill:#FFFFFF;fill-opacity:1;"><g transform="translate(188.010365, 513.598828)"><path style="stroke:none" d="M 149.390625 -66.59375 C 149.390625 -66.09375 149.140625 -62.597656 148.640625 -56.109375 L 47.140625 -56.109375 C 48.960938 -47.796875 53.28125 -41.226562 60.09375 -36.40625 C 66.914062 -31.582031 75.398438 -29.171875 85.546875 -29.171875 C 92.523438 -29.171875 98.710938 -30.207031 104.109375 -32.28125 C 109.515625 -34.363281 114.546875 -37.648438 119.203125 -42.140625 L 139.90625 -19.703125 C 127.269531 -5.234375 108.816406 2 84.546875 2 C 69.410156 2 56.023438 -0.953125 44.390625 -6.859375 C 32.753906 -12.765625 23.773438 -20.953125 17.453125 -31.421875 C 11.140625 -41.898438 7.984375 -53.789062 7.984375 -67.09375 C 7.984375 -80.21875 11.097656 -92.054688 17.328125 -102.609375 C 23.566406 -113.171875 32.128906 -121.40625 43.015625 -127.3125 C 53.910156 -133.21875 66.09375 -136.171875 79.5625 -136.171875 C 92.6875 -136.171875 104.566406 -133.34375 115.203125 -127.6875 C 125.847656 -122.03125 134.207031 -113.921875 140.28125 -103.359375 C 146.351562 -92.804688 149.390625 -80.550781 149.390625 -66.59375 Z M 79.8125 -106.734375 C 71 -106.734375 63.597656 -104.238281 57.609375 -99.25 C 51.617188 -94.269531 47.960938 -87.457031 46.640625 -78.8125 L 112.71875 -78.8125 C 111.394531 -87.289062 107.738281 -94.0625 101.75 -99.125 C 95.757812 -104.195312 88.445312 -106.734375 79.8125 -106.734375 Z M 79.8125 -106.734375 "/></g></g><g style="fill:#FFFFFF;fill-opacity:1;"><g transform="translate(345.374497, 513.598828)"><path style="stroke:none" d="M 189.78125 -136.171875 C 206.570312 -136.171875 219.914062 -131.222656 229.8125 -121.328125 C 239.707031 -111.429688 244.65625 -96.59375 244.65625 -76.8125 L 244.65625 0 L 205.75 0 L 205.75 -70.828125 C 205.75 -81.460938 203.546875 -89.398438 199.140625 -94.640625 C 194.734375 -99.878906 188.457031 -102.5 180.3125 -102.5 C 171.164062 -102.5 163.929688 -99.546875 158.609375 -93.640625 C 153.285156 -87.742188 150.625 -78.972656 150.625 -67.328125 L 150.625 0 L 111.734375 0 L 111.734375 -70.828125 C 111.734375 -91.941406 103.253906 -102.5 86.296875 -102.5 C 77.316406 -102.5 70.164062 -99.546875 64.84375 -93.640625 C 59.519531 -87.742188 56.859375 -78.972656 56.859375 -67.328125 L 56.859375 0 L 17.953125 0 L 17.953125 -134.171875 L 55.109375 -134.171875 L 55.109375 -118.703125 C 60.097656 -124.359375 66.207031 -128.679688 73.4375 -131.671875 C 80.675781 -134.671875 88.617188 -136.171875 97.265625 -136.171875 C 106.742188 -136.171875 115.304688 -134.296875 122.953125 -130.546875 C 130.597656 -126.804688 136.75 -121.363281 141.40625 -114.21875 C 146.894531 -121.195312 153.835938 -126.597656 162.234375 -130.421875 C 170.628906 -134.253906 179.8125 -136.171875 189.78125 -136.171875 Z M 189.78125 -136.171875 "/></g></g><g style="fill:#FFFFFF;fill-opacity:1;"><g transform="translate(606.983039, 513.598828)"><path style="stroke:none" d="M 81.796875 2 C 67.671875 2 54.992188 -0.953125 43.765625 -6.859375 C 32.546875 -12.765625 23.773438 -20.953125 17.453125 -31.421875 C 11.140625 -41.898438 7.984375 -53.789062 7.984375 -67.09375 C 7.984375 -80.382812 11.140625 -92.265625 17.453125 -102.734375 C 23.773438 -113.210938 32.546875 -121.40625 43.765625 -127.3125 C 54.992188 -133.21875 67.671875 -136.171875 81.796875 -136.171875 C 95.929688 -136.171875 108.566406 -133.21875 119.703125 -127.3125 C 130.847656 -121.40625 139.578125 -113.210938 145.890625 -102.734375 C 152.210938 -92.265625 155.375 -80.382812 155.375 -67.09375 C 155.375 -53.789062 152.210938 -41.898438 145.890625 -31.421875 C 139.578125 -20.953125 130.847656 -12.765625 119.703125 -6.859375 C 108.566406 -0.953125 95.929688 2 81.796875 2 Z M 81.796875 -29.921875 C 91.773438 -29.921875 99.960938 -33.285156 106.359375 -40.015625 C 112.765625 -46.753906 115.96875 -55.78125 115.96875 -67.09375 C 115.96875 -78.394531 112.765625 -87.410156 106.359375 -94.140625 C 99.960938 -100.878906 91.773438 -104.25 81.796875 -104.25 C 71.828125 -104.25 63.597656 -100.878906 57.109375 -94.140625 C 50.628906 -87.410156 47.390625 -78.394531 47.390625 -67.09375 C 47.390625 -55.78125 50.628906 -46.753906 57.109375 -40.015625 C 63.597656 -33.285156 71.828125 -29.921875 81.796875 -29.921875 Z M 81.796875 -29.921875 "/></g></g><g clip-rule="nonzero" clip-path="url(#c244eb507c)"><g clip-rule="nonzero" clip-path="url(#a76d976582)"><g clip-rule="nonzero" clip-path="url(#d1ad1a85fa)"><path style=" stroke:none;fill-rule:nonzero;fill:#FFFFFF;fill-opacity:1;" d="M 796.277344 338.546875 L 784.378906 350.445312 C 731.882812 297.953125 646.460938 297.953125 593.964844 350.445312 L 582.066406 338.546875 C 641.128906 279.480469 737.222656 279.488281 796.277344 338.546875 Z M 796.277344 338.546875 "/></g></g></g><g clip-rule="nonzero" clip-path="url(#4a35103eca)"><g clip-rule="nonzero" clip-path="url(#3eba11d3c7)"><g clip-rule="nonzero" clip-path="url(#264337594b)"><path style=" stroke:none;fill-rule:nonzero;fill:#FFFFFF;fill-opacity:1;" d="M 775.410156 359.328125 L 765.820312 368.914062 C 723.535156 326.628906 654.722656 326.628906 612.433594 368.914062 L 602.847656 359.328125 C 650.425781 311.75 727.835938 311.753906 775.410156 359.328125 Z M 775.410156 359.328125 "/></g></g></g><g clip-rule="nonzero" clip-path="url(#a8cbae664d)"><g clip-rule="nonzero" clip-path="url(#39ecd415a9)"><g clip-rule="nonzero" clip-path="url(#d84a981dee)"><path style=" stroke:none;fill-rule:nonzero;fill:#FFFFFF;fill-opacity:1;" d="M 758.078125 378.324219 L 750.421875 385.980469 C 716.648438 352.207031 661.691406 352.207031 627.917969 385.980469 L 620.261719 378.324219 C 658.261719 340.324219 720.082031 340.328125 758.078125 378.324219 Z M 758.078125 378.324219 "/></g></g></g></g></svg>
+    </div>
+    <div id="c4tag">Where missions gain momentum.</div>
+    <div id="c4url">bemointel.ai</div>
+  </div>
+
+  <!-- cut 5: the poster. No scene switching, no close card: the poster is
+       the whole video, and the standing-close ingredients (mark, tagline,
+       URL) are its furniture rather than a final frame. -->
+  <div class="scene" id="c5">
+    <div id="c5h">Nothing <span id="c5fall">falls</span> on the floor.<br>And nothing walks out the <span id="c5door">door</span><span id="c5dot">.</span></div>
+    <div id="c5emboss" aria-hidden="true">
+<svg data-provenance="white knockout derived from bemo-os/docs/branding/assets/logo-horizontal.svg per 03-logo.md monochrome variants" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" zoomAndPan="magnify" viewBox="5 213 800 312" height="auto" preserveAspectRatio="xMidYMid meet" version="1.2"><defs><clipPath id="c244eb507cx5"><path d="M 582 294 L 797 294 L 797 351 L 582 351 Z M 582 294 "/></clipPath><clipPath id="a76d976582x5"><path d="M 582.066406 338.546875 L 689.171875 231.4375 L 796.277344 338.546875 L 689.171875 445.652344 Z M 582.066406 338.546875 "/></clipPath><clipPath id="d1ad1a85fax5"><path d="M 582.066406 338.546875 L 689.171875 231.4375 L 796.277344 338.546875 L 689.171875 445.652344 Z M 582.066406 338.546875 "/></clipPath><clipPath id="4a35103ecax5"><path d="M 602 323 L 776 323 L 776 369 L 602 369 Z M 602 323 "/></clipPath><clipPath id="3eba11d3c7x5"><path d="M 602.847656 359.328125 L 689.128906 273.046875 L 775.410156 359.328125 L 689.128906 445.609375 Z M 602.847656 359.328125 "/></clipPath><clipPath id="264337594bx5"><path d="M 602.847656 359.328125 L 689.128906 273.046875 L 775.410156 359.328125 L 689.128906 445.609375 Z M 602.847656 359.328125 "/></clipPath><clipPath id="a8cbae664dx5"><path d="M 620 349 L 759 349 L 759 386 L 620 386 Z M 620 349 "/></clipPath><clipPath id="39ecd415a9x5"><path d="M 620.261719 378.324219 L 689.1875 309.398438 L 758.109375 378.324219 L 689.1875 447.246094 Z M 620.261719 378.324219 "/></clipPath><clipPath id="d84a981deex5"><path d="M 620.261719 378.324219 L 689.1875 309.398438 L 758.109375 378.324219 L 689.1875 447.246094 Z M 620.261719 378.324219 "/></clipPath></defs><g id="a3a4bac5b9x5"><rect x="0" width="810" y="0" height="809.999993" style="fill:none;stroke:none;"/><rect x="0" width="810" y="0" height="809.999993" style="fill:none;stroke:none;"/><g style="fill:#FFFFFF;fill-opacity:1;"><g transform="translate(15.932284, 513.598828)"><path style="stroke:none" d="M 97.265625 -136.171875 C 109.734375 -136.171875 121.078125 -133.300781 131.296875 -127.5625 C 141.523438 -121.820312 149.546875 -113.753906 155.359375 -103.359375 C 161.179688 -92.972656 164.09375 -80.882812 164.09375 -67.09375 C 164.09375 -53.289062 161.179688 -41.191406 155.359375 -30.796875 C 149.546875 -20.410156 141.523438 -12.347656 131.296875 -6.609375 C 121.078125 -0.867188 109.734375 2 97.265625 2 C 78.804688 2 64.753906 -3.820312 55.109375 -15.46875 L 55.109375 0 L 17.953125 0 L 17.953125 -185.046875 L 56.859375 -185.046875 L 56.859375 -119.953125 C 66.671875 -130.765625 80.140625 -136.171875 97.265625 -136.171875 Z M 90.53125 -29.921875 C 100.507812 -29.921875 108.695312 -33.285156 115.09375 -40.015625 C 121.488281 -46.753906 124.6875 -55.78125 124.6875 -67.09375 C 124.6875 -78.394531 121.488281 -87.410156 115.09375 -94.140625 C 108.695312 -100.878906 100.507812 -104.25 90.53125 -104.25 C 80.550781 -104.25 72.359375 -100.878906 65.953125 -94.140625 C 59.554688 -87.410156 56.359375 -78.394531 56.359375 -67.09375 C 56.359375 -55.78125 59.554688 -46.753906 65.953125 -40.015625 C 72.359375 -33.285156 80.550781 -29.921875 90.53125 -29.921875 Z M 90.53125 -29.921875 "/></g></g><g style="fill:#FFFFFF;fill-opacity:1;"><g transform="translate(188.010365, 513.598828)"><path style="stroke:none" d="M 149.390625 -66.59375 C 149.390625 -66.09375 149.140625 -62.597656 148.640625 -56.109375 L 47.140625 -56.109375 C 48.960938 -47.796875 53.28125 -41.226562 60.09375 -36.40625 C 66.914062 -31.582031 75.398438 -29.171875 85.546875 -29.171875 C 92.523438 -29.171875 98.710938 -30.207031 104.109375 -32.28125 C 109.515625 -34.363281 114.546875 -37.648438 119.203125 -42.140625 L 139.90625 -19.703125 C 127.269531 -5.234375 108.816406 2 84.546875 2 C 69.410156 2 56.023438 -0.953125 44.390625 -6.859375 C 32.753906 -12.765625 23.773438 -20.953125 17.453125 -31.421875 C 11.140625 -41.898438 7.984375 -53.789062 7.984375 -67.09375 C 7.984375 -80.21875 11.097656 -92.054688 17.328125 -102.609375 C 23.566406 -113.171875 32.128906 -121.40625 43.015625 -127.3125 C 53.910156 -133.21875 66.09375 -136.171875 79.5625 -136.171875 C 92.6875 -136.171875 104.566406 -133.34375 115.203125 -127.6875 C 125.847656 -122.03125 134.207031 -113.921875 140.28125 -103.359375 C 146.351562 -92.804688 149.390625 -80.550781 149.390625 -66.59375 Z M 79.8125 -106.734375 C 71 -106.734375 63.597656 -104.238281 57.609375 -99.25 C 51.617188 -94.269531 47.960938 -87.457031 46.640625 -78.8125 L 112.71875 -78.8125 C 111.394531 -87.289062 107.738281 -94.0625 101.75 -99.125 C 95.757812 -104.195312 88.445312 -106.734375 79.8125 -106.734375 Z M 79.8125 -106.734375 "/></g></g><g style="fill:#FFFFFF;fill-opacity:1;"><g transform="translate(345.374497, 513.598828)"><path style="stroke:none" d="M 189.78125 -136.171875 C 206.570312 -136.171875 219.914062 -131.222656 229.8125 -121.328125 C 239.707031 -111.429688 244.65625 -96.59375 244.65625 -76.8125 L 244.65625 0 L 205.75 0 L 205.75 -70.828125 C 205.75 -81.460938 203.546875 -89.398438 199.140625 -94.640625 C 194.734375 -99.878906 188.457031 -102.5 180.3125 -102.5 C 171.164062 -102.5 163.929688 -99.546875 158.609375 -93.640625 C 153.285156 -87.742188 150.625 -78.972656 150.625 -67.328125 L 150.625 0 L 111.734375 0 L 111.734375 -70.828125 C 111.734375 -91.941406 103.253906 -102.5 86.296875 -102.5 C 77.316406 -102.5 70.164062 -99.546875 64.84375 -93.640625 C 59.519531 -87.742188 56.859375 -78.972656 56.859375 -67.328125 L 56.859375 0 L 17.953125 0 L 17.953125 -134.171875 L 55.109375 -134.171875 L 55.109375 -118.703125 C 60.097656 -124.359375 66.207031 -128.679688 73.4375 -131.671875 C 80.675781 -134.671875 88.617188 -136.171875 97.265625 -136.171875 C 106.742188 -136.171875 115.304688 -134.296875 122.953125 -130.546875 C 130.597656 -126.804688 136.75 -121.363281 141.40625 -114.21875 C 146.894531 -121.195312 153.835938 -126.597656 162.234375 -130.421875 C 170.628906 -134.253906 179.8125 -136.171875 189.78125 -136.171875 Z M 189.78125 -136.171875 "/></g></g><g style="fill:#FFFFFF;fill-opacity:1;"><g transform="translate(606.983039, 513.598828)"><path style="stroke:none" d="M 81.796875 2 C 67.671875 2 54.992188 -0.953125 43.765625 -6.859375 C 32.546875 -12.765625 23.773438 -20.953125 17.453125 -31.421875 C 11.140625 -41.898438 7.984375 -53.789062 7.984375 -67.09375 C 7.984375 -80.382812 11.140625 -92.265625 17.453125 -102.734375 C 23.773438 -113.210938 32.546875 -121.40625 43.765625 -127.3125 C 54.992188 -133.21875 67.671875 -136.171875 81.796875 -136.171875 C 95.929688 -136.171875 108.566406 -133.21875 119.703125 -127.3125 C 130.847656 -121.40625 139.578125 -113.210938 145.890625 -102.734375 C 152.210938 -92.265625 155.375 -80.382812 155.375 -67.09375 C 155.375 -53.789062 152.210938 -41.898438 145.890625 -31.421875 C 139.578125 -20.953125 130.847656 -12.765625 119.703125 -6.859375 C 108.566406 -0.953125 95.929688 2 81.796875 2 Z M 81.796875 -29.921875 C 91.773438 -29.921875 99.960938 -33.285156 106.359375 -40.015625 C 112.765625 -46.753906 115.96875 -55.78125 115.96875 -67.09375 C 115.96875 -78.394531 112.765625 -87.410156 106.359375 -94.140625 C 99.960938 -100.878906 91.773438 -104.25 81.796875 -104.25 C 71.828125 -104.25 63.597656 -100.878906 57.109375 -94.140625 C 50.628906 -87.410156 47.390625 -78.394531 47.390625 -67.09375 C 47.390625 -55.78125 50.628906 -46.753906 57.109375 -40.015625 C 63.597656 -33.285156 71.828125 -29.921875 81.796875 -29.921875 Z M 81.796875 -29.921875 "/></g></g><g clip-rule="nonzero" clip-path="url(#c244eb507cx5)"><g clip-rule="nonzero" clip-path="url(#a76d976582x5)"><g clip-rule="nonzero" clip-path="url(#d1ad1a85fax5)"><path style=" stroke:none;fill-rule:nonzero;fill:#FFFFFF;fill-opacity:1;" d="M 796.277344 338.546875 L 784.378906 350.445312 C 731.882812 297.953125 646.460938 297.953125 593.964844 350.445312 L 582.066406 338.546875 C 641.128906 279.480469 737.222656 279.488281 796.277344 338.546875 Z M 796.277344 338.546875 "/></g></g></g><g clip-rule="nonzero" clip-path="url(#4a35103ecax5)"><g clip-rule="nonzero" clip-path="url(#3eba11d3c7x5)"><g clip-rule="nonzero" clip-path="url(#264337594bx5)"><path style=" stroke:none;fill-rule:nonzero;fill:#FFFFFF;fill-opacity:1;" d="M 775.410156 359.328125 L 765.820312 368.914062 C 723.535156 326.628906 654.722656 326.628906 612.433594 368.914062 L 602.847656 359.328125 C 650.425781 311.75 727.835938 311.753906 775.410156 359.328125 Z M 775.410156 359.328125 "/></g></g></g><g clip-rule="nonzero" clip-path="url(#a8cbae664dx5)"><g clip-rule="nonzero" clip-path="url(#39ecd415a9x5)"><g clip-rule="nonzero" clip-path="url(#d84a981deex5)"><path style=" stroke:none;fill-rule:nonzero;fill:#FFFFFF;fill-opacity:1;" d="M 758.078125 378.324219 L 750.421875 385.980469 C 716.648438 352.207031 661.691406 352.207031 627.917969 385.980469 L 620.261719 378.324219 C 658.261719 340.324219 720.082031 340.328125 758.078125 378.324219 Z M 758.078125 378.324219 "/></g></g></g></g></svg>
+    </div>
+    <div id="c5sub">Where missions gain momentum.</div>
+    <div id="c5cta"><span>bemointel.ai</span></div>
+  </div>
+
+  <!-- cuts 6 through 11: the question posters. One generic scene; each cut
+       fills the headline and brings one gag, per the campaign plan. Same
+       uniform as cut 5: gag first, then the arcs take the second beat. -->
+  <div class="scene" id="cq">
+    <div id="cqh"></div>
+    <div id="cqemboss" aria-hidden="true">
+<svg data-provenance="white knockout derived from bemo-os/docs/branding/assets/logo-horizontal.svg per 03-logo.md monochrome variants" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" zoomAndPan="magnify" viewBox="5 213 800 312" height="auto" preserveAspectRatio="xMidYMid meet" version="1.2"><defs><clipPath id="c244eb507cx6"><path d="M 582 294 L 797 294 L 797 351 L 582 351 Z M 582 294 "/></clipPath><clipPath id="a76d976582x6"><path d="M 582.066406 338.546875 L 689.171875 231.4375 L 796.277344 338.546875 L 689.171875 445.652344 Z M 582.066406 338.546875 "/></clipPath><clipPath id="d1ad1a85fax6"><path d="M 582.066406 338.546875 L 689.171875 231.4375 L 796.277344 338.546875 L 689.171875 445.652344 Z M 582.066406 338.546875 "/></clipPath><clipPath id="4a35103ecax6"><path d="M 602 323 L 776 323 L 776 369 L 602 369 Z M 602 323 "/></clipPath><clipPath id="3eba11d3c7x6"><path d="M 602.847656 359.328125 L 689.128906 273.046875 L 775.410156 359.328125 L 689.128906 445.609375 Z M 602.847656 359.328125 "/></clipPath><clipPath id="264337594bx6"><path d="M 602.847656 359.328125 L 689.128906 273.046875 L 775.410156 359.328125 L 689.128906 445.609375 Z M 602.847656 359.328125 "/></clipPath><clipPath id="a8cbae664dx6"><path d="M 620 349 L 759 349 L 759 386 L 620 386 Z M 620 349 "/></clipPath><clipPath id="39ecd415a9x6"><path d="M 620.261719 378.324219 L 689.1875 309.398438 L 758.109375 378.324219 L 689.1875 447.246094 Z M 620.261719 378.324219 "/></clipPath><clipPath id="d84a981deex6"><path d="M 620.261719 378.324219 L 689.1875 309.398438 L 758.109375 378.324219 L 689.1875 447.246094 Z M 620.261719 378.324219 "/></clipPath></defs><g id="a3a4bac5b9x6"><rect x="0" width="810" y="0" height="809.999993" style="fill:none;stroke:none;"/><rect x="0" width="810" y="0" height="809.999993" style="fill:none;stroke:none;"/><g style="fill:#FFFFFF;fill-opacity:1;"><g transform="translate(15.932284, 513.598828)"><path style="stroke:none" d="M 97.265625 -136.171875 C 109.734375 -136.171875 121.078125 -133.300781 131.296875 -127.5625 C 141.523438 -121.820312 149.546875 -113.753906 155.359375 -103.359375 C 161.179688 -92.972656 164.09375 -80.882812 164.09375 -67.09375 C 164.09375 -53.289062 161.179688 -41.191406 155.359375 -30.796875 C 149.546875 -20.410156 141.523438 -12.347656 131.296875 -6.609375 C 121.078125 -0.867188 109.734375 2 97.265625 2 C 78.804688 2 64.753906 -3.820312 55.109375 -15.46875 L 55.109375 0 L 17.953125 0 L 17.953125 -185.046875 L 56.859375 -185.046875 L 56.859375 -119.953125 C 66.671875 -130.765625 80.140625 -136.171875 97.265625 -136.171875 Z M 90.53125 -29.921875 C 100.507812 -29.921875 108.695312 -33.285156 115.09375 -40.015625 C 121.488281 -46.753906 124.6875 -55.78125 124.6875 -67.09375 C 124.6875 -78.394531 121.488281 -87.410156 115.09375 -94.140625 C 108.695312 -100.878906 100.507812 -104.25 90.53125 -104.25 C 80.550781 -104.25 72.359375 -100.878906 65.953125 -94.140625 C 59.554688 -87.410156 56.359375 -78.394531 56.359375 -67.09375 C 56.359375 -55.78125 59.554688 -46.753906 65.953125 -40.015625 C 72.359375 -33.285156 80.550781 -29.921875 90.53125 -29.921875 Z M 90.53125 -29.921875 "/></g></g><g style="fill:#FFFFFF;fill-opacity:1;"><g transform="translate(188.010365, 513.598828)"><path style="stroke:none" d="M 149.390625 -66.59375 C 149.390625 -66.09375 149.140625 -62.597656 148.640625 -56.109375 L 47.140625 -56.109375 C 48.960938 -47.796875 53.28125 -41.226562 60.09375 -36.40625 C 66.914062 -31.582031 75.398438 -29.171875 85.546875 -29.171875 C 92.523438 -29.171875 98.710938 -30.207031 104.109375 -32.28125 C 109.515625 -34.363281 114.546875 -37.648438 119.203125 -42.140625 L 139.90625 -19.703125 C 127.269531 -5.234375 108.816406 2 84.546875 2 C 69.410156 2 56.023438 -0.953125 44.390625 -6.859375 C 32.753906 -12.765625 23.773438 -20.953125 17.453125 -31.421875 C 11.140625 -41.898438 7.984375 -53.789062 7.984375 -67.09375 C 7.984375 -80.21875 11.097656 -92.054688 17.328125 -102.609375 C 23.566406 -113.171875 32.128906 -121.40625 43.015625 -127.3125 C 53.910156 -133.21875 66.09375 -136.171875 79.5625 -136.171875 C 92.6875 -136.171875 104.566406 -133.34375 115.203125 -127.6875 C 125.847656 -122.03125 134.207031 -113.921875 140.28125 -103.359375 C 146.351562 -92.804688 149.390625 -80.550781 149.390625 -66.59375 Z M 79.8125 -106.734375 C 71 -106.734375 63.597656 -104.238281 57.609375 -99.25 C 51.617188 -94.269531 47.960938 -87.457031 46.640625 -78.8125 L 112.71875 -78.8125 C 111.394531 -87.289062 107.738281 -94.0625 101.75 -99.125 C 95.757812 -104.195312 88.445312 -106.734375 79.8125 -106.734375 Z M 79.8125 -106.734375 "/></g></g><g style="fill:#FFFFFF;fill-opacity:1;"><g transform="translate(345.374497, 513.598828)"><path style="stroke:none" d="M 189.78125 -136.171875 C 206.570312 -136.171875 219.914062 -131.222656 229.8125 -121.328125 C 239.707031 -111.429688 244.65625 -96.59375 244.65625 -76.8125 L 244.65625 0 L 205.75 0 L 205.75 -70.828125 C 205.75 -81.460938 203.546875 -89.398438 199.140625 -94.640625 C 194.734375 -99.878906 188.457031 -102.5 180.3125 -102.5 C 171.164062 -102.5 163.929688 -99.546875 158.609375 -93.640625 C 153.285156 -87.742188 150.625 -78.972656 150.625 -67.328125 L 150.625 0 L 111.734375 0 L 111.734375 -70.828125 C 111.734375 -91.941406 103.253906 -102.5 86.296875 -102.5 C 77.316406 -102.5 70.164062 -99.546875 64.84375 -93.640625 C 59.519531 -87.742188 56.859375 -78.972656 56.859375 -67.328125 L 56.859375 0 L 17.953125 0 L 17.953125 -134.171875 L 55.109375 -134.171875 L 55.109375 -118.703125 C 60.097656 -124.359375 66.207031 -128.679688 73.4375 -131.671875 C 80.675781 -134.671875 88.617188 -136.171875 97.265625 -136.171875 C 106.742188 -136.171875 115.304688 -134.296875 122.953125 -130.546875 C 130.597656 -126.804688 136.75 -121.363281 141.40625 -114.21875 C 146.894531 -121.195312 153.835938 -126.597656 162.234375 -130.421875 C 170.628906 -134.253906 179.8125 -136.171875 189.78125 -136.171875 Z M 189.78125 -136.171875 "/></g></g><g style="fill:#FFFFFF;fill-opacity:1;"><g transform="translate(606.983039, 513.598828)"><path style="stroke:none" d="M 81.796875 2 C 67.671875 2 54.992188 -0.953125 43.765625 -6.859375 C 32.546875 -12.765625 23.773438 -20.953125 17.453125 -31.421875 C 11.140625 -41.898438 7.984375 -53.789062 7.984375 -67.09375 C 7.984375 -80.382812 11.140625 -92.265625 17.453125 -102.734375 C 23.773438 -113.210938 32.546875 -121.40625 43.765625 -127.3125 C 54.992188 -133.21875 67.671875 -136.171875 81.796875 -136.171875 C 95.929688 -136.171875 108.566406 -133.21875 119.703125 -127.3125 C 130.847656 -121.40625 139.578125 -113.210938 145.890625 -102.734375 C 152.210938 -92.265625 155.375 -80.382812 155.375 -67.09375 C 155.375 -53.789062 152.210938 -41.898438 145.890625 -31.421875 C 139.578125 -20.953125 130.847656 -12.765625 119.703125 -6.859375 C 108.566406 -0.953125 95.929688 2 81.796875 2 Z M 81.796875 -29.921875 C 91.773438 -29.921875 99.960938 -33.285156 106.359375 -40.015625 C 112.765625 -46.753906 115.96875 -55.78125 115.96875 -67.09375 C 115.96875 -78.394531 112.765625 -87.410156 106.359375 -94.140625 C 99.960938 -100.878906 91.773438 -104.25 81.796875 -104.25 C 71.828125 -104.25 63.597656 -100.878906 57.109375 -94.140625 C 50.628906 -87.410156 47.390625 -78.394531 47.390625 -67.09375 C 47.390625 -55.78125 50.628906 -46.753906 57.109375 -40.015625 C 63.597656 -33.285156 71.828125 -29.921875 81.796875 -29.921875 Z M 81.796875 -29.921875 "/></g></g><g clip-rule="nonzero" clip-path="url(#c244eb507cx6)"><g clip-rule="nonzero" clip-path="url(#a76d976582x6)"><g clip-rule="nonzero" clip-path="url(#d1ad1a85fax6)"><path style=" stroke:none;fill-rule:nonzero;fill:#FFFFFF;fill-opacity:1;" d="M 796.277344 338.546875 L 784.378906 350.445312 C 731.882812 297.953125 646.460938 297.953125 593.964844 350.445312 L 582.066406 338.546875 C 641.128906 279.480469 737.222656 279.488281 796.277344 338.546875 Z M 796.277344 338.546875 "/></g></g></g><g clip-rule="nonzero" clip-path="url(#4a35103ecax6)"><g clip-rule="nonzero" clip-path="url(#3eba11d3c7x6)"><g clip-rule="nonzero" clip-path="url(#264337594bx6)"><path style=" stroke:none;fill-rule:nonzero;fill:#FFFFFF;fill-opacity:1;" d="M 775.410156 359.328125 L 765.820312 368.914062 C 723.535156 326.628906 654.722656 326.628906 612.433594 368.914062 L 602.847656 359.328125 C 650.425781 311.75 727.835938 311.753906 775.410156 359.328125 Z M 775.410156 359.328125 "/></g></g></g><g clip-rule="nonzero" clip-path="url(#a8cbae664dx6)"><g clip-rule="nonzero" clip-path="url(#39ecd415a9x6)"><g clip-rule="nonzero" clip-path="url(#d84a981deex6)"><path style=" stroke:none;fill-rule:nonzero;fill:#FFFFFF;fill-opacity:1;" d="M 758.078125 378.324219 L 750.421875 385.980469 C 716.648438 352.207031 661.691406 352.207031 627.917969 385.980469 L 620.261719 378.324219 C 658.261719 340.324219 720.082031 340.328125 758.078125 378.324219 Z M 758.078125 378.324219 "/></g></g></g></g></svg>
+    </div>
+    <div id="cqsub">Where missions gain momentum.</div>
+    <div id="cqcta"><span>bemointel.ai</span></div>
+    <div id="qcount">00</div>
+  </div>
+
+  <div class="scene" id="sClose">
+    <img class="logow" id="clW" src="assets/wordmark-white.svg" alt="BeMo">
+    <div id="clT">Where missions gain momentum.</div>
+    <div id="clU">bemointel.ai</div>
+  </div>
+
+</div>
+
+<script>
+(function () {
+  var q = new URLSearchParams(location.search);
+  var CUT = parseInt(q.get("cut"), 10) || 1;
+  // ?aspect=sq stacks cut 5 into the 1080x1080 feed square (the shape the
+  // Apple reference actually ran); every other cut is 16:9 only.
+  var SQ = q.get("aspect") === "sq";
+  if (SQ) document.body.classList.add("sq");
+  var DUR = { 1: 15.0, 2: 12.4, 3: 12.3, 4: 6.5, 5: 7.5, 6: 6.5, 7: 6.5, 8: 6.5, 9: 6.5, 10: 6.5, 11: 6.5 }[CUT];
+
+  var stage = document.getElementById("stage");
+  function $(id) { return document.getElementById(id); }
+  function fit() {
+    var W = SQ ? 1080 : 1280, H = SQ ? 1080 : 720;
+    var s = Math.min((window.innerWidth - 16) / W, (window.innerHeight - 16) / H, 1);
+    stage.style.transform = "scale(" + s + ")";
+  }
+  window.addEventListener("resize", fit); fit();
+
+  function seg(t, a, b) { return Math.max(0, Math.min(1, (t - a) / (b - a))); }
+  function ease(x) { return 1 - Math.pow(1 - x, 3); }            // ease-out, no bounce
+  function cut(el, tIn, tOut, t) {
+    el.style.opacity = Math.min(ease(seg(t, tIn, tIn + 0.35)), 1 - ease(seg(t, tOut, tOut + 0.35)));
+  }
+  function rise(el, at, t, dist) {
+    var k = ease(seg(t, at, at + 0.6));
+    el.style.opacity = k;
+    el.style.transform = "translateY(" + ((dist === undefined ? 18 : dist) * (1 - k)) + "px)";
+  }
+  // ::after takes no inline style, so the underline's scale rides a custom
+  // property set on the .mk element itself
+  function markScale(el, k) { el.style.setProperty("--mkk", k); }
+
+  // ---- cut 1 ----
+  // The grid is deliberately uniform: "You" is indistinguishable until the
+  // others leave, so the viewer picks their own answer before the frame does.
+  var CHIPS = [].slice.call(document.querySelectorAll("#c1grid .chip"));
+  var YOU = 5;
+  var DIM_ORDER = [0, 7, 2, 6, 4, 1, 3];   // scattered, so it never reads as a sweep
+
+  function renderCut1(t) {
+    cut($("c1ask"), 0.0, 2.35, t);
+    rise($("c1askT"), 0.2, t);
+
+    cut($("c1room"), 2.5, 6.4, t);
+    CHIPS.forEach(function (el, i) {
+      var k = ease(seg(t, 2.65 + i * 0.07, 2.65 + i * 0.07 + 0.45));
+      var d = DIM_ORDER.indexOf(i);
+      var dim = d === -1 ? 0 : ease(seg(t, 3.7 + d * 0.2, 3.7 + d * 0.2 + 0.4));
+      el.style.opacity = k * (1 - 0.86 * dim);
+      el.style.transform = "translateY(" + (14 * (1 - k)) + "px) scale(" + (1 - 0.02 * dim) + ")";
+    });
+    // only-You-lit holds 5.3 to 6.4, the payoff frame; then
+    // 6.75 to 7.9: empty frame. Nothing renders here on purpose.
+
+    cut($("c1line"), 7.9, 12.0, t);
+    rise($("c1lineT"), 8.1, t);
+    markScale($("c1mk"), ease(seg(t, 9.4, 9.95)));
+
+    close(12.15, t);
+  }
+
+  // ---- cut 2 ----
+  // The shipped site hero, split at its own period, with a beat of nothing in
+  // the gap. The page can only put a line break there.
+  var LINE2 = "Your nonprofit learned five things this week.".split(" ");
+  $("c2aT").innerHTML = LINE2.map(function (w) { return '<span class="w">' + w + "</span>"; }).join(" ");
+  var WORDS2 = [].slice.call(document.querySelectorAll("#c2aT .w"));
+
+  function renderCut2(t) {
+    cut($("c2a"), 0.1, 3.5, t);
+    $("c2aT").style.opacity = 1;
+    WORDS2.forEach(function (el, i) { rise(el, 0.3 + i * 0.13, t, 14); });
+
+    // 3.85 to 5.15: empty frame, the longest hold in the slate.
+
+    cut($("c2b"), 5.15, 9.2, t);
+    rise($("c2bT"), 5.35, t);
+    markScale($("c2mk"), ease(seg(t, 6.4, 6.95)));
+
+    close(9.35, t);
+  }
+
+  // ---- cut 3 ----
+  var TABS = ["Inbox", "Drive", "Budget.xlsx", "Slack", "2025 grant", "Board deck", "Notes"];
+  var TW = 146, GAP = 6, X0 = 10;
+  var strip = $("c3strip");
+  var ACTIVE = 3;   // one tab reads as the one you are actually looking at
+  var TABEL = TABS.map(function (name, i) {
+    var el = document.createElement("div");
+    el.className = i === ACTIVE ? "tab on" : "tab";
+    el.innerHTML = "<span>" + name + "</span>";
+    el.style.left = (X0 + i * (TW + GAP)) + "px";
+    strip.appendChild(el);
+    return el;
+  });
+
+  function renderCut3(t) {
+    // The window and the line leave together at 7.6 and nothing replaces them.
+    // An earlier pass collapsed the seven tabs into one, which looked good and
+    // said "and BeMo is the one tab" without earning it. This format does not
+    // make that argument (brief.md, "no product, at all"), so the frame just
+    // empties and the viewer finishes the thought.
+    cut($("c3"), 0.1, 7.6, t);
+    var wk = ease(seg(t, 0.2, 0.9));
+    $("c3win").style.opacity = wk;
+    $("c3win").style.transform = "translateY(" + (20 * (1 - wk)) + "px)";
+
+    var appeared = 0;
+    TABEL.forEach(function (el, i) {
+      var at = 0.9 + i * 0.42;
+      var k = ease(seg(t, at, at + 0.28));
+      if (t >= at + 0.14) appeared++;
+      el.style.opacity = k;
+    });
+    $("c3count").style.opacity = ease(seg(t, 0.9, 1.3)) * (1 - ease(seg(t, 7.6, 7.95)));
+    $("c3count").textContent = String(appeared).padStart(2, "0");
+
+    rise($("c3line"), 4.35, t);
+    markScale($("c3mk"), ease(seg(t, 5.45, 6.0)));
+
+    // 7.95 to 9.15: empty frame.
+
+    close(9.15, t);
+  }
+
+  // ---- cut 4 ----
+  // One held composition; nothing cuts away. The four letters settle first,
+  // then the three arcs light in sequence off the o (smallest first, the
+  // signal coming up), then the tagline. The video is the end card, built.
+  var LETTERS = [].slice.call(document.querySelectorAll("#c4mark #a3a4bac5b9 > g[style]"));
+  var ARCS = [].slice.call(document.querySelectorAll("#c4mark #a3a4bac5b9 > g[clip-path]")).reverse();
+
+  function renderCut4(t) {
+    $("c4").style.opacity = 1;
+    LETTERS.forEach(function (el, i) {
+      var at = 0.25 + i * 0.22;
+      var k = ease(seg(t, at, at + 0.6));
+      el.style.opacity = k;
+      el.style.transform = "translateY(" + (26 * (1 - k)) + "px)";
+    });
+    ARCS.forEach(function (el, i) {
+      var at = 1.55 + i * 0.3;
+      var k = ease(seg(t, at, at + 0.45));
+      el.style.opacity = k;
+      el.style.transform = "scale(" + (0.55 + 0.45 * k) + ")";
+    });
+    rise($("c4tag"), 2.9, t, 14);
+    rise($("c4url"), 3.8, t, 10);
+  }
+
+  // ---- cut 5 ----
+  // The poster holds complete from frame one, like the reference. Two moves,
+  // paired like the line itself, one per clause and never simultaneous:
+  // "falls" slips off the baseline under gravity (ease-in) and is caught back
+  // into line (ease-out, no bounce, per the website motion register); then
+  // "door" swings open on its left hinge and shuts. Ends exactly as it
+  // began, so it loops.
+  function easeIn(x) { return x * x * x; }
+  function easeInOut(x) { return x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2; }
+  function renderCut5(t) {
+    $("c5").style.opacity = 1;
+    // anticipation: a slight upward brace before the grip gives way
+    var brace = Math.sin(Math.PI * seg(t, 1.12, 1.4)) * -2.5;
+    var slip = easeIn(seg(t, 1.4, 1.9));           // letting go
+    var back = ease(seg(t, 2.25, 2.95));           // the catch
+    var k = slip * (1 - back);
+    $("c5fall").style.transform =
+      "translateY(" + (brace * 0.6 + 22 * k) + "px) rotate(" + (brace * 0.4 + 6 * k) + "deg)";
+    var open = easeInOut(seg(t, 3.6, 4.35));       // the door swings open
+    var shut = easeInOut(seg(t, 4.85, 5.65));      // and shuts
+    // the latch: a small recoil as the door meets the frame
+    var bump = Math.sin(Math.PI * seg(t, 5.65, 5.98)) * -4;
+    var d = open * (1 - shut);
+    $("c5door").style.transform = "perspective(650px) rotateY(" + (-76 * d + bump) + "deg)";
+    $("c5door").style.filter = "brightness(" + (1 - 0.35 * d) + ")";   // turns from the light
+    // the logo is bold: letters and arcs at full white. The arcs take their
+    // turn AFTER the door shuts (Becky, Aug 14), third beat of the sequence:
+    // falls, door, then the signal. They dim together and relight smallest to
+    // largest, the broadcast coming up, and are back at full before the end
+    // so the loop seam stays invisible.
+    EMB_LETTERS.forEach(function (el) { el.style.opacity = 1; });
+    var dim = ease(seg(t, 5.95, 6.25));
+    EMB_ARCS.forEach(function (el, i) {
+      var light = ease(seg(t, 6.35 + i * 0.28, 6.35 + i * 0.28 + 0.3));
+      el.style.opacity = 1 - 0.7 * dim * (1 - light);
+    });
+  }
+  var EMB_LETTERS = [].slice.call(document.querySelectorAll("#c5emboss #a3a4bac5b9x5 > g[style]"));
+  var EMB_ARCS = [].slice.call(document.querySelectorAll("#c5emboss #a3a4bac5b9x5 > g[clip-path]")).reverse();
+
+
+  // ---- cuts 6-11: the question posters ----
+  // One engine, per-cut config: headline (gag word carries class gw, id qw)
+  // and a gag(t) function. Uniform beats: the gag runs ~1.5 to ~3.8, the arcs
+  // dim at 3.9 and relight smallest to largest from 4.3, back at full by ~5.3,
+  // still to 6.5. Gags restore their start state so the loop seam is clean.
+  var QP = {
+    6: { fs: 64, fsSq: 51,   // one line at both aspects, so the backspace
+                             // pulls the sentence smoothly with no wrap jump
+      html: '<span class="gw" id="qw">Whose</span> voice is your newsletter in?',
+      gag: function (t) {
+        // backspace and retype: the voice deleted, then restored
+        var el = $("qw"), full = "Whose";
+        var del = Math.floor(ease(seg(t, 1.6, 2.4)) * full.length);
+        var ret = Math.floor(ease(seg(t, 3.0, 3.9)) * del);
+        var n = full.length - del + ret;
+        var caretOn = t > 1.45 && t < 4.15 && (t % 0.65 < 0.4) ? 1 : 0;
+        el.innerHTML = full.slice(0, n) + '<span class="qcaret" style="--ck:' + caretOn + '"></span>';
+      } },
+    7: { fs: 88, fsSq: 70,
+      html: 'How many <span class="gw" id="qw" style="position:relative; display:inline-block"><span class="tghost" id="tg0">tabs</span><span id="qwtop">tabs</span></span> does one answer take?',
+      gag: function (t) {
+        var n = Math.round(ease(seg(t, 1.5, 3.4)) * 7);
+        var c = $("qcount");
+        c.textContent = String(n).padStart(2, "0");
+        var out = 1 - ease(seg(t, 5.6, 6.1));
+        c.style.opacity = ease(seg(t, 1.4, 1.8)) * out;
+        // one ghost springs off the word per tick: another tab, another tab.
+        // Transient, so the frame never clutters and the loop ends clean.
+        var g = 0, gp = 0;
+        for (var i = 0; i < 7; i++) {
+          var ti = 1.55 + i * 0.265;   // matches the sfx ticks exactly
+          var p = seg(t, ti, ti + 0.42);
+          if (p > 0 && p < 1) { g = 1; gp = p; }
+        }
+        $("tg0").style.opacity = g * 0.55 * (1 - gp) * out;
+        $("tg0").style.transform = "translate(" + (0.18 * gp) + "em," + (-0.6 * gp) + "em)";
+      } },
+    8: { fs: 72, fsSq: 57,
+      html: 'Your nonprofit learned five things this week. Where did they <span class="gw" id="qw">go</span><span class="gw">?</span>',
+      gag: function (t) {
+        // "go" goes, then comes back: the loss, then the loop restoring it
+        $("qw").style.opacity = 1 - ease(seg(t, 1.8, 2.9)) + ease(seg(t, 5.0, 5.9));
+      } },
+    9: { fs: 82, fsSq: 66,
+      html: '<span class="gw" id="qw" style="position:relative; margin-right:0.2em">Who<span class="qcaret qcabs" id="qc"></span></span> knows how this organization actually works?',
+      gag: function (t) {
+        // the cursor waits for a name that never comes; 0.65s period divides
+        // 6.5 exactly, so the blink phase closes the loop
+        $("qc").style.setProperty("--ck", (t % 0.65 < 0.4) ? 1 : 0);
+      } },
+    10: { fs: 84, fsSq: 67,
+      html: 'What walks out the <span class="gw doorw" id="qw">door</span> when someone leaves?',
+      gag: function (t) {
+        var open = easeInOut(seg(t, 1.6, 2.35));
+        var shut = easeInOut(seg(t, 2.85, 3.65));
+        var bump = Math.sin(Math.PI * seg(t, 3.65, 3.95)) * -4;
+        var d = open * (1 - shut);
+        $("qw").style.transform = "perspective(650px) rotateY(" + (-76 * d + bump) + "deg)";
+        $("qw").style.filter = "brightness(" + (1 - 0.35 * d) + ")";
+      } },
+    11: { fs: 88, fsSq: 70,
+      html: 'Why does every grant start from <span class="gw strik" id="qw">scratch</span><span class="gw">?</span>',
+      gag: function (t) {
+        // the strike draws, holds, and lifts before the end
+        var el = $("qw");
+        el.style.setProperty("--stk", ease(seg(t, 1.6, 2.25)));
+        el.style.setProperty("--stko", 1 - ease(seg(t, 5.7, 6.15)));
+      } },
+  };
+  // ?variant=appeal (Becky, Aug 16): the Aug 21 poster runs on the appeal
+  // letter so Friday lands on the document the week's anchor story is about.
+  // Same gag, same beats; only the noun changes, and the size drops enough to
+  // keep the single line the backspace depends on. The newsletter wording
+  // stays the default and returns in a later rotation.
+  var VARIANT = q.get("variant") || "";
+  if (CUT === 6 && VARIANT === "appeal") {
+    QP[6].html = '<span class="gw" id="qw">Whose</span> voice is your appeal letter in?';
+    QP[6].fs = 62; QP[6].fsSq = 52;   // measured single-line maxima 65/55 with the caret up
+  }
+  var QEMB_LETTERS = [].slice.call(document.querySelectorAll("#cqemboss #a3a4bac5b9x6 > g[style]"));
+  var QEMB_ARCS = [].slice.call(document.querySelectorAll("#cqemboss #a3a4bac5b9x6 > g[clip-path]")).reverse();
+  if (QP[CUT]) {
+    $("cqh").innerHTML = QP[CUT].html;
+    $("cqh").style.fontSize = (SQ ? QP[CUT].fsSq : QP[CUT].fs) + "px";
+    $("qcount").style.display = CUT === 7 ? "" : "none";
+  }
+  function renderQP(t) {
+    $("cq").style.opacity = 1;
+    QP[CUT].gag(t);
+    QEMB_LETTERS.forEach(function (el) { el.style.opacity = 1; });
+    var dim = ease(seg(t, 3.9, 4.2));
+    QEMB_ARCS.forEach(function (el, i) {
+      var light = ease(seg(t, 4.3 + i * 0.28, 4.3 + i * 0.28 + 0.3));
+      el.style.opacity = 1 - 0.7 * dim * (1 - light);
+    });
+  }
+
+  // ---- shared close ----
+  function close(at, t) {
+    cut($("sClose"), at, DUR + 3, t);
+    rise($("clW"), at + 0.3, t, 12);
+    rise($("clT"), at + 0.95, t, 12);
+    rise($("clU"), at + 1.6, t, 10);
+  }
+
+  var RENDER = { 1: renderCut1, 2: renderCut2, 3: renderCut3, 4: renderCut4, 5: renderCut5, 6: renderQP, 7: renderQP, 8: renderQP, 9: renderQP, 10: renderQP, 11: renderQP }[CUT];
+
+  var t0 = null, frozen = false;
+  function loop(now) {
+    if (frozen) return;
+    if (t0 === null) t0 = now;
+    var t = (now - t0) / 1000;
+    RENDER(Math.min(t, DUR));
+    if (t < DUR + 3) requestAnimationFrame(loop);
+  }
+  window.restart = function () { frozen = false; t0 = null; requestAnimationFrame(loop); };
+  // Freeze the timeline on one instant, for still probes during review.
+  // Call restart() to hand the clock back.
+  window.seek = function (t) { frozen = true; RENDER(Math.min(t, DUR)); };
+  requestAnimationFrame(loop);
+})();
+</script>
+</body></html>

@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Field Notes Teleprompter</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root {
+    --bg: #111111;
+    --fg: #f5f2ec;
+    --dim: #8a867e;
+    --accent: #e86c1f;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { height: 100%; background: var(--bg); color: var(--fg); font-family: -apple-system, "Helvetica Neue", sans-serif; }
+
+  /* ---------- setup screen ---------- */
+  #setup {
+    max-width: 720px; margin: 0 auto; padding: 48px 24px;
+    display: flex; flex-direction: column; gap: 16px; height: 100%;
+  }
+  #setup h1 { font-size: 20px; font-weight: 600; }
+  #setup p { color: var(--dim); font-size: 14px; line-height: 1.5; }
+  #script-input {
+    flex: 1; width: 100%; resize: none;
+    background: #1c1c1c; color: var(--fg); border: 1px solid #333; border-radius: 8px;
+    padding: 16px; font-size: 16px; line-height: 1.6; font-family: inherit;
+  }
+  #script-input:focus { outline: 2px solid var(--accent); border-color: transparent; }
+  #setup .row { display: flex; gap: 12px; align-items: center; }
+  button {
+    background: var(--accent); color: #111; border: none; border-radius: 8px;
+    padding: 12px 24px; font-size: 15px; font-weight: 600; cursor: pointer; font-family: inherit;
+  }
+  button.secondary { background: #2a2a2a; color: var(--fg); }
+  #setup kbd, #help kbd {
+    background: #2a2a2a; border-radius: 4px; padding: 1px 6px;
+    font-size: 12px; font-family: ui-monospace, monospace; color: var(--fg);
+  }
+
+  /* ---------- prompter screen ---------- */
+  #prompter { display: none; height: 100%; overflow: hidden; position: relative; }
+
+  #camera-hint {
+    position: fixed; top: 0; left: 0; right: 0; text-align: center;
+    padding: 6px; font-size: 12px; color: var(--dim); z-index: 3;
+    pointer-events: none;
+  }
+  #readline {
+    position: fixed; top: 14vh; left: 0; right: 0; z-index: 2; pointer-events: none;
+    border-top: 2px solid rgba(232, 108, 31, 0.55);
+  }
+  #readline::before {
+    content: ""; position: absolute; left: 12px; top: -7px;
+    border: 6px solid transparent; border-left-color: var(--accent);
+  }
+
+  #scroll-wrap { height: 100%; }
+  #scroll-text {
+    max-width: 680px; margin: 0 auto; padding: 14vh 32px 90vh;
+    font-size: 44px; line-height: 1.5; font-weight: 500;
+    will-change: transform;
+    white-space: pre-wrap;
+  }
+  .mirrored #scroll-text, .mirrored #readline, .mirrored #camera-hint { transform: scaleX(-1); }
+
+  #hud {
+    position: fixed; bottom: 16px; left: 50%; transform: translateX(-50%);
+    background: rgba(28, 28, 28, 0.92); border-radius: 10px; padding: 10px 18px;
+    display: flex; gap: 18px; font-size: 13px; color: var(--dim); z-index: 4;
+    transition: opacity 0.4s; white-space: nowrap;
+  }
+  #hud.faded { opacity: 0; }
+  #hud strong { color: var(--fg); font-weight: 600; }
+
+  #countdown {
+    position: fixed; inset: 0; display: none; align-items: center; justify-content: center;
+    background: var(--bg); z-index: 5; font-size: 160px; font-weight: 700;
+  }
+</style>
+</head>
+<body>
+
+<div id="setup">
+  <h1>Field Notes Teleprompter</h1>
+  <p>Paste the script below, then press Start. Position this window so the read line sits
+     just under your Mac's camera, and sit back a bit: at arm's length or more, your eyes
+     reading near the top of the screen look close enough to camera.</p>
+  <textarea id="script-input" placeholder="Paste your Field Notes script here..." autofocus></textarea>
+  <div class="row">
+    <button id="start-btn">Start prompter</button>
+    <p id="help"><kbd>space</kbd> play/pause &nbsp; <kbd>&uarr;</kbd><kbd>&darr;</kbd> speed &nbsp; <kbd>+</kbd><kbd>-</kbd> text size &nbsp; <kbd>R</kbd> restart &nbsp; <kbd>M</kbd> mirror &nbsp; <kbd>esc</kbd> back to edit</p>
+  </div>
+</div>
+
+<div id="prompter">
+  <div id="camera-hint">&#9650; camera &#9650;</div>
+  <div id="readline"></div>
+  <div id="scroll-wrap"><div id="scroll-text"></div></div>
+  <div id="hud">
+    <span>speed <strong id="hud-speed">1.0</strong></span>
+    <span>size <strong id="hud-size">44</strong></span>
+    <span id="hud-state"><strong>paused</strong> (space to roll)</span>
+  </div>
+  <div id="countdown"></div>
+</div>
+
+<script>
+  const setup = document.getElementById('setup');
+  const prompter = document.getElementById('prompter');
+  const input = document.getElementById('script-input');
+  const text = document.getElementById('scroll-text');
+  const hud = document.getElementById('hud');
+  const hudSpeed = document.getElementById('hud-speed');
+  const hudSize = document.getElementById('hud-size');
+  const hudState = document.getElementById('hud-state');
+  const countdown = document.getElementById('countdown');
+
+  let playing = false;
+  let offset = 0;          // px scrolled
+  let speed = 1.0;         // multiplier; base is px per frame at 60fps
+  const BASE = 1.1;
+  let fontSize = 44;
+  let rafId = null;
+  let hudTimer = null;
+
+  const saved = localStorage.getItem('fn-teleprompter-script');
+  if (saved) input.value = saved;
+
+  document.getElementById('start-btn').addEventListener('click', startPrompter);
+
+  function startPrompter() {
+    if (!input.value.trim()) { input.focus(); return; }
+    localStorage.setItem('fn-teleprompter-script', input.value);
+    text.textContent = input.value;
+    text.style.fontSize = fontSize + 'px';
+    offset = 0;
+    applyOffset();
+    setup.style.display = 'none';
+    prompter.style.display = 'block';
+    setState(false);
+  }
+
+  function applyOffset() {
+    text.style.transform = 'translateY(' + (-offset) + 'px)';
+  }
+
+  function tick() {
+    if (!playing) return;
+    offset += BASE * speed;
+    const max = text.scrollHeight - window.innerHeight * 0.14;
+    if (offset >= max) { offset = max; setState(false); }
+    applyOffset();
+    rafId = requestAnimationFrame(tick);
+  }
+
+  function setState(on) {
+    playing = on;
+    if (rafId) cancelAnimationFrame(rafId);
+    if (on) rafId = requestAnimationFrame(tick);
+    hudState.innerHTML = on ? '<strong>rolling</strong>' : '<strong>paused</strong> (space to roll)';
+    showHud(!on);
+  }
+
+  function showHud(sticky) {
+    hud.classList.remove('faded');
+    clearTimeout(hudTimer);
+    if (!sticky) hudTimer = setTimeout(() => hud.classList.add('faded'), 2000);
+  }
+
+  function runCountdown(then) {
+    let n = 3;
+    countdown.style.display = 'flex';
+    countdown.textContent = n;
+    const iv = setInterval(() => {
+      n -= 1;
+      if (n === 0) { clearInterval(iv); countdown.style.display = 'none'; then(); }
+      else countdown.textContent = n;
+    }, 1000);
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (prompter.style.display !== 'block') return;
+    if (countdown.style.display === 'flex') return;
+    switch (e.key) {
+      case ' ':
+        e.preventDefault();
+        if (playing) setState(false);
+        else if (offset === 0) runCountdown(() => setState(true));
+        else setState(true);
+        break;
+      case 'ArrowUp':
+        e.preventDefault(); speed = Math.min(3, +(speed + 0.1).toFixed(1));
+        hudSpeed.textContent = speed.toFixed(1); showHud(!playing); break;
+      case 'ArrowDown':
+        e.preventDefault(); speed = Math.max(0.2, +(speed - 0.1).toFixed(1));
+        hudSpeed.textContent = speed.toFixed(1); showHud(!playing); break;
+      case '+': case '=':
+        fontSize = Math.min(80, fontSize + 2);
+        text.style.fontSize = fontSize + 'px'; hudSize.textContent = fontSize; showHud(!playing); break;
+      case '-': case '_':
+        fontSize = Math.max(24, fontSize - 2);
+        text.style.fontSize = fontSize + 'px'; hudSize.textContent = fontSize; showHud(!playing); break;
+      case 'r': case 'R':
+        setState(false); offset = 0; applyOffset(); break;
+      case 'm': case 'M':
+        document.body.classList.toggle('mirrored'); break;
+      case 'Escape':
+        setState(false);
+        prompter.style.display = 'none';
+        setup.style.display = 'flex';
+        break;
+    }
+  });
+
+  // scroll wheel nudges position while paused (or fine-adjusts while rolling)
+  document.addEventListener('wheel', (e) => {
+    if (prompter.style.display !== 'block') return;
+    offset = Math.max(0, offset + e.deltaY * 0.5);
+    applyOffset();
+  }, { passive: true });
+</script>
+</body>
+</html>

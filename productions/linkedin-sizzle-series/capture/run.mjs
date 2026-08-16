@@ -97,7 +97,7 @@ function build() {
   // stands in; the shot list carries the blocked row.
   const html = tpl
     .replace("{{HOME0}}", b64("home-ct.png", "image/png"))
-    .replace("{{WORDMARK}}", b64("wordmark.svg", "image/svg+xml"));
+    .replaceAll("{{WORDMARK}}", b64("wordmark.svg", "image/svg+xml"));
   fs.writeFileSync(path.join(HERE, "source.html"), html);
   console.log("source.html built.");
 }

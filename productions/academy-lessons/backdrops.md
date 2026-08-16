@@ -88,20 +88,64 @@ Wall wordmark for welcome variants: rasterize `../bemo-website/public/logo-horiz
 
 Full board of composited tests, one per approved room, each with the category's narration, break-tag pacing, and (Becky's rooms) a distinct twin look per room. All published as HeyGen studio videos via the recipe above.
 
+Becky's five rooms were re-published 2026-08-11 against the v2 clear-logo backgrounds (see the v2 section below); their v2 IDs below supersede the morning's first-batch IDs, kept in parentheses for the record. The studio and Lee's rooms still carry first-batch backgrounds.
+
 | Room | Presenter / look | HeyGen video |
 |---|---|---|
 | 01 Studio (wall logo) | Becky, blue sweater | 8109787eb93844f9a351af41091c7b59 |
 | 01 Studio (golden hour) | Becky, blue sweater | 475b9ebc1e9249b9b439eb6441073c9b |
-| 02 Reading room | Becky, striped oxford | 530f2d397c664ec79d3de83a0b4f97cb |
-| 03 Salon | Becky, linen | d41c193187cf468085d14247471cf297 |
-| 04 Lounge | Becky, navy + denim collar | 40b849eb0ad749609794c6a874d8bce4 |
-| 05 Nook | Becky, denim shirt | 1b57b1aeec054f0c8ffad3af02dd3a0b |
+| 02 Reading room | Becky, striped oxford | ae3263247fcf4f5dbf14bdb4113b4fab (was 530f2d397c664ec79d3de83a0b4f97cb) |
+| 03 Salon | Becky, blue sweater (was linen) | b9715e4efc894b6ca5b231f221025dc2 (was d41c193187cf468085d14247471cf297) |
+| 04 Lounge | Becky, navy + denim collar | 7700d5bef3664b57b819c6563deafdca (was 40b849eb0ad749609794c6a874d8bce4) |
+| 05 Nook | Becky, denim shirt | b00ac44a36b6448a84c8abc68976f146 (was 1b57b1aeec054f0c8ffad3af02dd3a0b) |
 | 07 Back office | Lee | 62a158b3ed724847a4e7b79862cecc0b |
 | 08 Workroom | Lee | 6ef265e813d44e22aac1c5751bd619ff |
 | 09 Boardroom | Lee | 7f092cf17ea0468cb59f668cca79561c |
-| 10 Loft | Becky, dark navy top | b9e8a3cd710140879707ca5d282cb411 |
+| 10 Loft | Becky, dark navy top | da577d129acc4de9aafbe9dd3b235dbb (real-wordmark fix; supersedes 43cc46191e274d8dbf3c85a89f34ac60 and b9e8a3cd710140879707ca5d282cb411) |
 
 Look-per-room assignments come from Becky's 2026-08-11 direction (a different twin version per setting); Lee's rooms use his single cast look pending his own call on outfit variation. 06 Lab remains blocked on a clean export.
+
+## v2: revised clear-logo backgrounds (2026-08-11, complete)
+
+Becky downloaded a revised set of all eight rooms the morning of 2026-08-11 with a much clearer framed bemo logo per room. She directed a redo of her five rooms (reading room, salon, lounge, nook, loft); the salon look also changed from linen to a blue-sweater cutout. Lee's three rooms have revised backgrounds in the same set but have not been redone; his 2026-08-11 v1 links above stand.
+
+Local files (originals, 16:9 crops, composites, and every presenter cutout) are salvaged to `capture/out/scenes/revised-2026-08-11/`; the first-batch 16:9 crops are in `capture/out/scenes/rooms16x9-2026-08-10/`. Crop recipe for the new portrait originals: `crop=1086:611:0:Y` then scale to 1920x1080, with Y = 300 (reading room), 280 (salon), 270 (lounge), 260 (nook), 270 (loft). Composite recipe unchanged from the room-test recipe; final overlay x positions: reading room 280, salon 750, lounge 800, nook 508, loft 620.
+
+All ten v2 asset files (five mp4 composites plus extracted mp3s) are uploaded and completed in HeyGen, batch `1cf0f0e5b7004e50bf2edce12cac0569` ("Room tests v2 Becky"). Video creation was interrupted mid-batch by a HeyGen token expiry. State:
+
+| Room | Video asset ID | Audio asset ID | Studio video |
+|---|---|---|---|
+| 02 Reading room | 4f8e1dbb84de41daac36415e463cf974 | 2b0cea63d8224011aeb61fa37a54e286 | **created:** ae3263247fcf4f5dbf14bdb4113b4fab |
+| 03 Salon (blue sweater) | b53a5f8a247e4c88b2b052cc1eb92992 | 30a55549906d4399813fc367c97fc3bc | **created:** b9715e4efc894b6ca5b231f221025dc2 |
+| 04 Lounge | 68788ae0e7e241c88b35f23a0a275067 | 357c23ba568942a6aa4cf4486fd01f8b | **created:** 7700d5bef3664b57b819c6563deafdca |
+| 05 Nook | 1af20e5ee83f4d4e864072e05f90cd62 | b9c24a79559c4b678914a7cd600ed85c | **created:** b00ac44a36b6448a84c8abc68976f146 |
+| 10 Loft | 2ea66a70e7d540088b29d4784047ee60 | b1035df163954c2faa922e6d2446bc61 | **created:** 43cc46191e274d8dbf3c85a89f34ac60 |
+
+All five verified completed at full duration on 2026-08-11 (no 2-second truncation); the review table above carries the v2 links.
+
+**Loft logo fix (v3, same day):** Becky flagged the loft logo as still wrong; the generator had redrawn the mark (arc floating between the m and o, doubled-orange rainbow bands) instead of reproducing it. Fixed per the 2026-08-05 ruling: `delogo` erased the AI mark from the sign, and the real wordmark (rasterized from `../bemo-website/public/logo-horizontal.svg`, white ground keyed out) was composited in its place. The other four rooms' marks checked clean. Fixed background is `capture/out/scenes/revised-2026-08-11/bg-10_Loft-fixed.png`, composite `v3room-10_Loft.mp4/.mp3`, HeyGen assets c94d7eb100e345caaf319c4087deec13 (video) and ca48e872653f4371853bb45a5ffc1ff7 (audio), batch d5f1ce8a0a78445081f7409758452642, final video da577d129acc4de9aafbe9dd3b235dbb.
+
+## New candidate: the lobby (Becky's test image, 2026-08-12)
+
+Becky supplied a generated backdrop outside the brick-loft system: cream plaster wall, warm wood slat panel with edge lighting on the right, light wood floor, potted palm, and the full-color bemo wordmark applied directly to the wall upper-left. Composited and published as a HeyGen test the same day, per the room-test recipe (blue-sweater cutout `cutv03b`, centered, 0.85 scale bottom-anchored).
+
+- The generator-drawn logo **checked clean** against `../bemo-website/public/logo-horizontal.svg` (arc bands orange, green, cyan in the right order; letterforms match), so no delogo pass was needed. First generated mark to survive the 2026-08-05 ruling inspection unedited.
+- Note for ratification: this room breaks the continuity rules above (no brick, no black steel, and a full-color wall mark where the system uses white-painted or framed marks). If adopted it is a new look direction, not an eleventh room in the loft building.
+- Source image: `~/Downloads/ChatGPT Image Aug 12, 2026, 12_58_14 PM.png` (1672x941), cropped and scaled to `capture/out/scenes/lobby-2026-08-12/bg-11_Lobby.png` (1920x1080), composite `room-11_Lobby.mp4/.mp3`.
+- HeyGen: video asset `c7ed2fec2539431bb21d8e03777ebfb0`, audio asset `cf3e3a19ea6049188c48c2c4f7c80a2d`, studio video **95fb6cb0c3b1417aba75c72f94426091** (completed, full 8.4s duration): https://app.heygen.com/videos/95fb6cb0c3b1417aba75c72f94426091
+
+**Scale fix (same day):** Becky flagged the presenter as too small; the wide empty wall makes the recipe's 0.85 scale (612px) read distant. Two fix variants rendered, both with the cutout upscaled to 900px wide (1.25x native, lanczos):
+
+| Variant | Background | Composite | HeyGen asset | Studio video |
+|---|---|---|---|---|
+| v2: bigger presenter, full room | `bg-11_Lobby.png` (unchanged; keeps logo, slats, plant) | `room-11_Lobby-v2.mp4` | ed670c73df224d87929744cded451b65 | ab5ebfb0a1f8417da2890bc558ec6a73 |
+| v3: punched in, tightest framing | `bg-11_Lobby-tight.png` (`crop=1450:816:60:90` then 1920x1080; drops the plant, enlarges logo) | `room-11_Lobby-v3.mp4` | 98b0b803f5584b47acec990f13f396d4 | 3cc75fa261f64addaf03fc5ad22ee743 |
+
+Both reuse the original test's audio asset. Lesson for this room if adopted: the 0.85-scale rule is calibrated for the loft rooms' closer camera; wide-room backdrops need either a presenter upscale or a background punch-in chosen at composite time.
+
+**Fresh-source v4 (same day):** Becky compared the composites against the Aug 10 pacing-test control (4d43b55f239f4758a5a49164d2ba83e0, a first-generation Avatar V render) and asked if a different engine was involved. It is the same Avatar V engine; the difference was generational loss in the composite chain (720px cutout from Aug 11, upscaled 1.25x, double re-encode). Fix: a fresh Avatar V render of the twin (`c1b7e19979ca42d78cf0a1646497a2d7`) lip-syncing the same audio asset, requested as `outputFormat: webm` at 1080p, which returns a native transparent cutout directly (1080x1098, same 60:61 framing as the old cutouts at 1.5x resolution) with no chroma keying or app-side matting step. HeyGen render 7df47dc455e34516a081304f17e24760, local `cutv-lobby-1080.webm`, composited identically to v2 (900px is now a downscale, not an upscale): `room-11_Lobby-v4.mp4`, asset da27338693c54668ba149c90f3036a7d, studio video **cfc859b59f2a47c0b9b2477477945d17**.
+
+Recipe upgrade for ratification: request cutouts as 1080p alpha webm at generation time and keep them at or below native size in composites. The Aug 11 720px cutout library is fine for the brick rooms at 0.85 scale but below its quality floor at wide-room presenter sizes.
 
 ## Open questions
 

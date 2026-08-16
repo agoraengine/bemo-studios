@@ -20,6 +20,10 @@ The Compass in-flow capture (`website-demo-slots/capture/out/compass-in-flow-raw
 
 Becky supplied a Press Release Editor screenshot alongside the Amplify letter. Not used: its collected-facts panel carries real customer data from a live workspace (Meg Poe, Autoimmune Encephalitis Alliance, Durham NC, pulled from her knowledge base). Using it externally needs Meg's per-use approval, and the cleaner path is recreating the flow in the seeded demo org. Parked for a later reel (it is a strong "it already knew" visual once recreated).
 
+### Annual Report Editor interview copy uses double hyphens (2026-08-16)
+
+The annual-report capture used for reel 2's interview beat shows product copy with a spaced double hyphen standing in for a dash ("Starting with the most essential fields -- please answer as many as you can", and again in the follow-up list "the field got the fiscal year text by mistake -- please describe"). Same class as the Amplify, FunderStorm, and Compass em dash findings above: if the punctuation rule reaches generated product copy, this interview template needs it. Logged, not edited: product UI text is never touched in post, and the capture ships as captured per the Week 30 guardrails.
+
 ## For bemo-os
 
 ### "Apps" versus "products," and now "one product" (2026-08-03, updated same day)

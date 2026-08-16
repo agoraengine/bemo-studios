@@ -69,7 +69,6 @@ Series-level claims; each reel leads with exactly one message (one pillar per pi
 - **No aggregate outcome claims.** No hours-saved statistics, no win rates. Jen's "about an hour instead of 3 days" is an individual, attributed story and stays framed as one.
 - **No quote recombination.** Quotes appear on screen, as written, in the speaker's name, never read aloud by the cloned voice. Jen's story is never described as "unsolicited" (provenance correction, July 24).
 - **Grant discovery is never the headline.** In reel 2 the grant cycle is one instance of the reconstruction tax, not the frame.
-- **"Nothing drops on the floor" stays out** until it is ratified into the message map (flagged in `../ga-sizzle-reel/findings.md`).
 - No em dashes, no AI-tell vocabulary, no urgency, no countdowns, no claimed feelings.
 
 ## Proof available
