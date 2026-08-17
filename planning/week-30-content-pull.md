@@ -10,7 +10,7 @@
 | Thu, Amplify feature reel | `productions/li-product-feature-reels/capture/out/bemo-amplify-feature-30s-v1-final.mp4` | Ledger final, awaiting Becky's approval; Jen approved Aug 16 |
 | Thu, alternate cut | same folder, `bemo-amplify-feature-30s-v2-letter-final.mp4` | From the Aug 15 session, **not yet in assets.md**; decide which cut is the one and update the ledger |
 | Wed, templates still | `planning/amplify-platform-frames/amplify-templates-already-knows-appeal-letter-{wide,square,portrait}.png` | Rebuilt Aug 16 on the appeal letter per Becky (the week's document); **headline decided same evening: already-knows, because it names the pain point**; the dozens variant and the press-release set stay on disk |
-| Fri, question poster | `productions/short-form-animations/capture/out/bemo-short-form-whose-voice-appeal-v2s.mp4` + `-sq-v2s` | Re-rendered Aug 16 asking "Whose voice is your appeal letter in?" per Becky; newsletter v1s kept for a later rotation; gated on ratifying the campaign plan |
+| Fri, question poster | `productions/question-posters/capture/out/bemo-short-form-whose-voice-appeal-v2s.mp4` + `-sq-v2s` | Re-rendered Aug 16 asking "Whose voice is your appeal letter in?" per Becky; newsletter v1s kept for a later rotation; gated on ratifying the campaign plan |
 | Sat, named quote still | `planning/amplify-platform-frames/amplify-quote-questions-named-{square,portrait}.png` | Ready |
 
 ## Gaps found in the pull
@@ -42,6 +42,18 @@
   - Instagram runs on the bio link (no per-post UTM); confirm the bio points at the live site per the edcal's Thursday note.
   - YouTube descriptions (Becky posts; she handles the YouTube page, resolved Aug 16): `https://bemointel.ai/?utm_source=youtube&utm_medium=video&utm_campaign=w30-ai-slop` on both the Tuesday and Thursday full cuts.
   - **Confirm with Lee before Monday: UTM tracking end to end** (the tagged links land in analytics and the signup goal fires). All links sit on the shareable plan per post: https://claude.ai/code/artifact/d7653cae-0a05-4daf-b30e-d9cb5d3b4a1e
+- [ ] **Monday amplification: share the article to the "AI for Nonprofit Organizations" LinkedIn group** (Becky, after the article is live). Drafted Aug 16; paste the live article URL at the bracket. No UTM and no beta pitch in the group (the article's footer carries the tagged link); Jen deliberately unnamed here, one fewer placement against the fatigue budget; the closing question harvests the group's own tests for the Friday close notes.
+
+  > LinkedIn added a "Seems like AI slop" report button a few weeks ago. I run an AI company that serves nonprofits, so I wrote down what I actually think about it, and it's probably not what you'd expect from someone in my seat.
+  >
+  > Most of what that button is pointed at deserves it. But the button measures the wrong thing, because "was AI involved" was never the real question. The real question is whether there's still a person in it.
+  >
+  > The piece is built around a true story: an executive director of a library friends group who wrote her annual appeal letter with AI and ended up with a letter that had more of her in it, not less. It closes with the five questions I'd ask about any piece of writing instead of the one a classifier can answer.
+  >
+  > [link to the article]
+  >
+  > For this group specifically: when you evaluate AI-drafted donor material, what's your test? Mine is in the piece, and I'd genuinely like to compare lists.
+
 - [ ] Drive uploads from the staging folder; links into each production's `assets.md`
 - [x] Monday and Tuesday slots decided (Becky, Aug 16 evening): **the Amplify letter reel moves to Tuesday** because it supports the anchor (15s core to the page feed, letter 30s to YouTube, the Jen post copy in page voice); **FunderStorm moves to Thursday** (Becky's profile + YouTube, Maryellen post copy); **Monday's company page goes dark** with the anchor owning the day; **sizzle reel 2 is held** for a later slot (rendered, pending approval, feeds the sizzle rollout's v5 re-flow). Lee's gift-levels comment line rides Tuesday with the Amplify reel; his Thursday FunderStorm comment points at the continuity beat. The shareable plan with the final content: https://claude.ai/code/artifact/d7653cae-0a05-4daf-b30e-d9cb5d3b4a1e (built for sharing with Lee)
 - [ ] Sizzle rollout needs its v5 pass against the live weekly calendar; the reel 2 render gap is another argument for doing it now
