@@ -230,7 +230,46 @@ The quote card left the reel (Becky's Aug 16 ruling), so the post carries the pr
 | 22.5 to 25.5 | **"Compass."** with "One of four apps that share the same memory." | Type card, Deep Sapphire identity (Compass's product color) | Category line as ratified | No |
 | 25.5 to 30.0 | Logo, **"Where missions gain momentum."**, bemointel.ai | Standing close | No corner mark; the logo is the subject | Yes (4.0s) |
 
-The 15-second core is assembled, not truncated: open card (3.0s), the question (4.0s), the ask-back (4.2s), standing close (4.0s), about 15.2s. The four-dimensions beat is the one the core drops, because it needs reading time the feed does not give.
+The cut table above is the 30-second parent, which is unchanged and settled.
+
+### The 15-second core, revised August 21, 2026 (v2)
+
+**The scripted core is superseded.** It ran open card (3.0s), the question (4.0s), the
+ask-back (4.2s), close, on the reasoning that the four-dimensions beat needed reading
+time the feed does not give. Built and watched at feed length, that cut spends both
+footage beats on questions, one going in and four coming back, and drops the only beat
+where the software visibly does the work. Muted and cold, "What I don't have stored"
+became the last thing a stranger saw the product do, and it can read as *it could not
+help*. In the parent that beat lands as integrity because the framing precedes it. In
+the core nothing earned it.
+
+**v2, the cut that runs Tuesday:**
+
+| Time | On screen | Source | Notes |
+|---|---|---|---|
+| 0.0 to 3.2 | **"Right now somebody is covering for you. Or you are covering for somebody."** Green mark under "covering for you" | Type card | Problem first, no product name. Set at 78px so each sentence holds one line and the mark does not split |
+| 3.2 to 6.4 | The question standing in the thread, caption: **"A decision, thought out loud."** | Raw take, 29.4s | Provenance line, bottom left; caption low (see the build notes) |
+| 6.4 to 10.8 | The four dimensions, caption: **"Four lenses you do not have four people for."** | Raw take, 46.0s | The payoff beat, restored to the core |
+| 10.8 to 15.2 | Logo, **"Where missions gain momentum."**, bemointel.ai | Standing close | No corner mark |
+
+**The open card is not new copy.** It is the first line of this reel's own ratified post
+copy, moved onto a card so the video states its own premise rather than borrowing it
+from text the viewer may not have read. The vacation line was the second half of a
+thought whose first half, that the knowledge lives in one person's head, never appeared
+on screen; a stranger saw "the test" without knowing the test of what.
+
+**What this costs, named.** The vacation line leaves the feed cut. It still closes the
+post copy, and the 30-second parent still opens on it, so the line is not lost from the
+week. **And it creates one consequence in the post copy that needs Becky's call:** the
+post now opens on the same sentence the video shows three seconds later, and on LinkedIn
+the first line of post copy is what shows above the fold. That is an immediate echo.
+**Recommended fix, one deletion:** drop the post copy's first line and open on "Here is
+what coverage does not cover," which still reads as a complete opening and lets the
+video deliver the setup. The post copy below is unchanged pending that call.
+
+Two auditions stay buildable in the rig if the choice is revisited: **B**, the same
+structure on the scripted vacation card, and **C**, which trades the human asking for
+the message line and is the only cut that states it on screen.
 
 ### Proof
 
@@ -250,7 +289,8 @@ The 15-second core is assembled, not truncated: open card (3.0s), the question (
 
 | On-screen line | Traces to |
 |---|---|
-| "The test is not retirement. It is two weeks off." | The coordination-collapse thesis, `02-core-insight.md`, and the founder-held-knowledge argument in the published record (Week 21, Week 23). Structural, never about any individual's tenure. Sets up what the beats answer |
+| "The test is not retirement. It is two weeks off." | The coordination-collapse thesis, `02-core-insight.md`, and the founder-held-knowledge argument in the published record (Week 21, Week 23). Structural, never about any individual's tenure. Sets up what the beats answer. **Parent only from v2; see the 15-second core** |
+| "Right now somebody is covering for you. Or you are covering for somebody." (v2 core open card) | Same thesis, and verbatim from this reel's own ratified post copy below. A description of a week in the sector, not a claim about any organization. No product name, no outcome claim |
 | "A decision, thought out loud." | Observed product behavior, on screen as captured: the user's own question, verbatim in frame |
 | "Four lenses you do not have four people for." | Observed product behavior: the four numbered dimensions as generated. Describes what is on screen, claims nothing about quality |
 | "Then it asks you for what it does not know." | Observed product behavior: the "What I don't have stored" block, verbatim in frame |

@@ -73,7 +73,9 @@ All on music bed A, the standing close, corner wordmark, captions-and-music, no 
 | Asset | State | Drive |
 |---|---|---|
 | `bemo-compass-feature-30s-v1-final.mp4` | **The YouTube asset.** Three beats, 29.97s, bed P2, -15.91 LUFS measured. Awaiting approval | *needs upload* |
-| `bemo-compass-feature-15s-core-v1-final.mp4` | **The LinkedIn feed asset.** Question and ask-back only, 15.60s, bed P1, -15.86 LUFS measured. Awaiting approval | *needs upload* |
+| `bemo-compass-feature-15s-core-v2-final.mp4` | **CHOSEN (Becky, Aug 21): the Tuesday LinkedIn feed asset.** Covering open card, the question, the four lenses. 15.20s, bed P1, -15.9 LUFS measured | *needs upload* |
+| `bemo-compass-feature-15s-core-v1-superseded-final.mp4` | The scripted cut (question and ask-back, no payoff beat). Superseded Aug 21; kept until the Drive upload | not for upload |
+| `-audition-B-scripted-open-final.mp4`, `-audition-C-lenses-and-message-final.mp4` | The two other auditions, buildable from the rig if the choice is revisited | not for upload |
 | `bemo-compass-feature-30s-v1.mp4` / `-15s-core-v1.mp4` | Picture only, no bed. Kept for re-mixing | not for upload |
 
 Lengths and loudness above are measured off the rendered files, not the cut table's

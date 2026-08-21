@@ -217,11 +217,14 @@ if (!process.env.MIX_ONLY) {
   // the one the core drops. Muted and cold, "What I don't have stored" can land as
   // "it could not help" when it is not preceded by the framing that earns it.
   // B, C and D each put the payoff back, and differ in what they spend to do it.
+  // v2 is the chosen feed cut (Becky, 2026-08-21), the audition that was D.
+  // v1 is the scripted cut, superseded and kept for the record. The two remaining
+  // auditions stay buildable so the choice can be revisited without guesswork.
   const CORES = [
-    { id: "v1", parts: [["card", "open", 3.0], ["beat", "b1", 4.0], ["beat", "b3", 4.2], ["close"]] },
-    { id: "B-four-lenses", parts: [["card", "open", 3.0], ["beat", "b1", 3.4], ["beat", "b2", 4.4], ["close"]] },
-    { id: "C-lenses-and-message", parts: [["card", "open", 2.8], ["beat", "b2", 5.0], ["card", "lead", 3.0], ["close"]] },
-    { id: "D-covering-open", parts: [["card", "covering", 3.2], ["beat", "b1", 3.2], ["beat", "b2", 4.4], ["close"]] },
+    { id: "v2", parts: [["card", "covering", 3.2], ["beat", "b1", 3.2], ["beat", "b2", 4.4], ["close"]] },
+    { id: "v1-superseded", parts: [["card", "open", 3.0], ["beat", "b1", 4.0], ["beat", "b3", 4.2], ["close"]] },
+    { id: "audition-B-scripted-open", parts: [["card", "open", 3.0], ["beat", "b1", 3.4], ["beat", "b2", 4.4], ["close"]] },
+    { id: "audition-C-lenses-and-message", parts: [["card", "open", 2.8], ["beat", "b2", 5.0], ["card", "lead", 3.0], ["close"]] },
   ];
 
   for (const { id, parts } of CORES) {
@@ -250,7 +253,7 @@ const measureI = (file) => {
   return m ? parseFloat(m[1]) : null;
 };
 
-const CORE_IDS = ["v1", "B-four-lenses", "C-lenses-and-message", "D-covering-open"];
+const CORE_IDS = ["v2", "v1-superseded", "audition-B-scripted-open", "audition-C-lenses-and-message"];
 for (const [pic, bed, out] of [
   ["bemo-compass-feature-30s-v1.mp4", BED_30, "bemo-compass-feature-30s-v1-final.mp4"],
   ...CORE_IDS.map((id) => [
