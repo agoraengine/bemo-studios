@@ -1,7 +1,7 @@
 # The Question Posters: a BeMo brand awareness campaign
 
 **v8 · August 16, 2026** · DRAFT for Becky's ratification
-**Owner:** Becky · **Built in:** productions/short-form-animations/
+**Owner:** Becky · **Built in:** productions/question-posters/
 
 ## The campaign idea in one line
 
@@ -40,12 +40,18 @@ Ordered by air date. The alignment principle, per Becky's Aug 15 direction: **th
 | Friday | On the poster | The gag | Company page post copy | Echoes |
 |---|---|---|---|---|
 | Aug 21 | Whose voice is your newsletter in? | "Whose" deletes and retypes | Your donors know your voice. They notice when it goes missing. | The appeal letter story (week of Aug 17, Amplify voice territory) |
-| Aug 28 | How many tabs does one answer take? | a tab counter ticks up in the corner | One question from a board member. Four systems to check. | Landis if she lands early (the consultant in many directions, the KB keeping track) |
-| Sep 4 | Your nonprofit learned five things this week. Where did they go? | "go" fades away mid-sentence | Board calls, site visits, donor conversations. Every week teaches your organization something. | Editions ship week; the editions are this question's answer |
+| Aug 28 | Your nonprofit learned five things this week. Where did they go? | "go" fades away mid-sentence | Board calls, site visits, donor conversations. Every week teaches your organization something. | The third-monitor anchor (week of Aug 24): the unfinished thing needs somewhere to go |
+| Sep 4 | How many tabs does one answer take? | a tab counter ticks up in the corner | One question from a board member. Four systems to check. | **Echo needed.** Editions ship this week and their question moved to Aug 28 |
 | Sep 11 | Who knows how this organization actually works? | "Who" blinks like a cursor, waiting | Every nonprofit has one person holding it all together. That is the problem. | The Meg Poe case study (week of Sep 7, Compass) |
 | Sep 18 | What walks out the door when someone leaves? | the door swing (built) | Offboarding covers the laptop and the logins. Not twelve years of judgment. | Pre-GA belief-building; sets up the GA statement |
 | Sep 25 (GA week) | Nothing falls on the floor. And nothing walks out the door. | falls + door + the signal (built) | Post-copy Option B: the two failure modes named, "We built for both." | The Sep 18 question, answered at GA |
 | Oct 2 | Why does every grant start from scratch? | "scratch" gets scratched out by a green strike | You wrote this proposal last year. And the year before that. | Opens post-GA proof-building, deep in grant season |
+
+**Amendment to this draft, August 21 (Becky): August 28 and September 4 swap.** Week 31's Field Notes video contains an unscripted "I just had so many tabs open," which was released deliberately rather than re-recorded, and the anchor essay carries its own tabs line. Leaving the tabs poster on August 28 would have run the same image three times in one week. Two is a motif and three is a tic.
+
+The poster moved rather than the essay, because the essay earned the line and a poster is interchangeable. "Where did they go?" is also the better echo of that week: the anchor is about the unfinished thing needing somewhere to go, which is the question verbatim, where tabs only echoed the essay's least important image.
+
+The cost is real and lands on September 4. That week ships editions, and this question was written as the one the editions answer, so the pairing is spent a week early. September 4 now runs tabs against no echo and needs one found. Renders for both were already posting-ready in both aspects, so the swap cost nothing in production.
 
 **Amendment to this draft, August 16 (Becky):** the August 21 poster airs as **"Whose voice is your appeal letter in?"** so Friday's question lands on the exact document the week's anchor story (Jen Allen's annual appeal letter) is about. Same gag ("Whose" deletes and retypes), same sound, same post copy ("Your donors know your voice. They notice when it goes missing."), which reads true of an appeal letter as it does of a newsletter. The newsletter wording in the table above returns in a later rotation; its renders stay on disk. Posting versions: `whose-voice-appeal` v2s, both aspects. The campaign is still pending ratification, so this amends the draft, not a ratified plan.
 
