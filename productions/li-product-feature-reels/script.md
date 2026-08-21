@@ -272,14 +272,39 @@ close. The closing card drops the icon and the name and carries only "One of fou
 that share the same memory", because with the identity card at the front the old
 icon-and-name card read as a repeat.
 
-**15-second core (v3), 15.20s, company page feed.** Problem card (3.0s), the Compass card
-(3.0s), the four lenses (4.8s), close (4.4s). A first-time viewer gets a problem they
-recognize, what the thing is, what it does, and where to go.
+### The second ruling: the open card asks a question, so the cut has to answer it
 
-**Also built:** `15s-core-v3-alt-keeps-the-ask`, the same shape with the question beat
-kept at 2.4s and the lenses cut to 3.0s. It is more complete and each footage beat is
-faster; the choice between them is whether showing a person asking is worth the reading
-time it takes from the answer.
+**Becky, August 21, on the v3 core:** it still does not answer the vacation question.
+
+Correct, and it is the same class of error as the first one. The open card poses
+coverage, somebody is away and somebody is covering, and v3 went on to explain what
+Compass is and show the software working without ever saying the thing that resolves the
+setup. **The line that answers it is the message-map lead, and it lived only in the
+parent.** The 15 posed a question and walked away from it.
+
+**15-second core (v4), 15.20s, company page feed. Question, answer, proof, close.**
+
+| Time | On screen |
+|---|---|
+| 0.0 to 2.8 | "Right now somebody is covering for you. Or you are covering for somebody." |
+| 2.8 to 6.4 | Eyebrow "COMPASS · STRATEGY" over **"You don't have to be the only one who knows how this organization works."**, message map verbatim, mark under "the only one" |
+| 6.4 to 10.8 | The four lenses, caption "It answers with your numbers, your history, your board." |
+| 10.8 to 15.2 | Standing close |
+
+**The card is the live site's own composition:** product name and category as a small
+eyebrow, the promise as the headline, exactly how the Compass page on bemointel.ai is
+built. It names the product, states its category, and answers the open card, in one card
+and without spending a second beat to do it.
+
+**Also built:** `15s-core-v4-alt-product-name-large`, the same four beats with "Compass."
+set large and the promise underneath in small type. Not recommended: it makes the product
+name the biggest thing on screen and shrinks the line doing the work. Kept so the choice
+is visible rather than argued.
+
+**The parent keeps the fuller treatment**, because it has room: the descriptive identity
+card at 2.9s ("a thinking partner for strategy that remembers what your organization
+already decided, and why") and the lead message as its own card at 20s. The parent
+already answered the question; only the core did not.
 
 ### The 15-second core, revised earlier the same day (v2, superseded)
 

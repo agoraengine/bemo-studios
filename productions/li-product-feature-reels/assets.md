@@ -73,15 +73,20 @@ All on music bed A, the standing close, corner wordmark, captions-and-music, no 
 | Asset | State | Drive |
 |---|---|---|
 | `bemo-compass-feature-30s-v2-final.mp4` | **The YouTube asset.** Identity card second, plain lenses caption, category line at the close. 29.93s, bed P2, -15.9 LUFS | *needs upload* |
-| `bemo-compass-feature-15s-core-v3-final.mp4` | **The Tuesday LinkedIn feed asset.** Problem, the Compass card, the four lenses, close. 15.20s, bed P1, -15.9 LUFS | *needs upload* |
-| `bemo-compass-feature-15s-core-v3-alt-keeps-the-ask-final.mp4` | Same shape with the question beat kept at 2.4s and the lenses at 3.0s. The alternate for Becky's pick | not for upload |
-| `-30s-v1-superseded-final.mp4`, `-15s-core-v2-superseded-final.mp4` | The cuts before the ordering ruling, which named Compass only at 22.5s in the parent and never in the core. Kept until the Drive upload | not for upload |
+| `bemo-compass-feature-15s-core-v4-final.mp4` | **The Tuesday LinkedIn feed asset.** Question, answer, proof, close. 15.20s, bed P1, -15.9 LUFS | *needs upload* |
+| `bemo-compass-feature-15s-core-v4-alt-product-name-large-final.mp4` | Same four beats with the product name set large and the promise small. Not recommended; kept so the choice is visible | not for upload |
+| `-30s-v1-superseded-final.mp4`, `-15s-core-v2-superseded-final.mp4`, `-15s-core-v3-superseded-final.mp4` | The three cuts before the two rulings below. Kept until the Drive upload | not for upload |
 
-**The ordering ruling, August 21 (Becky):** name the product before the demo, not after.
-The reel ran sixteen seconds of unexplained chat interface before the word Compass
-appeared, and the 15 never said it. The identity card now sits second in both cuts and
-carries the live site's plain description rather than the category line. Full reasoning
-and the claim trace are in `script.md`.
+**Two rulings from Becky, both August 21, both on the same fault line.**
+
+1. **Name the product before the demo, not after.** The reel ran sixteen seconds of
+   unexplained chat interface before the word Compass appeared, and the 15 never said it.
+2. **The open card asks a question, so the cut has to answer it.** The open card poses
+   coverage; the answer is the message-map lead, and it lived only in the parent, so the
+   15 posed a question and walked away from it.
+
+The core now runs question, answer, proof, close, on a card built the way the live
+Compass page is built. Full reasoning and the claim trace are in `script.md`.
 | `bemo-compass-feature-30s-v1.mp4` / `-15s-core-v1.mp4` | Picture only, no bed. Kept for re-mixing | not for upload |
 
 Lengths and loudness above are measured off the rendered files, not the cut table's

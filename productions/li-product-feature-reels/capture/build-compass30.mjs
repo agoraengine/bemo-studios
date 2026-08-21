@@ -64,6 +64,10 @@ h1.tight{font-size:78px}
 /* product identity card: Compass is Deep Sapphire (bemo-website DESIGN.md),
    on the cool wash rather than FunderStorm's warm one */
 .appcard{display:flex;flex-direction:column;align-items:flex-start}
+/* the answer line stacked under the category line on the identity card */
+.sub.answer{margin-top:22px;font-size:46px;color:#05347E}
+/* the site's own composition: product eyebrow over the promise as the headline */
+.eyebrow{font-family:"GeistMono",monospace;font-size:34px;letter-spacing:.1em;text-transform:uppercase;color:#5C6A82;font-weight:500;margin-bottom:34px}
 .appcard .ic{width:132px;height:132px;border-radius:32px;background:#E9F0FA;display:flex;align-items:center;justify-content:center;margin-bottom:40px}
 .appcard .ic svg{width:88px;height:88px}
 `;
@@ -99,6 +103,23 @@ const CARDS = {
       <circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></div>
     <h1>Compass.</h1>
     <div class="sub">A thinking partner for strategy that remembers<br>what your organization already decided, and why.</div>
+  </div>`,
+  // The card that both names Compass and answers the question the open card asks.
+  // The open card poses coverage: somebody is away and somebody is covering. Without
+  // this line the 15 poses that and never answers it, because the lead message lived
+  // only in the parent. The message-map line is the answer, and it runs verbatim.
+  whatitis2: `<div class="appcard">
+    <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#05347E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></div>
+    <h1>Compass.</h1>
+    <div class="sub">A thinking partner for strategy.</div>
+    <div class="sub answer">You don&rsquo;t have to be <span class="u">the only one</span><br>who knows how this organization works.</div>
+  </div>`,
+  // The same job in the live site's own composition: product eyebrow over the promise
+  // as the headline, which is exactly how the Compass page is built.
+  whatitis3: `<div>
+    <div class="eyebrow">Compass &middot; strategy</div>
+    <h1>You don&rsquo;t have to be <span class="u">the only one</span> who knows how this organization works.</h1>
   </div>`,
 };
 
@@ -241,12 +262,21 @@ if (!process.env.MIX_ONLY) {
       ["card", "open", 3.0], ["beat", "b1", 5.5], ["beat", "b2", 5.5], ["beat", "b3", 5.5],
       ["card", "lead", 3.0], ["card", "category", 3.0], ["close"]] },
     // 15-second cores (bed P1)
-    { id: "15s-core-v3", kind: "core", parts: [
+    // v4 answers the question the open card asks. v3 named Compass but left the
+    // coverage setup hanging: it never said what happens when the person who knows is
+    // away. The message-map line is that answer and it now rides the identity card.
+    // The site composition wins the card: the promise reads at headline size where the
+    // stacked version buried it at 46px under a large product name. The eyebrow still
+    // names Compass and its category, exactly as the live page does.
+    { id: "15s-core-v4", kind: "core", parts: [
+      ["card", "covering", 2.8], ["card", "whatitis3", 3.6],
+      ["beat", "b2", 4.4, "cap2plain"], ["close"]] },
+    { id: "15s-core-v4-alt-product-name-large", kind: "core", parts: [
+      ["card", "covering", 2.8], ["card", "whatitis2", 3.6],
+      ["beat", "b2", 4.4, "cap2plain"], ["close"]] },
+    { id: "15s-core-v3-superseded", kind: "core", parts: [
       ["card", "covering", 3.0], ["card", "whatitis", 3.0],
       ["beat", "b2", 4.8, "cap2plain"], ["close"]] },
-    { id: "15s-core-v3-alt-keeps-the-ask", kind: "core", parts: [
-      ["card", "covering", 2.8], ["card", "whatitis", 2.6],
-      ["beat", "b1", 2.4], ["beat", "b2", 3.0, "cap2plain"], ["close"]] },
     { id: "15s-core-v2-superseded", kind: "core", parts: [
       ["card", "covering", 3.2], ["beat", "b1", 3.2], ["beat", "b2", 4.4], ["close"]] },
   ];
@@ -279,8 +309,8 @@ const measureI = (file) => {
 
 const MIX = [
   ["30s-v2", BED_30], ["30s-v1-superseded", BED_30],
-  ["15s-core-v3", BED_15], ["15s-core-v3-alt-keeps-the-ask", BED_15],
-  ["15s-core-v2-superseded", BED_15],
+  ["15s-core-v4", BED_15], ["15s-core-v4-alt-product-name-large", BED_15],
+  ["15s-core-v3-superseded", BED_15], ["15s-core-v2-superseded", BED_15],
 ];
 for (const [pic, bed, out] of MIX.map(([id, bed]) => [
   `bemo-compass-feature-${id}.mp4`, bed, `bemo-compass-feature-${id}-final.mp4`])) {
