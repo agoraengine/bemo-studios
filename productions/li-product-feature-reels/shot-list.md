@@ -1,7 +1,7 @@
 # Shot List: LinkedIn product feature reels
 
-**Capture state:** IN PROGRESS (FunderStorm complete; remaining reels per script)
-**Last run:** 2026-08-16 (FunderStorm rows verified against footage on disk; capture itself ran earlier in the website-demo-slots production)
+**Capture state:** IN PROGRESS (FunderStorm and Compass complete; remaining reels per script)
+**Last run:** 2026-08-21 (Compass rows verified against footage on disk and built; capture itself ran earlier in the website-demo-slots production)
 **Build captured against:** live app via the Cottage 2 harness, Common Table demo organization
 
 Check off each shot when usable footage exists. The capture gate is every row checked.
@@ -17,6 +17,24 @@ Check off each shot when usable footage exists. The capture gate is every row ch
 | F5 | Quote card: Maryellen Duggan, "Love that the 'chats' are saved to come back to later." | title | 0:05.6 | n/a | [x] |
 | F6 | Identity card: FunderStorm. One of four apps that share the same memory. | title | 0:02.8 | n/a | [x] |
 | F7 | Standing close: logo, "Where missions gain momentum.", bemointel.ai | title | 0:04.4 | n/a, `capture/out/close-anim/` | [x] |
+
+## Compass (Tuesday, August 25 slot)
+
+All three footage beats come from one continuous take, `compass-in-flow-raw.webm`, so
+there is no capture session to run. Timings are seconds into that take.
+
+| ID | What is on screen | Type | Duration | App path | Captured |
+|---|---|---|---|---|---|
+| C1 | Open card: "The test is not retirement. It is two weeks off." | title | 0:03.0 | n/a, rendered by the rig | [x] |
+| C2 | The user's own question standing in the thread, answer beginning under it | screen | 0:05.5 | Compass > New chat; take @ 30.0s | [x] |
+| C3 | The four numbered dimensions, each carrying the organization's own facts | screen | 0:05.5 | Same thread, answer complete; take @ 46.0s | [x] |
+| C4 | The ask-back: "What I don't have stored, and would need from you to go further" | screen | 0:05.5 | Same thread; take @ 53.5s | [x] |
+| C5 | Lead message card, verbatim from message map 3.2 | title | 0:03.0 | n/a | [x] |
+| C6 | Identity card: Compass. One of four apps that share the same memory. | title | 0:03.0 | n/a | [x] |
+| C7 | Standing close: logo, "Where missions gain momentum.", bemointel.ai | title | 0:04.4 | n/a, `capture/out/close-anim/` | [x] |
+
+No quote card. This reel is behavior-only: Meg Poe is per-use gated with no dated line
+for this placement, so she appears in no frame and no caption.
 
 **Type** is one of:
 - `screen` — real product, captured by the automation

@@ -56,6 +56,47 @@ All on music bed A, the standing close, corner wordmark, captions-and-music, no 
 
 **Music:** beds P1/P2 (see the Amplify note above). Licence terms still need checking before either bed runs behind paid.
 
+## Compass (capture confirmed on disk, 2026-08-21)
+
+**Correction.** This ledger previously listed Compass under "still to come, none captured," which contradicted the brief and stalled the Week 31 Tuesday slot for a day. The capture exists and has since at least the website-demo-slots work:
+
+| Asset | State | Location |
+|---|---|---|
+| `compass-in-flow.mp4` | Captured, cut for the website slot | `../website-demo-slots/capture/out/` |
+| `compass-in-flow-raw.webm` | Raw capture | same |
+| `compass-in-flow-actions.json` | Action log | same |
+| `compass-in-flow-poster.jpg` | Poster frame | same |
+| `compass-in-flow.plan.json` | The capture plan, so the run is repeatable | `../website-demo-slots/capture/` |
+
+**Built 2026-08-21** by `capture/build-compass30.mjs`, adapted from the FunderStorm rig:
+
+| Asset | State | Drive |
+|---|---|---|
+| `bemo-compass-feature-30s-v1-final.mp4` | **The YouTube asset.** Three beats, 29.97s, bed P2, -15.91 LUFS measured. Awaiting approval | *needs upload* |
+| `bemo-compass-feature-15s-core-v1-final.mp4` | **The LinkedIn feed asset.** Question and ask-back only, 15.60s, bed P1, -15.86 LUFS measured. Awaiting approval | *needs upload* |
+| `bemo-compass-feature-30s-v1.mp4` / `-15s-core-v1.mp4` | Picture only, no bed. Kept for re-mixing | not for upload |
+
+Lengths and loudness above are measured off the rendered files, not the cut table's
+estimate: the parent runs the full three beats at 29.97s rather than the FunderStorm
+parent's 24.4s, because Compass has three footage beats where FunderStorm has two.
+
+**Behavior-only.** Meg Poe is per-use gated with no dated line for this placement, so she appears in no frame, caption, card or post copy. No proof card; the post copy carries the argument.
+
+**Two framing decisions await Becky's confirm**, both reasoned in `script.md` under the
+Compass section: beat one carries its caption at the bottom of frame, because the user's
+question sits at the top of the app viewport where the standard top caption would fade
+the one thing the shot is about; and beat three is framed to end above the composer,
+because typing of the follow-up starts around 55.5s in the take and the composer would
+otherwise carry the Bright Harbor line this script deliberately banks.
+
+**Three build findings worth keeping:**
+
+1. **The question beat runs with no caption.** It sits at the very top of the thread, so a top caption covers the thing the beat exists to show. The user's own words ("Help me think through whether we can finally launch the second Saturday site this year. Where does that decision stand, and what would have to be true?") are better on-screen text than anything we would write over them. A bare plate carries the provenance line alone.
+2. **Streaming output renders raw markdown at the writing edge.** At 32.6s the newest line reads `**3. Demand` before the bold resolves. The beat moved to 33.4s to clear it. **Any future capture cut mid-stream needs a frame check for this**; it is a product rendering artifact, not something to edit out, and it is logged in `findings.md`.
+3. **The two beds are not at the same level.** P1 sits roughly 3 dB under P2, so the gains are not symmetric: -4.1 dB on the parent, -0.9 dB on the core, both measured by ebur128 against the slate targets rather than assumed.
+
+**Rule this correction earns:** the assets ledger is the single source of truth for capture state. When the brief and the ledger disagree, check the disk before believing either, and write the answer back here the same day.
+
 ## Still to come
 
-Compass, Academy, the gaps, sourced answers, the front page (the remaining product reels from the original slate). None captured.
+Academy, the gaps, sourced answers, the front page. The gaps reel reuses the shipped `knows-whats-missing` capture and needs no new session; the others are uncaptured.

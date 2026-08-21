@@ -195,6 +195,138 @@ The quote card left the reel (Becky's Aug 16 ruling), so the post carries the pr
 
 ---
 
+## Reel: Compass
+
+**Slot:** Tuesday, August 25, 2026, the Standing Week's Tuesday product-reel slot. LinkedIn company page (15-second core), 30-second parent to YouTube.
+**One message:** "You don't have to be the only one who knows how this organization works." (message map 3.2, Compass row, verbatim)
+**Pillar:** You Finally Have a Colleague. One pillar only.
+**Arc job:** see it differently. Not "AI answers your strategy questions." The reel shows a half-formed decision going in and coming back framed, with the software naming what it does not know and asking for it.
+
+### Footage
+
+| Source | What it is | Where |
+|---|---|---|
+| `compass-in-flow-raw.webm` | 1m25s, 1920x1200, 25fps. One Compass session against Common Table: a decision question asked, framed across four dimensions, then a follow-up | `productions/website-demo-slots/capture/out/` |
+| `compass-in-flow-actions.json` | The action log: question sent 19.8s, answer complete 52.4s, follow-up sent 60.9s, answered 81.0s | same |
+| 30-second rig | To be written as `capture/build-compass30.mjs`, adapted from `build-funderstorm30.mjs` | this production |
+
+**Beats chosen August 21, 2026 by frame inspection.** What is on screen, verbatim:
+
+- **Beat one, the unfinished question** (≈29.5s): the user's message stands complete at the top of the thread. *"Help me think through whether we can finally launch the second Saturday site this year. Where does that decision stand, and what would have to be true?"* That is not a task request. It is somebody thinking out loud, which is the week's whole argument arriving in the product's own words.
+- **Beat two, the four dimensions** (≈48s): the answer frames the decision as four numbered dimensions, **operational capacity, financial headroom, demand and location readiness, board authorization**, each with the organization's own facts in it (45 volunteers, three weekly runs, the $40,000 Harvest Supper goal against a $16,000 budget, 340 families and 82,400 meals in FY2025, the board's March approval). Four specialist lenses on one decision, which is the thing a small organization has no departments for.
+- **Beat three, the ask-back** (≈79s): *"What I don't have stored, and would need from you to go further:"* followed by four specific questions, closing *"Even rough answers to any of those would let us map out what 'go/no-go' actually looks like for this year."* The software does not pretend, and it hands the thinking back.
+
+**Deliberately not cut:** the follow-up exchange at 60.9 to 81.0, where the answer opens *"I don't have anything stored about a Bright Harbor grant or renewal... I want to make sure I'm working from accurate information rather than guessing."* It is excellent footage and it is the honesty territory Week 29 already ran. Using it here would make the reel about not-guessing rather than about somewhere to think. It stays banked for a future cut.
+
+### The cut
+
+| Time | On screen | Source | Notes | CUTDOWN |
+|---|---|---|---|---|
+| 0.0 to 3.0 | **"The test is not retirement. It is two weeks off."** | Type card, Sapphire on white | Problem first, no product name. Ratified August 21 over the drafted colleague line: the last week of August is peak coverage season and the frame is closer to home than succession is | Yes (3.0s) |
+| 3.0 to 8.5 | The question standing in the thread, caption: **"A decision, thought out loud."** | Raw take, 29.5s, slow push-in on the user message | Provenance line, bottom left | Yes (4.0s) |
+| 8.5 to 14.0 | The four dimensions, caption: **"Four lenses you do not have four people for."** | Raw take, 48s, slow scroll | The numbered headings must be legible; the body text does not have to be | No |
+| 14.0 to 19.5 | The ask-back, caption: **"Then it asks you for what it does not know."** | Raw take, 79s, slow push-in on the bulleted questions | The beat that separates this from a chatbot | Yes (4.2s) |
+| 19.5 to 22.5 | **"You don't have to be the only one who knows how this organization works."** Green mark under "the only one" | Type card | Lead message, verbatim | No |
+| 22.5 to 25.5 | **"Compass."** with "One of four apps that share the same memory." | Type card, Deep Sapphire identity (Compass's product color) | Category line as ratified | No |
+| 25.5 to 30.0 | Logo, **"Where missions gain momentum."**, bemointel.ai | Standing close | No corner mark; the logo is the subject | Yes (4.0s) |
+
+The 15-second core is assembled, not truncated: open card (3.0s), the question (4.0s), the ask-back (4.2s), standing close (4.0s), about 15.2s. The four-dimensions beat is the one the core drops, because it needs reading time the feed does not give.
+
+### Proof
+
+**None.** This reel is behavior-only. Meg Poe is the natural Compass proof and her approval is per-use with no dated line for this placement, so she appears in no frame, no caption, and no post copy. Nothing else is cleared for Compass.
+
+### What it must not say
+
+- No personalized wow. The shape of the product on the standing demo organization, nothing more.
+- **No Meg Poe material of any kind**, and no "best colleague" phrasing, which is hers.
+- No claim that BeMo replaces a strategist, a CFO, or a board. The four dimensions are lenses on a decision, never a substitute for the people who own it.
+- No outcome claim, no time saved, no "better decisions."
+- No machine-involvement beat and no honesty-and-guessing beat: that is the banked follow-up's territory and Week 29 already ran it.
+- No AI-leading language, no GA mention, no urgency.
+- No em dashes on our cards. The product's own prose on screen contains several; captures ship as captured.
+
+### Claim trace
+
+| On-screen line | Traces to |
+|---|---|
+| "The test is not retirement. It is two weeks off." | The coordination-collapse thesis, `02-core-insight.md`, and the founder-held-knowledge argument in the published record (Week 21, Week 23). Structural, never about any individual's tenure. Sets up what the beats answer |
+| "A decision, thought out loud." | Observed product behavior, on screen as captured: the user's own question, verbatim in frame |
+| "Four lenses you do not have four people for." | Observed product behavior: the four numbered dimensions as generated. Describes what is on screen, claims nothing about quality |
+| "Then it asks you for what it does not know." | Observed product behavior: the "What I don't have stored" block, verbatim in frame |
+| "You don't have to be the only one who knows how this organization works." | Message map 3.2, Compass lead message, verbatim |
+| "One of four apps that share the same memory." | "Four apps. One product.", ratified 2026-08-04 |
+| "Where missions gain momentum." | The tagline, ratified 2026-07-17 |
+
+### Post copy (Tuesday August 25, company page)
+
+**Written against the footage, on the vacation frame.** The earlier draft ran the institutional-knowledge argument in the abstract. What is actually on screen is more specific and lands the same message better: a half-formed decision going in, four lenses coming back, and the software asking for what it does not have.
+
+> Right now somebody is covering for you, or you are covering for somebody.
+>
+> Here is what coverage does not cover: the decisions only one person has enough context to think through. Can we open a fourth weekly distribution site this year? Nobody watching the inbox is going to answer that.
+>
+> A bigger organization would run it past four people. Operations, on whether the crew and the van can absorb it. Finance, on whether the headroom is real. Programs, on whether the need is documented. The board, on whose decision it actually is.
+>
+> That is what is on this screen. Not an answer. A decision framed the way four colleagues would frame it, from what the organization already knows, and then an honest list of what it still needs.
+>
+> The test is not retirement. It is two weeks off.
+>
+> You don't have to be the only one who knows how this organization works.
+
+**First comment:** the standard trust-posture line and the site link, `utm_source=linkedin&utm_medium=organic-social&utm_campaign=w31-third-monitor&utm_content=reel-product-compass-15s`
+
+*(Handling: no customer material, no Meg. The four lenses are described as what is on screen, never as a capability claim. The lead message closes the post verbatim.)*
+
+### How this pairs with the rest of the week
+
+The Wednesday carousel names the departments a small organization does not have, one per slide, closing on "there is nobody to think any of it through with." This reel is that argument on screen the day before, using the product's own four dimensions. Deliberate, and the two must not use identical wording: the carousel lists the roles, the reel shows the lenses.
+
+### Built August 21, 2026
+
+Rig: `capture/build-compass30.mjs`. Both cuts rendered and mixed in one pass.
+
+| Asset | Length | Bed | Program |
+|---|---|---|---|
+| `bemo-compass-feature-30s-v1-final.mp4` (YouTube parent) | 29.97s | P2 | -15.91 LUFS |
+| `bemo-compass-feature-15s-core-v1-final.mp4` (company page feed) | 15.60s | P1 | -15.86 LUFS |
+
+Two framing decisions the cut table did not anticipate, both recorded here rather than
+left in the code:
+
+1. **Beat one carries its caption low.** The subject of that shot is the user's own
+   question, which sits at the very top of the app viewport and cannot be moved down by
+   any crop, because nothing exists above it but the app's own header. The slate's top
+   caption would have faded the one thing the beat is about. The caption runs at the
+   bottom of frame instead, same type, same gradient, flipped, over the empty white the
+   streaming answer has not filled yet. Beats two and three keep the standard top
+   caption. **Becky's call to confirm**, and the cheap alternative is to accept the
+   question sitting under the gradient.
+2. **Beat three is framed to end above the composer.** Typing of the follow-up starts
+   around 55.5s in the take, well before the action log's 60.0s "typed" mark, so the
+   composer carries the words "If the Bright Harbor renewal" for the back half of the
+   shot. That is exactly the exchange this script banks. Rather than shorten the beat,
+   the frame is anchored on the ask-back block's bottom edge so the crop ends above the
+   composer. The banked line never enters frame, and the tighter crop reads better.
+3. **Beat one's in-point moved from 30.0s to 29.4s**, so the shot ends at 34.9s. It is
+   the only beat cut while the answer is still streaming, and heading three renders as
+   raw `**3. Demand` for a fraction of a second at about 35.3s before the bold resolves.
+   The ratified 5.5-second duration is unchanged; only the in-point moved. See
+   `findings.md`: headings one, two and four resolve cleanly, so this is intermittent
+   rather than every heading.
+
+**The rule these earn:** a beat cut from a streaming answer gets a frame check at its
+out-point before it ships, and the action log's timestamps are not the moment the text
+settles. The log marks this answer complete at 52.4s; it is fully rendered by 46.5s.
+
+### Open
+
+- ~~Whether the open card runs on the vacation frame.~~ **Closed August 21: the vacation frame runs.** Reason on the record: the reel airs in the last week of August, when half the sector is covering for somebody, so the frame arrives as a description of this week rather than a hypothetical.
+- ~~The four-dimensions beat needs a legibility pass at feed size.~~ **Closed August 21: it passes.** Checked at 1080 wide against the rendered parent. All four numbered headings read cleanly and most of the body text does too, so the beat stays as cut rather than falling back to a headings-only scroll. Worth noting the bar was the forgiving one: the parent posts to YouTube, and the 15-second core that runs in the feed drops this beat anyway.
+- Becky's approval on both cuts, and on the beat-one caption position above.
+
+---
+
 # The Amplify template slate
 
 **Status:** DRAFT, August 14, 2026. Six reels sharing the Amplify reel's grammar, so the slate reads as a series.
