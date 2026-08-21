@@ -83,9 +83,23 @@ const CARDS = {
     <h1>Compass.</h1>
     <div class="sub">One of four apps that share the same memory.</div>
   </div>`,
-  // Audition-only open card. Not new copy: it is the first line of the ratified
-  // Tuesday post copy, moved onto a card so the feed cut states its own setup.
+  // Not new copy: it is the first line of the ratified Tuesday post copy, moved onto
+  // a card so the feed cut states its own setup.
   covering: `<h1 class="tight">Right now somebody is <span class="u">covering for you</span>.<br>Or you are covering for somebody.</h1>`,
+  // The what-it-is card, second position in the v3 cuts. The description is the live
+  // site's own, from the Compass page: "a thinking partner for strategy". Keeping the
+  // video and the page on one sentence is the point; a viewer who watches this and
+  // then lands on bemointel.ai should hear the same thing twice.
+  // The category line as its own type card. Once the identity card moves to the front
+  // of the reel, the old icon-and-name card at the end reads as a repeat, so the
+  // closing card drops the icon and the name and carries only the ratified line.
+  categoryline: `<h1>One of four apps that share<br>the <span class="u">same memory</span>.</h1>`,
+  whatitis: `<div class="appcard">
+    <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#05347E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></div>
+    <h1>Compass.</h1>
+    <div class="sub">A thinking partner for strategy that remembers<br>what your organization already decided, and why.</div>
+  </div>`,
 };
 
 // Captions, and where each sits. Beat one goes low; see the .cap.low note above.
@@ -93,6 +107,12 @@ const CAPTIONS = {
   cap1: { line: "A decision, thought out loud.", low: true },
   cap2: { line: "Four lenses you do not have four people for.", low: false },
   cap3: { line: "Then it asks you for what it does not know.", low: false },
+  // The plain-language caption for the v3 cuts. "Four lenses you do not have four
+  // people for" is the better line and it stays on the record, but it describes the
+  // absence rather than what the viewer is watching happen. This one says what is on
+  // screen, and it tracks the live site's "BeMo answers with your objective, your
+  // numbers, your history".
+  cap2plain: { line: "It answers with your numbers, your history, your board.", low: false },
 };
 
 // The three beats, framed by inspection of the take at 2026-08-21.
@@ -163,7 +183,7 @@ if (!process.env.MIX_ONLY) {
   // The push-in rule, framed: supersample 2x, then hold the beat's focus point at
   // a chosen spot in the output while the zoom creeps. Keeping the focus fixed is
   // what stops the shot drifting off the thing the caption is talking about.
-  const beat = (key, dur, out) => {
+  const beat = (key, dur, out, capOverride) => {
     const { ss, focus, focusEnd, place, zoom } = BEATS[key];
     const N = Math.round(dur * FPS);
     const [z0, z1] = zoom, [ox, oy] = place, [fx, fy] = focus;
@@ -175,7 +195,7 @@ if (!process.env.MIX_ONLY) {
     const xe = `max(0,min(2*(${fxe}-${ox}/zoom),iw-iw/zoom))`;
     const ye = `max(0,min(2*(${fye}-${oy}/zoom),ih-ih/zoom))`;
     ff(["-ss", String(ss), "-t", String(dur), "-i", TAKE,
-        "-i", path.join(WORK, `${BEATS[key].cap}.png`), "-i", MARK,
+        "-i", path.join(WORK, `${capOverride || BEATS[key].cap}.png`), "-i", MARK,
         "-filter_complex",
         `[0:v]scale=${W * 2}:${H * 2},fps=${FPS},zoompan=z='${zx}':x='${xe}':y='${ye}':d=1:s=${W}x${H}:fps=${FPS}[v];` +
         `[v][1:v]overlay=0:0[c];[c][2:v]overlay=0:0,format=yuv420p[o]`,
@@ -198,46 +218,50 @@ if (!process.env.MIX_ONLY) {
         "-preset", "slow", "-pix_fmt", "yuv420p", path.join(OUT, out)]);
   };
 
-  // ---- the 30-second parent, per the cut table
-  console.log("building the parent…");
-  still(path.join(WORK, "card-open.png"), 3.0, path.join(WORK, "s1.mp4"));
-  beat("b1", 5.5, path.join(WORK, "s2.mp4"));
-  beat("b2", 5.5, path.join(WORK, "s3.mp4"));
-  beat("b3", 5.5, path.join(WORK, "s4.mp4"));
-  still(path.join(WORK, "card-lead.png"), 3.0, path.join(WORK, "s5.mp4"));
-  still(path.join(WORK, "card-category.png"), 3.0, path.join(WORK, "s6.mp4"));
-  close(path.join(WORK, "s7.mp4"));
-  concat(["s1", "s2", "s3", "s4", "s5", "s6", "s7"], "bemo-compass-feature-30s-v1.mp4");
-
-  // ---- the 15-second cores: assembled, not truncated, so they end like a reel.
+  // ---- the cuts.
   //
-  // v1 is the script's cut. Auditioned against three alternatives because at feed
-  // length v1 reads as a question going in and four questions coming back: the beat
-  // that shows the software actually framing the decision (b2, the four lenses) is
-  // the one the core drops. Muted and cold, "What I don't have stored" can land as
-  // "it could not help" when it is not preceded by the framing that earns it.
-  // B, C and D each put the payoff back, and differ in what they spend to do it.
-  // v2 is the chosen feed cut (Becky, 2026-08-21), the audition that was D.
-  // v1 is the scripted cut, superseded and kept for the record. The two remaining
-  // auditions stay buildable so the choice can be revisited without guesswork.
-  const CORES = [
-    { id: "v2", parts: [["card", "covering", 3.2], ["beat", "b1", 3.2], ["beat", "b2", 4.4], ["close"]] },
-    { id: "v1-superseded", parts: [["card", "open", 3.0], ["beat", "b1", 4.0], ["beat", "b3", 4.2], ["close"]] },
-    { id: "audition-B-scripted-open", parts: [["card", "open", 3.0], ["beat", "b1", 3.4], ["beat", "b2", 4.4], ["close"]] },
-    { id: "audition-C-lenses-and-message", parts: [["card", "open", 2.8], ["beat", "b2", 5.0], ["card", "lead", 3.0], ["close"]] },
+  // The ordering ruling, 2026-08-21: **name the product before the demo, not after.**
+  // The slate's grammar puts the identity card near the end, which works for a viewer
+  // who already knows BeMo. A cold feed viewer watched sixteen seconds of a chat
+  // interface before the word Compass ever appeared, and the 15 never said it at all.
+  // v3 cuts move the identity card to second position, straight after the problem, so
+  // the viewer knows what they are looking at before they look at it.
+  //
+  // The identity card uses the live site's own plain description, "a thinking partner
+  // for strategy", rather than the category line "one of four apps that share the same
+  // memory", which tells a newcomer nothing about what Compass does. The parent keeps
+  // the category line at the end, where the viewer is ready for it.
+  const CUTS = [
+    // 30-second parents (bed P2)
+    { id: "30s-v2", kind: "parent", parts: [
+      ["card", "covering", 2.9], ["card", "whatitis", 3.1],
+      ["beat", "b1", 4.6], ["beat", "b2", 5.1, "cap2plain"], ["beat", "b3", 4.6],
+      ["card", "lead", 2.7], ["card", "categoryline", 2.4], ["close"]] },
+    { id: "30s-v1-superseded", kind: "parent", parts: [
+      ["card", "open", 3.0], ["beat", "b1", 5.5], ["beat", "b2", 5.5], ["beat", "b3", 5.5],
+      ["card", "lead", 3.0], ["card", "category", 3.0], ["close"]] },
+    // 15-second cores (bed P1)
+    { id: "15s-core-v3", kind: "core", parts: [
+      ["card", "covering", 3.0], ["card", "whatitis", 3.0],
+      ["beat", "b2", 4.8, "cap2plain"], ["close"]] },
+    { id: "15s-core-v3-alt-keeps-the-ask", kind: "core", parts: [
+      ["card", "covering", 2.8], ["card", "whatitis", 2.6],
+      ["beat", "b1", 2.4], ["beat", "b2", 3.0, "cap2plain"], ["close"]] },
+    { id: "15s-core-v2-superseded", kind: "core", parts: [
+      ["card", "covering", 3.2], ["beat", "b1", 3.2], ["beat", "b2", 4.4], ["close"]] },
   ];
 
-  for (const { id, parts } of CORES) {
-    console.log("building core:", id);
+  for (const { id, parts } of CUTS) {
+    console.log("building:", id);
     const names = parts.map((p, i) => {
-      const n = `core-${id}-${i}`;
+      const n = `cut-${id}-${i}`;
       const dst = path.join(WORK, `${n}.mp4`);
       if (p[0] === "card") still(path.join(WORK, `card-${p[1]}.png`), p[2], dst);
-      else if (p[0] === "beat") beat(p[1], p[2], dst);
+      else if (p[0] === "beat") beat(p[1], p[2], dst, p[3]);
       else close(dst);
       return n;
     });
-    concat(names, `bemo-compass-feature-15s-core-${id}.mp4`);
+    concat(names, `bemo-compass-feature-${id}.mp4`);
   }
 }
 
@@ -253,13 +277,13 @@ const measureI = (file) => {
   return m ? parseFloat(m[1]) : null;
 };
 
-const CORE_IDS = ["v2", "v1-superseded", "audition-B-scripted-open", "audition-C-lenses-and-message"];
-for (const [pic, bed, out] of [
-  ["bemo-compass-feature-30s-v1.mp4", BED_30, "bemo-compass-feature-30s-v1-final.mp4"],
-  ...CORE_IDS.map((id) => [
-    `bemo-compass-feature-15s-core-${id}.mp4`, BED_15,
-    `bemo-compass-feature-15s-core-${id}-final.mp4`]),
-]) {
+const MIX = [
+  ["30s-v2", BED_30], ["30s-v1-superseded", BED_30],
+  ["15s-core-v3", BED_15], ["15s-core-v3-alt-keeps-the-ask", BED_15],
+  ["15s-core-v2-superseded", BED_15],
+];
+for (const [pic, bed, out] of MIX.map(([id, bed]) => [
+  `bemo-compass-feature-${id}.mp4`, bed, `bemo-compass-feature-${id}-final.mp4`])) {
   const PIC = path.join(OUT, pic), FINAL = path.join(OUT, out);
   const D = dur(PIC);
   const fadeOut = Math.min(1.5, D - 0.1);

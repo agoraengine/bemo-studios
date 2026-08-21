@@ -230,9 +230,58 @@ The quote card left the reel (Becky's Aug 16 ruling), so the post carries the pr
 | 22.5 to 25.5 | **"Compass."** with "One of four apps that share the same memory." | Type card, Deep Sapphire identity (Compass's product color) | Category line as ratified | No |
 | 25.5 to 30.0 | Logo, **"Where missions gain momentum."**, bemointel.ai | Standing close | No corner mark; the logo is the subject | Yes (4.0s) |
 
-The cut table above is the 30-second parent, which is unchanged and settled.
+**The cut table above is superseded, both cuts, August 21, 2026.** See the ordering
+ruling below.
 
-### The 15-second core, revised August 21, 2026 (v2)
+### The ordering ruling: name the product before the demo, not after
+
+**Becky, August 21:** it does not make sense to a first-time viewer, and it has to be
+clearer about what Compass is.
+
+She is right, and the fault is structural rather than a matter of wording. The slate's
+grammar puts the identity card near the end, which works for a viewer who already knows
+BeMo. Read cold, this reel ran sixteen seconds of an unexplained chat interface before
+the word Compass ever appeared, **and the 15-second cut never said it at all.** A
+stranger scrolling the feed saw a pain line, two screenshots of text, and a logo, and
+was never told what the product was, what it was called, or what category it is in.
+
+Two changes, and they apply to both cuts:
+
+1. **The identity card moves to second position**, straight after the problem, so the
+   viewer knows what they are looking at before they look at it.
+2. **It carries a plain description instead of the category line.** "One of four apps
+   that share the same memory" is the ratified category line and it stays, at the end of
+   the parent, but it tells a newcomer nothing about what Compass does. The card now
+   reads **"Compass. A thinking partner for strategy that remembers what your
+   organization already decided, and why."** That is the live site's own sentence from
+   the Compass page ("a thinking partner for strategy that preserves the reasoning
+   behind every decision"), which is the point: a viewer who watches this and then lands
+   on bemointel.ai should hear the same thing twice.
+
+The four-dimensions caption also goes plain in these cuts. "Four lenses you do not have
+four people for" is the better line and it stays on the record, but it describes an
+absence rather than what the viewer is watching happen. The v3 cuts run **"It answers
+with your numbers, your history, your board."**, which tracks the site's "BeMo answers
+with your objective, your numbers, your history" and describes what is on screen.
+
+### The cuts that run Tuesday
+
+**30-second parent (v2), 29.93s, YouTube.** Problem card, the Compass card, the question,
+the four lenses on the plain caption, the ask-back, the lead message, the category line,
+close. The closing card drops the icon and the name and carries only "One of four apps
+that share the same memory", because with the identity card at the front the old
+icon-and-name card read as a repeat.
+
+**15-second core (v3), 15.20s, company page feed.** Problem card (3.0s), the Compass card
+(3.0s), the four lenses (4.8s), close (4.4s). A first-time viewer gets a problem they
+recognize, what the thing is, what it does, and where to go.
+
+**Also built:** `15s-core-v3-alt-keeps-the-ask`, the same shape with the question beat
+kept at 2.4s and the lenses cut to 3.0s. It is more complete and each footage beat is
+faster; the choice between them is whether showing a person asking is worth the reading
+time it takes from the answer.
+
+### The 15-second core, revised earlier the same day (v2, superseded)
 
 **The scripted core is superseded.** It ran open card (3.0s), the question (4.0s), the
 ask-back (4.2s), close, on the reasoning that the four-dimensions beat needed reading
@@ -296,6 +345,8 @@ the message line and is the only cut that states it on screen.
 | "Then it asks you for what it does not know." | Observed product behavior: the "What I don't have stored" block, verbatim in frame |
 | "You don't have to be the only one who knows how this organization works." | Message map 3.2, Compass lead message, verbatim |
 | "One of four apps that share the same memory." | "Four apps. One product.", ratified 2026-08-04 |
+| "Compass. A thinking partner for strategy that remembers what your organization already decided, and why." (v3 identity card) | Message map 3.2, Compass row: "Strategy and thinking partner." And the live Compass page on bemointel.ai, which reads "a thinking partner for strategy that preserves the reasoning behind every decision, so nothing is lost to turnover, time, or scattered documents." Video and site deliberately on one sentence |
+| "It answers with your numbers, your history, your board." (v3 caption) | Observed product behavior, on screen as captured: the four dimensions carry the volunteer count, the budget figures, the FY2025 service numbers, and the board's March approval. Tracks the live Compass page's "BeMo answers with your objective, your numbers, your history." Describes what is on screen, claims nothing about quality |
 | "Where missions gain momentum." | The tagline, ratified 2026-07-17 |
 
 ### Post copy (Tuesday August 25, company page)
