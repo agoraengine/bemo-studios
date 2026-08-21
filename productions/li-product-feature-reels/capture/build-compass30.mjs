@@ -46,6 +46,8 @@ const FONTCSS = `
 *{box-sizing:border-box;margin:0}
 body{width:${W}px;height:${H}px;background:#FFFFFF;font-family:"Schibsted",sans-serif;display:flex;flex-direction:column;justify-content:center;padding:150px 170px;color:#1A2A3A}
 h1{color:#05347E;font-weight:560;font-size:104px;line-height:1.06;letter-spacing:-.019em}
+/* a longer line, sized so each sentence holds one line and the mark does not split */
+h1.tight{font-size:78px}
 .u{box-shadow:inset 0 -.13em 0 #4CBB17}
 .sub{font-size:40px;color:#05347E;margin-top:34px;line-height:1.4}
 /* caption, the letter-cut treatment (Becky, 2026-08-16): top of frame on a soft white gradient */
@@ -81,6 +83,9 @@ const CARDS = {
     <h1>Compass.</h1>
     <div class="sub">One of four apps that share the same memory.</div>
   </div>`,
+  // Audition-only open card. Not new copy: it is the first line of the ratified
+  // Tuesday post copy, moved onto a card so the feed cut states its own setup.
+  covering: `<h1 class="tight">Right now somebody is <span class="u">covering for you</span>.<br>Or you are covering for somebody.</h1>`,
 };
 
 // Captions, and where each sits. Beat one goes low; see the .cap.low note above.
@@ -204,14 +209,33 @@ if (!process.env.MIX_ONLY) {
   close(path.join(WORK, "s7.mp4"));
   concat(["s1", "s2", "s3", "s4", "s5", "s6", "s7"], "bemo-compass-feature-30s-v1.mp4");
 
-  // ---- the 15-second core: assembled, not truncated, so it ends like a reel.
-  // Drops the four-dimensions beat, which needs reading time the feed does not give.
-  console.log("building the core…");
-  still(path.join(WORK, "card-open.png"), 3.0, path.join(WORK, "c1.mp4"));
-  beat("b1", 4.0, path.join(WORK, "c2.mp4"));
-  beat("b3", 4.2, path.join(WORK, "c3.mp4"));
-  close(path.join(WORK, "c4.mp4"));
-  concat(["c1", "c2", "c3", "c4"], "bemo-compass-feature-15s-core-v1.mp4");
+  // ---- the 15-second cores: assembled, not truncated, so they end like a reel.
+  //
+  // v1 is the script's cut. Auditioned against three alternatives because at feed
+  // length v1 reads as a question going in and four questions coming back: the beat
+  // that shows the software actually framing the decision (b2, the four lenses) is
+  // the one the core drops. Muted and cold, "What I don't have stored" can land as
+  // "it could not help" when it is not preceded by the framing that earns it.
+  // B, C and D each put the payoff back, and differ in what they spend to do it.
+  const CORES = [
+    { id: "v1", parts: [["card", "open", 3.0], ["beat", "b1", 4.0], ["beat", "b3", 4.2], ["close"]] },
+    { id: "B-four-lenses", parts: [["card", "open", 3.0], ["beat", "b1", 3.4], ["beat", "b2", 4.4], ["close"]] },
+    { id: "C-lenses-and-message", parts: [["card", "open", 2.8], ["beat", "b2", 5.0], ["card", "lead", 3.0], ["close"]] },
+    { id: "D-covering-open", parts: [["card", "covering", 3.2], ["beat", "b1", 3.2], ["beat", "b2", 4.4], ["close"]] },
+  ];
+
+  for (const { id, parts } of CORES) {
+    console.log("building core:", id);
+    const names = parts.map((p, i) => {
+      const n = `core-${id}-${i}`;
+      const dst = path.join(WORK, `${n}.mp4`);
+      if (p[0] === "card") still(path.join(WORK, `card-${p[1]}.png`), p[2], dst);
+      else if (p[0] === "beat") beat(p[1], p[2], dst);
+      else close(dst);
+      return n;
+    });
+    concat(names, `bemo-compass-feature-15s-core-${id}.mp4`);
+  }
 }
 
 // ---- music: bed at native length, static measured gain to the house target
@@ -226,9 +250,12 @@ const measureI = (file) => {
   return m ? parseFloat(m[1]) : null;
 };
 
+const CORE_IDS = ["v1", "B-four-lenses", "C-lenses-and-message", "D-covering-open"];
 for (const [pic, bed, out] of [
   ["bemo-compass-feature-30s-v1.mp4", BED_30, "bemo-compass-feature-30s-v1-final.mp4"],
-  ["bemo-compass-feature-15s-core-v1.mp4", BED_15, "bemo-compass-feature-15s-core-v1-final.mp4"],
+  ...CORE_IDS.map((id) => [
+    `bemo-compass-feature-15s-core-${id}.mp4`, BED_15,
+    `bemo-compass-feature-15s-core-${id}-final.mp4`]),
 ]) {
   const PIC = path.join(OUT, pic), FINAL = path.join(OUT, out);
   const D = dur(PIC);
