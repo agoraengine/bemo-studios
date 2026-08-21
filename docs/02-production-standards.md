@@ -45,6 +45,10 @@ Every production exports at least the primary. Add variants only when a wave act
 - Two lines maximum, centered, bottom third, inside the safe area.
 - Also ship an `.srt` sidecar. Platforms that accept it index it, which is worth something for discoverability.
 
+**The one exception, and its conditions (Becky, August 21, 2026, from the Week 31 Field Notes video).** A to-camera take can diverge from its locked script, and the Week 31 take diverged in five of its six lines. Script-generated captions would then contradict the speaker's mouth, which is the most visible error a video can carry. When that happens the take is transcribed, the transcript is read against the locked script line by line, captions are generated from the verified transcript, and the divergence is recorded in the asset plan.
+
+This does not loosen the rule. The rule's concern is unproofread transcription error, and the line-by-line read is what answers it. The order matters: **verify the take against the script before building captions, not after.** Nobody caught the Week 31 divergence until the take was transcribed, by which point fifteen finished caption cards had to be rebuilt. Full method in `04-founder-to-camera.md`.
+
 ## Safe areas
 
 Platform UI covers the edges, and vertical is the worst offender.
