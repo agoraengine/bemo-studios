@@ -114,3 +114,32 @@ Implementation: `../capture/lib/captions.mjs`, driven by `../capture/talking-hea
 5. Captions built from the locked script without checking the delivery. Fifteen cards had to be rebuilt from a transcript.
 6. On-screen text and the title card were cut in review as redundant against the captions and too manufactured for a to-camera piece. Worth asking whether a to-camera video wants them at all before building them.
 7. The Desktop syncs to iCloud, so files trashed from it land in `~/Library/Mobile Documents/.Trash` and not `~/.Trash`. A cleanup swept two files that were meant to be kept and they were not where anyone looked first.
+8. **The same thing happened again on August 22**, from the other direction: a cleanup used `mv` to `~/.Trash` on Desktop folders, which is worse than the Finder's own delete because it bypasses iCloud entirely. The moved items were not recoverable from either trash afterwards. Nothing was lost that time, because every file had been checked onto Drive first, but the mechanism is the lesson. **Deleting Desktop files: check the destination first, then use the Finder, or move to a holding folder rather than any `.Trash` path.** Never `mv` to `~/.Trash` here.
+
+## Aspect, and what LinkedIn does to it
+
+**The delivered 16:9 file letterboxes in the LinkedIn feed.** The player pads a landscape
+video into a taller container, so a viewer sees black above and below the picture. This is
+the player, not the file: the Week 31 master is 1280x720 with the image filling the frame
+edge to edge and no bars baked in.
+
+It matters more than it looks, because a Field Notes video runs on LinkedIn and nowhere
+else. Its only destination is the one surface that pads it, and on a phone the padding
+costs roughly half the vertical space the post could occupy while autoplaying muted.
+
+**A square cut solves it without a re-record.** A centred 1:1 crop of the 16:9 master keeps
+the speaker centred and, importantly, keeps the burned-in caption plate fully inside the
+frame with margin. Check that before committing to it: captions are laid out for the 16:9
+width, and 4:5, the tallest ratio LinkedIn accepts, clips the rounded ends off the plate.
+1:1 is the ratio that survives.
+
+```
+ffmpeg -i <master>.mp4 -vf "crop=720:720:280:0,scale=1080:1080:flags=lanczos" \
+  -c:v libx264 -crf 18 -preset slow -pix_fmt yuv420p -c:a copy -movflags +faststart <out>.mp4
+```
+
+Sample the crop at four or five points across the take before rendering, because a fixed
+centre crop has no tolerance for the speaker drifting. Note that `02-production-standards.md`
+calls square the "feed fallback where vertical is wrong", so shipping square here is a
+deliberate departure and belongs in the week's close record. The 16:9 master stays the file
+for YouTube and for sending to anyone directly.

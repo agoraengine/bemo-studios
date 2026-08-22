@@ -31,6 +31,32 @@ Retired candidates (kept in `capture/out/`): Reel 1W "the website cut" vW1, Reel
 | Raw capture footage | PENDING upload; four `.webm` raws in `capture/out/` |
 | Thumbnail (YouTube, hero) | Produced 2026-08-12: `capture/out/bemo-hero-sizzle-thumbnail-v1.png`, 1280x720, built from the film's six-tools pile frame with the reel's headline verbatim (v6 system, `capture/thumb-hero.html` is the source); Drive upload after Becky's pick |
 
+## Outstanding Drive upload (recorded 2026-08-22)
+
+**These eight files are the only slate assets still not on Drive.** Verified against Drive
+on August 22: reel 4's 30-second cut is up (in `For Review/Week 30 media`), reel 8's cuts
+and the hero are up (in `BeMo Studios/linkedin-sizzle-series`), and everything below is not.
+
+| File | In `capture/out/` |
+|---|---|
+| `bemo-linkedin-sizzle-series-r1-30s-v13.mp4` + `r1-30s.srt` | yes |
+| `bemo-linkedin-sizzle-series-r1-60s-v17.mp4` + `r1-60s.srt` | yes |
+| `bemo-linkedin-sizzle-series-r8h-60s-vH7.mp4` + `r8h-60s.srt` | yes |
+| `bemo-linkedin-sizzle-series-r4-30s.srt` | yes |
+| (`r4-30s-v3.mp4` is on Drive; only its caption file is missing) | yes |
+
+**Why this is written down here.** The task used to be tracked by a staging folder existing
+on the Desktop, in two copies under two different names, neither uploaded. Desktop staging
+is disposable by design, so a task that lives only in a Desktop folder disappears the first
+time somebody tidies. It did. Nothing was lost, because `capture/out/` is canonical and
+holds all eight, but the reminder was gone. The ledger is the right home for it.
+
+**Related standing note:** this Mac syncs the Desktop to iCloud, so anything removed from
+the Desktop goes to `~/Library/Mobile Documents/.Trash`, not `~/.Trash`. That is already
+recorded in `docs/04-founder-to-camera.md`, failure 7, and it caught us a second time.
+Do not use `mv` to `~/.Trash` on Desktop files; it puts them somewhere the Finder's Put Back
+cannot reach and where nobody thinks to look.
+
 ## Where this has been used
 
 Recording usage here, not status. Approval and publishing state belong to the content workflow, not to Studios. See `docs/00-overview.md` on state creep.
