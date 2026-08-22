@@ -70,6 +70,10 @@ const SRCS = {
   askBoard: kbSrc("ask-board-final.png"),
   // the Knowledge Base index, owners and timestamps
   kbIndex: kbSrc("kb-final.png"),
+  // Week 31's Saturday stills, from the same takes the week's two reels cut
+  // from, so the still and the reel say the same thing in the feed.
+  compassLenses: reelSrc("still-compass-lenses.png"),
+  gapsSaved: reelSrc("still-gaps-saved.png"),
 };
 
 // Two crops of the one capture.
@@ -101,6 +105,16 @@ const CROPS = {
   // the index rows, name and scope only: the Owner column carries Becky's
   // real name, which does not belong inside the fictional organization's frame
   kbindex: { src: "kbIndex", x: 288, y: 262, w: 940, h: 772 },
+  // Week 31 Saturday. Both start below the app chrome and hold the content
+  // column only. The product's own prose inside them carries em dashes and
+  // double hyphens; captures ship as captured, per the week's guardrail.
+  // The Compass crop starts on the first numbered dimension rather than mid-line
+  // above it. The gaps crop holds the fill and the whole save: opening higher on
+  // "What I don't have on file" made the frame taller than the payoff sentence
+  // could survive, and clipping "that will carry forward" costs the still its
+  // point. The gap itself is the reel's job; the still carries the answer.
+  compasslenses: { src: "compassLenses", x: 676, y: 352, w: 824, h: 460 },
+  gapssaved: { src: "gapsSaved", x: 676, y: 695, w: 824, h: 300 },
   // A wide band of the same screen, for the 1.91:1 placements: the product
   // name, the top of the nav, the recent row, and the shelf heading. The only
   // crop whose shape lets the window span the full column at that ratio.
@@ -533,6 +547,27 @@ const BEATS = [
     support:
       "The BeMo Knowledge Base: every fact with an owner and a date, behind every template and every answer.",
     crop: "kbindex",
+    anchor: "top",
+  },
+  // Week 31 Saturday, the product-still slot. Two options; Becky picks the
+  // cleaner one by Friday. Each headline is the caption its own reel shipped
+  // with, so whichever runs, the still and the reel say one thing in the feed.
+  {
+    base: "w31-still-compass",
+    line: "It answers with your numbers, your history, your board.",
+    mark: "your board",
+    support:
+      "BeMo Compass, framing one decision across four dimensions from what the organization already has on file.",
+    crop: "compasslenses",
+    anchor: "top",
+  },
+  {
+    base: "w31-still-gaps",
+    line: "You answer once. It carries forward.",
+    mark: "carries forward",
+    support:
+      "The BeMo Knowledge Base names what it does not have, then keeps what you add for everything you build next.",
+    crop: "gapssaved",
     anchor: "top",
   },
 ];
