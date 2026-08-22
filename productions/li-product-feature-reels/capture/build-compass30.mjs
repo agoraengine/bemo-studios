@@ -274,6 +274,14 @@ if (!process.env.MIX_ONLY) {
     { id: "15s-core-v4-alt-product-name-large", kind: "core", parts: [
       ["card", "covering", 2.8], ["card", "whatitis2", 3.6],
       ["beat", "b2", 4.4, "cap2plain"], ["close"]] },
+    // v5 swaps the footage beat: the question going in rather than the four
+    // lenses coming back. Built to settle whether the week's most on-anchor
+    // image belongs in the feed cut. That frame carries the user's unfinished
+    // question, the product naming itself a thinking partner, and the first
+    // org-specific line of the answer, which is the essay's argument in one shot.
+    { id: "15s-core-v5-the-question", kind: "core", parts: [
+      ["card", "covering", 2.8], ["card", "whatitis3", 3.6],
+      ["beat", "b1", 4.4], ["close"]] },
     { id: "15s-core-v3-superseded", kind: "core", parts: [
       ["card", "covering", 3.0], ["card", "whatitis", 3.0],
       ["beat", "b2", 4.8, "cap2plain"], ["close"]] },
@@ -310,7 +318,7 @@ const measureI = (file) => {
 const MIX = [
   ["30s-v2", BED_30], ["30s-v1-superseded", BED_30],
   ["15s-core-v4", BED_15], ["15s-core-v4-alt-product-name-large", BED_15],
-  ["15s-core-v3-superseded", BED_15], ["15s-core-v2-superseded", BED_15],
+  ["15s-core-v5-the-question", BED_15], ["15s-core-v3-superseded", BED_15], ["15s-core-v2-superseded", BED_15],
 ];
 for (const [pic, bed, out] of MIX.map(([id, bed]) => [
   `bemo-compass-feature-${id}.mp4`, bed, `bemo-compass-feature-${id}-final.mp4`])) {

@@ -73,8 +73,9 @@ All on music bed A, the standing close, corner wordmark, captions-and-music, no 
 | Asset | State | Drive |
 |---|---|---|
 | `bemo-compass-feature-30s-v2-final.mp4` | **The YouTube asset.** Identity card second, plain lenses caption, category line at the close. 29.93s, bed P2, -15.9 LUFS | *needs upload* |
-| `bemo-compass-feature-15s-core-v4-final.mp4` | **The Tuesday LinkedIn feed asset.** Question, answer, proof, close. 15.20s, bed P1, -15.9 LUFS | *needs upload* |
-| `bemo-compass-feature-15s-core-v4-alt-product-name-large-final.mp4` | Same four beats with the product name set large and the promise small. Not recommended; kept so the choice is visible | not for upload |
+| `bemo-compass-feature-15s-core-v5-the-question-final.mp4` | **FINAL, the Tuesday LinkedIn feed asset (2026-08-22).** Question, answer, the question going in, close. 15.20s, bed P1, -15.9 LUFS | *needs upload* |
+| `bemo-compass-feature-15s-core-v4-final.mp4` | Same shape on the four-lenses beat. Denser and more impressive; the human is invisible in it. Superseded for the feed | not for upload |
+| `bemo-compass-feature-15s-core-v4-alt-product-name-large-final.mp4` | Product name set large, promise small. Not recommended; kept so the choice is visible | not for upload |
 | `-30s-v1-superseded-final.mp4`, `-15s-core-v2-superseded-final.mp4`, `-15s-core-v3-superseded-final.mp4` | The three cuts before the two rulings below. Kept until the Drive upload | not for upload |
 
 **Two rulings from Becky, both August 21, both on the same fault line.**

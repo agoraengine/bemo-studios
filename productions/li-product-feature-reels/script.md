@@ -301,6 +301,23 @@ set large and the promise underneath in small type. Not recommended: it makes th
 name the biggest thing on screen and shrinks the line doing the work. Kept so the choice
 is visible rather than argued.
 
+### The footage beat, settled August 22 (v5 is the feed cut)
+
+**The 15 runs the question going in, not the four lenses coming back.** Checked against the
+anchor when the week was finalized: the essay's spine is "somewhere for the unfinished
+question to go," and the four-lenses beat, for all its density, has no human in it. The
+question beat carries the whole argument in one frame, and all of it reads at feed width:
+the user typing *"Help me think through whether we can finally launch the second Saturday
+site this year. Where does that decision stand, and what would have to be true?"*, the
+product answering that it will *"engage with this as a thinking-partner question"* (which
+lands the identity card's own phrase a beat later, unplanned and welcome), and underneath
+it *"1. Operational capacity You have roughly 45 volunteers supporting three weekly runs"*,
+which is the organization-specific proof the four-lenses beat was there to supply.
+
+So the feed cut gets the human, the promise and the proof, and reads larger while doing it.
+**The 30-second parent still carries both beats**, in order, so nothing is lost from the
+week. v4 is kept as the four-lenses alternate.
+
 **The parent keeps the fuller treatment**, because it has room: the descriptive identity
 card at 2.9s ("a thinking partner for strategy that remembers what your organization
 already decided, and why") and the lead message as its own card at 20s. The parent
