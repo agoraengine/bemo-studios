@@ -110,6 +110,33 @@ otherwise carry the Bright Harbor line this script deliberately banks.
 
 **Rule this correction earns:** the assets ledger is the single source of truth for capture state. When the brief and the ledger disagree, check the disk before believing either, and write the answer back here the same day.
 
+## The gaps, Knowledge Base (built August 22, 2026, for the Week 31 Thursday slot)
+
+Built by `capture/build-gaps30.mjs` from the shipped `knows-whats-missing` capture in
+`../website-demo-slots/capture/out/`. No new capture session was needed.
+
+| Asset | State | Drive |
+|---|---|---|
+| `bemo-gaps-feature-15s-core-v1-final.mp4` | **The Thursday feed asset** (Becky's profile). Problem, the Knowledge Base card, the loop closing. 15.10s, bed P1, -15.9 LUFS | *needs upload* |
+| `bemo-gaps-feature-30s-v1-final.mp4` | **The Thursday YouTube asset.** Five beats, 30.10s, bed P2, -15.9 LUFS | *needs upload* |
+| `bemo-gaps-feature-15s-core-v1-alt-shows-the-gap-final.mp4` | Alternate: keeps a short beat of the gap being named before the loop closes | not for upload |
+| Picture-only cuts | Kept for re-mixing | not for upload |
+
+**The reel is wider than the asset plan scoped it,** and the reason is on the record in
+`script.md`: the capture does not stop at naming the gap. The user fills it and the
+product says the fill carries forward into everything built after, which is the beat that
+makes the reel about what remains rather than about a feature. Prompted by a LinkedIn post
+from Bill Walsh that Becky brought to the reels on August 22. **His post is not quoted and
+is not used as proof anywhere in this production**: he explicitly declined the role of
+reviewer or endorser, and he is an advisor, so amplification would carry a disclosure
+obligation. No card uses his phrasing; the payoff language is the product's own.
+
+**Behavior-only.** Maryellen Duggan's line runs in the Thursday post copy, not in the reel.
+
+**Capture limit worth remembering:** the take runs 79.24s and the final beat only settles
+at 74.9s, so it has about 4.3 seconds of usable footage. Asking for more silently
+truncates the segment. `BEAT_C_MAX` in the rig guards it.
+
 ## Still to come
 
 Academy, the gaps, sourced answers, the front page. The gaps reel reuses the shipped `knows-whats-missing` capture and needs no new session; the others are uncaptured.

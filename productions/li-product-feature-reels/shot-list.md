@@ -1,7 +1,7 @@
 # Shot List: LinkedIn product feature reels
 
-**Capture state:** IN PROGRESS (FunderStorm and Compass complete; remaining reels per script)
-**Last run:** 2026-08-21 (Compass rows verified against footage on disk and built; capture itself ran earlier in the website-demo-slots production)
+**Capture state:** IN PROGRESS (FunderStorm, Compass and the gaps complete; remaining reels per script)
+**Last run:** 2026-08-22 (the gaps reel built from the shipped knows-whats-missing capture; Compass verified 2026-08-21; captures themselves ran earlier in the website-demo-slots production)
 **Build captured against:** live app via the Cottage 2 harness, Common Table demo organization
 
 Check off each shot when usable footage exists. The capture gate is every row checked.
@@ -35,6 +35,23 @@ there is no capture session to run. Timings are seconds into that take.
 
 No quote card. This reel is behavior-only: Meg Poe is per-use gated with no dated line
 for this placement, so she appears in no frame and no caption.
+
+## The gaps, Knowledge Base (Thursday, August 27 slot)
+
+One continuous take, `knows-whats-missing-raw.webm`. Timings are seconds into it.
+
+| ID | What is on screen | Type | Duration | App path | Captured |
+|---|---|---|---|---|---|
+| G1 | Open card: "Somebody knew the answer. They just never wrote it down." | title | 0:02.9 | n/a, rendered by the rig | [x] |
+| G2 | Knowledge Base card: "It tells you what's missing. Then it keeps what you add." | title | 0:03.3 | n/a | [x] |
+| G3 | What is on file, labelled as coming from the knowledge base: the event, the budget, the goal | screen | 0:04.8 | FunderStorm > New chat; take @ 42.0s | [x] |
+| G4 | "What I don't have on file", the gap named, with the offer to save it | screen | 0:04.8 | Same thread; take @ 48.5s | [x] |
+| G5 | The user supplies the detail and the product records it: "That will carry forward into any proposals..." | screen | 0:04.3 | Same thread; take @ 74.9s | [x] |
+| G6 | Thesis card: "Answer it once. It carries forward into everything you build next." | title | 0:03.1 | n/a | [x] |
+| G7 | Category line: "One record, shared by all four apps." | title | 0:02.4 | n/a | [x] |
+| G8 | Standing close | title | 0:04.4 | n/a, `capture/out/close-anim/` | [x] |
+
+No quote card. Behavior-only; Maryellen's line runs in the Thursday post copy.
 
 **Type** is one of:
 - `screen` — real product, captured by the automation

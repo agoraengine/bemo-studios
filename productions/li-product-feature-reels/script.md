@@ -443,6 +443,99 @@ settles. The log marks this answer complete at 52.4s; it is fully rendered by 46
 
 ---
 
+## Reel: The gaps (Knowledge Base)
+
+**Slot:** Thursday, August 27, 2026. Becky's profile (15-second core), 30-second parent to YouTube.
+**One message:** "Where your organization's knowledge lives" made literal. It also tells you what's missing. (message map 3.2, Knowledge Base row)
+**Pillar:** What You Built Will Outlast You.
+**Arc job:** see it differently. Not "the software finds gaps." The reel shows a loop close: the record is read, the gap is named rather than guessed at, the person fills it, and the fill carries forward into everything built after.
+
+### Where this framing came from, and how it is handled
+
+**Bill Walsh posted about nonprofit technology on LinkedIn on August 21, 2026**, and Becky
+brought it to the reels. His post is not used as proof and is not quoted anywhere in this
+production. Two reasons, both binding:
+
+1. **He explicitly declines the role.** "I have not seen enough of BeMo to call this a
+   review or endorsement." Using it as validation would misrepresent him in his own words.
+2. **He is an advisor.** Any amplification carries the disclosure obligation that is
+   already house habit (`docs/organization/18-anti-patterns.md`: co-founder status on the
+   McGovern submission, the board relationship in the Week 29 essay opener). And the
+   "earned, not assumed" principle in the trust framework is the one he gave BeMo in the
+   advisory call: trust is not transferred by authority.
+
+**What his post did change is the reel's scope, and the change is inside canon.** The
+asset plan scoped Thursday as "the Knowledge Base tells you what is missing." The capture
+is wider than that: it names the gap, the user fills it, and the product says the fill
+carries forward. Reading his post next to the footage made the third beat the point rather
+than a tail. The claim that beat carries, "BeMo creates a different starting point for
+every grant cycle, board meeting, and strategic planning process," is fully claimable on
+`05-claim-map.md`. **No line on any card is his phrasing.** The reel's payoff language
+comes from the product's own words on screen: "that will carry forward."
+
+### Footage
+
+| Source | What it is | Where |
+|---|---|---|
+| `knows-whats-missing-raw.webm` | 1m19s, 1920x1200, 25fps. One session against Common Table, in FunderStorm, reading and writing the Knowledge Base | `productions/website-demo-slots/capture/out/` |
+| `knows-whats-missing-actions.json` | Question sent 16.2s, answer complete 46.3s, fill sent 57.3s, confirmed 74.9s | same |
+| 30-second rig | `capture/build-gaps30.mjs` | this production |
+
+**Beats chosen August 22, 2026 by frame inspection.** What is on screen, verbatim:
+
+- **Beat one, what it has** (≈42s): *"Here is what BeMo has on file for the Harvest Supper"*, then the event description and **"Budget and goal (from your knowledge base)"** with the $16,000 event budget and $40,000 net goal. Sourced, and labelled as sourced.
+- **Beat two, what it does not have** (≈48.5s): **"What I don't have on file** There is no date or board sign-off detail stored in your knowledge base for this year's event."* Then the offer: *"If you tell me the date and what the board approved, I can save that to your knowledge base so it's available for future documents."*
+- **Beat three, the loop closes** (≈74.9s): the user answers, *"Yes, add it: at the March 12 meeting the board held the Harvest Supper budget at $16,000 against a $40,000 net goal,"* and the product records it: *"Saved. Your knowledge base now records that... **That will carry forward into any proposals, sponsorship materials, or event documents you build from here.**"*
+
+**A capture note worth keeping:** the take is 79.24s and beat three only settles at 74.9s, so that beat has about 4.3 seconds of usable footage and no more. Asking the rig for longer silently truncates the segment, which is what shortened the first parent build. `BEAT_C_MAX` in the rig exists to stop that happening again.
+
+### The cut
+
+**30-second parent, 30.10s, YouTube.** Open card (2.9s), the Knowledge Base card (3.3s), what it has (4.8s), what it does not have (4.8s), the loop closing (4.3s), the thesis card (3.1s), the category line (2.4s), standing close.
+
+**15-second core, 15.10s, Becky's profile.** Open card (2.8s), the Knowledge Base card (3.6s), the loop closing (4.3s), standing close. Same shape as the Compass core and for the same reason: the payoff beat is what earns the click, and the identity card comes before the demo rather than after.
+
+| Card | On screen |
+|---|---|
+| Open | **"Somebody knew the answer. They just never wrote it down."** Mark under "wrote it down" |
+| Knowledge Base | Eyebrow "KNOWLEDGE BASE · YOUR ORGANIZATION'S RECORD" over **"It tells you what's missing. Then it keeps what you add."** |
+| Thesis | **"Answer it once. It carries forward into everything you build next."** |
+| Category | **"One record, shared by all four apps."** |
+
+Captions: "What it has, straight from your own record." / "And what it does not have, said plainly." / "You answer once. It carries forward."
+
+**Also built:** `15s-core-v1-alt-shows-the-gap`, which keeps a short beat of the gap being named before the loop closes. Faster on both beats; the choice is whether seeing the gap named is worth the reading time it takes from the payoff.
+
+### Proof
+
+**None in the reel.** Behavior-only, per the August 16 ruling. Maryellen Duggan's line runs in the Thursday post copy under her blanket approval, attributed with her foundation per Becky's August 16 ruling.
+
+### What it must not say
+
+- No claim that BeMo prevents anything being lost, or that an organization using it will not lose knowledge. The reel shows one gap named and filled.
+- No honesty-and-guessing beat framed as the point. Week 29 ran that territory and the Compass script banked it. Here the gap being named is a step in a loop, not the argument.
+- No suggestion that the Knowledge Base fills itself. A person supplies the answer on screen, and that is the truthful reading.
+- No Bill Walsh material, no quotation, no implied endorsement. See above.
+- No em dashes on our cards. The product's prose on screen uses double hyphens; captures ship as captured.
+
+### Claim trace
+
+| On-screen line | Traces to |
+|---|---|
+| "Somebody knew the answer. They just never wrote it down." | The coordination-collapse thesis and the founder-held-knowledge argument. Structural, about no named organization |
+| "It tells you what's missing." | The gap-honesty pair, live on bemointel.ai: "The front page shows what's in play. The Knowledge Base tells you what's missing." Message map 3.2, Knowledge Base row |
+| "Then it keeps what you add." | Observed behavior on screen ("Saved. Your knowledge base now records..."), and `05-claim-map.md`: "BeMo holds institutional memory through leadership transitions" |
+| "Answer it once. It carries forward into everything you build next." | `05-claim-map.md`, fully claimable: "BeMo creates a different starting point for every grant cycle, board meeting, and strategic planning process." Also the product's own on-screen sentence |
+| "One record, shared by all four apps." | "Four apps. One product.", ratified 2026-08-04 |
+| "Where missions gain momentum." | The tagline, ratified 2026-07-17 |
+
+### Open
+
+- Becky's approval on both cuts, and which 15 runs.
+- The reel is captured inside FunderStorm, so the header on screen reads "BeMo FunderStorm" while the cards name the Knowledge Base. That is truthful, because the Knowledge Base is read and written from inside the apps, but it is worth a look: a first-time viewer may read the orange header as the product being named. If it bothers Becky, the fix is a capture inside the Knowledge Base itself, which needs a new session.
+
+---
+
 # The Amplify template slate
 
 **Status:** DRAFT, August 14, 2026. Six reels sharing the Amplify reel's grammar, so the slate reads as a series.
